@@ -48,35 +48,29 @@ def convert_components_to_json():
                     "image": None
                 }
                 
-                # Extract parameters and data types
-                if "parameters" in component_data:
-                    component_info["parameters"] = component_data["parameters"]
-                
                 # Extract data types if available
-                if "measurements" in component_data:
-                    for measurement in component_data["measurements"]:
-                        if "type" in measurement:
-                            meas_type = measurement["type"]
-                            if isinstance(meas_type, dict) and "displayName" in meas_type and "sensorType" in meas_type:
-                                component_info["dataTypes"].append({
-                                    "displayName": meas_type["displayName"],
-                                    "sensorType": meas_type["sensorType"]
-                                })
-                            else:
-                                component_info["dataTypes"].append(meas_type)
+                if "subcomponents" in component_data:
+                    for meas_type in component_data["subcomponents"]:
+                        if isinstance(meas_type, dict) and "sensorType" in meas_type:
+                            component_info["dataTypes"].append({
+                                "displayName": meas_type["displayName"] if "displayName" in meas_type else meas_type["sensorType"],
+                                "sensorType": meas_type["sensorType"]
+                            })
+                        else:
+                            component_info["dataTypes"].append(meas_type)
                 
                 # Handle I2C-specific properties
                 if category == "i2c":
                     # Extract I2C address from parameters
-                    for param in component_data.get("parameters", []):
-                        if param.get("name") == "i2cAddress":
-                            default_address = param.get("options", [{}])[0].get("value", "")
-                            component_info["address"] = default_address
-                            
-                            # Get all possible addresses
-                            component_info["addresses"] = [opt.get("value") for opt in param.get("options", [])]
-                            break
-                    
+                    if "i2cAddresses" in component_data:
+                        default_address = component_data["i2cAddresses"][0]
+                        component_info["address"] = default_address
+                        
+                        # Get all possible addresses
+                        component_info["addresses"] = component_data["i2cAddresses"]
+                    else:
+                        raise ValueError(f"No i2cAddresses found for {category}/{component_dir}")
+                
                     # Special handling for multiplexers
                     if "multiplexer" in component_dir.lower() or "mux" in component_dir.lower():
                         if "pca9548" in component_dir.lower() or "tca9548" in component_dir.lower():

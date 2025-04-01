@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wippersnapper Configuration Builder</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        h1, h2, h3 {
+            color: #2e8b57;
+        }
+        .section {
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+        }
+        button {
+            background-color: #2e8b57;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background-color: #3cb371;
+        }
+        select, input {
+            padding: 8px;
+            margin: 5px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+        .component-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .component-card {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 10px;
+            width: 230px;
+            background-color: white;
+        }
+        .component-card img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+            border-radius: 4px;
+        }
+        .selected {
+            border: 2px solid #2e8b57;
+            background-color: #f0fff0;
+        }
+        .pins-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+        .pin {
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            background-color: #f9f9f9;
+            cursor: pointer;
+        }
+        .pin.used {
+            background-color: #ffdddd;
+            text-decoration: line-through;
+        }
+        .pin.selected {
+            background-color: #ddffdd;
+            border-color: #2e8b57;
+        }
+        .config-output {
+            background-color: #272822;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 5px;
+            white-space: pre-wrap;
+            overflow-x: auto;
+        }
+        .hidden {
+            display: none;
+        }
+        .i2c-bus-config {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px dashed #ccc;
+            border-radius: 4px;
+        }
+        .tab {
+            overflow: hidden;
+            border: 1px solid #ccc;
+            background-color: #f1f1f1;
+            border-radius: 4px 4px 0 0;
+        }
+        .tab button {
+            background-color: inherit;
+            color: #333;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: 0.3s;
+        }
+        .tab button:hover {
+            background-color: #ddd;
+        }
+        .tab button.active {
+            background-color: #2e8b57;
+            color: white;
+        }
+        .tabcontent {
+            display: none;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-top: none;
+            border-radius: 0 0 4px 4px;
+        }
+        .json-input {
+            width: 100%;
+            height: 200px;
+            font-family: monospace;
+        }
+        .component-details-list {
+            list-style: none;
+            padding: 0;
+        }
+        .component-details-list li {
+            margin-bottom: 15px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 15px;
+        }
+        .component-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        .component-info {
+            flex: 1;
+        }
+        .component-actions {
+            margin-left: 15px;
+        }
+        .loader {
+            border: 8px solid #f3f3f3;
+            border-top: 8px solid #2e8b57;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 2s linear infinite;
+            margin: 20px auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .board-preview {
+            display: flex;
+            align-items: center;
+            margin-top: 15px;
+        }
+        .board-image {
+            max-width: 200px;
+            max-height: 200px;
+            margin-right: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 5px;
+        }
+        .board-details {
+            flex: 1;
+        }
+        .search-filter {
+            margin-bottom: 15px;
+        }
+        .component-search {
+            padding: 8px;
+            width: 100%;
+            max-width: 300px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Wippersnapper Configuration Builder</h1>
+    
+    <!-- Loading indicator -->
+    <div id="loading-indicator" class="section">
+        <h2>Loading Wippersnapper Data</h2>
+        <div class="loader"></div>
+        <p>Loading board and component definitions...</p>
+    </div>
+    
+    <div class="tab">
+        <button class="tablinks active" onclick="openTab(event, 'BuildConfig')">Build Configuration</button>
+        <button class="tablinks" onclick="openTab(event, 'ImportExport')">Import/Export</button>
+    </div>
+    
+    <div id="BuildConfig" class="tabcontent" style="display: block;">
+        <div class="section">
+            <h2>1. Select Board</h2>
+            <select id="board-select">
+                <option value="">-- Select a Board --</option>
+                <!-- Board options will be dynamically populated -->
+            </select>
+            
+            <div id="board-details" class="hidden">
+                <div class="board-preview">
+                    <img id="board-image" class="board-image hidden" src="" alt="Board image">
+                    <div class="board-details">
+                        <h3>Board Details</h3>
+                        <p><strong>Reference Voltage:</strong> <span id="ref-voltage">3.3</span>V</p>
+                        <p><strong>Total GPIO Pins:</strong> <span id="total-gpio">0</span></p>
+                        <p><strong>Total Analog Pins:</strong> <span id="total-analog">0</span></p>
+                        <p><strong>Default I2C Bus:</strong> SCL: <span id="default-scl">0</span>, SDA: <span id="default-sda">0</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="companion-board-section" class="section hidden">
+            <h2>2. Select Companion Board (Optional)</h2>
+            <p>You can skip this step if you're not using a companion board.</p>
+            <select id="companion-board-select">
+                <option value="">-- None --</option>
+                <option value="adalogger">Adafruit Adalogger FeatherWing</option>
+                <option value="datalogger-m0">Adafruit Datalogger FeatherWing</option>
+                <option value="ds3231-precision">Adafruit DS3231 Precision RTC FeatherWing</option>
+                <option value="ethernet">Adafruit Ethernet FeatherWing</option>
+                <option value="ina219">Adafruit INA219 FeatherWing</option>
+                <option value="airlift">Adafruit AirLift FeatherWing</option>
+                <option value="oled">Adafruit OLED FeatherWing</option>
+                <option value="prop-maker">Adafruit Prop-Maker FeatherWing</option>
+                <option value="neopixel">Adafruit NeoPixel FeatherWing</option>
+                <option value="joy-featherwing">Adafruit Joy FeatherWing</option>
+                <option value="motorm4">Adafruit DC Motor + Stepper FeatherWing</option>
+                <option value="rgb-matrix">Adafruit RGB Matrix FeatherWing</option>
+            </select>
+            
+            <div id="companion-details" class="hidden">
+                <h3>Companion Board Details</h3>
+                <p><strong>RTC:</strong> <span id="companion-rtc">None</span></p>
+                <p><strong>SD Card CS Pin:</strong> <span id="companion-sd-cs">None</span></p>
+                <p><strong>Additional Components:</strong> <span id="companion-extras">None</span></p>
+            </div>
+        </div>
+        
+        <div id="manual-config-section" class="section hidden">
+            <h2>3. Manual Configuration</h2>
+            
+            <div id="sd-card-config">
+                <h3>SD Card Configuration</h3>
+                <div id="sd-missing">
+                    <p>No SD card detected from companion board. Would you like to add an SD card?</p>
+                    <label><input type="checkbox" id="add-sd-card"> Add SD Card</label>
+                    
+                    <div id="sd-card-pin-select" class="hidden">
+                        <p>Select SD Card CS Pin:</p>
+                        <div id="sd-pins-list" class="pins-container"></div>
+                    </div>
+                </div>
+                <div id="sd-present" class="hidden">
+                    <p>SD Card CS Pin: <span id="sd-cs-pin"></span></p>
+                </div>
+            </div>
+            
+            <div id="rtc-config">
+                <h3>RTC Configuration</h3>
+                <div id="rtc-missing">
+                    <p>No RTC detected from companion board. Select RTC type:</p>
+                    <select id="rtc-select">
+                        <option value="soft">Software RTC</option>
+                        <option value="PCF8523">PCF8523</option>
+                        <option value="DS3231">DS3231</option>
+                        <option value="DS1307">DS1307</option>
+                    </select>
+                </div>
+                <div id="rtc-present" class="hidden">
+                    <p>RTC Type: <span id="rtc-type"></span></p>
+                </div>
+            </div>
+            
+            <div id="status-led-config">
+                <h3>Status LED Configuration</h3>
+                <label for="led-brightness">Status LED Brightness (0.0-1.0): </label>
+                <input type="range" id="led-brightness" min="0" max="1" step="0.1" value="0.5">
+                <span id="brightness-value">0.5</span>
+            </div>
+        </div>
+        
+        <div id="i2c-bus-section" class="section hidden">
+            <h2>4. I2C Bus Configuration</h2>
+            
+            <div id="default-i2c-bus" class="i2c-bus-config">
+                <h3>Default I2C Bus</h3>
+                <p>SCL: <span id="default-i2c-scl"></span>, SDA: <span id="default-i2c-sda"></span></p>
+            </div>
+            
+            <div id="additional-i2c-bus-container">
+                <h3>Additional I2C Bus (Optional)</h3>
+                <label><input type="checkbox" id="add-i2c-bus"> Add Additional I2C Bus</label>
+                
+                <div id="additional-i2c-config" class="hidden i2c-bus-config">
+                    <p>Select SCL Pin:</p>
+                    <div id="scl-pins-list" class="pins-container"></div>
+                    <p>Select SDA Pin:</p>
+                    <div id="sda-pins-list" class="pins-container"></div>
+                </div>
+            </div>
+            
+            <div id="i2c-mux-container">
+                <h3>I2C Multiplexers (Optional)</h3>
+                <button id="add-mux-btn">Add I2C Multiplexer</button>
+                
+                <div id="mux-list"></div>
+            </div>
+        </div>
+        
+        <div id="components-section" class="section hidden">
+            <h2>5. Add Components</h2>
+            
+            <div id="component-type-tabs" class="tab">
+                <button class="comp-tab active" onclick="openComponentTab(event, 'i2c-components')">I2C Components</button>
+                <button class="comp-tab" onclick="openComponentTab(event, 'ds18x20-components')">DS18x20 Components</button>
+                <button class="comp-tab" onclick="openComponentTab(event, 'pin-components')">Pin Components</button>
+                <button class="comp-tab" onclick="openComponentTab(event, 'pixel-components')">Pixel Components</button>
+                <button class="comp-tab" onclick="openComponentTab(event, 'pwm-components')">PWM Components</button>
+                <button class="comp-tab" onclick="openComponentTab(event, 'servo-components')">Servo Components</button>
+                <button class="comp-tab" onclick="openComponentTab(event, 'uart-components')">UART Components</button>
+            </div>
+            
+            <div id="i2c-components" class="component-tabcontent" style="display: block;">
+                <h3>I2C Components</h3>
+                <div class="search-filter">
+                    <input type="text" id="i2c-search" class="component-search" placeholder="Search I2C components...">
+                </div>
+                <div>
+                    <label for="i2c-bus-select">Select I2C Bus: </label>
+                    <select id="i2c-bus-select">
+                        <option value="default">Default I2C Bus</option>
+                    </select>
+                </div>
+                
+                <div class="component-list" id="i2c-component-list">
+                    <!-- I2C components will be populated here -->
+                </div>
+            </div>
+            
+            <div id="ds18x20-components" class="component-tabcontent">
+                <h3>DS18x20 Components</h3>
+                <div class="search-filter">
+                    <input type="text" id="ds18x20-search" class="component-search" placeholder="Search DS18x20 components...">
+                </div>
+                <div class="component-list" id="ds18x20-component-list">
+                    <!-- DS18x20 components will be populated here -->
+                </div>
+            </div>
+            
+            <div id="pin-components" class="component-tabcontent">
+                <h3>Pin Components</h3>
+                <div class="search-filter">
+                    <input type="text" id="pin-search" class="component-search" placeholder="Search Pin components...">
+                </div>
+                <div class="component-list" id="pin-component-list">
+                    <!-- Pin components will be populated here -->
+                </div>
+            </div>
+            
+            <div id="pixel-components" class="component-tabcontent">
+                <h3>Pixel Components</h3>
+                <div class="search-filter">
+                    <input type="text" id="pixel-search" class="component-search" placeholder="Search Pixel components...">
+                </div>
+                <div class="component-list" id="pixel-component-list">
+                    <!-- Pixel components will be populated here -->
+                </div>
+            </div>
+            
+            <div id="pwm-components" class="component-tabcontent">
+                <h3>PWM Components</h3>
+                <div class="search-filter">
+                    <input type="text" id="pwm-search" class="component-search" placeholder="Search PWM components...">
+                </div>
+                <div class="component-list" id="pwm-component-list">
+                    <!-- PWM components will be populated here -->
+                </div>
+            </div>
+            
+            <div id="servo-components" class="component-tabcontent">
+                <h3>Servo Components</h3>
+                <div class="search-filter">
+                    <input type="text" id="servo-search" class="component-search" placeholder="Search Servo components...">
+                </div>
+                <div class="component-list" id="servo-component-list">
+                    <!-- Servo components will be populated here -->
+                </div>
+            </div>
+            
+            <div id="uart-components" class="component-tabcontent">
+                <h3>UART Components</h3>
+                <div class="search-filter">
+                    <input type="text" id="uart-search" class="component-search" placeholder="Search UART components...">
+                </div>
+                <div class="component-list" id="uart-component-list">
+                    <!-- UART components will be populated here -->
+                </div>
+            </div>
+        </div>
+        
+        <div id="selected-components-section" class="section hidden">
+            <h2>6. Selected Components</h2>
+            <div id="selected-components-list">
+                <p>No components selected yet.</p>
+            </div>
+        </div>
+        
+        <div id="generate-section" class="section hidden">
+            <h2>7. Generate Configuration</h2>
+            <button id="generate-config-btn">Generate Configuration</button>
+            <div id="config-output-container" class="hidden">
+                <h3>Configuration JSON:</h3>
+                <pre id="config-output" class="config-output"></pre>
+                <button id="download-config-btn">Download config.json</button>
+            </div>
+        </div>
+    </div>
+    
+    <div id="ImportExport" class="tabcontent">
+        <div class="section">
+            <h2>Import Configuration</h2>
+            <p>Paste your existing config.json here:</p>
+            <textarea id="import-json" class="json-input" placeholder="Paste your config.json here..."></textarea>
+            <button id="import-btn">Import Configuration</button>
+        </div>
+        
+        <div class="section">
+            <h2>Export Configuration</h2>
+            <p>Your current configuration:</p>
+            <pre id="export-config" class="config-output">No configuration generated yet.</pre>
+            <button id="export-btn">Download config.json</button>
+        </div>
+    </div>
+
+    <!-- Component Configuration Modal -->
+    <div id="component-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); z-index: 1000;">
+        <div style="background-color: white; margin: 10% auto; padding: 20px; width: 80%; max-width: 600px; border-radius: 5px;">
+            <h2 id="modal-title">Configure Component</h2>
+            <div id="modal-content">
+                <!-- Dynamic content will be inserted here -->
+            </div>
+            <div style="margin-top: 20px; text-align: right;">
+                <button id="modal-cancel">Cancel</button>
+                <button id="modal-save">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Load the data loader script -->
+    <script src="load-wippersnapper-data.js"></script>
+    
+    <!-- Load the original application script -->
+    <script src="wippersnapper-config-builder.js"></script>
+    
+    <script>
+        // Initialize functions from the original script
+        
+        // Tab Navigation functions
+        function openTab(evt, tabName) {
+            // Declare variables
+            let i, tabcontent, tablinks;
+            
+            // Get all elements with class="tabcontent" and hide them
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            
+            // Get all elements with class="tablinks" and remove the class "active"
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            
+            // Show the current tab, and add an "active" class to the button that opened the tab
+            document.getElementById(tabName).style.display = "block";
+            if (evt) {
+                evt.currentTarget.className += " active";
+            } else {
+                // If called programmatically, find and activate the correct tab
+                for (i = 0; i < tablinks.length; i++) {
+                    if (tablinks[i].textContent.includes(tabName.replace('Export', 'Import/Export'))) {
+                        tablinks[i].className += " active";
+                    }
+                }
+            }
+        }
+
+        function openComponentTab(evt, tabName) {
+            // Declare variables
+            let i, tabcontent, tablinks;
+            
+            // Get all elements with class="component-tabcontent" and hide them
+            tabcontent = document.getElementsByClassName("component-tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            
+            // Get all elements with class="comp-tab" and remove the class "active"
+            tablinks = document.getElementsByClassName("comp-tab");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            
+            // Show the current tab, and add an "active" class to the button that opened the tab
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+        
+        // Initialize the application with data loading
+        document.addEventListener('DOMContentLoaded', function() {
+            // This is handled by the load-wippersnapper-data.js script
+            // It will call loadWippersnapperData() and initialize everything
+        });
+        
+        // Component search functionality
+        document.querySelectorAll('.component-search').forEach(searchInput => {
+            searchInput.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+                const componentType = this.id.split('-')[0]; // Extract type from ID (e.g., "i2c" from "i2c-search")
+                const componentList = document.getElementById(`${componentType}-component-list`);
+                
+                // Filter components
+                const components = componentList.querySelectorAll('.component-card');
+                components.forEach(component => {
+                    const componentName = component.querySelector('h4').textContent.toLowerCase();
+                    const shouldShow = componentName.includes(searchTerm);
+                    component.style.display = shouldShow ? 'block' : 'none';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

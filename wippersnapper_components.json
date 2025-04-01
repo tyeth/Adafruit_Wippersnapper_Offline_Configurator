@@ -6,7 +6,10 @@
         "name": "ds18b20",
         "description": "",
         "category": "ds18x20",
-        "dataTypes": [],
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit"
+        ],
         "image": null
       },
       {
@@ -14,7 +17,10 @@
         "name": "ds18b20_hi_temp_waterproof",
         "description": "",
         "category": "ds18x20",
-        "dataTypes": [],
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit"
+        ],
         "image": null
       },
       {
@@ -22,7 +28,10 @@
         "name": "ds18b20_waterproof",
         "description": "",
         "category": "ds18x20",
-        "dataTypes": [],
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit"
+        ],
         "image": null
       }
     ],
@@ -32,576 +41,1303 @@
         "name": "adt7410",
         "description": "",
         "category": "i2c",
-        "dataTypes": [],
-        "image": null
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit"
+        ],
+        "image": null,
+        "address": "0x48",
+        "addresses": [
+          "0x48",
+          "0x49",
+          "0x4A",
+          "0x4B"
+        ]
       },
       {
         "id": "aht20",
         "name": "aht20",
         "description": "Inexpensive temperature and humidity sensor for I2C-capable boards.",
         "category": "i2c",
-        "dataTypes": [],
-        "image": null
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit",
+          "humidity"
+        ],
+        "image": null,
+        "address": "0x38",
+        "addresses": [
+          "0x38"
+        ]
       },
       {
         "id": "aht21",
         "name": "aht21",
         "description": "",
         "category": "i2c",
-        "dataTypes": [],
-        "image": "components/i2c/aht21/image.jpg"
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit",
+          "humidity"
+        ],
+        "image": "components/i2c/aht21/image.jpg",
+        "address": "0x38",
+        "addresses": [
+          "0x38"
+        ]
       },
       {
         "id": "am2301b",
         "name": "am2301b",
         "description": "",
         "category": "i2c",
-        "dataTypes": [],
-        "image": null
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit",
+          "humidity"
+        ],
+        "image": null,
+        "address": "0x38",
+        "addresses": [
+          "0x38"
+        ]
       },
       {
         "id": "am2315c",
         "name": "am2315c",
         "description": "",
         "category": "i2c",
-        "dataTypes": [],
-        "image": null
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit",
+          "humidity"
+        ],
+        "image": null,
+        "address": "0x38",
+        "addresses": [
+          "0x38"
+        ]
       },
       {
         "id": "bh1750",
         "name": "bh1750",
         "description": "",
         "category": "i2c",
-        "dataTypes": [],
-        "image": null
+        "dataTypes": [
+          "light"
+        ],
+        "image": null,
+        "address": "0x23",
+        "addresses": [
+          "0x23",
+          "0x5C"
+        ]
       },
       {
         "id": "bme280",
         "name": "bme280",
         "description": "",
         "category": "i2c",
-        "dataTypes": [],
-        "image": null
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit",
+          "humidity",
+          "pressure",
+          "altitude"
+        ],
+        "image": null,
+        "address": "0x76",
+        "addresses": [
+          "0x76",
+          "0x77"
+        ]
       },
       {
         "id": "bme680",
         "name": "bme680",
         "description": "",
         "category": "i2c",
-        "dataTypes": [],
-        "image": null
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit",
+          "humidity",
+          "pressure",
+          "altitude",
+          "gas-resistance"
+        ],
+        "image": null,
+        "address": "0x76",
+        "addresses": [
+          "0x76",
+          "0x77"
+        ]
       },
       {
         "id": "bme688",
         "name": "bme688",
         "description": "",
         "category": "i2c",
-        "dataTypes": [],
-        "image": null
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit",
+          "humidity",
+          "pressure",
+          "altitude",
+          "gas-resistance"
+        ],
+        "image": null,
+        "address": "0x76",
+        "addresses": [
+          "0x76",
+          "0x77"
+        ]
       },
       {
         "id": "bmp280",
         "name": "bmp280",
         "description": "",
         "category": "i2c",
-        "dataTypes": [],
-        "image": null
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit",
+          "pressure",
+          "altitude"
+        ],
+        "image": null,
+        "address": "0x76",
+        "addresses": [
+          "0x76",
+          "0x77"
+        ]
       },
       {
         "id": "bmp388",
         "name": "bmp388",
         "description": "",
         "category": "i2c",
-        "dataTypes": [],
-        "image": null
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit",
+          "pressure",
+          "altitude"
+        ],
+        "image": null,
+        "address": "0x76",
+        "addresses": [
+          "0x76",
+          "0x77"
+        ]
       },
       {
         "id": "bmp390",
         "name": "bmp390",
         "description": "",
         "category": "i2c",
-        "dataTypes": [],
-        "image": null
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit",
+          "pressure",
+          "altitude"
+        ],
+        "image": null,
+        "address": "0x76",
+        "addresses": [
+          "0x76",
+          "0x77"
+        ]
       },
       {
         "id": "dht20",
         "name": "dht20",
         "description": "",
         "category": "i2c",
-        "dataTypes": [],
-        "image": null
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit",
+          "humidity"
+        ],
+        "image": null,
+        "address": "0x38",
+        "addresses": [
+          "0x38"
+        ]
       },
       {
         "id": "dps310",
         "name": "dps310",
         "description": "",
         "category": "i2c",
-        "dataTypes": [],
-        "image": null
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit",
+          "pressure"
+        ],
+        "image": null,
+        "address": "0x76",
+        "addresses": [
+          "0x76",
+          "0x77"
+        ]
       },
       {
         "id": "ds2484",
         "name": "ds2484",
         "description": "Adafruit DS2484 I2C to 1-Wire Bus Adapter Breakout - Converts a single DS18b20 temperature sensor to I2C",
         "category": "i2c",
-        "dataTypes": [],
-        "image": null
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit"
+        ],
+        "image": null,
+        "address": "0x18",
+        "addresses": [
+          "0x18"
+        ]
       },
       {
         "id": "ens160",
         "name": "ens160",
         "description": "",
         "category": "i2c",
-        "dataTypes": [],
-        "image": "components/i2c/ens160/image.jpg"
+        "dataTypes": [
+          "tvoc",
+          "eco2",
+          {
+            "displayName": "AQI",
+            "sensorType": "raw"
+          }
+        ],
+        "image": "components/i2c/ens160/image.jpg",
+        "address": "0x52",
+        "addresses": [
+          "0x52",
+          "0x53"
+        ]
       },
       {
         "id": "hdc302x",
         "name": "hdc302x",
         "description": "Precision temperature (\u00c2\u00b10.1\u00c2\u00b0C typical) and humidity sensors (\u00c2\u00b10.5% typ). HDC3020 / HDC3021 / HDC3022",
         "category": "i2c",
-        "dataTypes": [],
-        "image": null
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit",
+          "humidity"
+        ],
+        "image": null,
+        "address": "0x44",
+        "addresses": [
+          "0x44",
+          "0x45",
+          "0x46",
+          "0x47"
+        ]
       },
       {
         "id": "hts221",
         "name": "hts221",
         "description": "",
         "category": "i2c",
-        "dataTypes": [],
-        "image": null
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit",
+          "humidity"
+        ],
+        "image": null,
+        "address": "0x5F",
+        "addresses": [
+          "0x5F"
+        ]
       },
       {
         "id": "htu21d",
         "name": "htu21d",
         "description": "",
         "category": "i2c",
-        "dataTypes": [],
-        "image": null
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit",
+          "humidity"
+        ],
+        "image": null,
+        "address": "0x40",
+        "addresses": [
+          "0x40"
+        ]
       },
       {
         "id": "htu31d",
         "name": "htu31d",
         "description": "",
         "category": "i2c",
-        "dataTypes": [],
-        "image": null
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit",
+          "humidity"
+        ],
+        "image": null,
+        "address": "0x40",
+        "addresses": [
+          "0x40",
+          "0x41"
+        ]
       },
       {
         "id": "ina219",
         "name": "ina219",
         "description": "",
         "category": "i2c",
-        "dataTypes": [],
-        "image": null
+        "dataTypes": [
+          "voltage",
+          "current"
+        ],
+        "image": null,
+        "address": "0x40",
+        "addresses": [
+          "0x40",
+          "0x41",
+          "0x44",
+          "0x45"
+        ]
       },
       {
         "id": "lc709203f",
         "name": "lc709203f",
         "description": "",
         "category": "i2c",
-        "dataTypes": [],
-        "image": null
+        "dataTypes": [
+          {
+            "displayName": "Battery Cell Voltage",
+            "sensorType": "voltage"
+          },
+          {
+            "displayName": "Battery Cell Percent",
+            "sensorType": "unitless-percent"
+          }
+        ],
+        "image": null,
+        "address": "0x0B",
+        "addresses": [
+          "0x0B"
+        ]
       },
       {
         "id": "lps22hb",
         "name": "lps22hb",
         "description": "",
         "category": "i2c",
-        "dataTypes": [],
-        "image": null
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit",
+          "pressure"
+        ],
+        "image": null,
+        "address": "0x5C",
+        "addresses": [
+          "0x5C",
+          "0x5D"
+        ]
       },
       {
         "id": "lps25hb",
         "name": "lps25hb",
         "description": "",
         "category": "i2c",
-        "dataTypes": [],
-        "image": "components/i2c/lps25hb/image.jpg"
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit",
+          "pressure"
+        ],
+        "image": "components/i2c/lps25hb/image.jpg",
+        "address": "0x5C",
+        "addresses": [
+          "0x5C",
+          "0x5D"
+        ]
       },
       {
         "id": "lps28dfw",
         "name": "lps28dfw",
         "description": "From 260 to 4060 hPa, this is our largest range pressure sensor (24bit).",
         "category": "i2c",
-        "dataTypes": [],
-        "image": "components/i2c/lps28dfw/image.jpg"
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit",
+          "pressure"
+        ],
+        "image": "components/i2c/lps28dfw/image.jpg",
+        "address": "0x5C",
+        "addresses": [
+          "0x5C",
+          "0x5D"
+        ]
       },
       {
         "id": "lps33hw",
         "name": "lps33hw",
         "description": "",
         "category": "i2c",
-        "dataTypes": [],
-        "image": "components/i2c/lps33hw/image.jpg"
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit",
+          "pressure"
+        ],
+        "image": "components/i2c/lps33hw/image.jpg",
+        "address": "0x5C",
+        "addresses": [
+          "0x5C",
+          "0x5D"
+        ]
       },
       {
         "id": "lps35hw",
         "name": "lps35hw",
         "description": "",
         "category": "i2c",
-        "dataTypes": [],
-        "image": null
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit",
+          "pressure"
+        ],
+        "image": null,
+        "address": "0x5C",
+        "addresses": [
+          "0x5C",
+          "0x5D"
+        ]
       },
       {
         "id": "ltr303",
         "name": "ltr303",
         "description": "",
         "category": "i2c",
-        "dataTypes": [],
-        "image": "components/i2c/ltr303/image.jpg"
+        "dataTypes": [
+          {
+            "displayName": "Ambient Light",
+            "sensorType": "light"
+          },
+          {
+            "displayName": "Infrared",
+            "sensorType": "raw"
+          }
+        ],
+        "image": "components/i2c/ltr303/image.jpg",
+        "address": "0x29",
+        "addresses": [
+          "0x29"
+        ]
       },
       {
         "id": "ltr329",
         "name": "ltr329",
         "description": "",
         "category": "i2c",
-        "dataTypes": [],
-        "image": "components/i2c/ltr329/image.jpg"
+        "dataTypes": [
+          {
+            "displayName": "Ambient Light",
+            "sensorType": "light"
+          },
+          {
+            "displayName": "Infrared",
+            "sensorType": "raw"
+          }
+        ],
+        "image": "components/i2c/ltr329/image.jpg",
+        "address": "0x29",
+        "addresses": [
+          "0x29"
+        ]
       },
       {
         "id": "ltr390",
         "name": "ltr390",
         "description": "",
         "category": "i2c",
-        "dataTypes": [],
-        "image": "components/i2c/ltr390/image.jpg"
+        "dataTypes": [
+          {
+            "displayName": "Ambient Light",
+            "sensorType": "light"
+          },
+          {
+            "displayName": "UV Count",
+            "sensorType": "raw"
+          }
+        ],
+        "image": "components/i2c/ltr390/image.jpg",
+        "address": "0x53",
+        "addresses": [
+          "0x53"
+        ]
       },
       {
         "id": "max17048",
         "name": "max17048",
         "description": "",
         "category": "i2c",
-        "dataTypes": [],
-        "image": null
+        "dataTypes": [
+          {
+            "displayName": "Battery Cell Voltage",
+            "sensorType": "voltage"
+          },
+          {
+            "displayName": "Battery Cell Percent",
+            "sensorType": "unitless-percent"
+          }
+        ],
+        "image": null,
+        "address": "0x36",
+        "addresses": [
+          "0x36"
+        ]
       },
       {
         "id": "mcp3421",
         "name": "mcp3421",
         "description": "18-bit ADC. Great for Strain Gauges, Thermocouples and Pressure sensors, between 0 and 2.048 volts",
         "category": "i2c",
-        "dataTypes": [],
-        "image": "components/i2c/mcp3421/image.jpg"
+        "dataTypes": [
+          {
+            "displayName": "ADC Reading",
+            "sensorType": "raw"
+          }
+        ],
+        "image": "components/i2c/mcp3421/image.jpg",
+        "address": "0x68",
+        "addresses": [
+          "0x68"
+        ]
       },
       {
         "id": "mcp9601",
         "name": "mcp9601",
         "description": "Thermocouple / ambient temperature sensor. *Note* Needs hotplugging after i2c scans + selecting component!",
         "category": "i2c",
-        "dataTypes": [],
-        "image": null
+        "dataTypes": [
+          {
+            "displayName": "Ambient Temperature (\u00c2\u00b0C)",
+            "sensorType": "ambient-temp"
+          },
+          {
+            "displayName": "Ambient Temperature (\u00c2\u00b0F)",
+            "sensorType": "ambient-temp-fahrenheit"
+          },
+          {
+            "displayName": "Type K Thermocouple (\u00c2\u00b0C)",
+            "sensorType": "raw"
+          }
+        ],
+        "image": null,
+        "address": "0x60",
+        "addresses": [
+          "0x60",
+          "0x61",
+          "0x62",
+          "0x63",
+          "0x64",
+          "0x65",
+          "0x66",
+          "0x67"
+        ]
       },
       {
         "id": "mcp9808",
         "name": "mcp9808",
         "description": "",
         "category": "i2c",
-        "dataTypes": [],
-        "image": null
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit"
+        ],
+        "image": null,
+        "address": "0x18",
+        "addresses": [
+          "0x18",
+          "0x19",
+          "0x1A",
+          "0x1B",
+          "0x1C",
+          "0x1D",
+          "0x1E",
+          "0x1F"
+        ]
       },
       {
         "id": "mpl115a2",
         "name": "mpl115a2",
         "description": "",
         "category": "i2c",
-        "dataTypes": [],
-        "image": null
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit",
+          "pressure"
+        ],
+        "image": null,
+        "address": "0x60",
+        "addresses": [
+          "0x60"
+        ]
       },
       {
         "id": "mprls",
         "name": "mprls",
         "description": "",
         "category": "i2c",
-        "dataTypes": [],
-        "image": null
+        "dataTypes": [
+          "pressure"
+        ],
+        "image": null,
+        "address": "0x18",
+        "addresses": [
+          "0x18"
+        ]
       },
       {
         "id": "ms8607",
         "name": "ms8607",
         "description": "",
         "category": "i2c",
-        "dataTypes": [],
-        "image": null
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit",
+          "humidity",
+          "pressure"
+        ],
+        "image": null,
+        "address": "0x40",
+        "addresses": [
+          "0x40",
+          "0x76"
+        ]
       },
       {
         "id": "nau7802",
         "name": "nau7802",
         "description": "24-bit ADC with 128x gain, used with a load cell for weight/force sensing",
         "category": "i2c",
-        "dataTypes": [],
-        "image": "components/i2c/nau7802/image.jpg"
+        "dataTypes": [
+          {
+            "displayName": "Weight Sensor",
+            "sensorType": "raw"
+          }
+        ],
+        "image": "components/i2c/nau7802/image.jpg",
+        "address": "0x2A",
+        "addresses": [
+          "0x2A"
+        ]
       },
       {
         "id": "pct2075",
         "name": "pct2075",
         "description": "",
         "category": "i2c",
-        "dataTypes": [],
-        "image": "components/i2c/pct2075/image.jpg"
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit"
+        ],
+        "image": "components/i2c/pct2075/image.jpg",
+        "address": "0x48",
+        "addresses": [
+          "0x48",
+          "0x49",
+          "0x4A",
+          "0x4B",
+          "0x4C",
+          "0x4D",
+          "0x4E",
+          "0x4F",
+          "0x70",
+          "0x71",
+          "0x72",
+          "0x73",
+          "0x74",
+          "0x75",
+          "0x76",
+          "0x77",
+          "0x28",
+          "0x29",
+          "0x2A",
+          "0x2B",
+          "0x2C",
+          "0x2D",
+          "0x2E",
+          "0x2F",
+          "0x35",
+          "0x36",
+          "0x37"
+        ]
       },
       {
         "id": "pmsa003i",
         "name": "pmsa003i",
         "description": "",
         "category": "i2c",
-        "dataTypes": [],
-        "image": null
+        "dataTypes": [
+          "pm10-std",
+          "pm25-std",
+          "pm100-std"
+        ],
+        "image": null,
+        "address": "0x12",
+        "addresses": [
+          "0x12"
+        ]
       },
       {
         "id": "rotary_encoder",
         "name": "rotary_encoder",
         "description": "",
         "category": "i2c",
-        "dataTypes": [],
-        "image": "components/i2c/rotary_encoder/image.jpeg"
+        "dataTypes": [
+          {
+            "displayName": "Rotary Encoder Value",
+            "sensorType": "raw"
+          }
+        ],
+        "image": "components/i2c/rotary_encoder/image.jpeg",
+        "address": "0x36",
+        "addresses": [
+          "0x36",
+          "0x37",
+          "0x38",
+          "0x39",
+          "0x3A",
+          "Ox3B",
+          "0x3C",
+          "0x3D"
+        ]
       },
       {
         "id": "scd30",
         "name": "scd30",
         "description": "",
         "category": "i2c",
-        "dataTypes": [],
-        "image": null
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit",
+          "humidity",
+          "co2"
+        ],
+        "image": null,
+        "address": "0x61",
+        "addresses": [
+          "0x61"
+        ]
       },
       {
         "id": "scd40",
         "name": "scd40",
         "description": "",
         "category": "i2c",
-        "dataTypes": [],
-        "image": null
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit",
+          "humidity",
+          "co2"
+        ],
+        "image": null,
+        "address": "0x62",
+        "addresses": [
+          "0x62"
+        ]
       },
       {
         "id": "sen50",
         "name": "sen50",
         "description": "",
         "category": "i2c",
-        "dataTypes": [],
-        "image": "components/i2c/sen50/image.png"
+        "dataTypes": [
+          "pm10-std",
+          "pm25-std",
+          "pm100-std"
+        ],
+        "image": "components/i2c/sen50/image.png",
+        "address": "0x69",
+        "addresses": [
+          "0x69"
+        ]
       },
       {
         "id": "sen54",
         "name": "sen54",
         "description": "",
         "category": "i2c",
-        "dataTypes": [],
-        "image": "components/i2c/sen54/image.png"
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit",
+          "humidity",
+          "pm10-std",
+          "pm25-std",
+          "pm100-std",
+          "voc-index"
+        ],
+        "image": "components/i2c/sen54/image.png",
+        "address": "0x69",
+        "addresses": [
+          "0x69"
+        ]
       },
       {
         "id": "sen55",
         "name": "sen55",
         "description": "",
         "category": "i2c",
-        "dataTypes": [],
-        "image": "components/i2c/sen55/image.png"
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit",
+          "humidity",
+          "pm10-std",
+          "pm25-std",
+          "pm100-std",
+          "voc-index",
+          "nox-index"
+        ],
+        "image": "components/i2c/sen55/image.png",
+        "address": "0x69",
+        "addresses": [
+          "0x69"
+        ]
       },
       {
         "id": "sen5x",
         "name": "sen5x",
         "description": "",
         "category": "i2c",
-        "dataTypes": [],
-        "image": "components/i2c/sen5x/image.png"
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit",
+          "humidity",
+          "pm10-std",
+          "pm25-std",
+          "pm100-std",
+          "voc-index",
+          "nox-index"
+        ],
+        "image": "components/i2c/sen5x/image.png",
+        "address": "0x69",
+        "addresses": [
+          "0x69"
+        ]
       },
       {
         "id": "sen66",
         "name": "sen66",
         "description": "",
         "category": "i2c",
-        "dataTypes": [],
-        "image": "components/i2c/sen66/image.png"
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit",
+          "humidity",
+          "pm10-std",
+          "pm25-std",
+          "pm100-std",
+          "voc-index",
+          "nox-index",
+          "co2"
+        ],
+        "image": "components/i2c/sen66/image.png",
+        "address": "0x6B",
+        "addresses": [
+          "0x6B"
+        ]
       },
       {
         "id": "sgp30",
         "name": "sgp30",
         "description": "",
         "category": "i2c",
-        "dataTypes": [],
-        "image": null
+        "dataTypes": [
+          "eco2",
+          "tvoc"
+        ],
+        "image": null,
+        "address": "0x58",
+        "addresses": [
+          "0x58"
+        ]
       },
       {
         "id": "sgp40",
         "name": "sgp40",
         "description": "",
         "category": "i2c",
-        "dataTypes": [],
-        "image": null
+        "dataTypes": [
+          "voc-index",
+          {
+            "displayName": "Raw (For Reference Only)",
+            "sensorType": "raw"
+          }
+        ],
+        "image": null,
+        "address": "0x59",
+        "addresses": [
+          "0x59"
+        ]
       },
       {
         "id": "sht20",
         "name": "sht20",
         "description": "",
         "category": "i2c",
-        "dataTypes": [],
-        "image": "components/i2c/sht20/image.jpg"
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit",
+          "humidity"
+        ],
+        "image": "components/i2c/sht20/image.jpg",
+        "address": "0x40",
+        "addresses": [
+          "0x40"
+        ]
       },
       {
         "id": "sht30_mesh",
         "name": "sht30_mesh",
         "description": "",
         "category": "i2c",
-        "dataTypes": [],
-        "image": null
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit",
+          "humidity"
+        ],
+        "image": null,
+        "address": "0x44",
+        "addresses": [
+          "0x44"
+        ]
       },
       {
         "id": "sht30_shell",
         "name": "sht30_shell",
         "description": "",
         "category": "i2c",
-        "dataTypes": [],
-        "image": null
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit",
+          "humidity"
+        ],
+        "image": null,
+        "address": "0x44",
+        "addresses": [
+          "0x44"
+        ]
       },
       {
         "id": "sht3x",
         "name": "sht3x",
         "description": "",
         "category": "i2c",
-        "dataTypes": [],
-        "image": null
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit",
+          "humidity"
+        ],
+        "image": null,
+        "address": "0x44",
+        "addresses": [
+          "0x44",
+          "0x45"
+        ]
       },
       {
         "id": "sht40",
         "name": "sht40",
         "description": "",
         "category": "i2c",
-        "dataTypes": [],
-        "image": null
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit",
+          "humidity"
+        ],
+        "image": null,
+        "address": "0x44",
+        "addresses": [
+          "0x44"
+        ]
       },
       {
         "id": "sht41",
         "name": "sht41",
         "description": "",
         "category": "i2c",
-        "dataTypes": [],
-        "image": null
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit",
+          "humidity"
+        ],
+        "image": null,
+        "address": "0x44",
+        "addresses": [
+          "0x44"
+        ]
       },
       {
         "id": "sht45",
         "name": "sht45",
         "description": "",
         "category": "i2c",
-        "dataTypes": [],
-        "image": null
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit",
+          "humidity"
+        ],
+        "image": null,
+        "address": "0x44",
+        "addresses": [
+          "0x44"
+        ]
       },
       {
         "id": "shtc3",
         "name": "shtc3",
         "description": "",
         "category": "i2c",
-        "dataTypes": [],
-        "image": null
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit",
+          "humidity"
+        ],
+        "image": null,
+        "address": "0x70",
+        "addresses": [
+          "0x70"
+        ]
       },
       {
         "id": "si7021",
         "name": "si7021",
         "description": "",
         "category": "i2c",
-        "dataTypes": [],
-        "image": null
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit",
+          "humidity"
+        ],
+        "image": null,
+        "address": "0x40",
+        "addresses": [
+          "0x40"
+        ]
       },
       {
         "id": "stemma_soil",
         "name": "stemma_soil",
         "description": "",
         "category": "i2c",
-        "dataTypes": [],
-        "image": null
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit",
+          {
+            "displayName": "Capacitive Sensor",
+            "sensorType": "raw"
+          }
+        ],
+        "image": null,
+        "address": "0x36",
+        "addresses": [
+          "0x36",
+          "0x37",
+          "0x38",
+          "0x39"
+        ]
       },
       {
         "id": "tc74a0",
         "name": "tc74a0",
         "description": "",
         "category": "i2c",
-        "dataTypes": [],
-        "image": null
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit"
+        ],
+        "image": null,
+        "address": "0x48",
+        "addresses": [
+          "0x48"
+        ]
       },
       {
         "id": "tmp117",
         "name": "tmp117",
         "description": "",
         "category": "i2c",
-        "dataTypes": [],
-        "image": "components/i2c/tmp117/image.jpg"
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit"
+        ],
+        "image": "components/i2c/tmp117/image.jpg",
+        "address": "0x48",
+        "addresses": [
+          "0x48",
+          "0x49",
+          "0x4A",
+          "0x4B"
+        ]
       },
       {
         "id": "tsl2591",
         "name": "tsl2591",
         "description": "",
         "category": "i2c",
-        "dataTypes": [],
-        "image": null
+        "dataTypes": [
+          "light"
+        ],
+        "image": null,
+        "address": "0x29",
+        "addresses": [
+          "0x29",
+          "0x39",
+          "0x49"
+        ]
       },
       {
         "id": "vcnl4020",
         "name": "vcnl4020",
         "description": "Proximity sensor works from 0 to 200mm (about 7.5 inches) & light sensor with range of 0.26 to 16,000 lux.",
         "category": "i2c",
-        "dataTypes": [],
-        "image": "components/i2c/vcnl4020/image.jpg"
+        "dataTypes": [
+          "light",
+          "proximity"
+        ],
+        "image": "components/i2c/vcnl4020/image.jpg",
+        "address": "0x13",
+        "addresses": [
+          "0x13"
+        ]
       },
       {
         "id": "vcnl4040",
         "name": "vcnl4040",
         "description": "Proximity sensor works from 0 to 200mm (about 7.5 inches) & light sensor with range of 0.0125 to 6,553.5 lux",
         "category": "i2c",
-        "dataTypes": [],
-        "image": null
+        "dataTypes": [
+          "light",
+          "proximity"
+        ],
+        "image": null,
+        "address": "0x60",
+        "addresses": [
+          "0x60"
+        ]
       },
       {
         "id": "vcnl4200",
         "name": "vcnl4200",
         "description": "Proximity sensor works from 0 to 1.5m (about 59 inches) & light sensor with range of 0.003 to 1570 lux",
         "category": "i2c",
-        "dataTypes": [],
-        "image": null
+        "dataTypes": [
+          "light",
+          "proximity"
+        ],
+        "image": null,
+        "address": "0x51",
+        "addresses": [
+          "0x51"
+        ]
       },
       {
         "id": "veml7700",
         "name": "veml7700",
         "description": "",
         "category": "i2c",
-        "dataTypes": [],
-        "image": null
+        "dataTypes": [
+          "light"
+        ],
+        "image": null,
+        "address": "0x10",
+        "addresses": [
+          "0x10"
+        ]
       },
       {
         "id": "vl53l0x",
         "name": "vl53l0x",
         "description": "Time of Flight (ToF) distance sensor with about ~50 to 1200mm range",
         "category": "i2c",
-        "dataTypes": [],
-        "image": "components/i2c/vl53l0x/image.jpg"
+        "dataTypes": [
+          {
+            "displayName": "ToF Sensor",
+            "sensorType": "proximity"
+          }
+        ],
+        "image": "components/i2c/vl53l0x/image.jpg",
+        "address": "0x29",
+        "addresses": [
+          "0x29"
+        ]
       },
       {
         "id": "vl53l1x",
         "name": "vl53l1x",
         "description": "Time of Flight (ToF) distance sensor with about ~30 to 4000mm range",
         "category": "i2c",
-        "dataTypes": [],
-        "image": "components/i2c/vl53l1x/image.jpg"
+        "dataTypes": [
+          {
+            "displayName": "ToF Sensor",
+            "sensorType": "proximity"
+          }
+        ],
+        "image": "components/i2c/vl53l1x/image.jpg",
+        "address": "0x29",
+        "addresses": [
+          "0x29"
+        ]
       },
       {
         "id": "vl53l4cd",
         "name": "vl53l4cd",
         "description": "Time of Flight (ToF) distance sensor with about ~1 to 1300mm range",
         "category": "i2c",
-        "dataTypes": [],
-        "image": "components/i2c/vl53l4cd/image.jpg"
+        "dataTypes": [
+          {
+            "displayName": "ToF Sensor",
+            "sensorType": "proximity"
+          }
+        ],
+        "image": "components/i2c/vl53l4cd/image.jpg",
+        "address": "0x29",
+        "addresses": [
+          "0x29"
+        ]
       },
       {
         "id": "vl53l4cx",
         "name": "vl53l4cx",
         "description": "Time of Flight (ToF) distance sensor with about ~1 to 6000mm range + 'multi object detection'",
         "category": "i2c",
-        "dataTypes": [],
-        "image": null
+        "dataTypes": [
+          {
+            "displayName": "ToF Sensor - Object 1",
+            "sensorType": "proximity"
+          },
+          {
+            "displayName": "ToF Sensor - Object 2",
+            "sensorType": "raw"
+          }
+        ],
+        "image": null,
+        "address": "0x29",
+        "addresses": [
+          "0x29"
+        ]
       },
       {
         "id": "vl6180x",
         "name": "vl6180x",
         "description": "Time of Flight (ToF) distance sensor with about ~5 to 200mm range",
         "category": "i2c",
-        "dataTypes": [],
-        "image": "components/i2c/vl6180x/image.jpg"
+        "dataTypes": [
+          {
+            "displayName": "ToF Sensor",
+            "sensorType": "proximity"
+          },
+          "light"
+        ],
+        "image": "components/i2c/vl6180x/image.jpg",
+        "address": "0x29",
+        "addresses": [
+          "0x29"
+        ]
       }
     ],
     "pin": [
@@ -818,7 +1554,9 @@
         "name": "pm1006",
         "description": "",
         "category": "uart",
-        "dataTypes": [],
+        "dataTypes": [
+          "pm25-env"
+        ],
         "image": "components/uart/pm1006/image.png"
       },
       {
@@ -826,7 +1564,14 @@
         "name": "pms5003",
         "description": "",
         "category": "uart",
-        "dataTypes": [],
+        "dataTypes": [
+          "pm10-std",
+          "pm25-std",
+          "pm100-std",
+          "pm10-env",
+          "pm25-env",
+          "pm100-env"
+        ],
         "image": null
       }
     ],

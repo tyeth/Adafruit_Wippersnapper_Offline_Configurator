@@ -4,8 +4,8 @@ import glob
 from pathlib import Path
 
 # Base directory for the boards
-BOARDS_DIR = r"C:\dev\arduino\Adafruit_Wippersnapper_Boards\Wippersnapper_Boards\boards"
-OUTPUT_FILE = r"C:\dev\arduino\Adafruit_Wippersnapper_Offline_Configurator\wippersnapper_boards.json"
+BOARDS_DIR = r"./Wippersnapper_Boards/boards"
+OUTPUT_FILE = r"./wippersnapper_boards.json"
 
 def convert_boards_to_json():
     """

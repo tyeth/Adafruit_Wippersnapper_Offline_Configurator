@@ -4,8 +4,8 @@ import glob
 from pathlib import Path
 
 # Base directory for the components
-COMPONENTS_DIR = r"C:\dev\arduino\Adafruit_Wippersnapper_Offline_Configurator\Wippersnapper_Components\components"
-OUTPUT_FILE = r"C:\dev\arduino\Adafruit_Wippersnapper_Offline_Configurator\wippersnapper_components.json"
+COMPONENTS_DIR = r"./Wippersnapper_Components/components"
+OUTPUT_FILE = r"./wippersnapper_components.json"
 
 def convert_components_to_json():
     """

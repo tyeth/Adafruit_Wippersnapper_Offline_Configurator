@@ -79,7 +79,7 @@ def convert_components_to_json():
                             component_info["channels"] = 4
                 
                 # Look for an image file
-                image_extensions = ['.jpg', '.jpeg', '.png', '.gif']
+                image_extensions = ['.jpg', '.jpeg', '.png', '.gif', '.svg']
                 for ext in image_extensions:
                     image_file = os.path.join(component_path, f"image{ext}")
                     if os.path.exists(image_file):

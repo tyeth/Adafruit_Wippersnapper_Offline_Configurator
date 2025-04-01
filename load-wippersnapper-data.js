@@ -288,7 +288,7 @@ function attachEventListeners() {
         const boardImageElem = document.getElementById('board-image');
         if (boardImageElem) {
             if (boardConfig.image) {
-                boardImageElem.src = boardConfig.image;
+                boardImageElem.src = "https://raw.githubusercontent.com/adafruit/Wippersnapper_Boards/refs/heads/main/" + boardConfig.image;
                 boardImageElem.classList.remove('hidden');
             } else {
                 boardImageElem.classList.add('hidden');

@@ -95,7 +95,7 @@ def convert_boards_to_json():
             board_info["totalGPIOPins"] = len(board_info["pins"])
             
             # Look for an image file
-            image_extensions = ['.jpg', '.jpeg', '.png', '.gif']
+            image_extensions = ['.jpg', '.jpeg', '.png', '.gif', '.svg']
             for ext in image_extensions:
                 image_file = os.path.join(board_path, f"image{ext}")
                 if os.path.exists(image_file):

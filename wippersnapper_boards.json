@@ -192,7 +192,7 @@
         "SCL": 22,
         "SDA": 23
       },
-      "image": null,
+      "image": "boards/feather-esp32/image.svg",
       "totalAnalogPins": 14,
       "i2cPorts": [
         {
@@ -402,7 +402,7 @@
         "SCL": 20,
         "SDA": 22
       },
-      "image": null,
+      "image": "boards/feather-esp32-v2/image.svg",
       "totalAnalogPins": 7,
       "i2cPorts": [
         {
@@ -919,7 +919,7 @@
         "SCL": 4,
         "SDA": 3
       },
-      "image": null,
+      "image": "boards/feather-esp32s2-reverse-tft/image.svg",
       "totalAnalogPins": 6,
       "i2cPorts": [
         {
@@ -1082,7 +1082,7 @@
         "SCL": 41,
         "SDA": 42
       },
-      "image": null,
+      "image": "boards/feather-esp32s2-tft/image.svg",
       "totalAnalogPins": 6,
       "i2cPorts": [
         {
@@ -1266,7 +1266,7 @@
         "SCL": 4,
         "SDA": 3
       },
-      "image": null,
+      "image": "boards/feather-esp32s3/image.svg",
       "totalAnalogPins": 6,
       "i2cPorts": [
         {
@@ -1450,7 +1450,7 @@
         "SCL": 4,
         "SDA": 3
       },
-      "image": null,
+      "image": "boards/feather-esp32s3-4mbflash-2mbpsram/image.svg",
       "totalAnalogPins": 6,
       "i2cPorts": [
         {
@@ -1599,7 +1599,7 @@
         "SCL": 4,
         "SDA": 3
       },
-      "image": null,
+      "image": "boards/feather-esp32s3-reverse-tft/image.svg",
       "totalAnalogPins": 6,
       "i2cPorts": [
         {
@@ -1769,7 +1769,7 @@
         "SCL": 41,
         "SDA": 42
       },
-      "image": null,
+      "image": "boards/feather-esp32s3-tft/image.svg",
       "totalAnalogPins": 6,
       "i2cPorts": [
         {
@@ -2137,7 +2137,7 @@
         "SCL": 5,
         "SDA": 4
       },
-      "image": null,
+      "image": "boards/feather-rp2040-adalogger/image.svg",
       "totalAnalogPins": 4,
       "i2cPorts": [
         {
@@ -2325,7 +2325,7 @@
         "SCL": 33,
         "SDA": 34
       },
-      "image": null,
+      "image": "boards/funhouse/image.svg",
       "totalAnalogPins": 4,
       "i2cPorts": [
         {
@@ -2537,7 +2537,7 @@
         "SCL": 27,
         "SDA": 15
       },
-      "image": null,
+      "image": "boards/itsybitsy-esp32/image.svg",
       "totalAnalogPins": 6,
       "i2cPorts": [
         {
@@ -2660,7 +2660,7 @@
         "SCL": 34,
         "SDA": 33
       },
-      "image": null,
+      "image": "boards/magtag/image.svg",
       "totalAnalogPins": 5,
       "i2cPorts": [
         {
@@ -3076,7 +3076,7 @@
         "SCL": 34,
         "SDA": 33
       },
-      "image": null,
+      "image": "boards/metroesp32s2/image.svg",
       "totalAnalogPins": 17,
       "i2cPorts": [
         {
@@ -3598,7 +3598,7 @@
         "SCL": 12,
         "SDA": 11
       },
-      "image": null,
+      "image": "boards/mkrwifi1010/image.svg",
       "totalAnalogPins": 8,
       "i2cPorts": [
         {
@@ -3806,7 +3806,7 @@
         "SCL": 19,
         "SDA": 18
       },
-      "image": null,
+      "image": "boards/nano-33-iot/image.svg",
       "totalAnalogPins": 8,
       "i2cPorts": [
         {
@@ -4145,7 +4145,7 @@
         "SCL": 19,
         "SDA": 22
       },
-      "image": null,
+      "image": "boards/qtpy-esp32/image.svg",
       "totalAnalogPins": 8,
       "i2cPorts": [
         {
@@ -4299,7 +4299,7 @@
         "SCL": 6,
         "SDA": 5
       },
-      "image": null,
+      "image": "boards/qtpy-esp32c3/image.svg",
       "totalAnalogPins": 7,
       "i2cPorts": [
         {
@@ -4458,7 +4458,7 @@
         "SCL": 40,
         "SDA": 41
       },
-      "image": null,
+      "image": "boards/qtpy-esp32s2/image.svg",
       "totalAnalogPins": 8,
       "i2cPorts": [
         {
@@ -4617,7 +4617,7 @@
         "SCL": 40,
         "SDA": 41
       },
-      "image": null,
+      "image": "boards/qtpy-esp32s3/image.svg",
       "totalAnalogPins": 8,
       "i2cPorts": [
         {
@@ -4776,7 +4776,7 @@
         "SCL": 40,
         "SDA": 41
       },
-      "image": null,
+      "image": "boards/qtpy-esp32s3-n4r2/image.svg",
       "totalAnalogPins": 8,
       "i2cPorts": [
         {

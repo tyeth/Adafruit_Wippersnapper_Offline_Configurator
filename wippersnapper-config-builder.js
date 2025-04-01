@@ -697,7 +697,21 @@ function showComponentConfigModal(component, type) {
         html += `
             <div>
                 <label for="modal-i2c-address">I2C Address:</label>
-                <input type="text" id="modal-i2c-address" value="${component.address}" required>
+                <select id="modal-i2c-address" required>
+        `;
+        
+        // Add options for each available I2C address
+        if (component.addresses && component.addresses.length > 0) {
+            component.addresses.forEach(address => {
+                html += `<option value="${address}" ${address === component.address ? 'selected' : ''}>${address}</option>`;
+            });
+        } else {
+            // Fallback to the single address if addresses array is not available
+            html += `<option value="${component.address}">${component.address}</option>`;
+        }
+        
+        html += `
+                </select>
             </div>
         `;
         
@@ -842,7 +856,7 @@ function saveModalData() {
     const componentType = modalContent.dataset.componentType;
     
     // Get component template
-    const componentTemplate = componentsData[componentType].find(c => c.id === componentId);
+    const componentTemplate = appState.componentsData[componentType].find(c => c.id === componentId);
     
     // Get form values
     const name = document.getElementById('component-name').value;

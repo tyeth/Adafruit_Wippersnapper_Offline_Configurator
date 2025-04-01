@@ -909,6 +909,72 @@ function showComponentConfigModal(component, type) {
     modal.style.display = 'block';
 }
 
+function showAddMultiplexerModal() {
+    // Check if there are I2C buses available
+    if (appState.i2cBuses.length === 0) {
+        alert('No I2C buses available. Please configure an I2C bus first.');
+        return;
+    }
+    
+    // Find the multiplexer components
+    const multiplexers = appState.componentsData.i2c.filter(c => 
+        c.id === 'pca9546' || c.id === 'pca9548' || 
+        c.id === 'tca9546' || c.id === 'tca9548'
+    );
+    
+    if (multiplexers.length === 0) {
+        alert('No multiplexer components found in the component data.');
+        return;
+    }
+    
+    // Create a modal for selecting a multiplexer type
+    const modal = document.getElementById('component-modal');
+    const modalTitle = document.getElementById('modal-title');
+    const modalContent = document.getElementById('modal-content');
+    
+    modalTitle.textContent = 'Add I2C Multiplexer';
+    
+    // Build the modal content
+    let content = `
+        <div class="form-group">
+            <label for="multiplexer-select">Select Multiplexer Type:</label>
+            <select id="multiplexer-select" class="form-control">
+    `;
+    
+    // Add options for each multiplexer type
+    multiplexers.forEach(mux => {
+        content += `<option value="${mux.id}">${mux.name} (${mux.channels} channels)</option>`;
+    });
+    
+    content += `
+            </select>
+        </div>
+        <div class="form-group mt-3">
+            <button id="select-multiplexer-btn" class="btn btn-primary">Continue</button>
+            <button id="cancel-multiplexer-btn" class="btn btn-secondary">Cancel</button>
+        </div>
+    `;
+    
+    modalContent.innerHTML = content;
+    
+    // Add event listeners
+    document.getElementById('select-multiplexer-btn').addEventListener('click', function() {
+        const selectedMuxId = document.getElementById('multiplexer-select').value;
+        const selectedMux = multiplexers.find(m => m.id === selectedMuxId);
+        
+        // Close this modal and open the component config modal for the selected multiplexer
+        modal.style.display = 'none';
+        showComponentConfigModal(selectedMux, 'i2c');
+    });
+    
+    document.getElementById('cancel-multiplexer-btn').addEventListener('click', function() {
+        modal.style.display = 'none';
+    });
+    
+    // Show the modal
+    modal.style.display = 'block';
+}
+
 function closeModal() {
     const modal = document.getElementById('component-modal');
     modal.style.display = 'none';
@@ -1065,28 +1131,6 @@ function saveModalData() {
     
     // Close the modal
     closeModal();
-}
-
-function showAddMultiplexerModal() {
-    // Check if there are I2C buses available
-    if (appState.i2cBuses.length === 0) {
-        alert('No I2C buses available. Please configure an I2C bus first.');
-        return;
-    }
-    
-    // Find the multiplexer components
-    const multiplexers = appState.componentsData.i2c.filter(c => 
-        c.id === 'pca9546' || c.id === 'pca9548' || 
-        c.id === 'tca9546' || c.id === 'tca9548'
-    );
-    
-    if (multiplexers.length === 0) {
-        alert('No multiplexer components found in the component data.');
-        return;
-    }
-    
-    // Show component config modal for the first multiplexer
-    showComponentConfigModal(multiplexers[0], 'i2c');
 }
 
 function updateSelectedComponentsList() {

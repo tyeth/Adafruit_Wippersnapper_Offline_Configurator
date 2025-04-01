@@ -49,6 +49,49 @@ async function loadWippersnapperData() {
         appState.boardsData = boardsData.boards;
         appState.componentsData = componentsData.components;
         
+        // Add I2C multiplexer components manually since they're not in the JSON data
+        if (appState.componentsData.i2c) {
+            // Add PCA9546 - 4-channel I2C multiplexer
+            appState.componentsData.i2c.push({
+                id: 'pca9546',
+                name: 'PCA9546 I2C Multiplexer',
+                address: '0x70',
+                addresses: ['0x70', '0x71', '0x72', '0x73', '0x74', '0x75', '0x76', '0x77'],
+                dataTypes: [],
+                channels: 4
+            });
+            
+            // Add PCA9548 - 8-channel I2C multiplexer
+            appState.componentsData.i2c.push({
+                id: 'pca9548',
+                name: 'PCA9548 I2C Multiplexer',
+                address: '0x70',
+                addresses: ['0x70', '0x71', '0x72', '0x73', '0x74', '0x75', '0x76', '0x77'],
+                dataTypes: [],
+                channels: 8
+            });
+            
+            // Add TCA9546 - 4-channel I2C multiplexer
+            appState.componentsData.i2c.push({
+                id: 'tca9546',
+                name: 'TCA9546 I2C Multiplexer',
+                address: '0x70',
+                addresses: ['0x70', '0x71', '0x72', '0x73', '0x74', '0x75', '0x76', '0x77'],
+                dataTypes: [],
+                channels: 4
+            });
+            
+            // Add TCA9548 - 8-channel I2C multiplexer
+            appState.componentsData.i2c.push({
+                id: 'tca9548',
+                name: 'TCA9548 I2C Multiplexer',
+                address: '0x70',
+                addresses: ['0x70', '0x71', '0x72', '0x73', '0x74', '0x75', '0x76', '0x77'],
+                dataTypes: [],
+                channels: 8
+            });
+        }
+        
         // Initialize the UI with the data
         initializeUI();
         

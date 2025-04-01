@@ -336,7 +336,8 @@
             <h2>5. Add Components</h2>
             
             <div id="component-type-tabs" class="tab">
-                <button class="comp-tab active" onclick="openComponentTab(event, 'i2c-components')">I2C Components</button>
+                <button class="comp-tab active" onclick="openComponentTab(event, 'all-components')">All Components</button>
+                <button class="comp-tab" onclick="openComponentTab(event, 'i2c-components')">I2C Components</button>
                 <button class="comp-tab" onclick="openComponentTab(event, 'ds18x20-components')">DS18x20 Components</button>
                 <button class="comp-tab" onclick="openComponentTab(event, 'pin-components')">Pin Components</button>
                 <button class="comp-tab" onclick="openComponentTab(event, 'pixel-components')">Pixel Components</button>
@@ -345,7 +346,17 @@
                 <button class="comp-tab" onclick="openComponentTab(event, 'uart-components')">UART Components</button>
             </div>
             
-            <div id="i2c-components" class="component-tabcontent" style="display: block;">
+            <div id="all-components" class="component-tabcontent" style="display: block;">
+                <h3>All Components</h3>
+                <div class="search-filter">
+                    <input type="text" id="all-search" class="component-search" placeholder="Search all components...">
+                </div>
+                <div class="component-list" id="all-component-list">
+                    <!-- All components will be populated here -->
+                </div>
+            </div>
+            
+            <div id="i2c-components" class="component-tabcontent">
                 <h3>I2C Components</h3>
                 <div class="search-filter">
                     <input type="text" id="i2c-search" class="component-search" placeholder="Search I2C components...">

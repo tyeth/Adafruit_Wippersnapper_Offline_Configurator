@@ -1,0 +1,6 @@
+[submodule "Wippersnapper_Boards"]
+	path = Wippersnapper_Boards
+	url = https://github.com/adafruit/Wippersnapper_Boards
+[submodule "Wippersnapper_Components"]
+	path = Wippersnapper_Components
+	url = https://github.com/adafruit/Wippersnapper_Components

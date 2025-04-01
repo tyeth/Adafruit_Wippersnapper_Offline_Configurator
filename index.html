@@ -1,0 +1,1857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wippersnapper Configuration Builder</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        h1, h2, h3 {
+            color: #2e8b57;
+        }
+        .section {
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+        }
+        button {
+            background-color: #2e8b57;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background-color: #3cb371;
+        }
+        select, input {
+            padding: 8px;
+            margin: 5px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+        .component-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .component-card {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 10px;
+            width: 230px;
+            background-color: white;
+        }
+        .selected {
+            border: 2px solid #2e8b57;
+            background-color: #f0fff0;
+        }
+        .pins-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+        .pin {
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            background-color: #f9f9f9;
+            cursor: pointer;
+        }
+        .pin.used {
+            background-color: #ffdddd;
+            text-decoration: line-through;
+        }
+        .pin.selected {
+            background-color: #ddffdd;
+            border-color: #2e8b57;
+        }
+        .config-output {
+            background-color: #272822;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 5px;
+            white-space: pre-wrap;
+            overflow-x: auto;
+        }
+        .hidden {
+            display: none;
+        }
+        .i2c-bus-config {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px dashed #ccc;
+            border-radius: 4px;
+        }
+        .tab {
+            overflow: hidden;
+            border: 1px solid #ccc;
+            background-color: #f1f1f1;
+            border-radius: 4px 4px 0 0;
+        }
+        .tab button {
+            background-color: inherit;
+            color: #333;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: 0.3s;
+        }
+        .tab button:hover {
+            background-color: #ddd;
+        }
+        .tab button.active {
+            background-color: #2e8b57;
+            color: white;
+        }
+        .tabcontent {
+            display: none;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-top: none;
+            border-radius: 0 0 4px 4px;
+        }
+        .json-input {
+            width: 100%;
+            height: 200px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <h1>Wippersnapper Configuration Builder</h1>
+    
+    <div class="tab">
+        <button class="tablinks active" onclick="openTab(event, 'BuildConfig')">Build Configuration</button>
+        <button class="tablinks" onclick="openTab(event, 'ImportExport')">Import/Export</button>
+    </div>
+    
+    <div id="BuildConfig" class="tabcontent" style="display: block;">
+        <div class="section">
+            <h2>1. Select Board</h2>
+            <select id="board-select">
+                <option value="">-- Select a Board --</option>
+                <option value="feather-esp32">Adafruit Feather ESP32</option>
+                <option value="feather-esp32s2">Adafruit Feather ESP32-S2</option>
+                <option value="feather-esp32s3-tft">Adafruit Feather ESP32-S3 TFT</option>
+                <option value="feather-esp32c3">Adafruit Feather ESP32-C3</option>
+                <option value="qtpy-esp32c3">Adafruit QT Py ESP32-C3</option>
+                <option value="funhouse-esp32s2">Adafruit FunHouse ESP32-S2</option>
+                <option value="metro-esp32s2">Adafruit Metro ESP32-S2</option>
+                <option value="feather-rp2040">Adafruit Feather RP2040</option>
+                <option value="qtpy-rp2040">Adafruit QT Py RP2040</option>
+            </select>
+            
+            <div id="board-details" class="hidden">
+                <h3>Board Details</h3>
+                <p><strong>Reference Voltage:</strong> <span id="ref-voltage">3.3</span>V</p>
+                <p><strong>Total GPIO Pins:</strong> <span id="total-gpio">0</span></p>
+                <p><strong>Total Analog Pins:</strong> <span id="total-analog">0</span></p>
+                <p><strong>Default I2C Bus:</strong> SCL: <span id="default-scl">0</span>, SDA: <span id="default-sda">0</span></p>
+            </div>
+        </div>
+        
+        <div id="companion-board-section" class="section hidden">
+            <h2>2. Select Companion Board (Optional)</h2>
+            <select id="companion-board-select">
+                <option value="">-- None --</option>
+                <option value="adalogger">Adafruit Adalogger FeatherWing</option>
+                <option value="datalogger-m0">Adafruit Datalogger FeatherWing</option>
+                <option value="ds3231-precision">Adafruit DS3231 Precision RTC FeatherWing</option>
+                <option value="ethernet">Adafruit Ethernet FeatherWing</option>
+                <option value="ina219">Adafruit INA219 FeatherWing</option>
+            </select>
+            
+            <div id="companion-details" class="hidden">
+                <h3>Companion Board Details</h3>
+                <p><strong>RTC:</strong> <span id="companion-rtc">None</span></p>
+                <p><strong>SD Card CS Pin:</strong> <span id="companion-sd-cs">None</span></p>
+                <p><strong>Additional Components:</strong> <span id="companion-extras">None</span></p>
+            </div>
+        </div>
+        
+        <div id="manual-config-section" class="section hidden">
+            <h2>3. Manual Configuration</h2>
+            
+            <div id="sd-card-config">
+                <h3>SD Card Configuration</h3>
+                <div id="sd-missing">
+                    <p>No SD card detected from companion board. Would you like to add an SD card?</p>
+                    <label><input type="checkbox" id="add-sd-card"> Add SD Card</label>
+                    
+                    <div id="sd-card-pin-select" class="hidden">
+                        <p>Select SD Card CS Pin:</p>
+                        <div id="sd-pins-list" class="pins-container"></div>
+                    </div>
+                </div>
+                <div id="sd-present" class="hidden">
+                    <p>SD Card CS Pin: <span id="sd-cs-pin"></span></p>
+                </div>
+            </div>
+            
+            <div id="rtc-config">
+                <h3>RTC Configuration</h3>
+                <div id="rtc-missing">
+                    <p>No RTC detected from companion board. Select RTC type:</p>
+                    <select id="rtc-select">
+                        <option value="soft">Software RTC</option>
+                        <option value="PCF8523">PCF8523</option>
+                        <option value="DS3231">DS3231</option>
+                        <option value="DS1307">DS1307</option>
+                    </select>
+                </div>
+                <div id="rtc-present" class="hidden">
+                    <p>RTC Type: <span id="rtc-type"></span></p>
+                </div>
+            </div>
+            
+            <div id="status-led-config">
+                <h3>Status LED Configuration</h3>
+                <label for="led-brightness">Status LED Brightness (0.0-1.0): </label>
+                <input type="range" id="led-brightness" min="0" max="1" step="0.1" value="0.5">
+                <span id="brightness-value">0.5</span>
+            </div>
+        </div>
+        
+        <div id="i2c-bus-section" class="section hidden">
+            <h2>4. I2C Bus Configuration</h2>
+            
+            <div id="default-i2c-bus" class="i2c-bus-config">
+                <h3>Default I2C Bus</h3>
+                <p>SCL: <span id="default-i2c-scl"></span>, SDA: <span id="default-i2c-sda"></span></p>
+            </div>
+            
+            <div id="additional-i2c-bus-container">
+                <h3>Additional I2C Bus (Optional)</h3>
+                <label><input type="checkbox" id="add-i2c-bus"> Add Additional I2C Bus</label>
+                
+                <div id="additional-i2c-config" class="hidden i2c-bus-config">
+                    <p>Select SCL Pin:</p>
+                    <div id="scl-pins-list" class="pins-container"></div>
+                    <p>Select SDA Pin:</p>
+                    <div id="sda-pins-list" class="pins-container"></div>
+                </div>
+            </div>
+            
+            <div id="i2c-mux-container">
+                <h3>I2C Multiplexers (Optional)</h3>
+                <button id="add-mux-btn">Add I2C Multiplexer</button>
+                
+                <div id="mux-list"></div>
+            </div>
+        </div>
+        
+        <div id="components-section" class="section hidden">
+            <h2>5. Add Components</h2>
+            
+            <div id="component-type-tabs" class="tab">
+                <button class="comp-tab active" onclick="openComponentTab(event, 'i2c-components')">I2C Components</button>
+                <button class="comp-tab" onclick="openComponentTab(event, 'ds18x20-components')">DS18x20 Components</button>
+                <button class="comp-tab" onclick="openComponentTab(event, 'pin-components')">Pin Components</button>
+                <button class="comp-tab" onclick="openComponentTab(event, 'pixel-components')">Pixel Components</button>
+                <button class="comp-tab" onclick="openComponentTab(event, 'pwm-components')">PWM Components</button>
+                <button class="comp-tab" onclick="openComponentTab(event, 'servo-components')">Servo Components</button>
+                <button class="comp-tab" onclick="openComponentTab(event, 'uart-components')">UART Components</button>
+            </div>
+            
+            <div id="i2c-components" class="component-tabcontent" style="display: block;">
+                <h3>I2C Components</h3>
+                <div>
+                    <label for="i2c-bus-select">Select I2C Bus: </label>
+                    <select id="i2c-bus-select">
+                        <option value="default">Default I2C Bus</option>
+                    </select>
+                </div>
+                
+                <div class="component-list" id="i2c-component-list">
+                    <!-- I2C components will be populated here -->
+                </div>
+            </div>
+            
+            <div id="ds18x20-components" class="component-tabcontent">
+                <h3>DS18x20 Components</h3>
+                <div class="component-list" id="ds18x20-component-list">
+                    <!-- DS18x20 components will be populated here -->
+                </div>
+            </div>
+            
+            <div id="pin-components" class="component-tabcontent">
+                <h3>Pin Components</h3>
+                <div class="component-list" id="pin-component-list">
+                    <!-- Pin components will be populated here -->
+                </div>
+            </div>
+            
+            <div id="pixel-components" class="component-tabcontent">
+                <h3>Pixel Components</h3>
+                <div class="component-list" id="pixel-component-list">
+                    <!-- Pixel components will be populated here -->
+                </div>
+            </div>
+            
+            <div id="pwm-components" class="component-tabcontent">
+                <h3>PWM Components</h3>
+                <div class="component-list" id="pwm-component-list">
+                    <!-- PWM components will be populated here -->
+                </div>
+            </div>
+            
+            <div id="servo-components" class="component-tabcontent">
+                <h3>Servo Components</h3>
+                <div class="component-list" id="servo-component-list">
+                    <!-- Servo components will be populated here -->
+                </div>
+            </div>
+            
+            <div id="uart-components" class="component-tabcontent">
+                <h3>UART Components</h3>
+                <div class="component-list" id="uart-component-list">
+                    <!-- UART components will be populated here -->
+                </div>
+            </div>
+        </div>
+        
+        <div id="selected-components-section" class="section hidden">
+            <h2>6. Selected Components</h2>
+            <div id="selected-components-list">
+                <p>No components selected yet.</p>
+            </div>
+        </div>
+        
+        <div id="generate-section" class="section hidden">
+            <h2>7. Generate Configuration</h2>
+            <button id="generate-config-btn">Generate Configuration</button>
+            <div id="config-output-container" class="hidden">
+                <h3>Configuration JSON:</h3>
+                <pre id="config-output" class="config-output"></pre>
+                <button id="download-config-btn">Download config.json</button>
+            </div>
+        </div>
+    </div>
+    
+    <div id="ImportExport" class="tabcontent">
+        <div class="section">
+            <h2>Import Configuration</h2>
+            <p>Paste your existing config.json here:</p>
+            <textarea id="import-json" class="json-input" placeholder="Paste your config.json here..."></textarea>
+            <button id="import-btn">Import Configuration</button>
+        </div>
+        
+        <div class="section">
+            <h2>Export Configuration</h2>
+            <p>Your current configuration:</p>
+            <pre id="export-config" class="config-output">No configuration generated yet.</pre>
+            <button id="export-btn">Download config.json</button>
+        </div>
+    </div>
+
+    <!-- Component Configuration Modal -->
+    <div id="component-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); z-index: 1000;">
+        <div style="background-color: white; margin: 10% auto; padding: 20px; width: 80%; max-width: 600px; border-radius: 5px;">
+            <h2 id="modal-title">Configure Component</h2>
+            <div id="modal-content">
+                <!-- Dynamic content will be inserted here -->
+            </div>
+            <div style="margin-top: 20px; text-align: right;">
+                <button id="modal-cancel">Cancel</button>
+                <button id="modal-save">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Board configurations
+        const boardConfigs = {
+            'feather-esp32': {
+                referenceVoltage: 3.3,
+                totalGPIOPins: 21,
+                totalAnalogPins: 6,
+                defaultI2C: { scl: 22, sda: 23 },
+                pins: [0, 2, 4, 5, 12, 13, 14, 15, 16, 17, 18, 19, 21, 22, 23, 25, 26, 27, 32, 33, 34, 35]
+            },
+            'feather-esp32s2': {
+                referenceVoltage: 3.3,
+                totalGPIOPins: 22,
+                totalAnalogPins: 6,
+                defaultI2C: { scl: 42, sda: 41 },
+                pins: [0, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 21, 33, 34, 35, 36, 37, 38, 39]
+            },
+            'feather-esp32s3-tft': {
+                referenceVoltage: 3.3,
+                totalGPIOPins: 18,
+                totalAnalogPins: 6,
+                defaultI2C: { scl: 9, sda: 8 },
+                pins: [1, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 17, 18, 21, 38, 39, 40, 41, 42]
+            },
+            'feather-esp32c3': {
+                referenceVoltage: 3.3,
+                totalGPIOPins: 13,
+                totalAnalogPins: 4,
+                defaultI2C: { scl: 5, sda: 4 },
+                pins: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 18, 19, 20, 21]
+            },
+            'qtpy-esp32c3': {
+                referenceVoltage: 3.3,
+                totalGPIOPins: 11,
+                totalAnalogPins: 4,
+                defaultI2C: { scl: 5, sda: 4 },
+                pins: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+            },
+            'funhouse-esp32s2': {
+                referenceVoltage: 3.3,
+                totalGPIOPins: 16,
+                totalAnalogPins: 6,
+                defaultI2C: { scl: 21, sda: 22 },
+                pins: [0, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 21, 22, 33, 34, 35, 36, 37, 38, 39]
+            },
+            'metro-esp32s2': {
+                referenceVoltage: 3.3,
+                totalGPIOPins: 22,
+                totalAnalogPins: 6,
+                defaultI2C: { scl: 42, sda: 41 },
+                pins: [0, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 21, 33, 34, 35, 36, 37, 38, 39, 41, 42]
+            },
+            'feather-rp2040': {
+                referenceVoltage: 3.3,
+                totalGPIOPins: 21,
+                totalAnalogPins: 4,
+                defaultI2C: { scl: 3, sda: 2 },
+                pins: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+            },
+            'qtpy-rp2040': {
+                referenceVoltage: 3.3,
+                totalGPIOPins: 12,
+                totalAnalogPins: 4,
+                defaultI2C: { scl: 25, sda: 24 },
+                pins: [0, 1, 2, 3, 4, 5, 6, 7, 24, 25, 26, 27, 28, 29]
+            }
+        };
+
+        // Companion board configurations
+        const companionBoardConfigs = {
+            'adalogger': {
+                rtc: 'PCF8523',
+                sdCardCS: 10,
+                extras: 'SD Card'
+            },
+            'datalogger-m0': {
+                rtc: 'PCF8523',
+                sdCardCS: 10,
+                extras: 'SD Card'
+            },
+            'ds3231-precision': {
+                rtc: 'DS3231',
+                sdCardCS: null,
+                extras: 'None'
+            },
+            'ethernet': {
+                rtc: null,
+                sdCardCS: null,
+                extras: 'Ethernet Controller'
+            },
+            'ina219': {
+                rtc: null,
+                sdCardCS: null,
+                extras: 'INA219 Current Sensor'
+            }
+        };
+
+        // Sample components data - in a real application, this would come from the components repository
+        const componentsData = {
+            i2c: [
+                { id: 'bme280', name: 'BME280', address: '0x77', dataTypes: ['ambient-temp', 'ambient-temp-fahrenheit', 'relative-humidity', 'pressure', 'altitude'] },
+                { id: 'sht30', name: 'SHT30', address: '0x44', dataTypes: ['ambient-temp', 'ambient-temp-fahrenheit', 'relative-humidity'] },
+                { id: 'mcp9808', name: 'MCP9808', address: '0x18', dataTypes: ['ambient-temp', 'ambient-temp-fahrenheit'] },
+                { id: 'bh1750', name: 'BH1750', address: '0x23', dataTypes: ['light'] },
+                { id: 'sgp30', name: 'SGP30', address: '0x58', dataTypes: ['eco2', 'tvoc'] },
+                { id: 'pca9546', name: 'PCA9546 Multiplexer', address: '0x70', channels: 4 }
+            ],
+            ds18x20: [
+                { id: 'ds18b20', name: 'DS18B20', dataTypes: ['object-temp', 'object-temp-fahrenheit'] },
+                { id: 'ds18b20_waterproof', name: 'DS18B20 Waterproof', dataTypes: ['object-temp', 'object-temp-fahrenheit'] }
+            ],
+            pin: [
+                { id: 'led', name: 'LED', dataTypes: [] },
+                { id: 'push_button', name: 'Push Button', dataTypes: ['digital-input'] },
+                { id: 'toggle_switch', name: 'Toggle Switch', dataTypes: ['digital-input'] },
+                { id: 'potentiometer', name: 'Potentiometer', dataTypes: ['analog-input'] }
+            ],
+            pixel: [
+                { id: 'neopixel', name: 'NeoPixel', dataTypes: [] },
+                { id: 'dotstar', name: 'DotStar', dataTypes: [] }
+            ],
+            pwm: [
+                { id: 'dimmable_led', name: 'Dimmable LED', dataTypes: [] },
+                { id: 'piezo_buzzer', name: 'Piezo Buzzer', dataTypes: [] }
+            ],
+            servo: [
+                { id: 'servo', name: 'Servo Motor', dataTypes: [] }
+            ],
+            uart: [
+                { id: 'pms5003', name: 'PMS5003 Air Quality Sensor', dataTypes: ['pm10-std', 'pm25-std', 'pm100-std'] }
+            ]
+        };
+
+        // Global state
+        const appState = {
+            selectedBoard: null,
+            companionBoard: null,
+            sdCardCS: null,
+            rtcType: 'soft',
+            statusLEDBrightness: 0.5,
+            i2cBuses: [],
+            i2cMultiplexers: [],
+            selectedComponents: [],
+            usedPins: new Set(),
+            nextComponentId: 1
+        };
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Board selection handler
+            document.getElementById('board-select').addEventListener('change', function() {
+                const boardId = this.value;
+                if (!boardId) {
+                    document.getElementById('board-details').classList.add('hidden');
+                    hideSubsequentSections();
+                    return;
+                }
+                
+                const board = boardConfigs[boardId];
+                appState.selectedBoard = {
+                    id: boardId,
+                    ...board
+                };
+                
+                // Update board details display
+                document.getElementById('ref-voltage').textContent = board.referenceVoltage;
+                document.getElementById('total-gpio').textContent = board.totalGPIOPins;
+                document.getElementById('total-analog').textContent = board.totalAnalogPins;
+                document.getElementById('default-scl').textContent = board.defaultI2C.scl;
+                document.getElementById('default-sda').textContent = board.defaultI2C.sda;
+                document.getElementById('board-details').classList.remove('hidden');
+                
+                // Set up default I2C bus
+                appState.i2cBuses = [{
+                    id: 'default',
+                    scl: board.defaultI2C.scl,
+                    sda: board.defaultI2C.sda
+                }];
+                
+                // Update default I2C bus display
+                document.getElementById('default-i2c-scl').textContent = board.defaultI2C.scl;
+                document.getElementById('default-i2c-sda').textContent = board.defaultI2C.sda;
+                
+                // Mark default I2C pins as used
+                appState.usedPins.add(board.defaultI2C.scl);
+                appState.usedPins.add(board.defaultI2C.sda);
+                
+                // Show companion board section
+                document.getElementById('companion-board-section').classList.remove('hidden');
+                
+                // Reset subsequent sections
+                resetSubsequentSelections();
+                
+                // Initialize SD and RTC sections based on board
+                initializeManualConfig();
+                
+                // Initialize pins lists for SD and I2C configuration
+                populatePinsLists();
+                
+                // Initialize components sections
+                populateComponentLists();
+            });
+            
+            // Companion board selection handler
+            document.getElementById('companion-board-select').addEventListener('change', function() {
+                const companionId = this.value;
+                appState.companionBoard = companionId ? { id: companionId, ...companionBoardConfigs[companionId] } : null;
+                
+                if (companionId) {
+                    const companion = companionBoardConfigs[companionId];
+                    
+                    // Update companion details display
+                    document.getElementById('companion-rtc').textContent = companion.rtc || 'None';
+                    document.getElementById('companion-sd-cs').textContent = companion.sdCardCS !== null ? companion.sdCardCS : 'None';
+                    document.getElementById('companion-extras').textContent = companion.extras;
+                    document.getElementById('companion-details').classList.remove('hidden');
+                    
+                    // Update SD card section
+                    if (companion.sdCardCS !== null) {
+                        appState.sdCardCS = companion.sdCardCS;
+                        document.getElementById('sd-missing').classList.add('hidden');
+                        document.getElementById('sd-present').classList.remove('hidden');
+                        document.getElementById('sd-cs-pin').textContent = companion.sdCardCS;
+                        
+                        // Mark SD CS pin as used
+                        appState.usedPins.add(companion.sdCardCS);
+                    } else {
+                        // Companion board doesn't provide SD card, show manual config
+                        document.getElementById('sd-missing').classList.remove('hidden');
+                        document.getElementById('sd-present').classList.add('hidden');
+                        appState.sdCardCS = null;
+                    }
+                    
+                    // Update RTC section
+                    if (companion.rtc) {
+                        appState.rtcType = companion.rtc;
+                        document.getElementById('rtc-missing').classList.add('hidden');
+                        document.getElementById('rtc-present').classList.remove('hidden');
+                        document.getElementById('rtc-type').textContent = companion.rtc;
+                    } else {
+                        // Companion board doesn't provide RTC, show manual config
+                        document.getElementById('rtc-missing').classList.remove('hidden');
+                        document.getElementById('rtc-present').classList.add('hidden');
+                        appState.rtcType = 'soft';
+                        document.getElementById('rtc-select').value = 'soft';
+                    }
+                } else {
+                    document.getElementById('companion-details').classList.add('hidden');
+                    
+                    // Reset SD card and RTC sections to manual configuration
+                    document.getElementById('sd-missing').classList.remove('hidden');
+                    document.getElementById('sd-present').classList.add('hidden');
+                    document.getElementById('rtc-missing').classList.remove('hidden');
+                    document.getElementById('rtc-present').classList.add('hidden');
+                    
+                    appState.sdCardCS = null;
+                    appState.rtcType = 'soft';
+                    document.getElementById('rtc-select').value = 'soft';
+                }
+                
+                // Show manual configuration section
+                document.getElementById('manual-config-section').classList.remove('hidden');
+                
+                // Show I2C bus section
+                document.getElementById('i2c-bus-section').classList.remove('hidden');
+                
+                // Show components section
+                document.getElementById('components-section').classList.remove('hidden');
+                
+                // Show selected components section
+                document.getElementById('selected-components-section').classList.remove('hidden');
+                
+                // Show generate section
+                document.getElementById('generate-section').classList.remove('hidden');
+                
+                // Refresh pin lists to reflect used pins
+                populatePinsLists();
+            });
+            
+            // Add SD card checkbox handler
+            document.getElementById('add-sd-card').addEventListener('change', function() {
+                if (this.checked) {
+                    document.getElementById('sd-card-pin-select').classList.remove('hidden');
+                } else {
+                    document.getElementById('sd-card-pin-select').classList.add('hidden');
+                    appState.sdCardCS = null;
+                }
+            });
+            
+            // RTC type selection handler
+            document.getElementById('rtc-select').addEventListener('change', function() {
+                appState.rtcType = this.value;
+            });
+            
+            // LED brightness slider handler
+            document.getElementById('led-brightness').addEventListener('input', function() {
+                const value = parseFloat(this.value);
+                appState.statusLEDBrightness = value;
+                document.getElementById('brightness-value').textContent = value.toFixed(1);
+            });
+            
+            // Add additional I2C bus checkbox handler
+            document.getElementById('add-i2c-bus').addEventListener('change', function() {
+                if (this.checked) {
+                    document.getElementById('additional-i2c-config').classList.remove('hidden');
+                } else {
+                    document.getElementById('additional-i2c-config').classList.add('hidden');
+                    
+                    // Remove additional I2C bus if unchecked
+                    const additionalBusIndex = appState.i2cBuses.findIndex(bus => bus.id !== 'default');
+                    if (additionalBusIndex !== -1) {
+                        // Free up the pins
+                        const bus = appState.i2cBuses[additionalBusIndex];
+                        appState.usedPins.delete(bus.scl);
+                        appState.usedPins.delete(bus.sda);
+                        
+                        // Remove the bus
+                        appState.i2cBuses.splice(additionalBusIndex, 1);
+                        
+                        // Update I2C bus select options
+                        updateI2CBusOptions();
+                    }
+                }
+            });
+            
+            // Add I2C Multiplexer button handler
+            document.getElementById('add-mux-btn').addEventListener('click', function() {
+                showAddMultiplexerModal();
+            });
+            
+            // Generate Configuration button handler
+            document.getElementById('generate-config-btn').addEventListener('click', function() {
+                generateConfiguration();
+            });
+            
+            // Download Configuration button handler
+            document.getElementById('download-config-btn').addEventListener('click', function() {
+                downloadConfiguration();
+            });
+            
+            // Import Configuration button handler
+            document.getElementById('import-btn').addEventListener('click', function() {
+                importConfiguration();
+            });
+            
+            // Export Configuration button handler
+            document.getElementById('export-btn').addEventListener('click', function() {
+                downloadConfiguration(true);
+            });
+            
+            // Modal cancel button handler
+            document.getElementById('modal-cancel').addEventListener('click', function() {
+                closeModal();
+            });
+            
+            // Modal save button handler
+            document.getElementById('modal-save').addEventListener('click', function() {
+                saveModalData();
+            });
+        });
+
+        // Helper functions
+        function hideSubsequentSections() {
+            document.getElementById('companion-board-section').classList.add('hidden');
+            document.getElementById('manual-config-section').classList.add('hidden');
+            document.getElementById('i2c-bus-section').classList.add('hidden');
+            document.getElementById('components-section').classList.add('hidden');
+            document.getElementById('selected-components-section').classList.add('hidden');
+            document.getElementById('generate-section').classList.add('hidden');
+        }
+
+        function resetSubsequentSelections() {
+            // Reset companion board selection
+            document.getElementById('companion-board-select').value = '';
+            document.getElementById('companion-details').classList.add('hidden');
+            
+            // Reset manual config
+            document.getElementById('add-sd-card').checked = false;
+            document.getElementById('sd-card-pin-select').classList.add('hidden');
+            document.getElementById('rtc-select').value = 'soft';
+            document.getElementById('led-brightness').value = 0.5;
+            document.getElementById('brightness-value').textContent = '0.5';
+            
+            // Reset I2C bus config
+            document.getElementById('add-i2c-bus').checked = false;
+            document.getElementById('additional-i2c-config').classList.add('hidden');
+            
+            // Reset component selections
+            appState.selectedComponents = [];
+            appState.i2cMultiplexers = [];
+            updateSelectedComponentsList();
+            
+            // Reset used pins to just the default I2C pins
+            appState.usedPins = new Set();
+            if (appState.selectedBoard) {
+                appState.usedPins.add(appState.selectedBoard.defaultI2C.scl);
+                appState.usedPins.add(appState.selectedBoard.defaultI2C.sda);
+            }
+        }
+
+        function initializeManualConfig() {
+            // Initialize SD card section
+            document.getElementById('sd-missing').classList.remove('hidden');
+            document.getElementById('sd-present').classList.add('hidden');
+            
+            // Initialize RTC section
+            document.getElementById('rtc-missing').classList.remove('hidden');
+            document.getElementById('rtc-present').classList.add('hidden');
+            
+            // Initialize LED brightness
+            document.getElementById('led-brightness').value = 0.5;
+            document.getElementById('brightness-value').textContent = '0.5';
+            appState.statusLEDBrightness = 0.5;
+        }
+
+        function populatePinsLists() {
+            if (!appState.selectedBoard) return;
+            
+            const pins = appState.selectedBoard.pins;
+            
+            // Populate SD card pins list
+            const sdPinsList = document.getElementById('sd-pins-list');
+            sdPinsList.innerHTML = '';
+            pins.forEach(pin => {
+                const pinElem = document.createElement('div');
+                pinElem.className = 'pin' + (appState.usedPins.has(pin) ? ' used' : '');
+                pinElem.textContent = pin;
+                
+                if (!appState.usedPins.has(pin)) {
+                    pinElem.addEventListener('click', function() {
+                        // Deselect any previously selected SD CS pin
+                        if (appState.sdCardCS !== null) {
+                            appState.usedPins.delete(appState.sdCardCS);
+                        }
+                        
+                        // Set new SD CS pin
+                        appState.sdCardCS = pin;
+                        appState.usedPins.add(pin);
+                        
+                        // Update pin selection UI
+                        const allPins = sdPinsList.querySelectorAll('.pin');
+                        allPins.forEach(p => p.classList.remove('selected'));
+                        pinElem.classList.add('selected');
+                        
+                        // Refresh other pin lists
+                        populatePinsLists();
+                    });
+                }
+                
+                sdPinsList.appendChild(pinElem);
+            });
+            
+            // Populate SCL pins list for additional I2C bus
+            const sclPinsList = document.getElementById('scl-pins-list');
+            sclPinsList.innerHTML = '';
+            pins.forEach(pin => {
+                const pinElem = document.createElement('div');
+                pinElem.className = 'pin' + (appState.usedPins.has(pin) ? ' used' : '');
+                pinElem.textContent = pin;
+                
+                if (!appState.usedPins.has(pin)) {
+                    pinElem.addEventListener('click', function() {
+                        // Find additional I2C bus or create it
+                        let additionalBus = appState.i2cBuses.find(bus => bus.id !== 'default');
+                        if (additionalBus) {
+                            // Free up old SCL pin if it exists
+                            if (additionalBus.scl !== undefined) {
+                                appState.usedPins.delete(additionalBus.scl);
+                            }
+                            
+                            // Set new SCL pin
+                            additionalBus.scl = pin;
+                        } else {
+                            // Create new additional bus
+                            additionalBus = {
+                                id: 'additional',
+                                scl: pin,
+                                sda: undefined
+                            };
+                            appState.i2cBuses.push(additionalBus);
+                        }
+                        
+                        // Mark pin as used
+                        appState.usedPins.add(pin);
+                        
+                        // Update pin selection UI
+                        const allPins = sclPinsList.querySelectorAll('.pin');
+                        allPins.forEach(p => p.classList.remove('selected'));
+                        pinElem.classList.add('selected');
+                        
+                        // Refresh other pin lists
+                        populatePinsLists();
+                        
+                        // Update I2C bus dropdown in components section
+                        if (additionalBus.sda !== undefined) {
+                            updateI2CBusOptions();
+                        }
+                    });
+                }
+                
+                sclPinsList.appendChild(pinElem);
+            });
+            
+            // Populate SDA pins list for additional I2C bus
+            const sdaPinsList = document.getElementById('sda-pins-list');
+            sdaPinsList.innerHTML = '';
+            pins.forEach(pin => {
+                const pinElem = document.createElement('div');
+                pinElem.className = 'pin' + (appState.usedPins.has(pin) ? ' used' : '');
+                pinElem.textContent = pin;
+                
+                if (!appState.usedPins.has(pin)) {
+                    pinElem.addEventListener('click', function() {
+                        // Find additional I2C bus or create it
+                        let additionalBus = appState.i2cBuses.find(bus => bus.id !== 'default');
+                        if (additionalBus) {
+                            // Free up old SDA pin if it exists
+                            if (additionalBus.sda !== undefined) {
+                                appState.usedPins.delete(additionalBus.sda);
+                            }
+                            
+                            // Set new SDA pin
+                            additionalBus.sda = pin;
+                        } else {
+                            // Create new additional bus
+                            additionalBus = {
+                                id: 'additional',
+                                scl: undefined,
+                                sda: pin
+                            };
+                            appState.i2cBuses.push(additionalBus);
+                        }
+                        
+                        // Mark pin as used
+                        appState.usedPins.add(pin);
+                        
+                        // Update pin selection UI
+                        const allPins = sdaPinsList.querySelectorAll('.pin');
+                        allPins.forEach(p => p.classList.remove('selected'));
+                        pinElem.classList.add('selected');
+                        
+                        // Refresh other pin lists
+                        populatePinsLists();
+                        
+                        // Update I2C bus dropdown in components section
+                        if (additionalBus.scl !== undefined) {
+                            updateI2CBusOptions();
+                        }
+                    });
+                }
+                
+                sdaPinsList.appendChild(pinElem);
+            });
+        }
+
+        function updateI2CBusOptions() {
+            const i2cBusSelect = document.getElementById('i2c-bus-select');
+            i2cBusSelect.innerHTML = '';
+            
+            appState.i2cBuses.forEach(bus => {
+                if (bus.scl !== undefined && bus.sda !== undefined) {
+                    const option = document.createElement('option');
+                    option.value = bus.id;
+                    option.textContent = bus.id === 'default' ? 
+                        'Default I2C Bus (SCL: ' + bus.scl + ', SDA: ' + bus.sda + ')' : 
+                        'Additional I2C Bus (SCL: ' + bus.scl + ', SDA: ' + bus.sda + ')';
+                    i2cBusSelect.appendChild(option);
+                }
+            });
+            
+            // Add options for each multiplexer channel
+            appState.i2cMultiplexers.forEach(mux => {
+                for (let i = 0; i < mux.channels; i++) {
+                    const option = document.createElement('option');
+                    const busId = `mux-${mux.id}-ch-${i}`;
+                    option.value = busId;
+                    option.textContent = `Multiplexer ${mux.address} - Channel ${i}`;
+                    i2cBusSelect.appendChild(option);
+                }
+            });
+        }
+
+        function populateComponentLists() {
+            // Populate I2C components
+            const i2cList = document.getElementById('i2c-component-list');
+            i2cList.innerHTML = '';
+            componentsData.i2c.forEach(component => {
+                const card = createComponentCard(component, 'i2c');
+                i2cList.appendChild(card);
+            });
+            
+            // Populate DS18x20 components
+            const ds18x20List = document.getElementById('ds18x20-component-list');
+            ds18x20List.innerHTML = '';
+            componentsData.ds18x20.forEach(component => {
+                const card = createComponentCard(component, 'ds18x20');
+                ds18x20List.appendChild(card);
+            });
+            
+            // Populate Pin components
+            const pinList = document.getElementById('pin-component-list');
+            pinList.innerHTML = '';
+            componentsData.pin.forEach(component => {
+                const card = createComponentCard(component, 'pin');
+                pinList.appendChild(card);
+            });
+            
+            // Populate Pixel components
+            const pixelList = document.getElementById('pixel-component-list');
+            pixelList.innerHTML = '';
+            componentsData.pixel.forEach(component => {
+                const card = createComponentCard(component, 'pixel');
+                pixelList.appendChild(card);
+            });
+            
+            // Populate PWM components
+            const pwmList = document.getElementById('pwm-component-list');
+            pwmList.innerHTML = '';
+            componentsData.pwm.forEach(component => {
+                const card = createComponentCard(component, 'pwm');
+                pwmList.appendChild(card);
+            });
+            
+            // Populate Servo components
+            const servoList = document.getElementById('servo-component-list');
+            servoList.innerHTML = '';
+            componentsData.servo.forEach(component => {
+                const card = createComponentCard(component, 'servo');
+                servoList.appendChild(card);
+            });
+            
+            // Populate UART components
+            const uartList = document.getElementById('uart-component-list');
+            uartList.innerHTML = '';
+            componentsData.uart.forEach(component => {
+                const card = createComponentCard(component, 'uart');
+                uartList.appendChild(card);
+            });
+            
+            // Update I2C bus options
+            updateI2CBusOptions();
+        }
+
+        function createComponentCard(component, type) {
+            const card = document.createElement('div');
+            card.className = 'component-card';
+            card.dataset.id = component.id;
+            card.dataset.type = type;
+            
+            const title = document.createElement('h4');
+            title.textContent = component.name;
+            card.appendChild(title);
+            
+            if (type === 'i2c' && component.address) {
+                const address = document.createElement('p');
+                address.textContent = `Address: ${component.address}`;
+                card.appendChild(address);
+            }
+            
+            if (component.dataTypes && component.dataTypes.length > 0) {
+                const dataTypes = document.createElement('p');
+                dataTypes.textContent = `Data Types: ${component.dataTypes.length}`;
+                card.appendChild(dataTypes);
+            }
+            
+            const addBtn = document.createElement('button');
+            addBtn.textContent = 'Add Component';
+            addBtn.addEventListener('click', function() {
+                showComponentConfigModal(component, type);
+            });
+            card.appendChild(addBtn);
+            
+            return card;
+        }
+
+        function showComponentConfigModal(component, type) {
+            const modal = document.getElementById('component-modal');
+            const modalTitle = document.getElementById('modal-title');
+            const modalContent = document.getElementById('modal-content');
+            
+            // Set modal title
+            modalTitle.textContent = `Configure ${component.name}`;
+            
+            // Clear previous content
+            modalContent.innerHTML = '';
+            
+            // Build configuration form based on component type
+            let html = '<form id="component-config-form">';
+            
+            // Common fields
+            html += `
+                <div>
+                    <label for="component-name">Component Name:</label>
+                    <input type="text" id="component-name" value="${component.name}" required>
+                </div>
+                <div>
+                    <label for="component-period">Polling Period (seconds):</label>
+                    <input type="number" id="component-period" value="30" min="1" required>
+                </div>
+            `;
+            
+            // Component-specific fields
+            if (type === 'i2c') {
+                // I2C bus selection
+                html += `
+                    <div>
+                        <label for="modal-i2c-bus">I2C Bus:</label>
+                        <select id="modal-i2c-bus" required>
+                `;
+                
+                // Add options for each configured I2C bus
+                appState.i2cBuses.forEach(bus => {
+                    if (bus.scl !== undefined && bus.sda !== undefined) {
+                        html += `<option value="${bus.id}">${bus.id === 'default' ? 
+                            'Default I2C Bus (SCL: ' + bus.scl + ', SDA: ' + bus.sda + ')' : 
+                            'Additional I2C Bus (SCL: ' + bus.scl + ', SDA: ' + bus.sda + ')'}</option>`;
+                    }
+                });
+                
+                // Add options for each multiplexer channel
+                appState.i2cMultiplexers.forEach(mux => {
+                    for (let i = 0; i < mux.channels; i++) {
+                        const busId = `mux-${mux.id}-ch-${i}`;
+                        html += `<option value="${busId}">Multiplexer ${mux.address} - Channel ${i}</option>`;
+                    }
+                });
+                
+                html += `
+                    </select>
+                </div>
+                `;
+                
+                // I2C Address
+                html += `
+                    <div>
+                        <label for="modal-i2c-address">I2C Address:</label>
+                        <input type="text" id="modal-i2c-address" value="${component.address}" required>
+                    </div>
+                `;
+                
+                // Special case for multiplexer
+                if (component.id === 'pca9546') {
+                    html += `
+                        <div>
+                            <label for="modal-mux-channels">Number of Channels:</label>
+                            <input type="number" id="modal-mux-channels" value="${component.channels || 4}" min="1" max="8" required>
+                        </div>
+                    `;
+                }
+            } else if (type === 'ds18x20' || type === 'pin' || type === 'pixel' || type === 'pwm' || type === 'servo') {
+                // Pin selection for other component types
+                html += `
+                    <div>
+                        <label for="modal-pin-select">Select Pin:</label>
+                        <select id="modal-pin-select" required>
+                            <option value="">-- Select a Pin --</option>
+                `;
+                
+                // Add available pins
+                if (appState.selectedBoard) {
+                    appState.selectedBoard.pins.forEach(pin => {
+                        if (!appState.usedPins.has(pin)) {
+                            html += `<option value="${pin}">Pin ${pin}</option>`;
+                        }
+                    });
+                }
+                
+                html += `
+                        </select>
+                    </div>
+                `;
+                
+                // Additional fields for pixel components
+                if (type === 'pixel') {
+                    html += `
+                        <div>
+                            <label for="modal-pixel-count">Number of Pixels:</label>
+                            <input type="number" id="modal-pixel-count" value="1" min="1" required>
+                        </div>
+                    `;
+                }
+            } else if (type === 'uart') {
+                // UART pin selection
+                html += `
+                    <div>
+                        <label for="modal-uart-tx">TX Pin:</label>
+                        <select id="modal-uart-tx" required>
+                            <option value="">-- Select TX Pin --</option>
+                `;
+                
+                // Add available pins for TX
+                if (appState.selectedBoard) {
+                    appState.selectedBoard.pins.forEach(pin => {
+                        if (!appState.usedPins.has(pin)) {
+                            html += `<option value="${pin}">Pin ${pin}</option>`;
+                        }
+                    });
+                }
+                
+                html += `
+                        </select>
+                    </div>
+                    <div>
+                        <label for="modal-uart-rx">RX Pin:</label>
+                        <select id="modal-uart-rx" required>
+                            <option value="">-- Select RX Pin --</option>
+                `;
+                
+                // Add available pins for RX
+                if (appState.selectedBoard) {
+                    appState.selectedBoard.pins.forEach(pin => {
+                        if (!appState.usedPins.has(pin) && pin !== parseInt(document.getElementById('modal-uart-tx')?.value)) {
+                            html += `<option value="${pin}">Pin ${pin}</option>`;
+                        }
+                    });
+                }
+                
+                html += `
+                        </select>
+                    </div>
+                `;
+            }
+            
+            // Data type selection
+            if (component.dataTypes && component.dataTypes.length > 0) {
+                html += `
+                    <div>
+                        <h4>Select Data Types:</h4>
+                        <div id="data-type-checkboxes">
+                `;
+                
+                component.dataTypes.forEach(dataType => {
+                    const displayName = typeof dataType === 'string' ? 
+                        dataType : (dataType.displayName || dataType.sensorType);
+                    const value = typeof dataType === 'string' ? 
+                        dataType : JSON.stringify(dataType);
+                    
+                    html += `
+                        <div>
+                            <label>
+                                <input type="checkbox" name="data-type" value='${value}' checked>
+                                ${displayName}
+                            </label>
+                        </div>
+                    `;
+                });
+                
+                html += `
+                        </div>
+                    </div>
+                `;
+            }
+            
+            html += '</form>';
+            
+            modalContent.innerHTML = html;
+            
+            // Store component info for use when saving
+            modalContent.dataset.componentId = component.id;
+            modalContent.dataset.componentType = type;
+            
+            // Show the modal
+            modal.style.display = 'block';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('component-modal');
+            modal.style.display = 'none';
+        }
+
+        function saveModalData() {
+            const modalContent = document.getElementById('modal-content');
+            const componentId = modalContent.dataset.componentId;
+            const componentType = modalContent.dataset.componentType;
+            
+            // Get component template
+            const componentTemplate = componentsData[componentType].find(c => c.id === componentId);
+            
+            // Get form values
+            const name = document.getElementById('component-name').value;
+            const period = parseInt(document.getElementById('component-period').value);
+            
+            // Initialize component config
+            const componentConfig = {
+                instanceId: appState.nextComponentId++,
+                name: name,
+                componentAPI: componentType,
+                period: period
+            };
+            
+            // Special handling for I2C
+            if (componentType === 'i2c') {
+                const i2cBus = document.getElementById('modal-i2c-bus').value;
+                const i2cAddress = document.getElementById('modal-i2c-address').value;
+                
+                componentConfig.i2cDeviceName = componentId;
+                componentConfig.i2cDeviceAddress = i2cAddress;
+                
+                // Handle multiplexer channel if selected
+                if (i2cBus.startsWith('mux-')) {
+                    const [_, muxId, __, channelNum] = i2cBus.split('-');
+                    const mux = appState.i2cMultiplexers.find(m => m.id === parseInt(muxId));
+                    
+                    if (mux) {
+                        componentConfig.i2cMuxAddress = mux.address;
+                        componentConfig.i2cMuxChannel = channelNum;
+                    }
+                } else if (i2cBus === 'additional') {
+                    // Add SCL/SDA for additional bus
+                    const additionalBus = appState.i2cBuses.find(b => b.id === 'additional');
+                    if (additionalBus) {
+                        componentConfig.i2cBusScl = additionalBus.scl.toString();
+                        componentConfig.i2cBusSda = additionalBus.sda.toString();
+                    }
+                }
+                
+                // Special case for PCA9546 multiplexer
+                if (componentId === 'pca9546') {
+                    const channels = parseInt(document.getElementById('modal-mux-channels').value);
+                    
+                    // Add to multiplexers list
+                    const muxConfig = {
+                        id: appState.nextComponentId - 1, // Use the same ID assigned to componentConfig
+                        address: i2cAddress,
+                        channels: channels
+                    };
+                    
+                    appState.i2cMultiplexers.push(muxConfig);
+                    
+                    // Update I2C bus options
+                    updateI2CBusOptions();
+                } else {
+                    // Add data types for non-multiplexer components
+                    const dataTypeCheckboxes = document.querySelectorAll('input[name="data-type"]:checked');
+                    if (dataTypeCheckboxes.length > 0) {
+                        componentConfig.i2cDeviceSensorTypes = Array.from(dataTypeCheckboxes).map(checkbox => {
+                            try {
+                                return { type: JSON.parse(checkbox.value) };
+                            } catch (e) {
+                                return { type: checkbox.value };
+                            }
+                        });
+                    }
+                }
+            } else if (componentType === 'ds18x20') {
+                const pin = document.getElementById('modal-pin-select').value;
+                
+                componentConfig.pinName = `D${pin}`;
+                componentConfig.sensorResolution = 12;
+                
+                // Mark pin as used
+                appState.usedPins.add(parseInt(pin));
+                
+                // Add data types
+                const dataTypeCheckboxes = document.querySelectorAll('input[name="data-type"]:checked');
+                if (dataTypeCheckboxes.length > 0) {
+                    componentConfig.sensorTypeCount = dataTypeCheckboxes.length;
+                    
+                    // Add each sensor type
+                    Array.from(dataTypeCheckboxes).forEach((checkbox, index) => {
+                        const typeValue = checkbox.value.replace(/"/g, '');
+                        componentConfig[`sensorType${index + 1}`] = typeValue;
+                    });
+                }
+            } else if (componentType === 'pin' || componentType === 'pwm' || componentType === 'servo') {
+                const pin = document.getElementById('modal-pin-select').value;
+                
+                componentConfig.pinName = `D${pin}`;
+                
+                // Mark pin as used
+                appState.usedPins.add(parseInt(pin));
+            } else if (componentType === 'pixel') {
+                const pin = document.getElementById('modal-pin-select').value;
+                const pixelCount = document.getElementById('modal-pixel-count').value;
+                
+                componentConfig.pinName = `D${pin}`;
+                componentConfig.numPixels = parseInt(pixelCount);
+                
+                // Mark pin as used
+                appState.usedPins.add(parseInt(pin));
+            } else if (componentType === 'uart') {
+                const txPin = document.getElementById('modal-uart-tx').value;
+                const rxPin = document.getElementById('modal-uart-rx').value;
+                
+                componentConfig.txPin = `D${txPin}`;
+                componentConfig.rxPin = `D${rxPin}`;
+                
+                // Mark pins as used
+                appState.usedPins.add(parseInt(txPin));
+                appState.usedPins.add(parseInt(rxPin));
+                
+                // Add data types
+                const dataTypeCheckboxes = document.querySelectorAll('input[name="data-type"]:checked');
+                if (dataTypeCheckboxes.length > 0) {
+                    componentConfig.sensorTypes = Array.from(dataTypeCheckboxes).map(checkbox => {
+                        try {
+                            return JSON.parse(checkbox.value);
+                        } catch (e) {
+                            return checkbox.value;
+                        }
+                    });
+                }
+            }
+            
+            // Add component to the selected components list
+            appState.selectedComponents.push(componentConfig);
+            
+            // Update the selected components list
+            updateSelectedComponentsList();
+            
+            // Refresh pin lists
+            populatePinsLists();
+            
+            // Close the modal
+            closeModal();
+        }
+
+        function showAddMultiplexerModal() {
+            // Check if there are I2C buses available
+            if (appState.i2cBuses.length === 0) {
+                alert('No I2C buses available. Please configure an I2C bus first.');
+                return;
+            }
+            
+            // Find the PCA9546 component template
+            const multiplexerTemplate = componentsData.i2c.find(c => c.id === 'pca9546');
+            if (!multiplexerTemplate) {
+                alert('Multiplexer component not found in the component data.');
+                return;
+            }
+            
+            // Show component config modal for the multiplexer
+            showComponentConfigModal(multiplexerTemplate, 'i2c');
+        }
+
+        function updateSelectedComponentsList() {
+            const selectedList = document.getElementById('selected-components-list');
+            
+            if (appState.selectedComponents.length === 0) {
+                selectedList.innerHTML = '<p>No components selected yet.</p>';
+                return;
+            }
+            
+            let html = '<ul class="component-details-list">';
+            
+            appState.selectedComponents.forEach(component => {
+                let detailsText = '';
+                
+                // Show connection details based on component type
+                if (component.componentAPI === 'i2c') {
+                    // Base I2C information
+                    detailsText += `<br>Address: ${component.i2cDeviceAddress}`;
+                    
+                    // Show bus information
+                    if (component.i2cBusScl && component.i2cBusSda) {
+                        detailsText += `<br>Bus: Custom (SCL: ${component.i2cBusScl}, SDA: ${component.i2cBusSda})`;
+                    } else if (component.i2cMuxAddress) {
+                        detailsText += `<br>Connected to: Multiplexer ${component.i2cMuxAddress} - Channel ${component.i2cMuxChannel}`;
+                    } else {
+                        // Default bus
+                        const defaultBus = appState.i2cBuses.find(bus => bus.id === 'default');
+                        if (defaultBus) {
+                            detailsText += `<br>Bus: Default (SCL: ${defaultBus.scl}, SDA: ${defaultBus.sda})`;
+                        }
+                    }
+                    
+                    // Show sensor types
+                    if (component.i2cDeviceSensorTypes && component.i2cDeviceSensorTypes.length > 0) {
+                        detailsText += '<br>Data types: ';
+                        component.i2cDeviceSensorTypes.forEach((sensor, index) => {
+                            const sensorType = typeof sensor.type === 'object' ? 
+                                sensor.type.displayName || sensor.type.sensorType : sensor.type;
+                            detailsText += (index > 0 ? ', ' : '') + sensorType;
+                        });
+                    }
+                } else if (component.componentAPI === 'ds18x20') {
+                    detailsText += `<br>Pin: ${component.pinName}`;
+                    detailsText += `<br>Resolution: ${component.sensorResolution}-bit`;
+                    
+                    // Show sensor types
+                    const sensorTypes = [];
+                    for (let i = 1; i <= component.sensorTypeCount; i++) {
+                        if (component[`sensorType${i}`]) {
+                            sensorTypes.push(component[`sensorType${i}`]);
+                        }
+                    }
+                    
+                    if (sensorTypes.length > 0) {
+                        detailsText += '<br>Data types: ' + sensorTypes.join(', ');
+                    }
+                } else if (component.componentAPI === 'pin' || component.componentAPI === 'pwm' || component.componentAPI === 'servo') {
+                    detailsText += `<br>Pin: ${component.pinName}`;
+                } else if (component.componentAPI === 'pixel') {
+                    detailsText += `<br>Pin: ${component.pinName}`;
+                    detailsText += `<br>Pixels: ${component.numPixels}`;
+                } else if (component.componentAPI === 'uart') {
+                    detailsText += `<br>TX Pin: ${component.txPin}, RX Pin: ${component.rxPin}`;
+                    
+                    // Show sensor types
+                    if (component.sensorTypes && component.sensorTypes.length > 0) {
+                        detailsText += '<br>Data types: ';
+                        component.sensorTypes.forEach((sensor, index) => {
+                            const sensorType = typeof sensor === 'object' ? 
+                                sensor.displayName || sensor.sensorType : sensor;
+                            detailsText += (index > 0 ? ', ' : '') + sensorType;
+                        });
+                    }
+                }
+                
+                // Add polling period
+                detailsText += `<br>Polling period: ${component.period} seconds`;
+                
+                html += `<li>
+                    <div class="component-item">
+                        <div class="component-info">
+                            <strong>${component.name}</strong> (${component.componentAPI})
+                            ${detailsText}
+                        </div>
+                        <div class="component-actions">
+                            <button onclick="removeComponent(${component.instanceId})">Remove</button>
+                        </div>
+                    </div>
+                </li>`;
+            });
+            
+            html += '</ul>';
+            selectedList.innerHTML = html;
+        }
+
+        function removeComponent(instanceId) {
+            // Find the component
+            const componentIndex = appState.selectedComponents.findIndex(c => c.instanceId === instanceId);
+            if (componentIndex === -1) return;
+            
+            const component = appState.selectedComponents[componentIndex];
+            
+            // Free up pins used by this component
+            if (component.pinName) {
+                const pinNumber = parseInt(component.pinName.replace('D', ''));
+                appState.usedPins.delete(pinNumber);
+            }
+            
+            if (component.txPin) {
+                const txPinNumber = parseInt(component.txPin.replace('D', ''));
+                appState.usedPins.delete(txPinNumber);
+            }
+            
+            if (component.rxPin) {
+                const rxPinNumber = parseInt(component.rxPin.replace('D', ''));
+                appState.usedPins.delete(rxPinNumber);
+            }
+            
+            // Check if this is a multiplexer and remove it from the multiplexers list
+            if (component.componentAPI === 'i2c' && component.i2cDeviceName === 'pca9546') {
+                const muxIndex = appState.i2cMultiplexers.findIndex(m => m.id === component.instanceId);
+                if (muxIndex !== -1) {
+                    appState.i2cMultiplexers.splice(muxIndex, 1);
+                    
+                    // Update I2C bus options
+                    updateI2CBusOptions();
+                    
+                    // Remove any components using this multiplexer
+                    appState.selectedComponents = appState.selectedComponents.filter(c => 
+                        !(c.i2cMuxAddress && c.i2cMuxAddress === component.i2cDeviceAddress));
+                }
+            }
+            
+            // Remove the component
+            appState.selectedComponents.splice(componentIndex, 1);
+            
+            // Update the selected components list
+            updateSelectedComponentsList();
+            
+            // Refresh pin lists
+            populatePinsLists();
+        }
+
+        function generateConfiguration() {
+            // Check if a board is selected
+            if (!appState.selectedBoard) {
+                alert('Please select a board before generating configuration.');
+                return;
+            }
+            
+            // Check if there are any components
+            if (appState.selectedComponents.length === 0) {
+                alert('Please add at least one component before generating configuration.');
+                return;
+            }
+            
+            // Build the configuration object
+            const config = {
+                exportedFromDevice: {
+                    referenceVoltage: appState.selectedBoard.referenceVoltage,
+                    totalGPIOPins: appState.selectedBoard.totalGPIOPins,
+                    totalAnalogPins: appState.selectedBoard.totalAnalogPins,
+                    statusLEDBrightness: appState.statusLEDBrightness
+                },
+                components: []
+            };
+            
+            // Add SD card CS pin if present
+            if (appState.sdCardCS !== null) {
+                config.exportedFromDevice.sd_cs_pin = appState.sdCardCS;
+            }
+            
+            // Add RTC type if not 'soft'
+            if (appState.rtcType !== 'soft') {
+                config.exportedFromDevice.rtc = appState.rtcType;
+            }
+            
+            // Add components
+            appState.selectedComponents.forEach(component => {
+                // Create a clean component object without the instanceId
+                const cleanComponent = {...component};
+                delete cleanComponent.instanceId;
+                
+                config.components.push(cleanComponent);
+            });
+            
+            // Convert to formatted JSON and display
+            const jsonOutput = JSON.stringify(config, null, 4);
+            document.getElementById('config-output').textContent = jsonOutput;
+            document.getElementById('config-output-container').classList.remove('hidden');
+            
+            // Also update the export tab
+            document.getElementById('export-config').textContent = jsonOutput;
+        }
+
+        function downloadConfiguration(fromExportTab = false) {
+            // Get the configuration JSON
+            const configText = fromExportTab ? 
+                document.getElementById('export-config').textContent : 
+                document.getElementById('config-output').textContent;
+            
+            if (configText === 'No configuration generated yet.') {
+                alert('Please generate a configuration first.');
+                return;
+            }
+            
+            // Create a Blob with the configuration
+            const blob = new Blob([configText], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            
+            // Create a download link and trigger it
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'config.json';
+            document.body.appendChild(a);
+            a.click();
+            
+            // Clean up
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        function importConfiguration() {
+            const jsonText = document.getElementById('import-json').value.trim();
+            if (!jsonText) {
+                alert('Please paste a valid JSON configuration.');
+                return;
+            }
+            
+            try {
+                // Parse the JSON
+                const config = JSON.parse(jsonText);
+                
+                // Reset the application state
+                resetAppState();
+                
+                // Import the configuration
+                importConfigObject(config);
+                
+                // Update the UI
+                document.getElementById('import-json').value = '';
+                alert('Configuration imported successfully. Please check the Build tab to see your configuration.');
+                
+                // Switch to the Build tab
+                openTab(null, 'BuildConfig');
+            } catch (error) {
+                alert('Error importing configuration: ' + error.message);
+            }
+        }
+
+        function resetAppState() {
+            appState.selectedBoard = null;
+            appState.companionBoard = null;
+            appState.sdCardCS = null;
+            appState.rtcType = 'soft';
+            appState.statusLEDBrightness = 0.5;
+            appState.i2cBuses = [];
+            appState.i2cMultiplexers = [];
+            appState.selectedComponents = [];
+            appState.usedPins = new Set();
+            appState.nextComponentId = 1;
+            
+            // Reset UI elements
+            document.getElementById('board-select').value = '';
+            document.getElementById('companion-board-select').value = '';
+            document.getElementById('led-brightness').value = 0.5;
+            document.getElementById('brightness-value').textContent = '0.5';
+            document.getElementById('add-sd-card').checked = false;
+            document.getElementById('add-i2c-bus').checked = false;
+            
+            // Hide sections
+            hideSubsequentSections();
+        }
+
+        function importConfigObject(config) {
+            // Import device details
+            const deviceConfig = config.exportedFromDevice;
+            
+            // Try to find the board that matches the configuration
+            let matchedBoard = null;
+            for (const [boardId, boardConfig] of Object.entries(boardConfigs)) {
+                if (boardConfig.referenceVoltage === deviceConfig.referenceVoltage &&
+                    boardConfig.totalGPIOPins === deviceConfig.totalGPIOPins &&
+                    boardConfig.totalAnalogPins === deviceConfig.totalAnalogPins) {
+                    matchedBoard = boardId;
+                    break;
+                }
+            }
+            
+            if (matchedBoard) {
+                // Select the matched board
+                document.getElementById('board-select').value = matchedBoard;
+                const event = new Event('change');
+                document.getElementById('board-select').dispatchEvent(event);
+                
+                // Import SD card CS pin
+                if (deviceConfig.sd_cs_pin !== undefined) {
+                    appState.sdCardCS = deviceConfig.sd_cs_pin;
+                    document.getElementById('add-sd-card').checked = true;
+                    document.getElementById('sd-card-pin-select').classList.remove('hidden');
+                    appState.usedPins.add(deviceConfig.sd_cs_pin);
+                }
+                
+                // Import RTC type
+                if (deviceConfig.rtc) {
+                    appState.rtcType = deviceConfig.rtc;
+                    document.getElementById('rtc-select').value = deviceConfig.rtc;
+                    const rtcEvent = new Event('change');
+                    document.getElementById('rtc-select').dispatchEvent(rtcEvent);
+                }
+                
+                // Import LED brightness
+                if (deviceConfig.statusLEDBrightness !== undefined) {
+                    appState.statusLEDBrightness = deviceConfig.statusLEDBrightness;
+                    document.getElementById('led-brightness').value = deviceConfig.statusLEDBrightness;
+                    document.getElementById('brightness-value').textContent = deviceConfig.statusLEDBrightness;
+                }
+                
+                // Import components
+                if (config.components && Array.isArray(config.components)) {
+                    // First pass: find and set up multiplexers
+                    config.components.forEach(component => {
+                        if (component.componentAPI === 'i2c' && component.i2cDeviceName === 'pca9546') {
+                            const muxConfig = {
+                                id: appState.nextComponentId++,
+                                address: component.i2cDeviceAddress,
+                                channels: 4 // Default to 4 channels
+                            };
+                            
+                            appState.i2cMultiplexers.push(muxConfig);
+                            
+                            // Add to selected components
+                            const componentConfig = {
+                                ...component,
+                                instanceId: muxConfig.id
+                            };
+                            
+                            appState.selectedComponents.push(componentConfig);
+                        }
+                    });
+                    
+                    // Second pass: import other components
+                    config.components.forEach(component => {
+                        if (component.componentAPI === 'i2c' && component.i2cDeviceName === 'pca9546') {
+                            // Skip multiplexers (already handled)
+                            return;
+                        }
+                        
+                        // Add component to the selected components
+                        const componentConfig = {
+                            ...component,
+                            instanceId: appState.nextComponentId++
+                        };
+                        
+                        appState.selectedComponents.push(componentConfig);
+                        
+                        // Mark used pins
+                        if (component.pinName) {
+                            const pinNumber = parseInt(component.pinName.replace('D', ''));
+                            appState.usedPins.add(pinNumber);
+                        }
+                        
+                        if (component.txPin) {
+                            const txPinNumber = parseInt(component.txPin.replace('D', ''));
+                            appState.usedPins.add(txPinNumber);
+                        }
+                        
+                        if (component.rxPin) {
+                            const rxPinNumber = parseInt(component.rxPin.replace('D', ''));
+                            appState.usedPins.add(rxPinNumber);
+                        }
+                    });
+                    
+                    // Update selected components list
+                    updateSelectedComponentsList();
+                }
+                
+                // Show all sections
+                document.getElementById('companion-board-section').classList.remove('hidden');
+                document.getElementById('manual-config-section').classList.remove('hidden');
+                document.getElementById('i2c-bus-section').classList.remove('hidden');
+                document.getElementById('components-section').classList.remove('hidden');
+                document.getElementById('selected-components-section').classList.remove('hidden');
+                document.getElementById('generate-section').classList.remove('hidden');
+                
+                // Update I2C bus options
+                updateI2CBusOptions();
+                
+                // Refresh pin lists
+                populatePinsLists();
+            } else {
+                alert('Could not identify the board from the configuration. Please select a board manually.');
+            }
+        }
+
+        // Tab Navigation functions
+        function openTab(evt, tabName) {
+            // Declare variables
+            let i, tabcontent, tablinks;
+            
+            // Get all elements with class="tabcontent" and hide them
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            
+            // Get all elements with class="tablinks" and remove the class "active"
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            
+            // Show the current tab, and add an "active" class to the button that opened the tab
+            document.getElementById(tabName).style.display = "block";
+            if (evt) {
+                evt.currentTarget.className += " active";
+            } else {
+                // If called programmatically, find and activate the correct tab
+                for (i = 0; i < tablinks.length; i++) {
+                    if (tablinks[i].textContent.includes(tabName.replace('Export', 'Import/Export'))) {
+                        tablinks[i].className += " active";
+                    }
+                }
+            }
+        }
+
+        function openComponentTab(evt, tabName) {
+            // Declare variables
+            let i, tabcontent, tablinks;
+            
+            // Get all elements with class="component-tabcontent" and hide them
+            tabcontent = document.getElementsByClassName("component-tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            
+            // Get all elements with class="comp-tab" and remove the class "active"
+            tablinks = document.getElementsByClassName("comp-tab");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            
+            // Show the current tab, and add an "active" class to the button that opened the tab
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
+</body>
+</html>

@@ -1,11 +1,48 @@
 import os
 import json
 import glob
+import re
+import requests
+from bs4 import BeautifulSoup
 from pathlib import Path
 
 # Base directory for the components
 COMPONENTS_DIR = r"./Wippersnapper_Components/components"
 OUTPUT_FILE = r"./wippersnapper_components.json"
+
+def get_image_from_adafruit_product_url(product_url):
+    """
+    Fetch the product image URL from an Adafruit product page by extracting
+    the og:image meta tag from the HTML.
+    
+    Args:
+        product_url (str): URL to an Adafruit product page
+        
+    Returns:
+        str or None: URL to the product image, or None if not found
+    """
+    if not product_url or not re.match(r'https?://(?:www\.)?adafruit\.com/product/\d+', product_url):
+        return None
+    
+    try:
+        response = requests.get(product_url, timeout=10)
+        if response.status_code != 200:
+            print(f"Failed to fetch product page: {product_url}, status code: {response.status_code}")
+            return None
+        
+        soup = BeautifulSoup(response.text, 'html.parser')
+        og_image = soup.find('meta', property='og:image')
+        
+        if og_image and 'content' in og_image.attrs:
+            image_url = og_image['content']
+            print(f"Found image URL from product page: {image_url}")
+            return image_url
+        else:
+            print(f"No og:image meta tag found for: {product_url}")
+            return None
+    except Exception as e:
+        print(f"Error fetching image from product URL {product_url}: {str(e)}")
+        return None
 
 def convert_components_to_json():
     """
@@ -48,6 +85,10 @@ def convert_components_to_json():
                     "image": None
                 }
                 
+                # Store product URL if available
+                if "productURL" in component_data:
+                    component_info["productUrl"] = component_data["productURL"]
+                
                 # Extract data types if available
                 if "subcomponents" in component_data:
                     for meas_type in component_data["subcomponents"]:
@@ -80,12 +121,22 @@ def convert_components_to_json():
                 
                 # Look for an image file
                 image_extensions = ['.jpg', '.jpeg', '.png', '.gif', '.svg']
+                image_found = False
                 for ext in image_extensions:
                     image_file = os.path.join(component_path, f"image{ext}")
                     if os.path.exists(image_file):
                         # Store relative path to image
                         component_info["image"] = f"components/{category}/{component_dir}/image{ext}"
+                        image_found = True
                         break
+                
+                # If no local image found and we have a product URL from Adafruit, try to fetch the image
+                if not image_found and "productUrl" in component_info:
+                    product_url = component_info["productUrl"]
+                    image_url = get_image_from_adafruit_product_url(product_url)
+                    if image_url:
+                        component_info["image"] = image_url
+                        print(f"Using Adafruit product image for {category}/{component_dir}: {image_url}")
                 
                 # Add to category components
                 category_components.append(component_info)

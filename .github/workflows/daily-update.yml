@@ -42,7 +42,9 @@ jobs:
           git submodule update --remote --recursive
 
       - name: Run conversion script
-        run: python convert_all_wippersnapper_definitions.py
+        run: |
+          pip install requests beautifulsoup4
+          python convert_all_wippersnapper_definitions.py
 
       - name: Commit changes if any
         run: |

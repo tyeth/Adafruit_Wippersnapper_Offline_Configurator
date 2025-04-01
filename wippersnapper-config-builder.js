@@ -669,7 +669,11 @@ function createComponentCard(component, type) {
     // Add image if available
     if (component.image) {
         const img = document.createElement('img');
-        img.src = "https://raw.githubusercontent.com/adafruit/Wippersnapper_Components/refs/heads/main/" + component.image;
+        if (!component.image.startsWith('http')) {
+            img.src = "https://raw.githubusercontent.com/adafruit/Wippersnapper_Components/refs/heads/main/" + component.image;
+        } else {
+            img.src = component.image;
+        }
         img.alt = component.name;
         card.appendChild(img);
     }

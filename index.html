@@ -540,13 +540,30 @@
             
             // Show the current tab, and add an "active" class to the button that opened the tab
             document.getElementById(tabName).style.display = "block";
-            evt.currentTarget.className += " active";
+            if (evt) {
+                evt.currentTarget.className += " active";
+            } else {
+                // If called programmatically, find and activate the correct tab
+                for (i = 0; i < tablinks.length; i++) {
+                    if (tablinks[i].textContent.includes(tabName.replace('-components', ''))) {
+                        tablinks[i].className += " active";
+                    }
+                }
+            }
         }
         
         // Initialize the application with data loading
         document.addEventListener('DOMContentLoaded', function() {
             // This is handled by the load-wippersnapper-data.js script
             // It will call loadWippersnapperData() and initialize everything
+            
+            // Make sure only All Components tab is visible initially
+            const tabcontents = document.getElementsByClassName("component-tabcontent");
+            for (let i = 0; i < tabcontents.length; i++) {
+                if (tabcontents[i].id !== "all-components") {
+                    tabcontents[i].style.display = "none";
+                }
+            }
         });
         
         // Component search functionality

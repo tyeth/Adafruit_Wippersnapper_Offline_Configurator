@@ -145,7 +145,8 @@ if (typeof appState === 'undefined') {
             servo: [],
             uart: []
         },
-        boardsData: {}
+        boardsData: {},
+        isImporting: false
     };
 }
 
@@ -1502,6 +1503,62 @@ function importConfiguration() {
     }
 }
 
+// Add file import handler
+document.addEventListener('DOMContentLoaded', function() {
+    // Existing event listeners...
+    
+    // Import file button handler
+    document.getElementById('import-btn').addEventListener('click', function() {
+        const fileInput = document.getElementById('import-file');
+        if (!fileInput.files || fileInput.files.length === 0) {
+            alert('Please select a file to import.');
+            return;
+        }
+        
+        const file = fileInput.files[0];
+        const reader = new FileReader();
+        
+        reader.onload = function(e) {
+            try {
+                // Read the file content into the text area
+                const jsonText = e.target.result;
+                document.getElementById('import-json').value = jsonText;
+                
+                // Parse the JSON
+                const config = JSON.parse(jsonText);
+                
+                // Reset the application state
+                resetAppState();
+                
+                // Import the configuration
+                importConfigObject(config);
+                
+                // Clear the file input and text area
+                fileInput.value = '';
+                document.getElementById('import-json').value = '';
+                
+                alert('Configuration imported successfully. Please check the Build tab to see your configuration.');
+                
+                // Switch to the Build tab
+                openTab(null, 'BuildConfig');
+            } catch (error) {
+                alert('Error importing configuration: ' + error.message);
+            }
+        };
+        
+        reader.onerror = function() {
+            alert('Error reading file.');
+        };
+        
+        reader.readAsText(file);
+    });
+    
+    // Import from text button handler
+    document.getElementById('import-json-btn').addEventListener('click', function() {
+        importConfiguration();
+    });
+});
+
 function resetAppState() {
     appState.selectedBoard = null;
     appState.companionBoard = null;
@@ -1526,6 +1583,7 @@ function resetAppState() {
     hideSubsequentSections();
 }
 
+// Function to import a configuration object
 function importConfigObject(config) {
     // Import device details
     const deviceConfig = config.exportedFromDevice;

@@ -11,6 +11,56 @@ def add_custom_board_definitions(boards):
     """
     Add custom board definitions for boards that don't have definition.json files
     """
+    # Adafruit Feather RP2040 Adalogger
+    boards["feather-rp2040-adalogger"] = {
+        "boardName": "Adafruit Feather RP2040 Adalogger",
+        "mcuName": "RP2040",
+        "referenceVoltage": 3.3,
+        "displayName": "Adafruit Feather RP2040 Adalogger",
+        "vendor": "Adafruit",
+        "productURL": "https://www.adafruit.com/product/5980",
+        "documentationURL": "https://learn.adafruit.com/adafruit-feather-rp2040-adalogger",
+        "totalGPIOPins": 22,
+        "totalAnalogPins": 4,
+        "pins": [
+            {"number": 0, "name": "D0", "displayName": "GPIO0", "hasPWM": True, "hasServo": True},
+            {"number": 1, "name": "D1", "displayName": "GPIO1", "hasPWM": True, "hasServo": True},
+            {"number": 2, "name": "D2", "displayName": "GPIO2", "hasPWM": True, "hasServo": True},
+            {"number": 3, "name": "D3", "displayName": "GPIO3", "hasPWM": True, "hasServo": True},
+            {"number": 4, "name": "D4", "displayName": "GPIO4", "hasPWM": True, "hasServo": True},
+            {"number": 5, "name": "D5", "displayName": "GPIO5", "hasPWM": True, "hasServo": True},
+            {"number": 6, "name": "D6", "displayName": "GPIO6", "hasPWM": True, "hasServo": True},
+            {"number": 7, "name": "D7", "displayName": "GPIO7", "hasPWM": True, "hasServo": True},
+            {"number": 8, "name": "D8", "displayName": "GPIO8", "hasPWM": True, "hasServo": True},
+            {"number": 9, "name": "D9", "displayName": "GPIO9", "hasPWM": True, "hasServo": True},
+            {"number": 10, "name": "D10", "displayName": "GPIO10", "hasPWM": True, "hasServo": True},
+            {"number": 11, "name": "D11", "displayName": "GPIO11", "hasPWM": True, "hasServo": True},
+            {"number": 12, "name": "D12", "displayName": "GPIO12", "hasPWM": True, "hasServo": True},
+            {"number": 13, "name": "D13", "displayName": "GPIO13 (LED)", "hasPWM": True, "hasServo": True},
+            {"number": 16, "name": "D16", "displayName": "GPIO16 (MOSI)", "hasPWM": True, "hasServo": True},
+            {"number": 17, "name": "D17", "displayName": "GPIO17 (A1/SCK/SD CS)", "hasPWM": True, "hasServo": True},
+            {"number": 18, "name": "D18", "displayName": "GPIO18 (MISO)", "hasPWM": True, "hasServo": True},
+            {"number": 19, "name": "D19", "displayName": "GPIO19", "hasPWM": True, "hasServo": True},
+            {"number": 20, "name": "D20", "displayName": "GPIO20", "hasPWM": True, "hasServo": True},
+            {"number": 24, "name": "D24", "displayName": "GPIO24 (A0)", "hasPWM": True, "hasServo": True},
+            {"number": 25, "name": "D25", "displayName": "GPIO25 (A3)", "hasPWM": True, "hasServo": True},
+            {"number": 29, "name": "D29", "displayName": "GPIO29 (A2)", "hasPWM": True, "hasServo": True}
+        ],
+        "analogPins": [
+            {"name": "A0", "displayName": "GPIO24 (A0)", "direction": "INPUT"},
+            {"name": "A1", "displayName": "GPIO17 (A1/SD CS)", "direction": "INPUT"},
+            {"name": "A2", "displayName": "GPIO29 (A2)", "direction": "INPUT"},
+            {"name": "A3", "displayName": "GPIO25 (A3)", "direction": "INPUT"}
+        ],
+        "defaultI2C": {
+            "i2cPortId": 0,
+            "SCL": "D3",
+            "SDA": "D2"
+        },
+        "sdCardCS": 17,  # GPIO17/A1 is the SD card CS pin
+        "rtcType": "PCF8523",  # Built-in RTC chip
+        "image": None
+    }
     # Generic ESP32-S2 based board
     boards["generic-esp32-s2"] = {
         "boardName": "Generic ESP32-S2",

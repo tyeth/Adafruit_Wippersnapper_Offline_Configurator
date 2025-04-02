@@ -341,13 +341,57 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // Import Configuration button handler
-    document.getElementById('import-btn').addEventListener('click', function() {
-        importConfiguration();
-    });
+document.getElementById('import-btn').addEventListener('click', function() {
+    const fileInput = document.getElementById('import-file');
+    if (!fileInput.files || fileInput.files.length === 0) {
+    alert('Please select a file to import.');
+    return;
+    }
+    
+    const file = fileInput.files[0];
+    const reader = new FileReader();
+    
+    reader.onload = function(e) {
+    try {
+    // Read the file content into the text area
+    const jsonText = e.target.result;
+    document.getElementById('import-json').value = jsonText;
+    
+    // Trigger the import from text button
+    document.getElementById('import-json-btn').click();
+    
+    // Clear the file input
+    fileInput.value = '';
+    } catch (error) {
+    alert('Error reading file: ' + error.message);
+    }
+    };
+    
+    reader.onerror = function() {
+    alert('Error reading file.');
+    };
+    
+    reader.readAsText(file);
+});
+    
+    // Import from text button handler
+document.getElementById('import-json-btn').addEventListener('click', function() {
+    importConfiguration();
+});
     
     // Export Configuration button handler
     document.getElementById('export-btn').addEventListener('click', function() {
         downloadConfiguration(true);
+    });
+    
+    // Reset Configurator buttons handler
+    document.querySelectorAll('.reset-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            if (confirm('Are you sure you want to reset the configurator? All your current configuration will be lost.')) {
+                resetAppState();
+                window.location.reload();
+            }
+        });
     });
     
     // Modal cancel button handler
@@ -911,8 +955,8 @@ function showComponentConfigModal(component, type) {
                 </div>
             `;
         }
-    } else if (type === 'ds18x20' || type === 'pin' || type === 'pixel' || type === 'pwm' || type === 'servo') {
-        // Pin selection for other component types
+    } else if (type === 'ds18x20') {
+        // Pin selection for DS18x20
         html += `
             <div>
                 <label for="modal-pin-select">Select Pin:</label>
@@ -934,15 +978,66 @@ function showComponentConfigModal(component, type) {
             </div>
         `;
         
-        // Additional fields for pixel components
-        if (type === 'pixel') {
-            html += `
-                <div>
-                    <label for="modal-pixel-count">Number of Pixels:</label>
-                    <input type="number" id="modal-pixel-count" value="1" min="1" required>
-                </div>
-            `;
+        // Additional fields for DS18x20
+        html += `
+            <div>
+                <label for="modal-resolution">Resolution:</label>
+                <select id="modal-resolution" required>
+                    <option value="9">9-bit</option>
+                    <option value="10">10-bit</option>
+                    <option value="11">11-bit</option>
+                    <option value="12">12-bit</option>
+                </select>
+            </div>
+        `;
+    } else if (type === 'pin' || type === 'pwm' || type === 'servo') {
+        // Pin selection for other component types
+        html += `
+            <div>
+                <label for="modal-pin-select">Select Pin:</label>
+                <select id="modal-pin-select" required>
+                    <option value="">-- Select a Pin --</option>
+        `;
+        
+        // Add available pins
+        if (appState.selectedBoard) {
+            appState.selectedBoard.pins.forEach(pin => {
+                if (!appState.usedPins.has(pin)) {
+                    html += `<option value="${pin}">Pin ${pin}</option>`;
+                }
+            });
         }
+        
+        html += `
+                </select>
+            </div>
+        `;
+    } else if (type === 'pixel') {
+        // Pin selection for pixel components
+        html += `
+            <div>
+                <label for="modal-pin-select">Select Pin:</label>
+                <select id="modal-pin-select" required>
+                    <option value="">-- Select a Pin --</option>
+        `;
+        
+        // Add available pins
+        if (appState.selectedBoard) {
+            appState.selectedBoard.pins.forEach(pin => {
+                if (!appState.usedPins.has(pin)) {
+                    html += `<option value="${pin}">Pin ${pin}</option>`;
+                }
+            });
+        }
+        
+        html += `
+                </select>
+            </div>
+            <div>
+                <label for="modal-pixel-count">Number of Pixels:</label>
+                <input type="number" id="modal-pixel-count" value="1" min="1" required>
+            </div>
+        `;
     } else if (type === 'uart') {
         // UART pin selection
         html += `
@@ -1180,9 +1275,10 @@ function saveModalData() {
         }
     } else if (componentType === 'ds18x20') {
         const pin = document.getElementById('modal-pin-select').value;
+        const resolution = document.getElementById('modal-resolution').value;
         
         componentConfig.pinName = `D${pin}`;
-        componentConfig.sensorResolution = 12;
+        componentConfig.sensorResolution = parseInt(resolution);
         
         // Mark pin as used
         appState.usedPins.add(parseInt(pin));
@@ -1490,74 +1586,36 @@ function importConfiguration() {
         resetAppState();
         
         // Import the configuration
-        importConfigObject(config);
+        const importSuccess = importConfigObject(config);
         
-        // Update the UI
-        document.getElementById('import-json').value = '';
-        alert('Configuration imported successfully. Please check the Build tab to see your configuration.');
-        
-        // Switch to the Build tab
-        openTab(null, 'BuildConfig');
+        // Update the UI (Don't clear the textarea when importing so the user can see what was imported)
+        if (!appState.isImporting) {
+            if (importSuccess) {
+                alert('Configuration imported successfully. Please check the Build tab to see your configuration.');
+                // Switch to the Build tab
+                openTab(null, 'BuildConfig');
+            } else {
+                // The alert is now shown in importConfigObject, no need to show it again here
+                // Switch to the Build tab so they can select a board
+                openTab(null, 'BuildConfig');
+                
+                // Scroll to the board selection section
+                setTimeout(() => {
+                    const boardSection = document.querySelector('.section');
+                    if (boardSection) {
+                        boardSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }, 500);
+            }
+        }
     } catch (error) {
         alert('Error importing configuration: ' + error.message);
     }
 }
 
-// Add file import handler
-document.addEventListener('DOMContentLoaded', function() {
-    // Existing event listeners...
-    
-    // Import file button handler
-    document.getElementById('import-btn').addEventListener('click', function() {
-        const fileInput = document.getElementById('import-file');
-        if (!fileInput.files || fileInput.files.length === 0) {
-            alert('Please select a file to import.');
-            return;
-        }
-        
-        const file = fileInput.files[0];
-        const reader = new FileReader();
-        
-        reader.onload = function(e) {
-            try {
-                // Read the file content into the text area
-                const jsonText = e.target.result;
-                document.getElementById('import-json').value = jsonText;
-                
-                // Parse the JSON
-                const config = JSON.parse(jsonText);
-                
-                // Reset the application state
-                resetAppState();
-                
-                // Import the configuration
-                importConfigObject(config);
-                
-                // Clear the file input and text area
-                fileInput.value = '';
-                document.getElementById('import-json').value = '';
-                
-                alert('Configuration imported successfully. Please check the Build tab to see your configuration.');
-                
-                // Switch to the Build tab
-                openTab(null, 'BuildConfig');
-            } catch (error) {
-                alert('Error importing configuration: ' + error.message);
-            }
-        };
-        
-        reader.onerror = function() {
-            alert('Error reading file.');
-        };
-        
-        reader.readAsText(file);
-    });
-    
-    // Import from text button handler
-    document.getElementById('import-json-btn').addEventListener('click', function() {
-        importConfiguration();
-    });
-});
+// This function has been removed to avoid duplication - see the version below
+
+// We don't need this additional event handler because it's already defined above
 
 function resetAppState() {
     appState.selectedBoard = null;
@@ -1570,6 +1628,7 @@ function resetAppState() {
     appState.selectedComponents = [];
     appState.usedPins = new Set();
     appState.nextComponentId = 1;
+    appState.isImporting = false;
     
     // Reset UI elements
     document.getElementById('board-select').value = '';
@@ -1581,12 +1640,32 @@ function resetAppState() {
     
     // Hide sections
     hideSubsequentSections();
+    
+    // Clear board details section
+    document.getElementById('board-details').classList.add('hidden');
+    
+    // Reset SD card section
+    document.getElementById('sd-missing').classList.remove('hidden');
+    document.getElementById('sd-present').classList.add('hidden');
+    
+    // Reset RTC section
+    document.getElementById('rtc-missing').classList.remove('hidden');
+    document.getElementById('rtc-present').classList.add('hidden');
+    
+    // Clear selected components list
+    const selectedList = document.getElementById('selected-components-list');
+    selectedList.innerHTML = '<p>No components selected yet.</p>';
 }
 
 // Function to import a configuration object
 function importConfigObject(config) {
+    // Set a flag to indicate we're in import mode
+    appState.isImporting = true;
+    console.log('Importing configuration...');
+    
     // Import device details
     const deviceConfig = config.exportedFromDevice;
+    let boardMatchFound = false;
     
     // Try to find the board that matches the configuration
     let matchedBoard = null;
@@ -1595,6 +1674,7 @@ function importConfigObject(config) {
             boardConfig.totalGPIOPins === deviceConfig.totalGPIOPins &&
             boardConfig.totalAnalogPins === deviceConfig.totalAnalogPins) {
             matchedBoard = boardId;
+            boardMatchFound = true;
             break;
         }
     }
@@ -1605,9 +1685,67 @@ function importConfigObject(config) {
         const event = new Event('change');
         document.getElementById('board-select').dispatchEvent(event);
     } else {
-        console.log('Could not identify the board from the configuration. User will need to select a board manually.');
-        // Alert the user they need to select a board
-        alert('Please select a board to continue with the imported configuration.');
+        // Alert the user they need to select a board (in addition to the visual indication)
+        alert('Import successful! To complete the process, please select your microcontroller board from the Build Configuration tab.');
+        
+        // Highlight the board selector to make it obvious to the user
+        setTimeout(() => {
+            const boardSelect = document.getElementById('board-select');
+            boardSelect.style.boxShadow = '0 0 10px #2e8b57';
+            boardSelect.style.border = '2px solid #2e8b57';
+            boardSelect.style.animation = 'pulse 1.5s infinite';
+            
+            // Add a style tag with the pulse animation if it doesn't exist
+            if (!document.getElementById('pulse-animation')) {
+                const style = document.createElement('style');
+                style.id = 'pulse-animation';
+                style.textContent = `
+                    @keyframes pulse {
+                        0% { box-shadow: 0 0 0 0 rgba(46, 139, 87, 0.7); }
+                        70% { box-shadow: 0 0 0 10px rgba(46, 139, 87, 0); }
+                        100% { box-shadow: 0 0 0 0 rgba(46, 139, 87, 0); }
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+            
+            // Add a helper message
+            const boardSection = document.querySelector('.section');
+            if (boardSection) {
+                const helperMsg = document.createElement('p');
+                helperMsg.id = 'board-select-helper';
+                helperMsg.style.color = '#2e8b57';
+                helperMsg.style.fontWeight = 'bold';
+                helperMsg.textContent = 'Please select your microcontroller board to continue the import process.';
+                
+                // Insert after the board select
+                const insertAfter = (el, referenceNode) => {
+                    referenceNode.parentNode.insertBefore(el, referenceNode.nextSibling);
+                };
+                
+                // Remove any existing helper message
+                const existingMsg = document.getElementById('board-select-helper');
+                if (existingMsg) {
+                    existingMsg.remove();
+                }
+                
+                insertAfter(helperMsg, boardSelect);
+            }
+            
+            // When a board is selected, remove highlight and helper message
+            boardSelect.addEventListener('change', function() {
+                if (this.value) {
+                    this.style.boxShadow = '';
+                    this.style.border = '';
+                    this.style.animation = '';
+                    
+                    const helperMsg = document.getElementById('board-select-helper');
+                    if (helperMsg) {
+                        helperMsg.remove();
+                    }
+                }
+            });
+        }, 500);
     }
     
     // Continue with importing other configuration details regardless of board match
@@ -1644,157 +1782,151 @@ function importConfigObject(config) {
     }
     
     // Add an event listener to process pending components when a board is selected
-    if (!matchedBoard) {
-        const boardSelect = document.getElementById('board-select');
-        const originalChangeHandler = boardSelect.onchange;
-        
-        boardSelect.addEventListener('change', function processPendingConfig() {
-            // Only process if a board is selected
-            if (this.value) {
-                // Process pending SD card pin
-                if (appState.pendingSDCardPin !== undefined) {
-                    setTimeout(() => {
-                        document.getElementById('add-sd-card').checked = true;
-                        const event = new Event('change');
-                        document.getElementById('add-sd-card').dispatchEvent(event);
-                        
-                        const sdPinSelect = document.getElementById('sd-cs-pin-select');
-                        if (sdPinSelect) {
-                            sdPinSelect.value = appState.pendingSDCardPin;
-                            appState.sdCardCS = appState.pendingSDCardPin;
-                            appState.usedPins.add(appState.pendingSDCardPin);
-                        }
-                        
-                        // Show SD card section
-                        document.getElementById('sd-missing').classList.add('hidden');
-                        document.getElementById('sd-present').classList.remove('hidden');
-                        document.getElementById('sd-cs-pin').textContent = appState.pendingSDCardPin;
-                    }, 100);
-                }
-                
-                // Process pending RTC
-                if (appState.pendingRTC) {
-                    document.getElementById('rtc-select').value = appState.pendingRTC;
-                    const rtcEvent = new Event('change');
-                    document.getElementById('rtc-select').dispatchEvent(rtcEvent);
+    const boardSelect = document.getElementById('board-select');
+    boardSelect.removeEventListener('change', processPendingConfig); // Remove existing listener
+    boardSelect.addEventListener('change', processPendingConfig);
+    
+    function processPendingConfig() {
+        // Only process if a board is selected
+        if (this.value) {
+            console.log('Board selected, processing pending configurations...');
+            // Process pending SD card pin
+            if (appState.pendingSDCardPin !== undefined) {
+                setTimeout(() => {
+                    document.getElementById('add-sd-card').checked = true;
+                    const event = new Event('change');
+                    document.getElementById('add-sd-card').dispatchEvent(event);
                     
-                    // Update RTC UI
-                    document.getElementById('rtc-missing').classList.add('hidden');
-                    document.getElementById('rtc-present').classList.remove('hidden');
-                    document.getElementById('rtc-type').textContent = appState.pendingRTC;
-                }
-                
-                // Process pending components
-                if (appState.pendingComponents && appState.pendingComponents.length > 0) {
-                    // First pass: find and set up multiplexers
-                    appState.pendingComponents.forEach(component => {
-                        if (component.componentAPI === 'i2c' && 
-                            (component.i2cDeviceName === 'pca9546' || component.i2cDeviceName === 'pca9548' ||
-                             component.i2cDeviceName === 'tca9546' || component.i2cDeviceName === 'tca9548')) {
-                            const channels = component.i2cDeviceName.includes('9548') ? 8 : 4;
-                            const muxConfig = {
-                                id: appState.nextComponentId++,
-                                address: component.i2cMuxAddress || component.i2cDeviceAddress,
-                                channels: channels
-                            };
-                            
-                            appState.i2cMultiplexers.push(muxConfig);
-                            
-                            // Add to selected components
-                            const componentConfig = {
-                                ...component,
-                                instanceId: muxConfig.id
-                            };
-                            
-                            appState.selectedComponents.push(componentConfig);
-                        }
-                    });
+                    const sdPinSelect = document.getElementById('sd-cs-pin-select');
+                    if (sdPinSelect) {
+                        sdPinSelect.value = appState.pendingSDCardPin;
+                        appState.sdCardCS = appState.pendingSDCardPin;
+                        appState.usedPins.add(appState.pendingSDCardPin);
+                    }
                     
-                    // Second pass: import other components
-                    appState.pendingComponents.forEach(component => {
-                        if (component.componentAPI === 'i2c' && 
-                            (component.i2cDeviceName === 'pca9546' || component.i2cDeviceName === 'pca9548' ||
-                             component.i2cDeviceName === 'tca9546' || component.i2cDeviceName === 'tca9548')) {
-                            // Skip multiplexers (already handled)
-                            return;
-                        }
+                    // Show SD card section
+                    document.getElementById('sd-missing').classList.add('hidden');
+                    document.getElementById('sd-present').classList.remove('hidden');
+                    document.getElementById('sd-cs-pin').textContent = appState.pendingSDCardPin;
+                }, 100);
+            }
+            
+            // Process pending RTC
+            if (appState.pendingRTC) {
+                document.getElementById('rtc-select').value = appState.pendingRTC;
+                const rtcEvent = new Event('change');
+                document.getElementById('rtc-select').dispatchEvent(rtcEvent);
+                
+                // Update RTC UI
+                document.getElementById('rtc-missing').classList.add('hidden');
+                document.getElementById('rtc-present').classList.remove('hidden');
+                document.getElementById('rtc-type').textContent = appState.pendingRTC;
+            }
+            
+            // Process pending components
+            if (appState.pendingComponents && appState.pendingComponents.length > 0) {
+                // First pass: find and set up multiplexers
+                appState.pendingComponents.forEach(component => {
+                    if (component.componentAPI === 'i2c' && 
+                        (component.i2cDeviceName === 'pca9546' || component.i2cDeviceName === 'pca9548' ||
+                         component.i2cDeviceName === 'tca9546' || component.i2cDeviceName === 'tca9548')) {
+                        const channels = component.i2cDeviceName.includes('9548') ? 8 : 4;
+                        const muxConfig = {
+                            id: appState.nextComponentId++,
+                            address: component.i2cMuxAddress || component.i2cDeviceAddress,
+                            channels: channels
+                        };
                         
-                        // Add component to the selected components
+                        appState.i2cMultiplexers.push(muxConfig);
+                        
+                        // Add to selected components
                         const componentConfig = {
                             ...component,
-                            instanceId: appState.nextComponentId++
+                            instanceId: muxConfig.id
                         };
                         
                         appState.selectedComponents.push(componentConfig);
-                        
-                        // Mark used pins
-                        if (component.pinName) {
-                            const pinNumber = parseInt(component.pinName.replace('D', ''));
-                            appState.usedPins.add(pinNumber);
-                        }
-                        
-                        if (component.txPin) {
-                            const txPinNumber = parseInt(component.txPin.replace('D', ''));
-                            appState.usedPins.add(txPinNumber);
-                        }
-                        
-                        if (component.rxPin) {
-                            const rxPinNumber = parseInt(component.rxPin.replace('D', ''));
-                            appState.usedPins.add(rxPinNumber);
-                        }
-                        
-                        // Handle I2C bus pins
-                        if (component.i2cBusScl && component.i2cBusSda) {
-                            const sclPin = parseInt(component.i2cBusScl);
-                            const sdaPin = parseInt(component.i2cBusSda);
-                            
-                            // Check if this is a new I2C bus
-                            const existingBus = appState.i2cBuses.find(bus => 
-                                bus.scl === sclPin && bus.sda === sdaPin);
-                            
-                            if (!existingBus && sclPin && sdaPin) {
-                                const busId = `bus_${appState.i2cBuses.length}`;
-                                appState.i2cBuses.push({
-                                    id: busId,
-                                    scl: sclPin,
-                                    sda: sdaPin
-                                });
-                                
-                                // Mark pins as used
-                                appState.usedPins.add(sclPin);
-                                appState.usedPins.add(sdaPin);
-                            }
-                        }
-                    });
-                    
-                    // Update selected components list
-                    updateSelectedComponentsList();
-                    
-                    // Update I2C bus options
-                    updateI2CBusOptions();
-                    
-                    // Clear pending components to avoid processing them again
-                    appState.pendingComponents = [];
-                }
+                    }
+                });
                 
-                // Remove this event listener to avoid duplicate processing
-                boardSelect.removeEventListener('change', processPendingConfig);
+                // Second pass: import other components
+                appState.pendingComponents.forEach(component => {
+                    if (component.componentAPI === 'i2c' && 
+                        (component.i2cDeviceName === 'pca9546' || component.i2cDeviceName === 'pca9548' ||
+                         component.i2cDeviceName === 'tca9546' || component.i2cDeviceName === 'tca9548')) {
+                        // Skip multiplexers (already handled)
+                        return;
+                    }
+                    
+                    // Add component to the selected components
+                    const componentConfig = {
+                        ...component,
+                        instanceId: appState.nextComponentId++
+                    };
+                    
+                    appState.selectedComponents.push(componentConfig);
+                    
+                    // Mark used pins
+                    if (component.pinName) {
+                        const pinNumber = parseInt(component.pinName.replace('D', ''));
+                        appState.usedPins.add(pinNumber);
+                    }
+                    
+                    if (component.txPin) {
+                        const txPinNumber = parseInt(component.txPin.replace('D', ''));
+                        appState.usedPins.add(txPinNumber);
+                    }
+                    
+                    if (component.rxPin) {
+                        const rxPinNumber = parseInt(component.rxPin.replace('D', ''));
+                        appState.usedPins.add(rxPinNumber);
+                    }
+                    
+                    // Handle I2C bus pins
+                    if (component.i2cBusScl && component.i2cBusSda) {
+                        const sclPin = parseInt(component.i2cBusScl);
+                        const sdaPin = parseInt(component.i2cBusSda);
+                        
+                        // Check if this is a new I2C bus
+                        const existingBus = appState.i2cBuses.find(bus => 
+                            bus.scl === sclPin && bus.sda === sdaPin);
+                        
+                        if (!existingBus && sclPin && sdaPin) {
+                            const busId = `bus_${appState.i2cBuses.length}`;
+                            appState.i2cBuses.push({
+                                id: busId,
+                                scl: sclPin,
+                                sda: sdaPin
+                            });
+                            
+                            // Mark pins as used
+                            appState.usedPins.add(sclPin);
+                            appState.usedPins.add(sdaPin);
+                        }
+                    }
+                });
+                
+                // Update selected components list
+                updateSelectedComponentsList();
+                
+                // Update I2C bus options
+                updateI2CBusOptions();
+                
+                // Clear pending components to avoid processing them again
+                appState.pendingComponents = [];
             }
-        });
+            
+            // Remove this event listener to avoid duplicate processing
+            boardSelect.removeEventListener('change', processPendingConfig);
+        }
     }
     
-    // Show all sections if board is matched
-    if (matchedBoard) {
-        document.getElementById('companion-board-section').classList.remove('hidden');
-        document.getElementById('manual-config-section').classList.remove('hidden');
-        document.getElementById('i2c-bus-section').classList.remove('hidden');
-        document.getElementById('components-section').classList.remove('hidden');
-        document.getElementById('selected-components-section').classList.remove('hidden');
-        document.getElementById('generate-section').classList.remove('hidden');
-        
-        // Refresh pin lists
-        populatePinsLists();
-    }
+    // Reset the import flag
+    setTimeout(() => {
+        appState.isImporting = false;
+    }, 500);
+    
+    return boardMatchFound; // Return true if a matching board was found, false otherwise
 }
 
 // Initialize sample data components if there is no external data

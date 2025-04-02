@@ -198,7 +198,10 @@
     </style>
 </head>
 <body>
-    <h1>Wippersnapper Configuration Builder</h1>
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+        <h1>Wippersnapper Configuration Builder</h1>
+        <button id="reset-config-btn-top" class="reset-btn" style="background-color: #dc3545; margin-left: 20px;">Reset Configurator</button>
+    </div>
     
     <!-- Loading indicator -->
     <div id="loading-indicator" class="section">
@@ -447,6 +450,9 @@
                 <pre id="config-output" class="config-output"></pre>
                 <button id="download-config-btn">Download config.json</button>
             </div>
+            <div style="margin-top: 20px; text-align: center;">
+                <button id="reset-config-btn-bottom" class="reset-btn" style="background-color: #dc3545;">Reset Configurator</button>
+            </div>
         </div>
     </div>
     
@@ -623,5 +629,6 @@
             });
         });
     </script>
+
 </body>
 </html>

@@ -44,6 +44,15 @@ def get_image_from_adafruit_product_url(product_url):
         print(f"Error fetching image from product URL {product_url}: {str(e)}")
         return None
 
+def map_datatypes_to_offline_types(datatype):
+    """
+    Map datatypes to offline types.
+
+    humidity should be relative-humidity
+    """
+    datatype = datatype.lower().replace("humidity", "relative-humidity")
+    return datatype
+
 def convert_components_to_json():
     """
     Convert all component definition.json files into a single JSON file
@@ -95,10 +104,10 @@ def convert_components_to_json():
                         if isinstance(meas_type, dict) and "sensorType" in meas_type:
                             component_info["dataTypes"].append({
                                 "displayName": meas_type["displayName"] if "displayName" in meas_type else meas_type["sensorType"],
-                                "sensorType": meas_type["sensorType"]
+                                "sensorType": map_datatypes_to_offline_types(meas_type["sensorType"]) if "sensorType" in meas_type else None
                             })
                         else:
-                            component_info["dataTypes"].append(meas_type)
+                            component_info["dataTypes"].append(map_datatypes_to_offline_types(meas_type))
                 
                 # Handle I2C-specific properties
                 if category == "i2c":

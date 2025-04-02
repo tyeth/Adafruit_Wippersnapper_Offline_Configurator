@@ -1,4 +1,36 @@
 // Companion board configurations
+/*
+List of supported companion boards:
+Adalogger FeatherWing - RTC + SD Add-on For All Feather Boards
+Product ID: 2922
+Add to Cart, Adalogger FeatherWing - RTC + SD Add-on For All Feather Boards
+
+Adafruit PiCowbell Adalogger for Pico - MicroSD, RTC & STEMMA QTAngled shot of black, rectangular datalogging board.
+Adafruit PiCowbell Adalogger for Pico - MicroSD, RTC & STEMMA QT
+Product ID: 5703
+
+Adafruit Feather RP2040 Adalogger - 8MB Flash with microSD Card - STEMMA QT / Qwiic
+Product ID: 5980
+(This is a board that includes RTC and SD, not a companion board)
+
+Newer Rev.B Adafruit Assembled Data Logging shield for Arduino  (SD CS = 10, RTC = PCF8523)
+Product ID: 1141
+
+Older Rev.A Adafruit Assembled Data Logging shield for Arduino  (SD CS = 10, RTC = DS1307)
+Product ID: 1141
+
+Adafruit Audio BFF Add-on for QT Py and Xiao (SD CS = A0, no RTC)
+Product ID: 5769
+
+Adafruit microSD Card BFF Add-On for QT Py and Xiao (SD CS = TX, no RTC)
+Product ID: 5683
+
+Adafruit WINC1500 WiFi Shield with PCB Antenna (SD CS = D4, no RTC)
+Product ID: 3653
+
+Adafruit AirLift Shield - ESP32 WiFi Co-Processor (SD CS = D4, no RTC)
+Product ID: 4285
+*/
 const companionBoardConfigs = {
     'adalogger': {
         rtc: 'PCF8523',
@@ -13,54 +45,82 @@ const companionBoardConfigs = {
     'ds3231-precision': {
         rtc: 'DS3231',
         sdCardCS: null,
-        extras: 'None'
+        extras: 'Precision RTC'
     },
-    'ethernet': {
-        rtc: null,
-        sdCardCS: null,
-        extras: 'Ethernet Controller'
+    'picowbell-adalogger': {
+        rtc: 'PCF8523',
+        sdCardCS: 9,
+        extras: 'SD Card, STEMMA QT'
     },
-    'ina219': {
-        rtc: null,
-        sdCardCS: null,
-        extras: 'INA219 Current Sensor'
+    'datalogger-shield-revb': {
+        rtc: 'PCF8523',
+        sdCardCS: 10,
+        extras: 'SD Card'
     },
-    'airlift': {
-        rtc: null,
-        sdCardCS: null,
-        extras: 'WiFi Module'
+    'datalogger-shield-reva': {
+        rtc: 'DS1307',
+        sdCardCS: 10,
+        extras: 'SD Card'
     },
-    'oled': {
+    'audio-bff': {
         rtc: null,
-        sdCardCS: null,
-        extras: 'OLED Display'
+        sdCardCS: 'A0',
+        extras: 'Audio'
     },
-    'prop-maker': {
+    'microsd-bff': {
         rtc: null,
-        sdCardCS: null,
-        extras: 'NeoPixel, Amp, Accelerometer'
+        sdCardCS: 'TX',
+        extras: 'SD Card'
     },
-    'neopixel': {
+    'winc1500-shield': {
         rtc: null,
-        sdCardCS: null,
-        extras: 'NeoPixel Matrix'
+        sdCardCS: 'D4',
+        extras: 'WiFi'
     },
-    'joy-featherwing': {
+    'airlift-shield': {
         rtc: null,
-        sdCardCS: null,
-        extras: 'Joystick, NeoPixel, Display'
-    },
-    'motorm4': {
-        rtc: null,
-        sdCardCS: null,
-        extras: 'DC/Stepper Motor Controller'
-    },
-    'rgb-matrix': {
-        rtc: null,
-        sdCardCS: null,
-        extras: 'RGB Matrix Driver'
+        sdCardCS: 'D4',
+        extras: 'WiFi'
     }
 };
+
+// Custom boards collection (for boards without definition.json files)
+let customBoardsCollection = {};
+
+// Function to add a custom board to the collection
+function addCustomBoard(id, config) {
+    if (!id || typeof id !== 'string') {
+        console.error('Invalid board ID');
+        return false;
+    }
+    
+    // Create a new board entry with required fields
+    customBoardsCollection[id] = {
+        name: config.name || id,
+        referenceVoltage: config.referenceVoltage || 3.3,
+        totalGPIOPins: config.totalGPIOPins || 0,
+        totalAnalogPins: config.totalAnalogPins || 0,
+        defaultI2C: {
+            scl: config.defaultI2C?.scl || 'SCL',
+            sda: config.defaultI2C?.sda || 'SDA'
+        },
+        pins: config.pins || []
+    };
+    
+    // Add the board to appState.boardsData
+    appState.boardsData[id] = customBoardsCollection[id];
+    
+    // Add the board to the select dropdown if it exists
+    const selectElement = document.getElementById('board-select');
+    if (selectElement) {
+        const option = document.createElement('option');
+        option.value = id;
+        option.textContent = config.name || `Custom Board: ${id}`;
+        selectElement.appendChild(option);
+    }
+    
+    return true;
+}
 
 // Use the appState from load-wippersnapper-data.js if it exists
 // Otherwise, initialize with default values
@@ -314,6 +374,59 @@ document.addEventListener('DOMContentLoaded', function() {
                 component.style.display = shouldShow ? 'block' : 'none';
             });
         });
+    });
+    
+    // Add custom board button handler
+    document.getElementById('add-custom-board-btn').addEventListener('click', function() {
+        const boardName = document.getElementById('custom-board-name').value.trim();
+        if (!boardName) {
+            alert('Please enter a board name');
+            return;
+        }
+        
+        // Generate a unique ID for the board
+        const boardId = 'custom-' + boardName.toLowerCase().replace(/\s+/g, '-');
+        
+        // Get the form values
+        const refVoltage = parseFloat(document.getElementById('custom-board-ref-voltage').value) || 3.3;
+        const gpioPins = parseInt(document.getElementById('custom-board-gpio').value) || 0;
+        const analogPins = parseInt(document.getElementById('custom-board-analog').value) || 0;
+        const sclPin = document.getElementById('custom-board-scl').value.trim() || 'SCL';
+        const sdaPin = document.getElementById('custom-board-sda').value.trim() || 'SDA';
+        
+        // Create the board configuration
+        const boardConfig = {
+            name: boardName,
+            referenceVoltage: refVoltage,
+            totalGPIOPins: gpioPins,
+            totalAnalogPins: analogPins,
+            defaultI2C: {
+                scl: sclPin,
+                sda: sdaPin
+            },
+            pins: [] // Could be expanded to include pin definitions
+        };
+        
+        // Add the custom board
+        if (addCustomBoard(boardId, boardConfig)) {
+            alert('Custom board added successfully!');
+            
+            // Reset the form
+            document.getElementById('custom-board-name').value = '';
+            document.getElementById('custom-board-ref-voltage').value = '3.3';
+            document.getElementById('custom-board-gpio').value = '0';
+            document.getElementById('custom-board-analog').value = '0';
+            document.getElementById('custom-board-scl').value = '';
+            document.getElementById('custom-board-sda').value = '';
+            
+            // Show the custom boards list and add this board to it
+            document.getElementById('custom-boards-list').classList.remove('hidden');
+            const listItem = document.createElement('li');
+            listItem.textContent = `${boardName} (ID: ${boardId})`;
+            document.getElementById('custom-boards-items').appendChild(listItem);
+        } else {
+            alert('Failed to add custom board. Please try again.');
+        }
     });
 });
 

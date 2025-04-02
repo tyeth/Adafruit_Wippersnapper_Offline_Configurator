@@ -1,250 +1,6 @@
 {
   "components": {
-    "pin": [
-      {
-        "id": "buzzer_5v",
-        "name": "buzzer_5v",
-        "description": "",
-        "category": "pin",
-        "dataTypes": [],
-        "image": "https://www.adafruit.com/images/480x360/1536-06.jpg",
-        "productUrl": "https://www.adafruit.com/product/1536"
-      },
-      {
-        "id": "tctr1000",
-        "name": "tctr1000",
-        "description": "Optical reflective sensor with digital output, 1-30mm range, and adjustable LED emitter brightness",
-        "category": "pin",
-        "dataTypes": [],
-        "image": "components/pin/tctr1000/image.jpg",
-        "productUrl": "https://www.adafruit.com/product/5913"
-      },
-      {
-        "id": "push_button",
-        "name": "push_button",
-        "description": "",
-        "category": "pin",
-        "dataTypes": [],
-        "image": "https://www.adafruit.com/images/480x360/367-01.jpg",
-        "productUrl": "https://www.adafruit.com/product/367"
-      },
-      {
-        "id": "light_sensor",
-        "name": "light_sensor",
-        "description": "",
-        "category": "pin",
-        "dataTypes": [],
-        "image": "https://www.adafruit.com/images/480x360/161-00.jpg",
-        "productUrl": "https://www.adafruit.com/product/161"
-      },
-      {
-        "id": "etape_liquid_level_sensor",
-        "name": "etape_liquid_level_sensor",
-        "description": "",
-        "category": "pin",
-        "dataTypes": [],
-        "image": "https://www.adafruit.com/images/480x360/2656-03",
-        "productUrl": "https://www.adafruit.com/product/2656"
-      },
-      {
-        "id": "water_sensor",
-        "name": "water_sensor",
-        "description": "",
-        "category": "pin",
-        "dataTypes": [],
-        "image": "https://www.adafruit.com/images/480x360/4965-03",
-        "productUrl": "https://www.adafruit.com/product/4965"
-      },
-      {
-        "id": "hall_effect_sensor",
-        "name": "hall_effect_sensor",
-        "description": "",
-        "category": "pin",
-        "dataTypes": [],
-        "image": "https://www.adafruit.com/images/480x360/158-00.jpg",
-        "productUrl": "https://www.adafruit.com/product/158"
-      },
-      {
-        "id": "power_switch_tail",
-        "name": "power_switch_tail",
-        "description": "",
-        "category": "pin",
-        "dataTypes": [],
-        "image": "https://www.adafruit.com/images/480x360/2935-13.jpg",
-        "productUrl": "https://www.adafruit.com/product/2935"
-      },
-      {
-        "id": "beam_break_sensor",
-        "name": "beam_break_sensor",
-        "description": "",
-        "category": "pin",
-        "dataTypes": [],
-        "image": "https://www.adafruit.com/images/480x360/2168-04.jpg",
-        "productUrl": "https://www.adafruit.com/product/2168"
-      },
-      {
-        "id": "potentiometer",
-        "name": "potentiometer",
-        "description": "",
-        "category": "pin",
-        "dataTypes": [],
-        "image": "https://www.adafruit.com/images/480x360/356-03.jpg",
-        "productUrl": "https://www.adafruit.com/product/356"
-      },
-      {
-        "id": "analog_pin",
-        "name": "analog_pin",
-        "description": "",
-        "category": "pin",
-        "dataTypes": [],
-        "image": "components/pin/analog_pin/image.png"
-      },
-      {
-        "id": "pir_sensor",
-        "name": "pir_sensor",
-        "description": "",
-        "category": "pin",
-        "dataTypes": [],
-        "image": "https://www.adafruit.com/images/480x360/189-00.jpg",
-        "productUrl": "https://www.adafruit.com/product/189"
-      },
-      {
-        "id": "toggle_switch",
-        "name": "toggle_switch",
-        "description": "",
-        "category": "pin",
-        "dataTypes": [],
-        "image": "https://www.adafruit.com/images/480x360/3221-01.jpg",
-        "productUrl": "https://www.adafruit.com/product/3221"
-      },
-      {
-        "id": "non_latching_relay",
-        "name": "non_latching_relay",
-        "description": "",
-        "category": "pin",
-        "dataTypes": [],
-        "image": "https://www.adafruit.com/images/480x360/4409-05",
-        "productUrl": "https://www.adafruit.com/product/4409"
-      },
-      {
-        "id": "reed_switch",
-        "name": "reed_switch",
-        "description": "",
-        "category": "pin",
-        "dataTypes": [],
-        "image": "https://www.adafruit.com/images/480x360/375-01.jpg",
-        "productUrl": "https://www.adafruit.com/product/375"
-      },
-      {
-        "id": "led",
-        "name": "led",
-        "description": "",
-        "category": "pin",
-        "dataTypes": [],
-        "image": "https://www.adafruit.com/images/480x360/301-00.jpg",
-        "productUrl": "https://www.adafruit.com/product/301"
-      },
-      {
-        "id": "flat_vibration_switch",
-        "name": "flat_vibration_switch",
-        "description": "",
-        "category": "pin",
-        "dataTypes": [],
-        "image": "https://www.adafruit.com/images/480x360/4081-00.jpg",
-        "productUrl": "https://www.adafruit.com/product/4081"
-      },
-      {
-        "id": "mosfet_driver",
-        "name": "mosfet_driver",
-        "description": "",
-        "category": "pin",
-        "dataTypes": [],
-        "image": "https://www.adafruit.com/images/480x360/5648-07",
-        "productUrl": "https://www.adafruit.com/product/5648"
-      }
-    ],
-    "pixel": [
-      {
-        "id": "neorgb",
-        "name": "neorgb",
-        "description": "Speak NeoPixel to your RGB strips! Treat PWM-able common-anode LEDs as a NeoPixel [16V/3A/channel]",
-        "category": "pixel",
-        "dataTypes": [],
-        "image": "https://www.adafruit.com/images/480x360/5888-10.jpg",
-        "productUrl": "https://www.adafruit.com/product/5888"
-      },
-      {
-        "id": "dotstar",
-        "name": "dotstar",
-        "description": "",
-        "category": "pixel",
-        "dataTypes": [],
-        "image": "https://www.adafruit.com/images/480x360/2343-03.jpg",
-        "productUrl": "https://www.adafruit.com/product/2343"
-      },
-      {
-        "id": "neopixel",
-        "name": "neopixel",
-        "description": "",
-        "category": "pixel",
-        "dataTypes": [],
-        "image": "components/pixel/neopixel/image.jpg",
-        "productUrl": "http://www.adafruit.com/category/168"
-      }
-    ],
-    "uart": [
-      {
-        "id": "pms5003",
-        "name": "pms5003",
-        "description": "",
-        "category": "uart",
-        "dataTypes": [
-          "pm10-std",
-          "pm25-std",
-          "pm100-std",
-          "pm10-env",
-          "pm25-env",
-          "pm100-env"
-        ],
-        "image": "https://www.adafruit.com/images/480x360/3686-04",
-        "productUrl": "https://www.adafruit.com/product/3686"
-      },
-      {
-        "id": "pm1006",
-        "name": "pm1006",
-        "description": "",
-        "category": "uart",
-        "dataTypes": [
-          "pm25-env"
-        ],
-        "image": "components/uart/pm1006/image.png",
-        "productUrl": "https://www.ikea.com/us/en/p/vindriktning-air-quality-sensor-60515911/"
-      }
-    ],
-    "servo": [
-      {
-        "id": "servo",
-        "name": "servo",
-        "description": "",
-        "category": "servo",
-        "dataTypes": [],
-        "image": "https://www.adafruit.com/images/480x360/169-06.jpg",
-        "productUrl": "https://www.adafruit.com/product/169"
-      }
-    ],
     "ds18x20": [
-      {
-        "id": "ds18b20_hi_temp_waterproof",
-        "name": "ds18b20_hi_temp_waterproof",
-        "description": "",
-        "category": "ds18x20",
-        "dataTypes": [
-          "ambient-temp",
-          "ambient-temp-fahrenheit"
-        ],
-        "image": "https://www.adafruit.com/images/480x360/642-00.jpg",
-        "productUrl": "https://www.adafruit.com/product/642"
-      },
       {
         "id": "ds18b20",
         "name": "ds18b20",
@@ -256,6 +12,18 @@
         ],
         "image": "https://www.adafruit.com/images/480x360/374-01.jpg",
         "productUrl": "https://www.adafruit.com/product/374"
+      },
+      {
+        "id": "ds18b20_hi_temp_waterproof",
+        "name": "ds18b20_hi_temp_waterproof",
+        "description": "",
+        "category": "ds18x20",
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit"
+        ],
+        "image": "https://www.adafruit.com/images/480x360/642-00.jpg",
+        "productUrl": "https://www.adafruit.com/product/642"
       },
       {
         "id": "ds18b20_waterproof",
@@ -271,6 +39,502 @@
       }
     ],
     "i2c": [
+      {
+        "id": "adt7410",
+        "name": "adt7410",
+        "description": "",
+        "category": "i2c",
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit"
+        ],
+        "image": "https://www.adafruit.com/images/480x360/4089-05.jpg",
+        "productUrl": "https://www.adafruit.com/product/4089",
+        "address": "0x48",
+        "addresses": [
+          "0x48",
+          "0x49",
+          "0x4A",
+          "0x4B"
+        ]
+      },
+      {
+        "id": "aht20",
+        "name": "aht20",
+        "description": "Inexpensive temperature and humidity sensor for I2C-capable boards.",
+        "category": "i2c",
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit",
+          "relative-humidity"
+        ],
+        "image": "https://www.adafruit.com/images/480x360/4566-04.jpg",
+        "productUrl": "https://www.adafruit.com/product/4566",
+        "address": "0x38",
+        "addresses": [
+          "0x38"
+        ]
+      },
+      {
+        "id": "aht21",
+        "name": "aht21",
+        "description": "",
+        "category": "i2c",
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit",
+          "relative-humidity"
+        ],
+        "image": "components/i2c/aht21/image.jpg",
+        "address": "0x38",
+        "addresses": [
+          "0x38"
+        ]
+      },
+      {
+        "id": "am2301b",
+        "name": "am2301b",
+        "description": "",
+        "category": "i2c",
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit",
+          "relative-humidity"
+        ],
+        "image": "https://www.adafruit.com/images/480x360/5181-05.jpg",
+        "productUrl": "https://www.adafruit.com/product/5181",
+        "address": "0x38",
+        "addresses": [
+          "0x38"
+        ]
+      },
+      {
+        "id": "am2315c",
+        "name": "am2315c",
+        "description": "",
+        "category": "i2c",
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit",
+          "relative-humidity"
+        ],
+        "image": "https://www.adafruit.com/images/480x360/5182-05.jpg",
+        "productUrl": "https://www.adafruit.com/product/5182",
+        "address": "0x38",
+        "addresses": [
+          "0x38"
+        ]
+      },
+      {
+        "id": "bh1750",
+        "name": "bh1750",
+        "description": "",
+        "category": "i2c",
+        "dataTypes": [
+          "light"
+        ],
+        "image": "https://www.adafruit.com/images/480x360/4681-00.jpg",
+        "productUrl": "https://www.adafruit.com/product/4681",
+        "address": "0x23",
+        "addresses": [
+          "0x23",
+          "0x5C"
+        ]
+      },
+      {
+        "id": "bme280",
+        "name": "bme280",
+        "description": "",
+        "category": "i2c",
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit",
+          "relative-humidity",
+          "pressure",
+          "altitude"
+        ],
+        "image": "https://www.adafruit.com/images/480x360/2652-04.jpg",
+        "productUrl": "https://www.adafruit.com/product/2652",
+        "address": "0x76",
+        "addresses": [
+          "0x76",
+          "0x77"
+        ]
+      },
+      {
+        "id": "bme680",
+        "name": "bme680",
+        "description": "",
+        "category": "i2c",
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit",
+          "relative-humidity",
+          "pressure",
+          "altitude",
+          "gas-resistance"
+        ],
+        "image": "https://www.adafruit.com/images/480x360/3660-08.jpg",
+        "productUrl": "https://www.adafruit.com/product/3660",
+        "address": "0x76",
+        "addresses": [
+          "0x76",
+          "0x77"
+        ]
+      },
+      {
+        "id": "bme688",
+        "name": "bme688",
+        "description": "",
+        "category": "i2c",
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit",
+          "relative-humidity",
+          "pressure",
+          "altitude",
+          "gas-resistance"
+        ],
+        "image": "https://www.adafruit.com/images/480x360/5046-05.jpg",
+        "productUrl": "https://www.adafruit.com/product/5046",
+        "address": "0x76",
+        "addresses": [
+          "0x76",
+          "0x77"
+        ]
+      },
+      {
+        "id": "bmp280",
+        "name": "bmp280",
+        "description": "",
+        "category": "i2c",
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit",
+          "pressure",
+          "altitude"
+        ],
+        "image": "https://www.adafruit.com/images/480x360/2651-08.jpg",
+        "productUrl": "https://www.adafruit.com/product/2651",
+        "address": "0x76",
+        "addresses": [
+          "0x76",
+          "0x77"
+        ]
+      },
+      {
+        "id": "bmp388",
+        "name": "bmp388",
+        "description": "",
+        "category": "i2c",
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit",
+          "pressure",
+          "altitude"
+        ],
+        "image": "https://www.adafruit.com/images/480x360/3966-10.jpg",
+        "productUrl": "https://www.adafruit.com/product/3966",
+        "address": "0x76",
+        "addresses": [
+          "0x76",
+          "0x77"
+        ]
+      },
+      {
+        "id": "bmp390",
+        "name": "bmp390",
+        "description": "",
+        "category": "i2c",
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit",
+          "pressure",
+          "altitude"
+        ],
+        "image": "https://www.adafruit.com/images/480x360/4816-05.jpg",
+        "productUrl": "https://www.adafruit.com/product/4816",
+        "address": "0x76",
+        "addresses": [
+          "0x76",
+          "0x77"
+        ]
+      },
+      {
+        "id": "dht20",
+        "name": "dht20",
+        "description": "",
+        "category": "i2c",
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit",
+          "relative-humidity"
+        ],
+        "image": "https://www.adafruit.com/images/480x360/5183-04.jpg",
+        "productUrl": "https://www.adafruit.com/product/5183",
+        "address": "0x38",
+        "addresses": [
+          "0x38"
+        ]
+      },
+      {
+        "id": "dps310",
+        "name": "dps310",
+        "description": "",
+        "category": "i2c",
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit",
+          "pressure"
+        ],
+        "image": "https://www.adafruit.com/images/480x360/4494-05.jpg",
+        "productUrl": "https://www.adafruit.com/product/4494",
+        "address": "0x76",
+        "addresses": [
+          "0x76",
+          "0x77"
+        ]
+      },
+      {
+        "id": "ds2484",
+        "name": "ds2484",
+        "description": "Adafruit DS2484 I2C to 1-Wire Bus Adapter Breakout - Converts a single DS18b20 temperature sensor to I2C",
+        "category": "i2c",
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit"
+        ],
+        "image": "https://www.adafruit.com/images/480x360/5976-00.jpg",
+        "productUrl": "https://www.adafruit.com/product/5976",
+        "address": "0x18",
+        "addresses": [
+          "0x18"
+        ]
+      },
+      {
+        "id": "ens160",
+        "name": "ens160",
+        "description": "",
+        "category": "i2c",
+        "dataTypes": [
+          "tvoc",
+          "eco2",
+          {
+            "displayName": "AQI",
+            "sensorType": "raw"
+          }
+        ],
+        "image": "components/i2c/ens160/image.jpg",
+        "productUrl": "https://www.adafruit.com/product/5606",
+        "address": "0x52",
+        "addresses": [
+          "0x52",
+          "0x53"
+        ]
+      },
+      {
+        "id": "hdc302x",
+        "name": "hdc302x",
+        "description": "Precision temperature (\u00c2\u00b10.1\u00c2\u00b0C typical) and humidity sensors (\u00c2\u00b10.5% typ). HDC3020 / HDC3021 / HDC3022",
+        "category": "i2c",
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit",
+          "relative-humidity"
+        ],
+        "image": "https://www.adafruit.com/images/480x360/5989-07.jpg",
+        "productUrl": "https://www.adafruit.com/product/5989",
+        "address": "0x44",
+        "addresses": [
+          "0x44",
+          "0x45",
+          "0x46",
+          "0x47"
+        ]
+      },
+      {
+        "id": "hts221",
+        "name": "hts221",
+        "description": "",
+        "category": "i2c",
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit",
+          "relative-humidity"
+        ],
+        "image": "https://www.adafruit.com/images/480x360/4535-04.jpg",
+        "productUrl": "https://www.adafruit.com/product/4535",
+        "address": "0x5F",
+        "addresses": [
+          "0x5F"
+        ]
+      },
+      {
+        "id": "htu21d",
+        "name": "htu21d",
+        "description": "",
+        "category": "i2c",
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit",
+          "relative-humidity"
+        ],
+        "image": "https://www.adafruit.com/images/480x360/1899-04.jpg",
+        "productUrl": "https://www.adafruit.com/product/1899",
+        "address": "0x40",
+        "addresses": [
+          "0x40"
+        ]
+      },
+      {
+        "id": "htu31d",
+        "name": "htu31d",
+        "description": "",
+        "category": "i2c",
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit",
+          "relative-humidity"
+        ],
+        "image": "https://www.adafruit.com/images/480x360/2857-03.jpg",
+        "productUrl": "https://www.adafruit.com/product/2857",
+        "address": "0x40",
+        "addresses": [
+          "0x40",
+          "0x41"
+        ]
+      },
+      {
+        "id": "ina219",
+        "name": "ina219",
+        "description": "",
+        "category": "i2c",
+        "dataTypes": [
+          "voltage",
+          "current"
+        ],
+        "image": "https://www.adafruit.com/images/480x360/904-09.jpg",
+        "productUrl": "https://www.adafruit.com/product/904",
+        "address": "0x40",
+        "addresses": [
+          "0x40",
+          "0x41",
+          "0x44",
+          "0x45"
+        ]
+      },
+      {
+        "id": "lc709203f",
+        "name": "lc709203f",
+        "description": "",
+        "category": "i2c",
+        "dataTypes": [
+          {
+            "displayName": "Battery Cell Voltage",
+            "sensorType": "voltage"
+          },
+          {
+            "displayName": "Battery Cell Percent",
+            "sensorType": "unitless-percent"
+          }
+        ],
+        "image": "https://www.adafruit.com/images/480x360/4712-07.jpg",
+        "productUrl": "https://www.adafruit.com/product/4712",
+        "address": "0x0B",
+        "addresses": [
+          "0x0B"
+        ]
+      },
+      {
+        "id": "lps22hb",
+        "name": "lps22hb",
+        "description": "",
+        "category": "i2c",
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit",
+          "pressure"
+        ],
+        "image": "https://www.adafruit.com/images/480x360/4633-09.jpg",
+        "productUrl": "https://www.adafruit.com/product/4633",
+        "address": "0x5C",
+        "addresses": [
+          "0x5C",
+          "0x5D"
+        ]
+      },
+      {
+        "id": "lps25hb",
+        "name": "lps25hb",
+        "description": "",
+        "category": "i2c",
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit",
+          "pressure"
+        ],
+        "image": "components/i2c/lps25hb/image.jpg",
+        "productUrl": "https://www.adafruit.com/product/4530",
+        "address": "0x5C",
+        "addresses": [
+          "0x5C",
+          "0x5D"
+        ]
+      },
+      {
+        "id": "lps28dfw",
+        "name": "lps28dfw",
+        "description": "From 260 to 4060 hPa, this is our largest range pressure sensor (24bit).",
+        "category": "i2c",
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit",
+          "pressure"
+        ],
+        "image": "components/i2c/lps28dfw/image.jpg",
+        "productUrl": "https://www.adafruit.com/product/6067",
+        "address": "0x5C",
+        "addresses": [
+          "0x5C",
+          "0x5D"
+        ]
+      },
+      {
+        "id": "lps33hw",
+        "name": "lps33hw",
+        "description": "",
+        "category": "i2c",
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit",
+          "pressure"
+        ],
+        "image": "components/i2c/lps33hw/image.jpg",
+        "productUrl": "https://www.adafruit.com/product/4414",
+        "address": "0x5C",
+        "addresses": [
+          "0x5C",
+          "0x5D"
+        ]
+      },
+      {
+        "id": "lps35hw",
+        "name": "lps35hw",
+        "description": "",
+        "category": "i2c",
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit",
+          "pressure"
+        ],
+        "image": "https://www.adafruit.com/images/480x360/4258-10.jpg",
+        "productUrl": "https://www.adafruit.com/product/4258",
+        "address": "0x5C",
+        "addresses": [
+          "0x5C",
+          "0x5D"
+        ]
+      },
       {
         "id": "ltr303",
         "name": "ltr303",
@@ -294,103 +558,69 @@
         ]
       },
       {
-        "id": "si7021",
-        "name": "si7021",
+        "id": "ltr329",
+        "name": "ltr329",
         "description": "",
         "category": "i2c",
         "dataTypes": [
-          "ambient-temp",
-          "ambient-temp-fahrenheit",
-          "humidity"
+          {
+            "displayName": "Ambient Light",
+            "sensorType": "light"
+          },
+          {
+            "displayName": "Infrared",
+            "sensorType": "raw"
+          }
         ],
-        "image": "https://www.adafruit.com/images/480x360/3251-08.jpg",
-        "productUrl": "https://www.adafruit.com/product/3251",
-        "address": "0x40",
+        "image": "components/i2c/ltr329/image.jpg",
+        "productUrl": "https://www.adafruit.com/product/5591",
+        "address": "0x29",
         "addresses": [
-          "0x40"
+          "0x29"
         ]
       },
       {
-        "id": "aht20",
-        "name": "aht20",
-        "description": "Inexpensive temperature and humidity sensor for I2C-capable boards.",
-        "category": "i2c",
-        "dataTypes": [
-          "ambient-temp",
-          "ambient-temp-fahrenheit",
-          "humidity"
-        ],
-        "image": "https://www.adafruit.com/images/480x360/4566-04.jpg",
-        "productUrl": "https://www.adafruit.com/product/4566",
-        "address": "0x38",
-        "addresses": [
-          "0x38"
-        ]
-      },
-      {
-        "id": "ds2484",
-        "name": "ds2484",
-        "description": "Adafruit DS2484 I2C to 1-Wire Bus Adapter Breakout - Converts a single DS18b20 temperature sensor to I2C",
-        "category": "i2c",
-        "dataTypes": [
-          "ambient-temp",
-          "ambient-temp-fahrenheit"
-        ],
-        "image": "https://www.adafruit.com/images/480x360/5976-00.jpg",
-        "productUrl": "https://www.adafruit.com/product/5976",
-        "address": "0x18",
-        "addresses": [
-          "0x18"
-        ]
-      },
-      {
-        "id": "lps28dfw",
-        "name": "lps28dfw",
-        "description": "From 260 to 4060 hPa, this is our largest range pressure sensor (24bit).",
-        "category": "i2c",
-        "dataTypes": [
-          "ambient-temp",
-          "ambient-temp-fahrenheit",
-          "pressure"
-        ],
-        "image": "components/i2c/lps28dfw/image.jpg",
-        "productUrl": "https://www.adafruit.com/product/6067",
-        "address": "0x5C",
-        "addresses": [
-          "0x5C",
-          "0x5D"
-        ]
-      },
-      {
-        "id": "aht21",
-        "name": "aht21",
+        "id": "ltr390",
+        "name": "ltr390",
         "description": "",
         "category": "i2c",
         "dataTypes": [
-          "ambient-temp",
-          "ambient-temp-fahrenheit",
-          "humidity"
+          {
+            "displayName": "Ambient Light",
+            "sensorType": "light"
+          },
+          {
+            "displayName": "UV Count",
+            "sensorType": "raw"
+          }
         ],
-        "image": "components/i2c/aht21/image.jpg",
-        "address": "0x38",
+        "image": "components/i2c/ltr390/image.jpg",
+        "productUrl": "https://www.adafruit.com/product/4831",
+        "address": "0x53",
         "addresses": [
-          "0x38"
+          "0x53"
         ]
       },
       {
-        "id": "vcnl4200",
-        "name": "vcnl4200",
-        "description": "Proximity sensor works from 0 to 1.5m (about 59 inches) & light sensor with range of 0.003 to 1570 lux",
+        "id": "max17048",
+        "name": "max17048",
+        "description": "",
         "category": "i2c",
         "dataTypes": [
-          "light",
-          "proximity"
+          {
+            "displayName": "Battery Cell Voltage",
+            "sensorType": "voltage"
+          },
+          {
+            "displayName": "Battery Cell Percent",
+            "sensorType": "unitless-percent"
+          }
         ],
-        "image": "https://www.adafruit.com/images/480x360/6064-00.jpg",
-        "productUrl": "https://www.adafruit.com/product/6064",
-        "address": "0x51",
+        "image": "https://www.adafruit.com/images/480x360/5580-06.jpg",
+        "productUrl": "https://www.adafruit.com/product/5580",
+        "address": "0x36",
         "addresses": [
-          "0x51"
+          "0x36"
         ]
       },
       {
@@ -412,59 +642,36 @@
         ]
       },
       {
-        "id": "sht20",
-        "name": "sht20",
-        "description": "",
+        "id": "mcp9601",
+        "name": "mcp9601",
+        "description": "Thermocouple / ambient temperature sensor. *Note* Needs hotplugging after i2c scans + selecting component!",
         "category": "i2c",
         "dataTypes": [
-          "ambient-temp",
-          "ambient-temp-fahrenheit",
-          "humidity"
+          {
+            "displayName": "Ambient Temperature (\u00c2\u00b0C)",
+            "sensorType": "ambient-temp"
+          },
+          {
+            "displayName": "Ambient Temperature (\u00c2\u00b0F)",
+            "sensorType": "ambient-temp-fahrenheit"
+          },
+          {
+            "displayName": "Type K Thermocouple (\u00c2\u00b0C)",
+            "sensorType": "raw"
+          }
         ],
-        "image": "components/i2c/sht20/image.jpg",
-        "productUrl": "https://www.digikey.com/en/products/detail/dfrobot/SEN0227/7897986",
-        "address": "0x40",
+        "image": "https://www.adafruit.com/images/480x360/5165-05",
+        "productUrl": "https://www.adafruit.com/product/5165",
+        "address": "0x60",
         "addresses": [
-          "0x40"
-        ]
-      },
-      {
-        "id": "sht3x",
-        "name": "sht3x",
-        "description": "",
-        "category": "i2c",
-        "dataTypes": [
-          "ambient-temp",
-          "ambient-temp-fahrenheit",
-          "humidity"
-        ],
-        "image": "https://www.adafruit.com/images/480x360/2857-03.jpg",
-        "productUrl": "https://www.adafruit.com/product/2857",
-        "address": "0x44",
-        "addresses": [
-          "0x44",
-          "0x45"
-        ]
-      },
-      {
-        "id": "bme680",
-        "name": "bme680",
-        "description": "",
-        "category": "i2c",
-        "dataTypes": [
-          "ambient-temp",
-          "ambient-temp-fahrenheit",
-          "humidity",
-          "pressure",
-          "altitude",
-          "gas-resistance"
-        ],
-        "image": "https://www.adafruit.com/images/480x360/3660-08.jpg",
-        "productUrl": "https://www.adafruit.com/product/3660",
-        "address": "0x76",
-        "addresses": [
-          "0x76",
-          "0x77"
+          "0x60",
+          "0x61",
+          "0x62",
+          "0x63",
+          "0x64",
+          "0x65",
+          "0x66",
+          "0x67"
         ]
       },
       {
@@ -491,94 +698,8 @@
         ]
       },
       {
-        "id": "sht40",
-        "name": "sht40",
-        "description": "",
-        "category": "i2c",
-        "dataTypes": [
-          "ambient-temp",
-          "ambient-temp-fahrenheit",
-          "humidity"
-        ],
-        "image": "https://www.adafruit.com/images/480x360/4885-05.jpg",
-        "productUrl": "https://www.adafruit.com/product/4885",
-        "address": "0x44",
-        "addresses": [
-          "0x44"
-        ]
-      },
-      {
-        "id": "sht45",
-        "name": "sht45",
-        "description": "",
-        "category": "i2c",
-        "dataTypes": [
-          "ambient-temp",
-          "ambient-temp-fahrenheit",
-          "humidity"
-        ],
-        "image": "https://www.adafruit.com/images/480x360/5665-00.jpg",
-        "productUrl": "https://www.adafruit.com/product/5665",
-        "address": "0x44",
-        "addresses": [
-          "0x44"
-        ]
-      },
-      {
-        "id": "htu21d",
-        "name": "htu21d",
-        "description": "",
-        "category": "i2c",
-        "dataTypes": [
-          "ambient-temp",
-          "ambient-temp-fahrenheit",
-          "humidity"
-        ],
-        "image": "https://www.adafruit.com/images/480x360/1899-04.jpg",
-        "productUrl": "https://www.adafruit.com/product/1899",
-        "address": "0x40",
-        "addresses": [
-          "0x40"
-        ]
-      },
-      {
-        "id": "hdc302x",
-        "name": "hdc302x",
-        "description": "Precision temperature (\u00b10.1\u00b0C typical) and humidity sensors (\u00b10.5% typ). HDC3020 / HDC3021 / HDC3022",
-        "category": "i2c",
-        "dataTypes": [
-          "ambient-temp",
-          "ambient-temp-fahrenheit",
-          "humidity"
-        ],
-        "image": "https://www.adafruit.com/images/480x360/5989-07.jpg",
-        "productUrl": "https://www.adafruit.com/product/5989",
-        "address": "0x44",
-        "addresses": [
-          "0x44",
-          "0x45",
-          "0x46",
-          "0x47"
-        ]
-      },
-      {
-        "id": "veml7700",
-        "name": "veml7700",
-        "description": "",
-        "category": "i2c",
-        "dataTypes": [
-          "light"
-        ],
-        "image": "https://www.adafruit.com/images/480x360/4162-10.jpg",
-        "productUrl": "https://www.adafruit.com/product/4162",
-        "address": "0x10",
-        "addresses": [
-          "0x10"
-        ]
-      },
-      {
-        "id": "lps35hw",
-        "name": "lps35hw",
+        "id": "mpl115a2",
+        "name": "mpl115a2",
         "description": "",
         "category": "i2c",
         "dataTypes": [
@@ -586,120 +707,45 @@
           "ambient-temp-fahrenheit",
           "pressure"
         ],
-        "image": "https://www.adafruit.com/images/480x360/4258-10.jpg",
-        "productUrl": "https://www.adafruit.com/product/4258",
-        "address": "0x5C",
-        "addresses": [
-          "0x5C",
-          "0x5D"
-        ]
-      },
-      {
-        "id": "mcp9601",
-        "name": "mcp9601",
-        "description": "Thermocouple / ambient temperature sensor. *Note* Needs hotplugging after i2c scans + selecting component!",
-        "category": "i2c",
-        "dataTypes": [
-          {
-            "displayName": "Ambient Temperature (\u00b0C)",
-            "sensorType": "ambient-temp"
-          },
-          {
-            "displayName": "Ambient Temperature (\u00b0F)",
-            "sensorType": "ambient-temp-fahrenheit"
-          },
-          {
-            "displayName": "Type K Thermocouple (\u00b0C)",
-            "sensorType": "raw"
-          }
-        ],
-        "image": "https://www.adafruit.com/images/480x360/5165-05",
-        "productUrl": "https://www.adafruit.com/product/5165",
+        "image": "https://www.adafruit.com/images/480x360/992-06.jpg",
+        "productUrl": "https://www.adafruit.com/product/992",
         "address": "0x60",
         "addresses": [
-          "0x60",
-          "0x61",
-          "0x62",
-          "0x63",
-          "0x64",
-          "0x65",
-          "0x66",
-          "0x67"
+          "0x60"
         ]
       },
       {
-        "id": "scd30",
-        "name": "scd30",
+        "id": "mprls",
+        "name": "mprls",
+        "description": "",
+        "category": "i2c",
+        "dataTypes": [
+          "pressure"
+        ],
+        "image": "https://www.adafruit.com/images/480x360/3965-04.jpg",
+        "productUrl": "https://www.adafruit.com/product/3965",
+        "address": "0x18",
+        "addresses": [
+          "0x18"
+        ]
+      },
+      {
+        "id": "ms8607",
+        "name": "ms8607",
         "description": "",
         "category": "i2c",
         "dataTypes": [
           "ambient-temp",
           "ambient-temp-fahrenheit",
-          "humidity",
-          "co2"
+          "relative-humidity",
+          "pressure"
         ],
-        "image": "https://www.adafruit.com/images/480x360/4867-05",
-        "productUrl": "https://www.adafruit.com/product/4867",
-        "address": "0x61",
+        "image": "https://www.adafruit.com/images/480x360/4716-01.jpg",
+        "productUrl": "https://www.adafruit.com/product/4716",
+        "address": "0x40",
         "addresses": [
-          "0x61"
-        ]
-      },
-      {
-        "id": "ens160",
-        "name": "ens160",
-        "description": "",
-        "category": "i2c",
-        "dataTypes": [
-          "tvoc",
-          "eco2",
-          {
-            "displayName": "AQI",
-            "sensorType": "raw"
-          }
-        ],
-        "image": "components/i2c/ens160/image.jpg",
-        "productUrl": "https://www.adafruit.com/product/5606",
-        "address": "0x52",
-        "addresses": [
-          "0x52",
-          "0x53"
-        ]
-      },
-      {
-        "id": "bmp388",
-        "name": "bmp388",
-        "description": "",
-        "category": "i2c",
-        "dataTypes": [
-          "ambient-temp",
-          "ambient-temp-fahrenheit",
-          "pressure",
-          "altitude"
-        ],
-        "image": "https://www.adafruit.com/images/480x360/3966-10.jpg",
-        "productUrl": "https://www.adafruit.com/product/3966",
-        "address": "0x76",
-        "addresses": [
-          "0x76",
-          "0x77"
-        ]
-      },
-      {
-        "id": "dht20",
-        "name": "dht20",
-        "description": "",
-        "category": "i2c",
-        "dataTypes": [
-          "ambient-temp",
-          "ambient-temp-fahrenheit",
-          "humidity"
-        ],
-        "image": "https://www.adafruit.com/images/480x360/5183-04.jpg",
-        "productUrl": "https://www.adafruit.com/product/5183",
-        "address": "0x38",
-        "addresses": [
-          "0x38"
+          "0x40",
+          "0x76"
         ]
       },
       {
@@ -718,41 +764,6 @@
         "address": "0x2A",
         "addresses": [
           "0x2A"
-        ]
-      },
-      {
-        "id": "lps33hw",
-        "name": "lps33hw",
-        "description": "",
-        "category": "i2c",
-        "dataTypes": [
-          "ambient-temp",
-          "ambient-temp-fahrenheit",
-          "pressure"
-        ],
-        "image": "components/i2c/lps33hw/image.jpg",
-        "productUrl": "https://www.adafruit.com/product/4414",
-        "address": "0x5C",
-        "addresses": [
-          "0x5C",
-          "0x5D"
-        ]
-      },
-      {
-        "id": "sht30_shell",
-        "name": "sht30_shell",
-        "description": "",
-        "category": "i2c",
-        "dataTypes": [
-          "ambient-temp",
-          "ambient-temp-fahrenheit",
-          "humidity"
-        ],
-        "image": "https://www.adafruit.com/images/480x360/5064-00.jpg",
-        "productUrl": "https://www.adafruit.com/product/5064",
-        "address": "0x44",
-        "addresses": [
-          "0x44"
         ]
       },
       {
@@ -798,76 +809,119 @@
         ]
       },
       {
-        "id": "ltr329",
-        "name": "ltr329",
+        "id": "pmsa003i",
+        "name": "pmsa003i",
+        "description": "",
+        "category": "i2c",
+        "dataTypes": [
+          "pm10-std",
+          "pm25-std",
+          "pm100-std"
+        ],
+        "image": "https://www.adafruit.com/images/480x360/4632-10.jpg",
+        "productUrl": "https://www.adafruit.com/product/4632",
+        "address": "0x12",
+        "addresses": [
+          "0x12"
+        ]
+      },
+      {
+        "id": "rotary_encoder",
+        "name": "rotary_encoder",
         "description": "",
         "category": "i2c",
         "dataTypes": [
           {
-            "displayName": "Ambient Light",
-            "sensorType": "light"
-          },
-          {
-            "displayName": "Infrared",
+            "displayName": "Rotary Encoder Value",
             "sensorType": "raw"
           }
         ],
-        "image": "components/i2c/ltr329/image.jpg",
-        "productUrl": "https://www.adafruit.com/product/5591",
-        "address": "0x29",
+        "image": "components/i2c/rotary_encoder/image.jpeg",
+        "productUrl": "https://www.adafruit.com/product/4991",
+        "address": "0x36",
         "addresses": [
-          "0x29"
+          "0x36",
+          "0x37",
+          "0x38",
+          "0x39",
+          "0x3A",
+          "Ox3B",
+          "0x3C",
+          "0x3D"
         ]
       },
       {
-        "id": "bh1750",
-        "name": "bh1750",
-        "description": "",
-        "category": "i2c",
-        "dataTypes": [
-          "light"
-        ],
-        "image": "https://www.adafruit.com/images/480x360/4681-00.jpg",
-        "productUrl": "https://www.adafruit.com/product/4681",
-        "address": "0x23",
-        "addresses": [
-          "0x23",
-          "0x5C"
-        ]
-      },
-      {
-        "id": "shtc3",
-        "name": "shtc3",
+        "id": "scd30",
+        "name": "scd30",
         "description": "",
         "category": "i2c",
         "dataTypes": [
           "ambient-temp",
           "ambient-temp-fahrenheit",
-          "humidity"
+          "relative-humidity",
+          "co2"
         ],
-        "image": "https://www.adafruit.com/images/480x360/4636-05.jpg",
-        "productUrl": "https://www.adafruit.com/product/4636",
-        "address": "0x70",
+        "image": "https://www.adafruit.com/images/480x360/4867-05",
+        "productUrl": "https://www.adafruit.com/product/4867",
+        "address": "0x61",
         "addresses": [
-          "0x70"
+          "0x61"
         ]
       },
       {
-        "id": "htu31d",
-        "name": "htu31d",
+        "id": "scd40",
+        "name": "scd40",
         "description": "",
         "category": "i2c",
         "dataTypes": [
           "ambient-temp",
           "ambient-temp-fahrenheit",
-          "humidity"
+          "relative-humidity",
+          "co2"
         ],
-        "image": "https://www.adafruit.com/images/480x360/2857-03.jpg",
-        "productUrl": "https://www.adafruit.com/product/2857",
-        "address": "0x40",
+        "image": "https://www.adafruit.com/images/480x360/5187-08.jpg",
+        "productUrl": "https://www.adafruit.com/product/5187",
+        "address": "0x62",
         "addresses": [
-          "0x40",
-          "0x41"
+          "0x62"
+        ]
+      },
+      {
+        "id": "sen50",
+        "name": "sen50",
+        "description": "",
+        "category": "i2c",
+        "dataTypes": [
+          "pm10-std",
+          "pm25-std",
+          "pm100-std"
+        ],
+        "image": "components/i2c/sen50/image.png",
+        "productUrl": "https://www.digikey.com/en/products/filter/gas-sensors/530?s=N4IgjCBcoLQCxVAYygMwIYBsDOBTANCAPZQDa4ADFRQgLoC%2BjQA",
+        "address": "0x69",
+        "addresses": [
+          "0x69"
+        ]
+      },
+      {
+        "id": "sen54",
+        "name": "sen54",
+        "description": "",
+        "category": "i2c",
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit",
+          "relative-humidity",
+          "pm10-std",
+          "pm25-std",
+          "pm100-std",
+          "voc-index"
+        ],
+        "image": "components/i2c/sen54/image.png",
+        "productUrl": "https://www.digikey.com/en/products/filter/gas-sensors/530?s=N4IgjCBcoLQCxVAYygMwIYBsDOBTANCAPZQDa4ADFRQgLoC%2BjQA",
+        "address": "0x69",
+        "addresses": [
+          "0x69"
         ]
       },
       {
@@ -878,7 +932,7 @@
         "dataTypes": [
           "ambient-temp",
           "ambient-temp-fahrenheit",
-          "humidity",
+          "relative-humidity",
           "pm10-std",
           "pm25-std",
           "pm100-std",
@@ -893,140 +947,25 @@
         ]
       },
       {
-        "id": "ltr390",
-        "name": "ltr390",
-        "description": "",
-        "category": "i2c",
-        "dataTypes": [
-          {
-            "displayName": "Ambient Light",
-            "sensorType": "light"
-          },
-          {
-            "displayName": "UV Count",
-            "sensorType": "raw"
-          }
-        ],
-        "image": "components/i2c/ltr390/image.jpg",
-        "productUrl": "https://www.adafruit.com/product/4831",
-        "address": "0x53",
-        "addresses": [
-          "0x53"
-        ]
-      },
-      {
-        "id": "sht30_mesh",
-        "name": "sht30_mesh",
+        "id": "sen5x",
+        "name": "sen5x",
         "description": "",
         "category": "i2c",
         "dataTypes": [
           "ambient-temp",
           "ambient-temp-fahrenheit",
-          "humidity"
+          "relative-humidity",
+          "pm10-std",
+          "pm25-std",
+          "pm100-std",
+          "voc-index",
+          "nox-index"
         ],
-        "image": "https://www.adafruit.com/images/480x360/4099-09.jpg",
-        "productUrl": "https://www.adafruit.com/product/4099",
-        "address": "0x44",
+        "image": "components/i2c/sen5x/image.png",
+        "productUrl": "https://www.digikey.com/en/products/filter/gas-sensors/530?s=N4IgjCBcoLQCxVAYygMwIYBsDOBTANCAPZQDa4ADFRQgLoC%2BjQA",
+        "address": "0x69",
         "addresses": [
-          "0x44"
-        ]
-      },
-      {
-        "id": "scd40",
-        "name": "scd40",
-        "description": "",
-        "category": "i2c",
-        "dataTypes": [
-          "ambient-temp",
-          "ambient-temp-fahrenheit",
-          "humidity",
-          "co2"
-        ],
-        "image": "https://www.adafruit.com/images/480x360/5187-08.jpg",
-        "productUrl": "https://www.adafruit.com/product/5187",
-        "address": "0x62",
-        "addresses": [
-          "0x62"
-        ]
-      },
-      {
-        "id": "lc709203f",
-        "name": "lc709203f",
-        "description": "",
-        "category": "i2c",
-        "dataTypes": [
-          {
-            "displayName": "Battery Cell Voltage",
-            "sensorType": "voltage"
-          },
-          {
-            "displayName": "Battery Cell Percent",
-            "sensorType": "unitless-percent"
-          }
-        ],
-        "image": "https://www.adafruit.com/images/480x360/4712-07.jpg",
-        "productUrl": "https://www.adafruit.com/product/4712",
-        "address": "0x0B",
-        "addresses": [
-          "0x0B"
-        ]
-      },
-      {
-        "id": "ms8607",
-        "name": "ms8607",
-        "description": "",
-        "category": "i2c",
-        "dataTypes": [
-          "ambient-temp",
-          "ambient-temp-fahrenheit",
-          "humidity",
-          "pressure"
-        ],
-        "image": "https://www.adafruit.com/images/480x360/4716-01.jpg",
-        "productUrl": "https://www.adafruit.com/product/4716",
-        "address": "0x40",
-        "addresses": [
-          "0x40",
-          "0x76"
-        ]
-      },
-      {
-        "id": "max17048",
-        "name": "max17048",
-        "description": "",
-        "category": "i2c",
-        "dataTypes": [
-          {
-            "displayName": "Battery Cell Voltage",
-            "sensorType": "voltage"
-          },
-          {
-            "displayName": "Battery Cell Percent",
-            "sensorType": "unitless-percent"
-          }
-        ],
-        "image": "https://www.adafruit.com/images/480x360/5580-06.jpg",
-        "productUrl": "https://www.adafruit.com/product/5580",
-        "address": "0x36",
-        "addresses": [
-          "0x36"
-        ]
-      },
-      {
-        "id": "sht41",
-        "name": "sht41",
-        "description": "",
-        "category": "i2c",
-        "dataTypes": [
-          "ambient-temp",
-          "ambient-temp-fahrenheit",
-          "humidity"
-        ],
-        "image": "https://www.adafruit.com/images/480x360/5776-05.jpg",
-        "productUrl": "https://www.adafruit.com/product/5776",
-        "address": "0x44",
-        "addresses": [
-          "0x44"
+          "0x69"
         ]
       },
       {
@@ -1037,7 +976,7 @@
         "dataTypes": [
           "ambient-temp",
           "ambient-temp-fahrenheit",
-          "humidity",
+          "relative-humidity",
           "pm10-std",
           "pm25-std",
           "pm100-std",
@@ -1053,40 +992,283 @@
         ]
       },
       {
-        "id": "mpl115a2",
-        "name": "mpl115a2",
+        "id": "sgp30",
+        "name": "sgp30",
         "description": "",
         "category": "i2c",
         "dataTypes": [
-          "ambient-temp",
-          "ambient-temp-fahrenheit",
-          "pressure"
+          "eco2",
+          "tvoc"
         ],
-        "image": "https://www.adafruit.com/images/480x360/992-06.jpg",
-        "productUrl": "https://www.adafruit.com/product/992",
-        "address": "0x60",
+        "image": "https://www.adafruit.com/images/480x360/3709-07.jpg",
+        "productUrl": "https://www.adafruit.com/product/3709",
+        "address": "0x58",
         "addresses": [
-          "0x60"
+          "0x58"
         ]
       },
       {
-        "id": "bme280",
-        "name": "bme280",
+        "id": "sgp40",
+        "name": "sgp40",
+        "description": "",
+        "category": "i2c",
+        "dataTypes": [
+          "voc-index",
+          {
+            "displayName": "Raw (For Reference Only)",
+            "sensorType": "raw"
+          }
+        ],
+        "image": "https://www.adafruit.com/images/480x360/4829-06.jpg",
+        "productUrl": "https://www.adafruit.com/product/4829",
+        "address": "0x59",
+        "addresses": [
+          "0x59"
+        ]
+      },
+      {
+        "id": "sht20",
+        "name": "sht20",
         "description": "",
         "category": "i2c",
         "dataTypes": [
           "ambient-temp",
           "ambient-temp-fahrenheit",
-          "humidity",
-          "pressure",
-          "altitude"
+          "relative-humidity"
         ],
-        "image": "https://www.adafruit.com/images/480x360/2652-04.jpg",
-        "productUrl": "https://www.adafruit.com/product/2652",
-        "address": "0x76",
+        "image": "components/i2c/sht20/image.jpg",
+        "productUrl": "https://www.digikey.com/en/products/detail/dfrobot/SEN0227/7897986",
+        "address": "0x40",
         "addresses": [
-          "0x76",
-          "0x77"
+          "0x40"
+        ]
+      },
+      {
+        "id": "sht30_mesh",
+        "name": "sht30_mesh",
+        "description": "",
+        "category": "i2c",
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit",
+          "relative-humidity"
+        ],
+        "image": "https://www.adafruit.com/images/480x360/4099-09.jpg",
+        "productUrl": "https://www.adafruit.com/product/4099",
+        "address": "0x44",
+        "addresses": [
+          "0x44"
+        ]
+      },
+      {
+        "id": "sht30_shell",
+        "name": "sht30_shell",
+        "description": "",
+        "category": "i2c",
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit",
+          "relative-humidity"
+        ],
+        "image": "https://www.adafruit.com/images/480x360/5064-00.jpg",
+        "productUrl": "https://www.adafruit.com/product/5064",
+        "address": "0x44",
+        "addresses": [
+          "0x44"
+        ]
+      },
+      {
+        "id": "sht3x",
+        "name": "sht3x",
+        "description": "",
+        "category": "i2c",
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit",
+          "relative-humidity"
+        ],
+        "image": "https://www.adafruit.com/images/480x360/2857-03.jpg",
+        "productUrl": "https://www.adafruit.com/product/2857",
+        "address": "0x44",
+        "addresses": [
+          "0x44",
+          "0x45"
+        ]
+      },
+      {
+        "id": "sht40",
+        "name": "sht40",
+        "description": "",
+        "category": "i2c",
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit",
+          "relative-humidity"
+        ],
+        "image": "https://www.adafruit.com/images/480x360/4885-05.jpg",
+        "productUrl": "https://www.adafruit.com/product/4885",
+        "address": "0x44",
+        "addresses": [
+          "0x44"
+        ]
+      },
+      {
+        "id": "sht41",
+        "name": "sht41",
+        "description": "",
+        "category": "i2c",
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit",
+          "relative-humidity"
+        ],
+        "image": "https://www.adafruit.com/images/480x360/5776-05.jpg",
+        "productUrl": "https://www.adafruit.com/product/5776",
+        "address": "0x44",
+        "addresses": [
+          "0x44"
+        ]
+      },
+      {
+        "id": "sht45",
+        "name": "sht45",
+        "description": "",
+        "category": "i2c",
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit",
+          "relative-humidity"
+        ],
+        "image": "https://www.adafruit.com/images/480x360/5665-00.jpg",
+        "productUrl": "https://www.adafruit.com/product/5665",
+        "address": "0x44",
+        "addresses": [
+          "0x44"
+        ]
+      },
+      {
+        "id": "shtc3",
+        "name": "shtc3",
+        "description": "",
+        "category": "i2c",
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit",
+          "relative-humidity"
+        ],
+        "image": "https://www.adafruit.com/images/480x360/4636-05.jpg",
+        "productUrl": "https://www.adafruit.com/product/4636",
+        "address": "0x70",
+        "addresses": [
+          "0x70"
+        ]
+      },
+      {
+        "id": "si7021",
+        "name": "si7021",
+        "description": "",
+        "category": "i2c",
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit",
+          "relative-humidity"
+        ],
+        "image": "https://www.adafruit.com/images/480x360/3251-08.jpg",
+        "productUrl": "https://www.adafruit.com/product/3251",
+        "address": "0x40",
+        "addresses": [
+          "0x40"
+        ]
+      },
+      {
+        "id": "stemma_soil",
+        "name": "stemma_soil",
+        "description": "",
+        "category": "i2c",
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit",
+          {
+            "displayName": "Capacitive Sensor",
+            "sensorType": "raw"
+          }
+        ],
+        "image": "https://www.adafruit.com/images/480x360/4026-01.jpg",
+        "productUrl": "https://www.adafruit.com/product/4026",
+        "address": "0x36",
+        "addresses": [
+          "0x36",
+          "0x37",
+          "0x38",
+          "0x39"
+        ]
+      },
+      {
+        "id": "tc74a0",
+        "name": "tc74a0",
+        "description": "",
+        "category": "i2c",
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit"
+        ],
+        "image": "https://www.adafruit.com/images/480x360/4375-03.jpg",
+        "productUrl": "https://www.adafruit.com/product/4375",
+        "address": "0x48",
+        "addresses": [
+          "0x48"
+        ]
+      },
+      {
+        "id": "tmp117",
+        "name": "tmp117",
+        "description": "",
+        "category": "i2c",
+        "dataTypes": [
+          "ambient-temp",
+          "ambient-temp-fahrenheit"
+        ],
+        "image": "components/i2c/tmp117/image.jpg",
+        "productUrl": "https://www.adafruit.com/product/4821",
+        "address": "0x48",
+        "addresses": [
+          "0x48",
+          "0x49",
+          "0x4A",
+          "0x4B"
+        ]
+      },
+      {
+        "id": "tsl2591",
+        "name": "tsl2591",
+        "description": "",
+        "category": "i2c",
+        "dataTypes": [
+          "light"
+        ],
+        "image": "https://www.adafruit.com/images/480x360/1980-08.jpg",
+        "productUrl": "https://www.adafruit.com/product/1980",
+        "address": "0x29",
+        "addresses": [
+          "0x29",
+          "0x39",
+          "0x49"
+        ]
+      },
+      {
+        "id": "vcnl4020",
+        "name": "vcnl4020",
+        "description": "Proximity sensor works from 0 to 200mm (about 7.5 inches) & light sensor with range of 0.26 to 16,000 lux.",
+        "category": "i2c",
+        "dataTypes": [
+          "light",
+          "proximity"
+        ],
+        "image": "components/i2c/vcnl4020/image.jpg",
+        "productUrl": "https://www.adafruit.com/product/5810",
+        "address": "0x13",
+        "addresses": [
+          "0x13"
         ]
       },
       {
@@ -1103,6 +1285,91 @@
         "address": "0x60",
         "addresses": [
           "0x60"
+        ]
+      },
+      {
+        "id": "vcnl4200",
+        "name": "vcnl4200",
+        "description": "Proximity sensor works from 0 to 1.5m (about 59 inches) & light sensor with range of 0.003 to 1570 lux",
+        "category": "i2c",
+        "dataTypes": [
+          "light",
+          "proximity"
+        ],
+        "image": "https://www.adafruit.com/images/480x360/6064-00.jpg",
+        "productUrl": "https://www.adafruit.com/product/6064",
+        "address": "0x51",
+        "addresses": [
+          "0x51"
+        ]
+      },
+      {
+        "id": "veml7700",
+        "name": "veml7700",
+        "description": "",
+        "category": "i2c",
+        "dataTypes": [
+          "light"
+        ],
+        "image": "https://www.adafruit.com/images/480x360/4162-10.jpg",
+        "productUrl": "https://www.adafruit.com/product/4162",
+        "address": "0x10",
+        "addresses": [
+          "0x10"
+        ]
+      },
+      {
+        "id": "vl53l0x",
+        "name": "vl53l0x",
+        "description": "Time of Flight (ToF) distance sensor with about ~50 to 1200mm range",
+        "category": "i2c",
+        "dataTypes": [
+          {
+            "displayName": "ToF Sensor",
+            "sensorType": "proximity"
+          }
+        ],
+        "image": "components/i2c/vl53l0x/image.jpg",
+        "productUrl": "https://www.adafruit.com/product/3317",
+        "address": "0x29",
+        "addresses": [
+          "0x29"
+        ]
+      },
+      {
+        "id": "vl53l1x",
+        "name": "vl53l1x",
+        "description": "Time of Flight (ToF) distance sensor with about ~30 to 4000mm range",
+        "category": "i2c",
+        "dataTypes": [
+          {
+            "displayName": "ToF Sensor",
+            "sensorType": "proximity"
+          }
+        ],
+        "image": "components/i2c/vl53l1x/image.jpg",
+        "productUrl": "https://www.adafruit.com/product/3967",
+        "address": "0x29",
+        "addresses": [
+          "0x29"
+        ]
+      },
+      {
+        "id": "vl53l4cd",
+        "name": "vl53l4cd",
+        "description": "Time of Flight (ToF) distance sensor with about ~1 to 1300mm range",
+        "category": "i2c",
+        "dataTypes": [
+          {
+            "displayName": "ToF Sensor",
+            "sensorType": "proximity"
+          }
+        ],
+        "image": "components/i2c/vl53l4cd/image.jpg",
+        "productUrl": "https://www.adafruit.com/product/5396",
+        "address": "0x29",
+        "addresses": [
+          "0x29"
         ]
       },
       {
@@ -1145,516 +1412,209 @@
         "addresses": [
           "0x29"
         ]
-      },
+      }
+    ],
+    "pin": [
       {
-        "id": "vl53l1x",
-        "name": "vl53l1x",
-        "description": "Time of Flight (ToF) distance sensor with about ~30 to 4000mm range",
-        "category": "i2c",
-        "dataTypes": [
-          {
-            "displayName": "ToF Sensor",
-            "sensorType": "proximity"
-          }
-        ],
-        "image": "components/i2c/vl53l1x/image.jpg",
-        "productUrl": "https://www.adafruit.com/product/3967",
-        "address": "0x29",
-        "addresses": [
-          "0x29"
-        ]
-      },
-      {
-        "id": "sen5x",
-        "name": "sen5x",
+        "id": "analog_pin",
+        "name": "analog_pin",
         "description": "",
-        "category": "i2c",
-        "dataTypes": [
-          "ambient-temp",
-          "ambient-temp-fahrenheit",
-          "humidity",
-          "pm10-std",
-          "pm25-std",
-          "pm100-std",
-          "voc-index",
-          "nox-index"
-        ],
-        "image": "components/i2c/sen5x/image.png",
-        "productUrl": "https://www.digikey.com/en/products/filter/gas-sensors/530?s=N4IgjCBcoLQCxVAYygMwIYBsDOBTANCAPZQDa4ADFRQgLoC%2BjQA",
-        "address": "0x69",
-        "addresses": [
-          "0x69"
-        ]
+        "category": "pin",
+        "dataTypes": [],
+        "image": "components/pin/analog_pin/image.png"
       },
       {
-        "id": "vcnl4020",
-        "name": "vcnl4020",
-        "description": "Proximity sensor works from 0 to 200mm (about 7.5 inches) & light sensor with range of 0.26 to 16,000 lux.",
-        "category": "i2c",
-        "dataTypes": [
-          "light",
-          "proximity"
-        ],
-        "image": "components/i2c/vcnl4020/image.jpg",
-        "productUrl": "https://www.adafruit.com/product/5810",
-        "address": "0x13",
-        "addresses": [
-          "0x13"
-        ]
-      },
-      {
-        "id": "hts221",
-        "name": "hts221",
+        "id": "beam_break_sensor",
+        "name": "beam_break_sensor",
         "description": "",
-        "category": "i2c",
-        "dataTypes": [
-          "ambient-temp",
-          "ambient-temp-fahrenheit",
-          "humidity"
-        ],
-        "image": "https://www.adafruit.com/images/480x360/4535-04.jpg",
-        "productUrl": "https://www.adafruit.com/product/4535",
-        "address": "0x5F",
-        "addresses": [
-          "0x5F"
-        ]
+        "category": "pin",
+        "dataTypes": [],
+        "image": "https://www.adafruit.com/images/480x360/2168-04.jpg",
+        "productUrl": "https://www.adafruit.com/product/2168"
       },
       {
-        "id": "sen50",
-        "name": "sen50",
+        "id": "buzzer_5v",
+        "name": "buzzer_5v",
         "description": "",
-        "category": "i2c",
-        "dataTypes": [
-          "pm10-std",
-          "pm25-std",
-          "pm100-std"
-        ],
-        "image": "components/i2c/sen50/image.png",
-        "productUrl": "https://www.digikey.com/en/products/filter/gas-sensors/530?s=N4IgjCBcoLQCxVAYygMwIYBsDOBTANCAPZQDa4ADFRQgLoC%2BjQA",
-        "address": "0x69",
-        "addresses": [
-          "0x69"
-        ]
+        "category": "pin",
+        "dataTypes": [],
+        "image": "https://www.adafruit.com/images/480x360/1536-06.jpg",
+        "productUrl": "https://www.adafruit.com/product/1536"
       },
       {
-        "id": "adt7410",
-        "name": "adt7410",
+        "id": "etape_liquid_level_sensor",
+        "name": "etape_liquid_level_sensor",
         "description": "",
-        "category": "i2c",
-        "dataTypes": [
-          "ambient-temp",
-          "ambient-temp-fahrenheit"
-        ],
-        "image": "https://www.adafruit.com/images/480x360/4089-05.jpg",
-        "productUrl": "https://www.adafruit.com/product/4089",
-        "address": "0x48",
-        "addresses": [
-          "0x48",
-          "0x49",
-          "0x4A",
-          "0x4B"
-        ]
+        "category": "pin",
+        "dataTypes": [],
+        "image": "https://www.adafruit.com/images/480x360/2656-03",
+        "productUrl": "https://www.adafruit.com/product/2656"
       },
       {
-        "id": "am2301b",
-        "name": "am2301b",
+        "id": "flat_vibration_switch",
+        "name": "flat_vibration_switch",
         "description": "",
-        "category": "i2c",
-        "dataTypes": [
-          "ambient-temp",
-          "ambient-temp-fahrenheit",
-          "humidity"
-        ],
-        "image": "https://www.adafruit.com/images/480x360/5181-05.jpg",
-        "productUrl": "https://www.adafruit.com/product/5181",
-        "address": "0x38",
-        "addresses": [
-          "0x38"
-        ]
+        "category": "pin",
+        "dataTypes": [],
+        "image": "https://www.adafruit.com/images/480x360/4081-00.jpg",
+        "productUrl": "https://www.adafruit.com/product/4081"
       },
       {
-        "id": "tmp117",
-        "name": "tmp117",
+        "id": "hall_effect_sensor",
+        "name": "hall_effect_sensor",
         "description": "",
-        "category": "i2c",
-        "dataTypes": [
-          "ambient-temp",
-          "ambient-temp-fahrenheit"
-        ],
-        "image": "components/i2c/tmp117/image.jpg",
-        "productUrl": "https://www.adafruit.com/product/4821",
-        "address": "0x48",
-        "addresses": [
-          "0x48",
-          "0x49",
-          "0x4A",
-          "0x4B"
-        ]
+        "category": "pin",
+        "dataTypes": [],
+        "image": "https://www.adafruit.com/images/480x360/158-00.jpg",
+        "productUrl": "https://www.adafruit.com/product/158"
       },
       {
-        "id": "sgp40",
-        "name": "sgp40",
+        "id": "led",
+        "name": "led",
         "description": "",
-        "category": "i2c",
-        "dataTypes": [
-          "voc-index",
-          {
-            "displayName": "Raw (For Reference Only)",
-            "sensorType": "raw"
-          }
-        ],
-        "image": "https://www.adafruit.com/images/480x360/4829-06.jpg",
-        "productUrl": "https://www.adafruit.com/product/4829",
-        "address": "0x59",
-        "addresses": [
-          "0x59"
-        ]
+        "category": "pin",
+        "dataTypes": [],
+        "image": "https://www.adafruit.com/images/480x360/301-00.jpg",
+        "productUrl": "https://www.adafruit.com/product/301"
       },
       {
-        "id": "lps22hb",
-        "name": "lps22hb",
+        "id": "light_sensor",
+        "name": "light_sensor",
         "description": "",
-        "category": "i2c",
-        "dataTypes": [
-          "ambient-temp",
-          "ambient-temp-fahrenheit",
-          "pressure"
-        ],
-        "image": "https://www.adafruit.com/images/480x360/4633-09.jpg",
-        "productUrl": "https://www.adafruit.com/product/4633",
-        "address": "0x5C",
-        "addresses": [
-          "0x5C",
-          "0x5D"
-        ]
+        "category": "pin",
+        "dataTypes": [],
+        "image": "https://www.adafruit.com/images/480x360/161-00.jpg",
+        "productUrl": "https://www.adafruit.com/product/161"
       },
       {
-        "id": "am2315c",
-        "name": "am2315c",
+        "id": "mosfet_driver",
+        "name": "mosfet_driver",
         "description": "",
-        "category": "i2c",
-        "dataTypes": [
-          "ambient-temp",
-          "ambient-temp-fahrenheit",
-          "humidity"
-        ],
-        "image": "https://www.adafruit.com/images/480x360/5182-05.jpg",
-        "productUrl": "https://www.adafruit.com/product/5182",
-        "address": "0x38",
-        "addresses": [
-          "0x38"
-        ]
+        "category": "pin",
+        "dataTypes": [],
+        "image": "https://www.adafruit.com/images/480x360/5648-07",
+        "productUrl": "https://www.adafruit.com/product/5648"
       },
       {
-        "id": "mprls",
-        "name": "mprls",
+        "id": "non_latching_relay",
+        "name": "non_latching_relay",
         "description": "",
-        "category": "i2c",
-        "dataTypes": [
-          "pressure"
-        ],
-        "image": "https://www.adafruit.com/images/480x360/3965-04.jpg",
-        "productUrl": "https://www.adafruit.com/product/3965",
-        "address": "0x18",
-        "addresses": [
-          "0x18"
-        ]
+        "category": "pin",
+        "dataTypes": [],
+        "image": "https://www.adafruit.com/images/480x360/4409-05",
+        "productUrl": "https://www.adafruit.com/product/4409"
       },
       {
-        "id": "rotary_encoder",
-        "name": "rotary_encoder",
+        "id": "pir_sensor",
+        "name": "pir_sensor",
         "description": "",
-        "category": "i2c",
-        "dataTypes": [
-          {
-            "displayName": "Rotary Encoder Value",
-            "sensorType": "raw"
-          }
-        ],
-        "image": "components/i2c/rotary_encoder/image.jpeg",
-        "productUrl": "https://www.adafruit.com/product/4991",
-        "address": "0x36",
-        "addresses": [
-          "0x36",
-          "0x37",
-          "0x38",
-          "0x39",
-          "0x3A",
-          "Ox3B",
-          "0x3C",
-          "0x3D"
-        ]
+        "category": "pin",
+        "dataTypes": [],
+        "image": "https://www.adafruit.com/images/480x360/189-00.jpg",
+        "productUrl": "https://www.adafruit.com/product/189"
       },
       {
-        "id": "vl53l4cd",
-        "name": "vl53l4cd",
-        "description": "Time of Flight (ToF) distance sensor with about ~1 to 1300mm range",
-        "category": "i2c",
-        "dataTypes": [
-          {
-            "displayName": "ToF Sensor",
-            "sensorType": "proximity"
-          }
-        ],
-        "image": "components/i2c/vl53l4cd/image.jpg",
-        "productUrl": "https://www.adafruit.com/product/5396",
-        "address": "0x29",
-        "addresses": [
-          "0x29"
-        ]
-      },
-      {
-        "id": "dps310",
-        "name": "dps310",
+        "id": "potentiometer",
+        "name": "potentiometer",
         "description": "",
-        "category": "i2c",
-        "dataTypes": [
-          "ambient-temp",
-          "ambient-temp-fahrenheit",
-          "pressure"
-        ],
-        "image": "https://www.adafruit.com/images/480x360/4494-05.jpg",
-        "productUrl": "https://www.adafruit.com/product/4494",
-        "address": "0x76",
-        "addresses": [
-          "0x76",
-          "0x77"
-        ]
+        "category": "pin",
+        "dataTypes": [],
+        "image": "https://www.adafruit.com/images/480x360/356-03.jpg",
+        "productUrl": "https://www.adafruit.com/product/356"
       },
       {
-        "id": "pmsa003i",
-        "name": "pmsa003i",
+        "id": "power_switch_tail",
+        "name": "power_switch_tail",
         "description": "",
-        "category": "i2c",
-        "dataTypes": [
-          "pm10-std",
-          "pm25-std",
-          "pm100-std"
-        ],
-        "image": "https://www.adafruit.com/images/480x360/4632-10.jpg",
-        "productUrl": "https://www.adafruit.com/product/4632",
-        "address": "0x12",
-        "addresses": [
-          "0x12"
-        ]
+        "category": "pin",
+        "dataTypes": [],
+        "image": "https://www.adafruit.com/images/480x360/2935-13.jpg",
+        "productUrl": "https://www.adafruit.com/product/2935"
       },
       {
-        "id": "vl53l0x",
-        "name": "vl53l0x",
-        "description": "Time of Flight (ToF) distance sensor with about ~50 to 1200mm range",
-        "category": "i2c",
-        "dataTypes": [
-          {
-            "displayName": "ToF Sensor",
-            "sensorType": "proximity"
-          }
-        ],
-        "image": "components/i2c/vl53l0x/image.jpg",
-        "productUrl": "https://www.adafruit.com/product/3317",
-        "address": "0x29",
-        "addresses": [
-          "0x29"
-        ]
-      },
-      {
-        "id": "ina219",
-        "name": "ina219",
+        "id": "push_button",
+        "name": "push_button",
         "description": "",
-        "category": "i2c",
-        "dataTypes": [
-          "voltage",
-          "current"
-        ],
-        "image": "https://www.adafruit.com/images/480x360/904-09.jpg",
-        "productUrl": "https://www.adafruit.com/product/904",
-        "address": "0x40",
-        "addresses": [
-          "0x40",
-          "0x41",
-          "0x44",
-          "0x45"
-        ]
+        "category": "pin",
+        "dataTypes": [],
+        "image": "https://www.adafruit.com/images/480x360/367-01.jpg",
+        "productUrl": "https://www.adafruit.com/product/367"
       },
       {
-        "id": "bme688",
-        "name": "bme688",
+        "id": "reed_switch",
+        "name": "reed_switch",
         "description": "",
-        "category": "i2c",
-        "dataTypes": [
-          "ambient-temp",
-          "ambient-temp-fahrenheit",
-          "humidity",
-          "pressure",
-          "altitude",
-          "gas-resistance"
-        ],
-        "image": "https://www.adafruit.com/images/480x360/5046-05.jpg",
-        "productUrl": "https://www.adafruit.com/product/5046",
-        "address": "0x76",
-        "addresses": [
-          "0x76",
-          "0x77"
-        ]
+        "category": "pin",
+        "dataTypes": [],
+        "image": "https://www.adafruit.com/images/480x360/375-01.jpg",
+        "productUrl": "https://www.adafruit.com/product/375"
       },
       {
-        "id": "sen54",
-        "name": "sen54",
-        "description": "",
-        "category": "i2c",
-        "dataTypes": [
-          "ambient-temp",
-          "ambient-temp-fahrenheit",
-          "humidity",
-          "pm10-std",
-          "pm25-std",
-          "pm100-std",
-          "voc-index"
-        ],
-        "image": "components/i2c/sen54/image.png",
-        "productUrl": "https://www.digikey.com/en/products/filter/gas-sensors/530?s=N4IgjCBcoLQCxVAYygMwIYBsDOBTANCAPZQDa4ADFRQgLoC%2BjQA",
-        "address": "0x69",
-        "addresses": [
-          "0x69"
-        ]
+        "id": "tctr1000",
+        "name": "tctr1000",
+        "description": "Optical reflective sensor with digital output, 1-30mm range, and adjustable LED emitter brightness",
+        "category": "pin",
+        "dataTypes": [],
+        "image": "components/pin/tctr1000/image.jpg",
+        "productUrl": "https://www.adafruit.com/product/5913"
       },
       {
-        "id": "lps25hb",
-        "name": "lps25hb",
+        "id": "toggle_switch",
+        "name": "toggle_switch",
         "description": "",
-        "category": "i2c",
-        "dataTypes": [
-          "ambient-temp",
-          "ambient-temp-fahrenheit",
-          "pressure"
-        ],
-        "image": "components/i2c/lps25hb/image.jpg",
-        "productUrl": "https://www.adafruit.com/product/4530",
-        "address": "0x5C",
-        "addresses": [
-          "0x5C",
-          "0x5D"
-        ]
+        "category": "pin",
+        "dataTypes": [],
+        "image": "https://www.adafruit.com/images/480x360/3221-01.jpg",
+        "productUrl": "https://www.adafruit.com/product/3221"
       },
       {
-        "id": "bmp280",
-        "name": "bmp280",
+        "id": "water_sensor",
+        "name": "water_sensor",
         "description": "",
-        "category": "i2c",
-        "dataTypes": [
-          "ambient-temp",
-          "ambient-temp-fahrenheit",
-          "pressure",
-          "altitude"
-        ],
-        "image": "https://www.adafruit.com/images/480x360/2651-08.jpg",
-        "productUrl": "https://www.adafruit.com/product/2651",
-        "address": "0x76",
-        "addresses": [
-          "0x76",
-          "0x77"
-        ]
+        "category": "pin",
+        "dataTypes": [],
+        "image": "https://www.adafruit.com/images/480x360/4965-03",
+        "productUrl": "https://www.adafruit.com/product/4965"
+      }
+    ],
+    "pixel": [
+      {
+        "id": "dotstar",
+        "name": "dotstar",
+        "description": "",
+        "category": "pixel",
+        "dataTypes": [],
+        "image": "https://www.adafruit.com/images/480x360/2343-03.jpg",
+        "productUrl": "https://www.adafruit.com/product/2343"
       },
       {
-        "id": "sgp30",
-        "name": "sgp30",
+        "id": "neopixel",
+        "name": "neopixel",
         "description": "",
-        "category": "i2c",
-        "dataTypes": [
-          "eco2",
-          "tvoc"
-        ],
-        "image": "https://www.adafruit.com/images/480x360/3709-07.jpg",
-        "productUrl": "https://www.adafruit.com/product/3709",
-        "address": "0x58",
-        "addresses": [
-          "0x58"
-        ]
+        "category": "pixel",
+        "dataTypes": [],
+        "image": "components/pixel/neopixel/image.jpg",
+        "productUrl": "http://www.adafruit.com/category/168"
       },
       {
-        "id": "bmp390",
-        "name": "bmp390",
-        "description": "",
-        "category": "i2c",
-        "dataTypes": [
-          "ambient-temp",
-          "ambient-temp-fahrenheit",
-          "pressure",
-          "altitude"
-        ],
-        "image": "https://www.adafruit.com/images/480x360/4816-05.jpg",
-        "productUrl": "https://www.adafruit.com/product/4816",
-        "address": "0x76",
-        "addresses": [
-          "0x76",
-          "0x77"
-        ]
-      },
-      {
-        "id": "stemma_soil",
-        "name": "stemma_soil",
-        "description": "",
-        "category": "i2c",
-        "dataTypes": [
-          "ambient-temp",
-          "ambient-temp-fahrenheit",
-          {
-            "displayName": "Capacitive Sensor",
-            "sensorType": "raw"
-          }
-        ],
-        "image": "https://www.adafruit.com/images/480x360/4026-01.jpg",
-        "productUrl": "https://www.adafruit.com/product/4026",
-        "address": "0x36",
-        "addresses": [
-          "0x36",
-          "0x37",
-          "0x38",
-          "0x39"
-        ]
-      },
-      {
-        "id": "tsl2591",
-        "name": "tsl2591",
-        "description": "",
-        "category": "i2c",
-        "dataTypes": [
-          "light"
-        ],
-        "image": "https://www.adafruit.com/images/480x360/1980-08.jpg",
-        "productUrl": "https://www.adafruit.com/product/1980",
-        "address": "0x29",
-        "addresses": [
-          "0x29",
-          "0x39",
-          "0x49"
-        ]
-      },
-      {
-        "id": "tc74a0",
-        "name": "tc74a0",
-        "description": "",
-        "category": "i2c",
-        "dataTypes": [
-          "ambient-temp",
-          "ambient-temp-fahrenheit"
-        ],
-        "image": "https://www.adafruit.com/images/480x360/4375-03.jpg",
-        "productUrl": "https://www.adafruit.com/product/4375",
-        "address": "0x48",
-        "addresses": [
-          "0x48"
-        ]
+        "id": "neorgb",
+        "name": "neorgb",
+        "description": "Speak NeoPixel to your RGB strips! Treat PWM-able common-anode LEDs as a NeoPixel [16V/3A/channel]",
+        "category": "pixel",
+        "dataTypes": [],
+        "image": "https://www.adafruit.com/images/480x360/5888-10.jpg",
+        "productUrl": "https://www.adafruit.com/product/5888"
       }
     ],
     "pwm": [
       {
-        "id": "rgb_led",
-        "name": "rgb_led",
+        "id": "dimmable_led",
+        "name": "dimmable_led",
         "description": "",
         "category": "pwm",
         "dataTypes": [],
-        "image": "https://www.adafruit.com/images/480x360/302-00.jpg",
-        "productUrl": "https://www.adafruit.com/product/302"
+        "image": "https://www.adafruit.com/images/480x360/301-00.jpg",
+        "productUrl": "https://www.adafruit.com/product/301"
       },
       {
         "id": "piezo_buzzer",
@@ -1666,15 +1626,171 @@
         "productUrl": "https://www.adafruit.com/product/160"
       },
       {
-        "id": "dimmable_led",
-        "name": "dimmable_led",
+        "id": "rgb_led",
+        "name": "rgb_led",
         "description": "",
         "category": "pwm",
         "dataTypes": [],
-        "image": "https://www.adafruit.com/images/480x360/301-00.jpg",
-        "productUrl": "https://www.adafruit.com/product/301"
+        "image": "https://www.adafruit.com/images/480x360/302-00.jpg",
+        "productUrl": "https://www.adafruit.com/product/302"
       }
     ],
+    "servo": [
+      {
+        "id": "servo",
+        "name": "servo",
+        "description": "",
+        "category": "servo",
+        "dataTypes": [],
+        "image": "https://www.adafruit.com/images/480x360/169-06.jpg",
+        "productUrl": "https://www.adafruit.com/product/169"
+      }
+    ],
+    "uart": [
+      {
+        "id": "pm1006",
+        "name": "pm1006",
+        "description": "",
+        "category": "uart",
+        "dataTypes": [
+          "pm25-env"
+        ],
+        "image": "components/uart/pm1006/image.png",
+        "productUrl": "https://www.ikea.com/us/en/p/vindriktning-air-quality-sensor-60515911/"
+      },
+      {
+        "id": "pms5003",
+        "name": "pms5003",
+        "description": "",
+        "category": "uart",
+        "dataTypes": [
+          "pm10-std",
+          "pm25-std",
+          "pm100-std",
+          "pm10-env",
+          "pm25-env",
+          "pm100-env"
+        ],
+        "image": "https://www.adafruit.com/images/480x360/3686-04",
+        "productUrl": "https://www.adafruit.com/product/3686"
+      }
+    ],
+    "ds18x20_metadata": {
+      "title": "DS18X20 Component Definition",
+      "description": "A DS18X20 WipperSnapper component for use in Adafruit IO",
+      "required": [
+        "displayName",
+        "vendor",
+        "subcomponents",
+        "sensorResolution"
+      ],
+      "properties": {
+        "displayName": {
+          "description": "The human-friendly name of this component.",
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 30
+        },
+        "published": {
+          "description": "If true, this component is supported by the current firmware version and will be displayed to all users. If false, it is hidden behind a developer toggle so that contributors can still work on it against the production site.",
+          "type": "boolean"
+        },
+        "description": {
+          "description": "A brief description describing this component's capabilities.",
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 255
+        },
+        "productURL": {
+          "description": "Link to this component's homepage.",
+          "type": "string",
+          "format": "uri"
+        },
+        "documentationURL": {
+          "description": "Link to this component's documentation.",
+          "type": "string",
+          "format": "uri"
+        },
+        "vendor": {
+          "description": "Name of the company that makes this component.",
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 24
+        },
+        "subcomponents": {
+          "description": "The ambient temperature sensor (and its fahrenheit counterpart) standard on DS18X20 Components",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^ambient-temp(-fahrenheit)?$"
+          }
+        },
+        "sensorResolution": {
+          "description": "The DS18X20's desired sensor read resolution, in bits.",
+          "type": "number",
+          "minimum": 9,
+          "maximum": 12
+        }
+      }
+    },
+    "i2c_metadata": {
+      "title": "I2C Component Definition",
+      "description": "An I2C-based WipperSnapper component for use in Adafruit IO",
+      "required": [
+        "displayName",
+        "vendor",
+        "i2cAddresses",
+        "subcomponents"
+      ],
+      "properties": {
+        "displayName": {
+          "description": "The human-friendly name of this component.",
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 24
+        },
+        "published": {
+          "description": "If true, this component is supported by the current firmware version and will be displayed to all users. If false, it is hidden behind a developer toggle so that contributors can still work on it against the production site.",
+          "type": "boolean"
+        },
+        "description": {
+          "description": "A brief description describing this component's capabilities.",
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 255
+        },
+        "productURL": {
+          "description": "Link to this component's homepage.",
+          "type": "string",
+          "format": "uri"
+        },
+        "documentationURL": {
+          "description": "Link to this component's documentation.",
+          "type": "string",
+          "format": "uri"
+        },
+        "vendor": {
+          "description": "Name of the company that makes this component.",
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 24
+        },
+        "i2cAddresses": {
+          "description": "List of I2C addresses (as hex string, like \"0x38\") this component can appear on.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "subcomponents": {
+          "description": "List of sensors on this I2C component.",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/subcomponent"
+          }
+        }
+      }
+    },
     "pin_metadata": {
       "title": "Pin Component Definition",
       "description": "A pin-based WipperSnapper component for use in Adafruit IO",
@@ -1877,256 +1993,6 @@
         }
       }
     },
-    "uart_metadata": {
-      "title": "UART Component Definition",
-      "description": "A UART WipperSnapper component for use in Adafruit IO",
-      "required": [
-        "displayName",
-        "vendor",
-        "subcomponents",
-        "baudRate"
-      ],
-      "properties": {
-        "displayName": {
-          "description": "The human-friendly name of this component.",
-          "type": "string",
-          "minLength": 3,
-          "maxLength": 30
-        },
-        "published": {
-          "description": "If True, this component is supported by the current firmware version and will be displayed to all users. Otherwise, it is hidden behind a developer toggle so that contributors can still work on it against the production site.",
-          "type": "boolean"
-        },
-        "description": {
-          "description": "A brief description describing this component's capabilities.",
-          "type": "string",
-          "minLength": 3,
-          "maxLength": 255
-        },
-        "productURL": {
-          "description": "Link to this component's homepage.",
-          "type": "string",
-          "format": "uri"
-        },
-        "documentationURL": {
-          "description": "Link to this component's documentation.",
-          "type": "string",
-          "format": "uri"
-        },
-        "vendor": {
-          "description": "Name of the company that makes this component.",
-          "type": "string",
-          "minLength": 3,
-          "maxLength": 24
-        },
-        "subcomponents": {
-          "description": "List of sensor subcomponents comprising the primary UART component.",
-          "type": "array",
-          "items": {
-            "$ref": "#/$defs/subcomponent"
-          }
-        },
-        "baudRate": {
-          "description": "The desired UART bus baud rate, in bps.",
-          "type": "number",
-          "minimum": 1200,
-          "maximum": 256000
-        },
-        "inverted": {
-          "description": "When True, this component will invert TX/RX signals on the UART bus.",
-          "type": "boolean"
-        }
-      }
-    },
-    "servo_metadata": {
-      "title": "Servo Component Definition",
-      "description": "A servo motor WipperSnapper component for use in Adafruit IO",
-      "required": [
-        "displayName",
-        "vendor",
-        "frequency",
-        "minPulseWidth",
-        "maxPulseWidth"
-      ],
-      "properties": {
-        "displayName": {
-          "description": "The human-friendly name of the servo component.",
-          "type": "string",
-          "minLength": 3,
-          "maxLength": 24
-        },
-        "published": {
-          "description": "If true, this component is supported by the current firmware version and will be displayed to all users. If false, it is hidden behind a developer toggle so that contributors can still work on it against the production site.",
-          "type": "boolean"
-        },
-        "description": {
-          "description": "A brief description describing this component's capabilities.",
-          "type": "string",
-          "minLength": 3,
-          "maxLength": 255
-        },
-        "productURL": {
-          "description": "Link to this component's homepage.",
-          "type": "string",
-          "format": "uri"
-        },
-        "documentationURL": {
-          "description": "Link to this component's documentation.",
-          "type": "string",
-          "format": "uri"
-        },
-        "vendor": {
-          "description": "Name of the company that makes this component.",
-          "type": "string",
-          "minLength": 3,
-          "maxLength": 24
-        },
-        "frequency": {
-          "description": "The desired frequency of the PWM signal, in Hz.",
-          "type": "number",
-          "default": 50,
-          "minimum": 40,
-          "maximum": 200
-        },
-        "minPulseWidth": {
-          "description": "The minimum pulse width of the servo, in uS.",
-          "type": "number"
-        },
-        "maxPulseWidth": {
-          "description": "The maximum pulse width of the servo, in uS.",
-          "type": "number"
-        },
-        "visualization": {
-          "description": "Specifies the servo's specific visualization.",
-          "type": "object",
-          "required": [
-            "type"
-          ],
-          "additionalProperties": false,
-          "properties": {
-            "type": {
-              "const": "slider-servo"
-            }
-          }
-        }
-      }
-    },
-    "ds18x20_metadata": {
-      "title": "DS18X20 Component Definition",
-      "description": "A DS18X20 WipperSnapper component for use in Adafruit IO",
-      "required": [
-        "displayName",
-        "vendor",
-        "subcomponents",
-        "sensorResolution"
-      ],
-      "properties": {
-        "displayName": {
-          "description": "The human-friendly name of this component.",
-          "type": "string",
-          "minLength": 3,
-          "maxLength": 30
-        },
-        "published": {
-          "description": "If true, this component is supported by the current firmware version and will be displayed to all users. If false, it is hidden behind a developer toggle so that contributors can still work on it against the production site.",
-          "type": "boolean"
-        },
-        "description": {
-          "description": "A brief description describing this component's capabilities.",
-          "type": "string",
-          "minLength": 3,
-          "maxLength": 255
-        },
-        "productURL": {
-          "description": "Link to this component's homepage.",
-          "type": "string",
-          "format": "uri"
-        },
-        "documentationURL": {
-          "description": "Link to this component's documentation.",
-          "type": "string",
-          "format": "uri"
-        },
-        "vendor": {
-          "description": "Name of the company that makes this component.",
-          "type": "string",
-          "minLength": 3,
-          "maxLength": 24
-        },
-        "subcomponents": {
-          "description": "The ambient temperature sensor (and its fahrenheit counterpart) standard on DS18X20 Components",
-          "type": "array",
-          "items": {
-            "type": "string",
-            "pattern": "^ambient-temp(-fahrenheit)?$"
-          }
-        },
-        "sensorResolution": {
-          "description": "The DS18X20's desired sensor read resolution, in bits.",
-          "type": "number",
-          "minimum": 9,
-          "maximum": 12
-        }
-      }
-    },
-    "i2c_metadata": {
-      "title": "I2C Component Definition",
-      "description": "An I2C-based WipperSnapper component for use in Adafruit IO",
-      "required": [
-        "displayName",
-        "vendor",
-        "i2cAddresses",
-        "subcomponents"
-      ],
-      "properties": {
-        "displayName": {
-          "description": "The human-friendly name of this component.",
-          "type": "string",
-          "minLength": 3,
-          "maxLength": 24
-        },
-        "published": {
-          "description": "If true, this component is supported by the current firmware version and will be displayed to all users. If false, it is hidden behind a developer toggle so that contributors can still work on it against the production site.",
-          "type": "boolean"
-        },
-        "description": {
-          "description": "A brief description describing this component's capabilities.",
-          "type": "string",
-          "minLength": 3,
-          "maxLength": 255
-        },
-        "productURL": {
-          "description": "Link to this component's homepage.",
-          "type": "string",
-          "format": "uri"
-        },
-        "documentationURL": {
-          "description": "Link to this component's documentation.",
-          "type": "string",
-          "format": "uri"
-        },
-        "vendor": {
-          "description": "Name of the company that makes this component.",
-          "type": "string",
-          "minLength": 3,
-          "maxLength": 24
-        },
-        "i2cAddresses": {
-          "description": "List of I2C addresses (as hex string, like \"0x38\") this component can appear on.",
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "subcomponents": {
-          "description": "List of sensors on this I2C component.",
-          "type": "array",
-          "items": {
-            "$ref": "#/$defs/subcomponent"
-          }
-        }
-      }
-    },
     "pwm_metadata": {
       "title": "PWM Component Definition",
       "description": "A PWM WipperSnapper component for use in Adafruit IO",
@@ -2234,6 +2100,140 @@
               "additionalProperties": false
             }
           ]
+        }
+      }
+    },
+    "servo_metadata": {
+      "title": "Servo Component Definition",
+      "description": "A servo motor WipperSnapper component for use in Adafruit IO",
+      "required": [
+        "displayName",
+        "vendor",
+        "frequency",
+        "minPulseWidth",
+        "maxPulseWidth"
+      ],
+      "properties": {
+        "displayName": {
+          "description": "The human-friendly name of the servo component.",
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 24
+        },
+        "published": {
+          "description": "If true, this component is supported by the current firmware version and will be displayed to all users. If false, it is hidden behind a developer toggle so that contributors can still work on it against the production site.",
+          "type": "boolean"
+        },
+        "description": {
+          "description": "A brief description describing this component's capabilities.",
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 255
+        },
+        "productURL": {
+          "description": "Link to this component's homepage.",
+          "type": "string",
+          "format": "uri"
+        },
+        "documentationURL": {
+          "description": "Link to this component's documentation.",
+          "type": "string",
+          "format": "uri"
+        },
+        "vendor": {
+          "description": "Name of the company that makes this component.",
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 24
+        },
+        "frequency": {
+          "description": "The desired frequency of the PWM signal, in Hz.",
+          "type": "number",
+          "default": 50,
+          "minimum": 40,
+          "maximum": 200
+        },
+        "minPulseWidth": {
+          "description": "The minimum pulse width of the servo, in uS.",
+          "type": "number"
+        },
+        "maxPulseWidth": {
+          "description": "The maximum pulse width of the servo, in uS.",
+          "type": "number"
+        },
+        "visualization": {
+          "description": "Specifies the servo's specific visualization.",
+          "type": "object",
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "type": {
+              "const": "slider-servo"
+            }
+          }
+        }
+      }
+    },
+    "uart_metadata": {
+      "title": "UART Component Definition",
+      "description": "A UART WipperSnapper component for use in Adafruit IO",
+      "required": [
+        "displayName",
+        "vendor",
+        "subcomponents",
+        "baudRate"
+      ],
+      "properties": {
+        "displayName": {
+          "description": "The human-friendly name of this component.",
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 30
+        },
+        "published": {
+          "description": "If True, this component is supported by the current firmware version and will be displayed to all users. Otherwise, it is hidden behind a developer toggle so that contributors can still work on it against the production site.",
+          "type": "boolean"
+        },
+        "description": {
+          "description": "A brief description describing this component's capabilities.",
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 255
+        },
+        "productURL": {
+          "description": "Link to this component's homepage.",
+          "type": "string",
+          "format": "uri"
+        },
+        "documentationURL": {
+          "description": "Link to this component's documentation.",
+          "type": "string",
+          "format": "uri"
+        },
+        "vendor": {
+          "description": "Name of the company that makes this component.",
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 24
+        },
+        "subcomponents": {
+          "description": "List of sensor subcomponents comprising the primary UART component.",
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/subcomponent"
+          }
+        },
+        "baudRate": {
+          "description": "The desired UART bus baud rate, in bps.",
+          "type": "number",
+          "minimum": 1200,
+          "maximum": 256000
+        },
+        "inverted": {
+          "description": "When True, this component will invert TX/RX signals on the UART bus.",
+          "type": "boolean"
         }
       }
     }

@@ -240,17 +240,15 @@
             <select id="companion-board-select">
                 <option value="">-- None --</option>
                 <option value="adalogger">Adafruit Adalogger FeatherWing</option>
-                <option value="datalogger-m0">Adafruit Datalogger FeatherWing</option>
                 <option value="ds3231-precision">Adafruit DS3231 Precision RTC FeatherWing</option>
-                <option value="ethernet">Adafruit Ethernet FeatherWing</option>
-                <option value="ina219">Adafruit INA219 FeatherWing</option>
-                <option value="airlift">Adafruit AirLift FeatherWing</option>
-                <option value="oled">Adafruit OLED FeatherWing</option>
-                <option value="prop-maker">Adafruit Prop-Maker FeatherWing</option>
-                <option value="neopixel">Adafruit NeoPixel FeatherWing</option>
-                <option value="joy-featherwing">Adafruit Joy FeatherWing</option>
-                <option value="motorm4">Adafruit DC Motor + Stepper FeatherWing</option>
-                <option value="rgb-matrix">Adafruit RGB Matrix FeatherWing</option>
+                <option value="picowbell-adalogger">Adafruit PiCowbell Adalogger for Pico</option>
+                <option value="datalogger-shield-revb">Adafruit Data Logging Shield Rev.B (PCF8523)</option>
+                <option value="datalogger-shield-reva">Adafruit Data Logging Shield Rev.A (DS1307)</option>
+                <option value="audio-bff">Adafruit Audio BFF Add-on for QT Py and Xiao</option>
+                <option value="microsd-bff">Adafruit microSD Card BFF Add-On for QT Py and Xiao</option>
+                <option value="winc1500-shield">Adafruit WINC1500 WiFi Shield</option>
+                <option value="airlift-shield">Adafruit AirLift Shield - ESP32 WiFi Co-Processor</option>
+
             </select>
             
             <div id="companion-details" class="hidden">
@@ -455,16 +453,54 @@
     <div id="ImportExport" class="tabcontent">
         <div class="section">
             <h2>Import Configuration</h2>
-            <p>Paste your existing config.json here:</p>
-            <textarea id="import-json" class="json-input" placeholder="Paste your config.json here..."></textarea>
-            <button id="import-btn">Import Configuration</button>
-        </div>
-        
-        <div class="section">
-            <h2>Export Configuration</h2>
-            <p>Your current configuration:</p>
-            <pre id="export-config" class="config-output">No configuration generated yet.</pre>
-            <button id="export-btn">Download config.json</button>
+            <p>Import a previously saved configuration file:</p>
+            <input type="file" id="import-file" accept=".json">
+            <button id="import-btn">Import</button>
+            
+            <div class="section">
+                <h2>Export Configuration</h2>
+                <p>Export the current configuration to a file:</p>
+                <button id="export-btn">Export Configuration</button>
+            </div>
+            
+            <div class="section">
+                <h2>Add Custom Board</h2>
+                <p>Add a custom board to the boards collection (for boards without definition.json files):</p>
+                <div id="custom-board-form">
+                    <div>
+                        <label for="custom-board-name">Board Name:</label>
+                        <input type="text" id="custom-board-name" placeholder="e.g. My Custom Board">
+                    </div>
+                    <div>
+                        <label for="custom-board-ref-voltage">Reference Voltage:</label>
+                        <input type="number" id="custom-board-ref-voltage" value="3.3" step="0.1" min="1.8" max="5.0">
+                    </div>
+                    <div>
+                        <label for="custom-board-gpio">Total GPIO Pins:</label>
+                        <input type="number" id="custom-board-gpio" value="0" min="0" max="100">
+                    </div>
+                    <div>
+                        <label for="custom-board-analog">Total Analog Pins:</label>
+                        <input type="number" id="custom-board-analog" value="0" min="0" max="100">
+                    </div>
+                    <div>
+                        <label for="custom-board-scl">Default I2C SCL Pin:</label>
+                        <input type="text" id="custom-board-scl" placeholder="e.g. SCL, D3">
+                    </div>
+                    <div>
+                        <label for="custom-board-sda">Default I2C SDA Pin:</label>
+                        <input type="text" id="custom-board-sda" placeholder="e.g. SDA, D2">
+                    </div>
+                    <button id="add-custom-board-btn">Add Custom Board</button>
+                </div>
+                
+                <div id="custom-boards-list" class="hidden">
+                    <h3>Added Custom Boards:</h3>
+                    <ul id="custom-boards-items">
+                        <!-- Custom boards will be listed here -->
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
 

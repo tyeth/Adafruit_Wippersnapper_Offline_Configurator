@@ -7,6 +7,318 @@ from pathlib import Path
 BOARDS_DIR = r"./Wippersnapper_Boards/boards"
 OUTPUT_FILE = r"./wippersnapper_boards.json"
 
+def add_custom_board_definitions(boards):
+    """
+    Add custom board definitions for boards that don't have definition.json files
+    """
+    # Generic ESP32-S2 based board
+    boards["generic-esp32-s2"] = {
+        "boardName": "Generic ESP32-S2",
+        "mcuName": "ESP32-S2",
+        "referenceVoltage": 3.3,
+        "displayName": "Generic ESP32-S2 Board",
+        "vendor": "Generic",
+        "productURL": "",
+        "documentationURL": "",
+        "totalGPIOPins": 43,
+        "totalAnalogPins": 20,
+        "pins": [
+            {"number": 1, "name": "D1", "displayName": "GPIO1", "hasPWM": True, "hasServo": True},
+            {"number": 2, "name": "D2", "displayName": "GPIO2", "hasPWM": True, "hasServo": True},
+            {"number": 3, "name": "D3", "displayName": "GPIO3", "hasPWM": True, "hasServo": True},
+            {"number": 4, "name": "D4", "displayName": "GPIO4", "hasPWM": True, "hasServo": True},
+            {"number": 5, "name": "D5", "displayName": "GPIO5", "hasPWM": True, "hasServo": True},
+            {"number": 6, "name": "D6", "displayName": "GPIO6", "hasPWM": True, "hasServo": True},
+            {"number": 7, "name": "D7", "displayName": "GPIO7", "hasPWM": True, "hasServo": True},
+            {"number": 8, "name": "D8", "displayName": "GPIO8", "hasPWM": True, "hasServo": True},
+            {"number": 9, "name": "D9", "displayName": "GPIO9", "hasPWM": True, "hasServo": True},
+            {"number": 10, "name": "D10", "displayName": "GPIO10", "hasPWM": True, "hasServo": True},
+            {"number": 11, "name": "D11", "displayName": "GPIO11", "hasPWM": True, "hasServo": True},
+            {"number": 12, "name": "D12", "displayName": "GPIO12", "hasPWM": True, "hasServo": True},
+            {"number": 13, "name": "D13", "displayName": "GPIO13", "hasPWM": True, "hasServo": True},
+            {"number": 14, "name": "D14", "displayName": "GPIO14", "hasPWM": True, "hasServo": True},
+            {"number": 15, "name": "D15", "displayName": "GPIO15", "hasPWM": True, "hasServo": True},
+            {"number": 16, "name": "D16", "displayName": "GPIO16", "hasPWM": True, "hasServo": True},
+            {"number": 17, "name": "D17", "displayName": "GPIO17", "hasPWM": True, "hasServo": True},
+            {"number": 18, "name": "D18", "displayName": "GPIO18", "hasPWM": True, "hasServo": True},
+            {"number": 21, "name": "D21", "displayName": "GPIO21", "hasPWM": True, "hasServo": True},
+            {"number": 33, "name": "D33", "displayName": "GPIO33", "hasPWM": True, "hasServo": True},
+            {"number": 34, "name": "D34", "displayName": "GPIO34", "hasPWM": True, "hasServo": True},
+            {"number": 35, "name": "D35", "displayName": "GPIO35", "hasPWM": True, "hasServo": True},
+            {"number": 36, "name": "D36", "displayName": "GPIO36", "hasPWM": True, "hasServo": True},
+            {"number": 37, "name": "D37", "displayName": "GPIO37", "hasPWM": True, "hasServo": True},
+            {"number": 38, "name": "D38", "displayName": "GPIO38", "hasPWM": True, "hasServo": True},
+            {"number": 39, "name": "D39", "displayName": "GPIO39", "hasPWM": True, "hasServo": True},
+            {"number": 40, "name": "D40", "displayName": "GPIO40", "hasPWM": True, "hasServo": True},
+            {"number": 41, "name": "D41", "displayName": "GPIO41", "hasPWM": True, "hasServo": True},
+            {"number": 42, "name": "D42", "displayName": "GPIO42", "hasPWM": True, "hasServo": True},
+            {"number": 43, "name": "D43", "displayName": "GPIO43", "hasPWM": True, "hasServo": True},
+            {"number": 44, "name": "D44", "displayName": "GPIO44", "hasPWM": True, "hasServo": True},
+            {"number": 45, "name": "D45", "displayName": "GPIO45", "hasPWM": True, "hasServo": True},
+            {"number": 46, "name": "D46", "displayName": "GPIO46", "hasPWM": True, "hasServo": True}
+        ],
+        "analogPins": [
+            {"name": "A0", "displayName": "ADC1_CH0", "direction": "INPUT"},
+            {"name": "A1", "displayName": "ADC1_CH1", "direction": "INPUT"},
+            {"name": "A2", "displayName": "ADC1_CH2", "direction": "INPUT"},
+            {"name": "A3", "displayName": "ADC1_CH3", "direction": "INPUT"},
+            {"name": "A4", "displayName": "ADC1_CH4", "direction": "INPUT"},
+            {"name": "A5", "displayName": "ADC1_CH5", "direction": "INPUT"},
+            {"name": "A6", "displayName": "ADC1_CH6", "direction": "INPUT"},
+            {"name": "A7", "displayName": "ADC1_CH7", "direction": "INPUT"},
+            {"name": "A8", "displayName": "ADC1_CH8", "direction": "INPUT"},
+            {"name": "A9", "displayName": "ADC1_CH9", "direction": "INPUT"}
+        ],
+        "defaultI2C": {
+            "i2cPortId": 0,
+            "SCL": "D9",
+            "SDA": "D8"
+        },
+        "image": None
+    }
+    
+    # Generic ESP32-S3 based board
+    boards["generic-esp32-s3"] = {
+        "boardName": "Generic ESP32-S3",
+        "mcuName": "ESP32-S3",
+        "referenceVoltage": 3.3,
+        "displayName": "Generic ESP32-S3 Board",
+        "vendor": "Generic",
+        "productURL": "",
+        "documentationURL": "",
+        "totalGPIOPins": 48,
+        "totalAnalogPins": 20,
+        "pins": [
+            {"number": 1, "name": "D1", "displayName": "GPIO1", "hasPWM": True, "hasServo": True},
+            {"number": 2, "name": "D2", "displayName": "GPIO2", "hasPWM": True, "hasServo": True},
+            {"number": 3, "name": "D3", "displayName": "GPIO3", "hasPWM": True, "hasServo": True},
+            {"number": 4, "name": "D4", "displayName": "GPIO4", "hasPWM": True, "hasServo": True},
+            {"number": 5, "name": "D5", "displayName": "GPIO5", "hasPWM": True, "hasServo": True},
+            {"number": 6, "name": "D6", "displayName": "GPIO6", "hasPWM": True, "hasServo": True},
+            {"number": 7, "name": "D7", "displayName": "GPIO7", "hasPWM": True, "hasServo": True},
+            {"number": 8, "name": "D8", "displayName": "GPIO8", "hasPWM": True, "hasServo": True},
+            {"number": 9, "name": "D9", "displayName": "GPIO9", "hasPWM": True, "hasServo": True},
+            {"number": 10, "name": "D10", "displayName": "GPIO10", "hasPWM": True, "hasServo": True},
+            {"number": 11, "name": "D11", "displayName": "GPIO11", "hasPWM": True, "hasServo": True},
+            {"number": 12, "name": "D12", "displayName": "GPIO12", "hasPWM": True, "hasServo": True},
+            {"number": 13, "name": "D13", "displayName": "GPIO13", "hasPWM": True, "hasServo": True},
+            {"number": 14, "name": "D14", "displayName": "GPIO14", "hasPWM": True, "hasServo": True},
+            {"number": 15, "name": "D15", "displayName": "GPIO15", "hasPWM": True, "hasServo": True},
+            {"number": 16, "name": "D16", "displayName": "GPIO16", "hasPWM": True, "hasServo": True},
+            {"number": 17, "name": "D17", "displayName": "GPIO17", "hasPWM": True, "hasServo": True},
+            {"number": 18, "name": "D18", "displayName": "GPIO18", "hasPWM": True, "hasServo": True},
+            {"number": 19, "name": "D19", "displayName": "GPIO19", "hasPWM": True, "hasServo": True},
+            {"number": 20, "name": "D20", "displayName": "GPIO20", "hasPWM": True, "hasServo": True},
+            {"number": 21, "name": "D21", "displayName": "GPIO21", "hasPWM": True, "hasServo": True},
+            {"number": 35, "name": "D35", "displayName": "GPIO35", "hasPWM": True, "hasServo": True},
+            {"number": 36, "name": "D36", "displayName": "GPIO36", "hasPWM": True, "hasServo": True},
+            {"number": 37, "name": "D37", "displayName": "GPIO37", "hasPWM": True, "hasServo": True},
+            {"number": 38, "name": "D38", "displayName": "GPIO38", "hasPWM": True, "hasServo": True},
+            {"number": 39, "name": "D39", "displayName": "GPIO39", "hasPWM": True, "hasServo": True},
+            {"number": 40, "name": "D40", "displayName": "GPIO40", "hasPWM": True, "hasServo": True},
+            {"number": 41, "name": "D41", "displayName": "GPIO41", "hasPWM": True, "hasServo": True},
+            {"number": 42, "name": "D42", "displayName": "GPIO42", "hasPWM": True, "hasServo": True},
+            {"number": 43, "name": "D43", "displayName": "GPIO43", "hasPWM": True, "hasServo": True},
+            {"number": 44, "name": "D44", "displayName": "GPIO44", "hasPWM": True, "hasServo": True},
+            {"number": 45, "name": "D45", "displayName": "GPIO45", "hasPWM": True, "hasServo": True},
+            {"number": 46, "name": "D46", "displayName": "GPIO46", "hasPWM": True, "hasServo": True},
+            {"number": 47, "name": "D47", "displayName": "GPIO47", "hasPWM": True, "hasServo": True},
+            {"number": 48, "name": "D48", "displayName": "GPIO48", "hasPWM": True, "hasServo": True}
+        ],
+        "analogPins": [
+            {"name": "A0", "displayName": "ADC1_CH0", "direction": "INPUT"},
+            {"name": "A1", "displayName": "ADC1_CH1", "direction": "INPUT"},
+            {"name": "A2", "displayName": "ADC1_CH2", "direction": "INPUT"},
+            {"name": "A3", "displayName": "ADC1_CH3", "direction": "INPUT"},
+            {"name": "A4", "displayName": "ADC1_CH4", "direction": "INPUT"},
+            {"name": "A5", "displayName": "ADC1_CH5", "direction": "INPUT"},
+            {"name": "A6", "displayName": "ADC1_CH6", "direction": "INPUT"},
+            {"name": "A7", "displayName": "ADC1_CH7", "direction": "INPUT"},
+            {"name": "A8", "displayName": "ADC1_CH8", "direction": "INPUT"},
+            {"name": "A9", "displayName": "ADC1_CH9", "direction": "INPUT"}
+        ],
+        "defaultI2C": {
+            "i2cPortId": 0,
+            "SCL": "D9",
+            "SDA": "D8"
+        },
+        "image": None
+    }
+    
+    # Generic RP2040 based board
+    boards["generic-rp2040"] = {
+        "boardName": "Generic RP2040",
+        "mcuName": "RP2040",
+        "referenceVoltage": 3.3,
+        "displayName": "Generic RP2040 Board",
+        "vendor": "Generic",
+        "productURL": "",
+        "documentationURL": "",
+        "totalGPIOPins": 30,
+        "totalAnalogPins": 4,
+        "pins": [
+            {"number": 0, "name": "D0", "displayName": "GPIO0", "hasPWM": True, "hasServo": True},
+            {"number": 1, "name": "D1", "displayName": "GPIO1", "hasPWM": True, "hasServo": True},
+            {"number": 2, "name": "D2", "displayName": "GPIO2", "hasPWM": True, "hasServo": True},
+            {"number": 3, "name": "D3", "displayName": "GPIO3", "hasPWM": True, "hasServo": True},
+            {"number": 4, "name": "D4", "displayName": "GPIO4", "hasPWM": True, "hasServo": True},
+            {"number": 5, "name": "D5", "displayName": "GPIO5", "hasPWM": True, "hasServo": True},
+            {"number": 6, "name": "D6", "displayName": "GPIO6", "hasPWM": True, "hasServo": True},
+            {"number": 7, "name": "D7", "displayName": "GPIO7", "hasPWM": True, "hasServo": True},
+            {"number": 8, "name": "D8", "displayName": "GPIO8", "hasPWM": True, "hasServo": True},
+            {"number": 9, "name": "D9", "displayName": "GPIO9", "hasPWM": True, "hasServo": True},
+            {"number": 10, "name": "D10", "displayName": "GPIO10", "hasPWM": True, "hasServo": True},
+            {"number": 11, "name": "D11", "displayName": "GPIO11", "hasPWM": True, "hasServo": True},
+            {"number": 12, "name": "D12", "displayName": "GPIO12", "hasPWM": True, "hasServo": True},
+            {"number": 13, "name": "D13", "displayName": "GPIO13", "hasPWM": True, "hasServo": True},
+            {"number": 14, "name": "D14", "displayName": "GPIO14", "hasPWM": True, "hasServo": True},
+            {"number": 15, "name": "D15", "displayName": "GPIO15", "hasPWM": True, "hasServo": True},
+            {"number": 16, "name": "D16", "displayName": "GPIO16", "hasPWM": True, "hasServo": True},
+            {"number": 17, "name": "D17", "displayName": "GPIO17", "hasPWM": True, "hasServo": True},
+            {"number": 18, "name": "D18", "displayName": "GPIO18", "hasPWM": True, "hasServo": True},
+            {"number": 19, "name": "D19", "displayName": "GPIO19", "hasPWM": True, "hasServo": True},
+            {"number": 20, "name": "D20", "displayName": "GPIO20", "hasPWM": True, "hasServo": True},
+            {"number": 21, "name": "D21", "displayName": "GPIO21", "hasPWM": True, "hasServo": True},
+            {"number": 22, "name": "D22", "displayName": "GPIO22", "hasPWM": True, "hasServo": True},
+            {"number": 23, "name": "D23", "displayName": "GPIO23", "hasPWM": True, "hasServo": True},
+            {"number": 24, "name": "D24", "displayName": "GPIO24", "hasPWM": True, "hasServo": True},
+            {"number": 25, "name": "D25", "displayName": "GPIO25", "hasPWM": True, "hasServo": True},
+            {"number": 26, "name": "D26", "displayName": "GPIO26", "hasPWM": True, "hasServo": True},
+            {"number": 27, "name": "D27", "displayName": "GPIO27", "hasPWM": True, "hasServo": True},
+            {"number": 28, "name": "D28", "displayName": "GPIO28", "hasPWM": True, "hasServo": True},
+            {"number": 29, "name": "D29", "displayName": "GPIO29", "hasPWM": True, "hasServo": True}
+        ],
+        "analogPins": [
+            {"name": "A0", "displayName": "ADC0", "direction": "INPUT"},
+            {"name": "A1", "displayName": "ADC1", "direction": "INPUT"},
+            {"name": "A2", "displayName": "ADC2", "direction": "INPUT"},
+            {"name": "A3", "displayName": "ADC3", "direction": "INPUT"}
+        ],
+        "defaultI2C": {
+            "i2cPortId": 0,
+            "SCL": "D3",
+            "SDA": "D2"
+        },
+        "image": None
+    }
+    
+    # Generic RP23xx based board
+    boards["generic-rp23xx"] = {
+        "boardName": "Generic RP23xx",
+        "mcuName": "RP23xx",
+        "referenceVoltage": 3.3,
+        "displayName": "Generic RP23xx Board",
+        "vendor": "Generic",
+        "productURL": "",
+        "documentationURL": "",
+        "totalGPIOPins": 30,
+        "totalAnalogPins": 4,
+        "pins": [
+            {"number": 0, "name": "D0", "displayName": "GPIO0", "hasPWM": True, "hasServo": True},
+            {"number": 1, "name": "D1", "displayName": "GPIO1", "hasPWM": True, "hasServo": True},
+            {"number": 2, "name": "D2", "displayName": "GPIO2", "hasPWM": True, "hasServo": True},
+            {"number": 3, "name": "D3", "displayName": "GPIO3", "hasPWM": True, "hasServo": True},
+            {"number": 4, "name": "D4", "displayName": "GPIO4", "hasPWM": True, "hasServo": True},
+            {"number": 5, "name": "D5", "displayName": "GPIO5", "hasPWM": True, "hasServo": True},
+            {"number": 6, "name": "D6", "displayName": "GPIO6", "hasPWM": True, "hasServo": True},
+            {"number": 7, "name": "D7", "displayName": "GPIO7", "hasPWM": True, "hasServo": True},
+            {"number": 8, "name": "D8", "displayName": "GPIO8", "hasPWM": True, "hasServo": True},
+            {"number": 9, "name": "D9", "displayName": "GPIO9", "hasPWM": True, "hasServo": True},
+            {"number": 10, "name": "D10", "displayName": "GPIO10", "hasPWM": True, "hasServo": True},
+            {"number": 11, "name": "D11", "displayName": "GPIO11", "hasPWM": True, "hasServo": True},
+            {"number": 12, "name": "D12", "displayName": "GPIO12", "hasPWM": True, "hasServo": True},
+            {"number": 13, "name": "D13", "displayName": "GPIO13", "hasPWM": True, "hasServo": True},
+            {"number": 14, "name": "D14", "displayName": "GPIO14", "hasPWM": True, "hasServo": True},
+            {"number": 15, "name": "D15", "displayName": "GPIO15", "hasPWM": True, "hasServo": True},
+            {"number": 16, "name": "D16", "displayName": "GPIO16", "hasPWM": True, "hasServo": True},
+            {"number": 17, "name": "D17", "displayName": "GPIO17", "hasPWM": True, "hasServo": True},
+            {"number": 18, "name": "D18", "displayName": "GPIO18", "hasPWM": True, "hasServo": True},
+            {"number": 19, "name": "D19", "displayName": "GPIO19", "hasPWM": True, "hasServo": True},
+            {"number": 20, "name": "D20", "displayName": "GPIO20", "hasPWM": True, "hasServo": True},
+            {"number": 21, "name": "D21", "displayName": "GPIO21", "hasPWM": True, "hasServo": True},
+            {"number": 22, "name": "D22", "displayName": "GPIO22", "hasPWM": True, "hasServo": True},
+            {"number": 23, "name": "D23", "displayName": "GPIO23", "hasPWM": True, "hasServo": True},
+            {"number": 24, "name": "D24", "displayName": "GPIO24", "hasPWM": True, "hasServo": True},
+            {"number": 25, "name": "D25", "displayName": "GPIO25", "hasPWM": True, "hasServo": True},
+            {"number": 26, "name": "D26", "displayName": "GPIO26", "hasPWM": True, "hasServo": True},
+            {"number": 27, "name": "D27", "displayName": "GPIO27", "hasPWM": True, "hasServo": True},
+            {"number": 28, "name": "D28", "displayName": "GPIO28", "hasPWM": True, "hasServo": True},
+            {"number": 29, "name": "D29", "displayName": "GPIO29", "hasPWM": True, "hasServo": True}
+        ],
+        "analogPins": [
+            {"name": "A0", "displayName": "ADC0", "direction": "INPUT"},
+            {"name": "A1", "displayName": "ADC1", "direction": "INPUT"},
+            {"name": "A2", "displayName": "ADC2", "direction": "INPUT"},
+            {"name": "A3", "displayName": "ADC3", "direction": "INPUT"}
+        ],
+        "defaultI2C": {
+            "i2cPortId": 0,
+            "SCL": "D3",
+            "SDA": "D2"
+        },
+        "image": None
+    }
+    
+    # Adafruit Metro RP2350 with SD card
+    boards["metro-rp2350-sd"] = {
+        "boardName": "Adafruit Metro RP2350",
+        "mcuName": "RP2350",
+        "referenceVoltage": 3.3,
+        "displayName": "Adafruit Metro RP2350 (with SD card)",
+        "vendor": "Adafruit",
+        "productURL": "https://www.adafruit.com/product/5786",
+        "documentationURL": "https://learn.adafruit.com/adafruit-metro-rp2350",
+        "totalGPIOPins": 30,
+        "totalAnalogPins": 4,
+        "pins": [
+            {"number": 0, "name": "D0", "displayName": "GPIO0", "hasPWM": True, "hasServo": True},
+            {"number": 1, "name": "D1", "displayName": "GPIO1", "hasPWM": True, "hasServo": True},
+            {"number": 2, "name": "D2", "displayName": "GPIO2", "hasPWM": True, "hasServo": True},
+            {"number": 3, "name": "D3", "displayName": "GPIO3", "hasPWM": True, "hasServo": True},
+            {"number": 4, "name": "D4", "displayName": "GPIO4", "hasPWM": True, "hasServo": True},
+            {"number": 5, "name": "D5", "displayName": "GPIO5", "hasPWM": True, "hasServo": True},
+            {"number": 6, "name": "D6", "displayName": "GPIO6", "hasPWM": True, "hasServo": True},
+            {"number": 7, "name": "D7", "displayName": "GPIO7", "hasPWM": True, "hasServo": True},
+            {"number": 8, "name": "D8", "displayName": "GPIO8", "hasPWM": True, "hasServo": True},
+            {"number": 9, "name": "D9", "displayName": "GPIO9", "hasPWM": True, "hasServo": True},
+            {"number": 10, "name": "D10", "displayName": "GPIO10 (SD CS)", "hasPWM": True, "hasServo": True},
+            {"number": 11, "name": "D11", "displayName": "GPIO11", "hasPWM": True, "hasServo": True},
+            {"number": 12, "name": "D12", "displayName": "GPIO12", "hasPWM": True, "hasServo": True},
+            {"number": 13, "name": "D13", "displayName": "GPIO13", "hasPWM": True, "hasServo": True},
+            {"number": 14, "name": "D14", "displayName": "GPIO14", "hasPWM": True, "hasServo": True},
+            {"number": 15, "name": "D15", "displayName": "GPIO15", "hasPWM": True, "hasServo": True},
+            {"number": 16, "name": "D16", "displayName": "GPIO16", "hasPWM": True, "hasServo": True},
+            {"number": 17, "name": "D17", "displayName": "GPIO17", "hasPWM": True, "hasServo": True},
+            {"number": 18, "name": "D18", "displayName": "GPIO18", "hasPWM": True, "hasServo": True},
+            {"number": 19, "name": "D19", "displayName": "GPIO19", "hasPWM": True, "hasServo": True},
+            {"number": 20, "name": "D20", "displayName": "GPIO20", "hasPWM": True, "hasServo": True},
+            {"number": 21, "name": "D21", "displayName": "GPIO21", "hasPWM": True, "hasServo": True},
+            {"number": 22, "name": "D22", "displayName": "GPIO22", "hasPWM": True, "hasServo": True},
+            {"number": 23, "name": "D23", "displayName": "GPIO23", "hasPWM": True, "hasServo": True},
+            {"number": 24, "name": "D24", "displayName": "GPIO24", "hasPWM": True, "hasServo": True},
+            {"number": 25, "name": "D25", "displayName": "GPIO25", "hasPWM": True, "hasServo": True},
+            {"number": 26, "name": "D26", "displayName": "GPIO26", "hasPWM": True, "hasServo": True},
+            {"number": 27, "name": "D27", "displayName": "GPIO27", "hasPWM": True, "hasServo": True},
+            {"number": 28, "name": "D28", "displayName": "GPIO28", "hasPWM": True, "hasServo": True},
+            {"number": 29, "name": "D29", "displayName": "GPIO29", "hasPWM": True, "hasServo": True}
+        ],
+        "analogPins": [
+            {"name": "A0", "displayName": "ADC0", "direction": "INPUT"},
+            {"name": "A1", "displayName": "ADC1", "direction": "INPUT"},
+            {"name": "A2", "displayName": "ADC2", "direction": "INPUT"},
+            {"name": "A3", "displayName": "ADC3", "direction": "INPUT"}
+        ],
+        "defaultI2C": {
+            "i2cPortId": 0,
+            "SCL": "D3",
+            "SDA": "D2"
+        },
+        "sdCardCS": 10,
+        "image": None
+    }
+    
+    return boards
+
 def convert_boards_to_json():
     """
     Convert all board definition.json files into a single JSON file
@@ -109,6 +421,9 @@ def convert_boards_to_json():
             
         except Exception as e:
             print(f"Error processing {board_dir}: {str(e)}")
+    
+    # Add custom board definitions
+    boards = add_custom_board_definitions(boards)
     
     # Write the consolidated JSON file
     with open(OUTPUT_FILE, 'w') as f:

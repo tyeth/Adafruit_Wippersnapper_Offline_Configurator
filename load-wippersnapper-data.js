@@ -30,24 +30,27 @@ const appState = {
 async function loadWippersnapperData() {
     try {
         appState.isLoading = true;
-        
-        // Load boards data
-        const boardsResponse = await fetch(BOARDS_JSON_URL);
-        if (!boardsResponse.ok) {
-            throw new Error(`Failed to load boards data: ${boardsResponse.status} ${boardsResponse.statusText}`);
-        }
-        const boardsData = await boardsResponse.json();
-        
-        // Load components data
-        const componentsResponse = await fetch(COMPONENTS_JSON_URL);
-        if (!componentsResponse.ok) {
-            throw new Error(`Failed to load components data: ${componentsResponse.status} ${componentsResponse.statusText}`);
-        }
-        const componentsData = await componentsResponse.json();
-        
+        console.log('Loading Wippersnapper data from local file copy');
+        // create <object id="jsonBoardObject" data="data.json" type="application/json"></object> in header
+        const jsonObject = document.createElement('script');
+        jsonObject.id = 'jsonBoardObject';
+        jsonObject.src = 'wippersnapper_boards.js';
+        document.body.appendChild(jsonObject);
+        console.log('Loaded boards data from local file copy');
+        // components
+        const componentsObject = document.createElement('script');
+        componentsObject.id = 'jsonComponentsObject';
+        componentsObject.src = 'wippersnapper_components.js';
+        document.body.appendChild(componentsObject);
+        console.log('Loaded components data from local file copy');
         // Store data in app state
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        const boardsData = window['jsonBoardObject'];
+        const componentsData = window['jsonComponentsObject'];
         appState.boardsData = boardsData.boards;
         appState.componentsData = componentsData.components;
+        document.body.removeChild(componentsObject);
+        document.body.removeChild(jsonObject);
         
         // Add I2C multiplexer components manually since they're not in the JSON data
         if (appState.componentsData.i2c) {
@@ -96,10 +99,10 @@ async function loadWippersnapperData() {
         initializeUI();
         
         console.log('Successfully loaded Wippersnapper data', {
-            boards: Object.keys(boardsData.boards).length,
-            components: Object.keys(componentsData.components)
+            boards: Object.keys(appState.boardsData).length,
+            components: Object.keys(appState.componentsData)
                 .filter(key => !key.endsWith('_metadata'))
-                .reduce((acc, key) => acc + componentsData.components[key].length, 0)
+                .reduce((acc, key) => acc + appState.componentsData[key].length, 0)
         });
         
         appState.isLoading = false;

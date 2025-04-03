@@ -1,4 +1,4 @@
-{
+window.jsonComponentsObject = {
   "components": {
     "ds18x20": [
       {
@@ -2238,4 +2238,4 @@
       }
     }
   }
-}
+};

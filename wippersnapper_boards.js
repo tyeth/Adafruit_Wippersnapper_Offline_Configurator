@@ -1,4 +1,4 @@
-{
+window.jsonBoardObject = {
   "boards": {
     "feather-esp32": {
       "boardName": "feather-esp32",
@@ -6395,4 +6395,4 @@
       "image": null
     }
   }
-}
+};

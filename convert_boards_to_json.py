@@ -479,6 +479,12 @@ def convert_boards_to_json():
     with open(OUTPUT_FILE, 'w') as f:
         json.dump({"boards": boards}, f, indent=2)
     
+    # Write the consolidated JS file
+    with open(OUTPUT_FILE.replace('.json', '.js'), 'w') as f:
+        f.write("window.jsonBoardObject = ")
+        json.dump({"boards": boards}, f, indent=2)
+        f.write(";\n")
+    
     print(f"Successfully created {OUTPUT_FILE} with {len(boards)} boards")
     return boards
 

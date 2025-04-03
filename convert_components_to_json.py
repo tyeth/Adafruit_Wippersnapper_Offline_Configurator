@@ -180,6 +180,12 @@ def convert_components_to_json():
     with open(OUTPUT_FILE, 'w') as f:
         json.dump({"components": components}, f, indent=2)
     
+    # Write the consolidated JS file
+    with open(OUTPUT_FILE.replace('.json', '.js'), 'w') as f:
+        f.write("window.jsonComponentsObject = ")
+        json.dump({"components": components}, f, indent=2)
+        f.write(";\n")
+
     print(f"Successfully created {OUTPUT_FILE}")
     
     # Calculate component count

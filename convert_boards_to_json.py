@@ -20,6 +20,7 @@ def add_custom_board_definitions(boards):
         "vendor": "Adafruit",
         "productURL": "https://www.adafruit.com/product/5980",
         "documentationURL": "https://learn.adafruit.com/adafruit-feather-rp2040-adalogger",
+        "installMethod": "uf2",
         "totalGPIOPins": 22,
         "totalAnalogPins": 4,
         "pins": [
@@ -70,6 +71,7 @@ def add_custom_board_definitions(boards):
         "vendor": "Generic",
         "productURL": "",
         "documentationURL": "",
+        "installMethod": "uf2",
         "totalGPIOPins": 43,
         "totalAnalogPins": 20,
         "pins": [
@@ -136,6 +138,7 @@ def add_custom_board_definitions(boards):
         "vendor": "Generic",
         "productURL": "",
         "documentationURL": "",
+        "installMethod": "uf2",
         "totalGPIOPins": 48,
         "totalAnalogPins": 20,
         "pins": [
@@ -204,6 +207,7 @@ def add_custom_board_definitions(boards):
         "vendor": "Generic",
         "productURL": "",
         "documentationURL": "",
+        "installMethod": "uf2",
         "totalGPIOPins": 30,
         "totalAnalogPins": 4,
         "pins": [
@@ -261,6 +265,7 @@ def add_custom_board_definitions(boards):
         "vendor": "Generic",
         "productURL": "",
         "documentationURL": "",
+        "installMethod": "uf2",
         "totalGPIOPins": 30,
         "totalAnalogPins": 4,
         "pins": [
@@ -318,6 +323,7 @@ def add_custom_board_definitions(boards):
         "vendor": "Adafruit",
         "productURL": "https://www.adafruit.com/product/5786",
         "documentationURL": "https://learn.adafruit.com/adafruit-metro-rp2350",
+        "installMethod": "uf2",
         "totalGPIOPins": 30,
         "totalAnalogPins": 4,
         "pins": [
@@ -402,6 +408,7 @@ def convert_boards_to_json():
                 "vendor": board_data.get("vendor"),
                 "productURL": board_data.get("productURL", ""),
                 "documentationURL": board_data.get("documentationURL", ""),
+                "installMethod": board_data.get("installMethod", ""),
                 "pins": [],
                 "analogPins": [],
                 "defaultI2C": {},

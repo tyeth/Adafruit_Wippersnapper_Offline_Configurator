@@ -134,8 +134,12 @@ function populateBoardSelect() {
     const boardSelect = document.getElementById('board-select');
     boardSelect.innerHTML = '<option value="">-- Select a Board --</option>';
     
+    // Filter boards to only include those with UF2 install method
+    const filteredBoards = Object.entries(appState.boardsData)
+        .filter(([boardId, board]) => ['uf2', 'web-native-usb'].includes(board.installMethod));
+    
     // Sort boards by vendor and name
-    const sortedBoards = Object.entries(appState.boardsData)
+    const sortedBoards = filteredBoards
         .sort((a, b) => {
             const vendorA = a[1].vendor || '';
             const vendorB = b[1].vendor || '';

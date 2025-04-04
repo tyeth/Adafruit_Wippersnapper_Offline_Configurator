@@ -8,6 +8,7 @@
       "vendor": "Adafruit",
       "productURL": "https://www.adafruit.com/product/4775",
       "documentationURL": "https://learn.adafruit.com/adafruit-metro-esp32-s2",
+      "installMethod": "uf2",
       "pins": [
         {
           "number": 0,
@@ -261,6 +262,7 @@
       "vendor": "Adafruit",
       "productURL": "https://www.adafruit.com/product/4471",
       "documentationURL": "https://learn.adafruit.com/circuitpython-libraries-on-any-computer-with-mcp2221",
+      "installMethod": "python",
       "pins": [],
       "analogPins": [
         {
@@ -303,6 +305,7 @@
       "vendor": "Adafruit",
       "productURL": "https://www.adafruit.com/product/5405",
       "documentationURL": "https://learn.adafruit.com/adafruit-qt-py-esp32-c3-wifi-dev-board",
+      "installMethod": "web",
       "pins": [
         {
           "number": 0,
@@ -457,6 +460,7 @@
       "vendor": "Adafruit",
       "productURL": "https://www.adafruit.com/product/5477",
       "documentationURL": "https://learn.adafruit.com/adafruit-esp32-s3-feather",
+      "installMethod": "uf2",
       "pins": [
         {
           "number": 0,
@@ -641,6 +645,7 @@
       "vendor": "Adafruit",
       "productURL": "https://www.adafruit.com/product/5400",
       "documentationURL": "https://learn.adafruit.com/adafruit-esp32-feather-v2",
+      "installMethod": "web",
       "pins": [
         {
           "number": 0,
@@ -851,6 +856,7 @@
       "vendor": "Adafruit",
       "productURL": "https://www.adafruit.com/product/5345",
       "documentationURL": "https://learn.adafruit.com/esp32-s2-reverse-tft-feather",
+      "installMethod": "uf2",
       "pins": [
         {
           "number": 0,
@@ -1007,6 +1013,7 @@
       "vendor": "Adafruit",
       "productURL": "https://www.adafruit.com/product/5000",
       "documentationURL": "https://learn.adafruit.com/adafruit-esp32-s3-feather",
+      "installMethod": "uf2",
       "pins": [
         {
           "number": 0,
@@ -1191,6 +1198,7 @@
       "vendor": "Adafruit",
       "productURL": "https://www.adafruit.com/product/5500",
       "documentationURL": "https://learn.adafruit.com/adafruit-metro-esp32-s3",
+      "installMethod": "uf2",
       "pins": [
         {
           "number": 0,
@@ -1498,6 +1506,7 @@
       "vendor": "Adafruit",
       "productURL": "https://www.adafruit.com/product/4985",
       "documentationURL": "https://learn.adafruit.com/adafruit-funhouse",
+      "installMethod": "web-native-usb",
       "pins": [
         {
           "number": 5,
@@ -1686,6 +1695,7 @@
       "vendor": "Adafruit",
       "productURL": "https://www.adafruit.com/product/5691",
       "documentationURL": "https://learn.adafruit.com/esp32-s3-reverse-tft-feather",
+      "installMethod": "uf2",
       "pins": [
         {
           "number": 0,
@@ -1835,6 +1845,7 @@
       "vendor": "Adafruit",
       "productURL": "https://www.adafruit.com/product/5395",
       "documentationURL": "https://learn.adafruit.com/adafruit-qt-py-esp32-pico",
+      "installMethod": "web",
       "pins": [
         {
           "number": 26,
@@ -1994,6 +2005,7 @@
       "vendor": "Adafruit",
       "productURL": "https://www.adafruit.com/product/4444",
       "documentationURL": "https://learn.adafruit.com/adafruit-pyportal-titano",
+      "installMethod": "uf2",
       "pins": [
         {
           "number": 3,
@@ -2084,6 +2096,7 @@
       "vendor": "Adafruit",
       "productURL": "https://www.adafruit.com/product/5426",
       "documentationURL": "https://learn.adafruit.com/adafruit-qt-py-esp32-s3",
+      "installMethod": "uf2",
       "pins": [
         {
           "number": 18,
@@ -2243,6 +2256,7 @@
       "vendor": "Adafruit",
       "productURL": "https://www.adafruit.com/product/4116",
       "documentationURL": "https://learn.adafruit.com/adafruit-pyportal",
+      "installMethod": "uf2",
       "pins": [
         {
           "number": 3,
@@ -2333,6 +2347,7 @@
       "vendor": "Adafruit",
       "productURL": "https://www.adafruit.com/product/6160",
       "documentationURL": "https://learn.adafruit.com/adafruit-sparkle-motion-mini/",
+      "installMethod": "web",
       "pins": [
         {
           "number": 0,
@@ -2480,6 +2495,7 @@
       "vendor": "Adafruit",
       "productURL": "https://www.adafruit.com/product/2821",
       "documentationURL": "https://learn.adafruit.com/adafruit-feather-huzzah-esp8266",
+      "installMethod": "web",
       "pins": [
         {
           "number": 0,
@@ -2583,6 +2599,7 @@
       "vendor": "Adafruit",
       "productURL": "https://www.adafruit.com/product/4000",
       "documentationURL": "https://learn.adafruit.com/adafruit-metro-m4-express-airlift-wifi",
+      "installMethod": "uf2",
       "pins": [
         {
           "number": 0,
@@ -2746,6 +2763,7 @@
       "vendor": "Adafruit",
       "productURL": "https://www.adafruit.com/product/5890",
       "documentationURL": "https://learn.adafruit.com/adafruit-itsybitsy-esp32",
+      "installMethod": "web",
       "pins": [
         {
           "number": 0,
@@ -2958,6 +2976,7 @@
       "vendor": "Adafruit",
       "productURL": "https://www.adafruit.com/product/5483",
       "documentationURL": "https://learn.adafruit.com/adafruit-esp32-s3-tft-feather",
+      "installMethod": "uf2",
       "pins": [
         {
           "number": 0,
@@ -3128,6 +3147,7 @@
       "vendor": "Adafruit",
       "productURL": "https://www.adafruit.com/product/5933",
       "documentationURL": "https://learn.adafruit.com/adafruit-esp32-c6-feather",
+      "installMethod": "web",
       "pins": [
         {
           "number": 1,
@@ -3326,6 +3346,7 @@
       "vendor": "Adafruit",
       "productURL": "https://www.adafruit.com/product/5000",
       "documentationURL": "https://learn.adafruit.com/adafruit-esp32-s2-feather",
+      "installMethod": "uf2",
       "pins": [
         {
           "number": 0,
@@ -3496,6 +3517,7 @@
       "vendor": "Adafruit",
       "productURL": "https://www.adafruit.com/product/5325",
       "documentationURL": "https://learn.adafruit.com/adafruit-qt-py-esp32-s2",
+      "installMethod": "uf2",
       "pins": [
         {
           "number": 18,
@@ -3655,6 +3677,7 @@
       "vendor": "Raspberry Pi",
       "productURL": "https://www.adafruit.com/product/6087",
       "documentationURL": "https://learn.adafruit.com/quick-start-the-pico-w-with-wippersnapper/overview",
+      "installMethod": "uf2",
       "pins": [
         {
           "number": 0,
@@ -3920,6 +3943,7 @@
       "vendor": "Raspberry Pi",
       "productURL": "https://www.adafruit.com/product/5526",
       "documentationURL": "https://learn.adafruit.com/quick-start-the-pico-w-with-wippersnapper/",
+      "installMethod": "uf2",
       "pins": [
         {
           "number": 0,
@@ -4185,6 +4209,7 @@
       "vendor": "Adafruit",
       "productURL": "https://www.adafruit.com/product/5700",
       "documentationURL": "https://learn.adafruit.com/adafruit-qt-py-esp32-s3",
+      "installMethod": "uf2",
       "pins": [
         {
           "number": 18,
@@ -4344,6 +4369,7 @@
       "vendor": "Adafruit",
       "productURL": "https://www.adafruit.com/product/4800",
       "documentationURL": "https://learn.adafruit.com/adafruit-magtag",
+      "installMethod": "uf2",
       "pins": [
         {
           "number": 1,
@@ -4467,6 +4493,7 @@
       "vendor": "Adafruit",
       "productURL": "https://www.adafruit.com/product/3405",
       "documentationURL": "https://learn.adafruit.com/adafruit-huzzah32-esp32-feather",
+      "installMethod": "web",
       "pins": [
         {
           "number": 13,
@@ -4670,6 +4697,7 @@
       "vendor": "Adafruit",
       "productURL": "https://www.adafruit.com/product/5300",
       "documentationURL": "https://learn.adafruit.com/adafruit-esp32-s2-tft-feather",
+      "installMethod": "uf2",
       "pins": [
         {
           "number": 0,
@@ -4833,6 +4861,7 @@
       "vendor": "Adafruit",
       "productURL": "https://www.adafruit.com/product/5980",
       "documentationURL": "https://learn.adafruit.com/adafruit-feather-rp2040-adalogger",
+      "installMethod": "uf2",
       "totalGPIOPins": 22,
       "totalAnalogPins": 4,
       "pins": [
@@ -5030,6 +5059,7 @@
       "vendor": "Generic",
       "productURL": "",
       "documentationURL": "",
+      "installMethod": "uf2",
       "totalGPIOPins": 43,
       "totalAnalogPins": 20,
       "pins": [
@@ -5332,6 +5362,7 @@
       "vendor": "Generic",
       "productURL": "",
       "documentationURL": "",
+      "installMethod": "uf2",
       "totalGPIOPins": 48,
       "totalAnalogPins": 20,
       "pins": [
@@ -5648,6 +5679,7 @@
       "vendor": "Generic",
       "productURL": "",
       "documentationURL": "",
+      "installMethod": "uf2",
       "totalGPIOPins": 30,
       "totalAnalogPins": 4,
       "pins": [
@@ -5899,6 +5931,7 @@
       "vendor": "Generic",
       "productURL": "",
       "documentationURL": "",
+      "installMethod": "uf2",
       "totalGPIOPins": 30,
       "totalAnalogPins": 4,
       "pins": [
@@ -6150,6 +6183,7 @@
       "vendor": "Adafruit",
       "productURL": "https://www.adafruit.com/product/5786",
       "documentationURL": "https://learn.adafruit.com/adafruit-metro-rp2350",
+      "installMethod": "uf2",
       "totalGPIOPins": 30,
       "totalAnalogPins": 4,
       "pins": [

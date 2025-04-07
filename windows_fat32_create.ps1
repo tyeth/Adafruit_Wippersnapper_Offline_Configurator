@@ -1,36 +1,53 @@
-# Create a fixed-size file to serve as your disk image
-$file = "C:\path\to\fat32_image.img"
-$size = 1MB  # Adjust size as needed (1MB shown here)
+# Create FAT32 image with specified size
+param(
+    [Parameter(Mandatory=$true)]
+    [string]$ImagePath,
+    
+    [Parameter(Mandatory=$true)]
+    [int]$SizeMB
+)
 
 # Create an empty file of the specified size
-fsutil file createnew $file $size
+$sizeBytes = $SizeMB * 1MB
+fsutil file createnew $ImagePath $sizeBytes
 
-# Use diskpart via script file
-$diskpartScript = "C:\path\to\diskpart_script.txt"
+# Create temporary diskpart script
+$scriptPath = [System.IO.Path]::GetTempFileName()
 
 # Create the script file content
 @"
-create vdisk file=$file maximum=1 type=fixed
-select vdisk file=$file
+create vdisk file=$ImagePath maximum=$SizeMB type=fixed
+select vdisk file=$ImagePath
 attach vdisk
 create partition primary
 format fs=fat32 quick
 assign letter=X
 exit
-"@ | Out-File -FilePath $diskpartScript -Encoding ascii
+"@ | Out-File -FilePath $scriptPath -Encoding ascii
 
 # Run diskpart with the script
-diskpart /s $diskpartScript
+try {
+    diskpart /s $scriptPath
+    
+    # Wait for drive letter to be assigned
+    Start-Sleep -Seconds 1
+    
+    # Now you can copy your files to X:
+    # Copy-Item -Path "C:\path\to\your_files\*" -Destination "X:\" -Recurse
 
-# Now you can copy your files to X:
-# Copy-Item -Path "C:\path\to\your_files\*" -Destination "X:\" -Recurse
-
-# When done, detach the disk
-$detachScript = "C:\path\to\detach_script.txt"
+    # Return the drive letter
+    return "X:"
+} finally {
+    # Detach the disk
+    $detachScript = [System.IO.Path]::GetTempFileName()
 @"
-select vdisk file=$file
+select vdisk file=$ImagePath
 detach vdisk
 exit
 "@ | Out-File -FilePath $detachScript -Encoding ascii
 
-diskpart /s $detachScript
+    diskpart /s $detachScript
+    Remove-Item $detachScript -Force
+    # Clean up the script file
+    Remove-Item $scriptPath -Force
+}

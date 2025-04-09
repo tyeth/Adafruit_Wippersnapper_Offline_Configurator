@@ -50,7 +50,7 @@ async function loadWippersnapperData() {
         const firmwareData = window['FIRMWARE_DATA'];
         if (firmwareData && firmwareData.releaseInfo) {
             // Update the release name and link in the UI
-            document.getElementById('release_name').innerText = firmwareData.releaseInfo.name + " (" + firmwareData.releaseInfo.publishedDate + ")";
+            document.getElementById('release_name').innerHTML = "(" + firmwareData.releaseInfo.publishedDate + ")<br/>" + firmwareData.releaseInfo.name;
             document.getElementById('release_name').href = firmwareData.releaseInfo.url;
             //TODO: set onchange for the boards to alter the download url in #firmware_file link
         }
@@ -232,6 +232,7 @@ function convertComponentsDataToConfig() {
             componentsConfig.i2c.push({
                 id: component.id,
                 name: component.name,
+                displayName: component.displayName || component.name,
                 address: component.address || '0x00',
                 addresses: component.addresses || [component.address || '0x00'],
                 dataTypes: component.dataTypes || [],
@@ -245,6 +246,7 @@ function convertComponentsDataToConfig() {
         appState.componentsData.ds18x20.forEach(component => {
             componentsConfig.ds18x20.push({
                 id: component.id,
+                displayName: component.displayName || component.name,
                 name: component.name,
                 dataTypes: component.dataTypes || []
             });
@@ -256,6 +258,7 @@ function convertComponentsDataToConfig() {
         appState.componentsData.pin.forEach(component => {
             componentsConfig.pin.push({
                 id: component.id,
+                displayName: component.displayName || component.name,
                 name: component.name,
                 dataTypes: component.dataTypes || []
             });
@@ -267,6 +270,7 @@ function convertComponentsDataToConfig() {
         appState.componentsData.pixel.forEach(component => {
             componentsConfig.pixel.push({
                 id: component.id,
+                displayName: component.displayName || component.name,
                 name: component.name,
                 dataTypes: component.dataTypes || []
             });
@@ -278,6 +282,7 @@ function convertComponentsDataToConfig() {
         appState.componentsData.pwm.forEach(component => {
             componentsConfig.pwm.push({
                 id: component.id,
+                displayName: component.displayName || component.name,
                 name: component.name,
                 dataTypes: component.dataTypes || []
             });
@@ -289,6 +294,7 @@ function convertComponentsDataToConfig() {
         appState.componentsData.servo.forEach(component => {
             componentsConfig.servo.push({
                 id: component.id,
+                displayName: component.displayName || component.name,
                 name: component.name,
                 dataTypes: component.dataTypes || []
             });
@@ -300,6 +306,7 @@ function convertComponentsDataToConfig() {
         appState.componentsData.uart.forEach(component => {
             componentsConfig.uart.push({
                 id: component.id,
+                displayName: component.displayName || component.name,
                 name: component.name,
                 dataTypes: component.dataTypes || []
             });

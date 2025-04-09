@@ -200,7 +200,7 @@
 <body>
     <div style="display: flex; justify-content: space-between; align-items: center;">
         <h1>Wippersnapper Configuration Builder</h1>
-        <div style="display:inline-block; font-size: x-small;"><b>Latest Release:</b> <a id="release_name" href="https://github.com/adafruit/Adafruit_Wippersnapper_Arduino/releases"></a></div>
+        <div style="display:inline-block; font-size: smaller;"><b>Latest Release:</b> <a id="release_name" href="https://github.com/adafruit/Adafruit_Wippersnapper_Arduino/releases">Release Page</a></div>
         <div style="display:inline-block; font-size: smaller;">Download: &nbsp;<a style="display: inline-flex;" id="firmware_file" href="https://github.com/adafruit/Adafruit_Wippersnapper_Arduino/releases">UF2 firmware</a> </div>
         <button id="reset-config-btn-top" class="reset-btn" style="background-color: #dc3545; margin-left: 20px;">Reset Configurator</button>
     </div>
@@ -364,12 +364,6 @@
                 <h3>I2C Components</h3>
                 <div class="search-filter">
                     <input type="text" id="i2c-search" class="component-search" placeholder="Search I2C components...">
-                </div>
-                <div>
-                    <label for="i2c-bus-select">Select I2C Bus: </label>
-                    <select id="i2c-bus-select">
-                        <option value="default">Default I2C Bus</option>
-                    </select>
                 </div>
                 
                 <div class="component-list" id="i2c-component-list">

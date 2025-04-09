@@ -529,29 +529,39 @@ function resetSubsequentSelections() {
 }
 
 function initializeManualConfig(boardConfig) {
-    if (boardConfig && "rtc" in boardConfig) {
-        console.log('found rtc', boardConfig.rtc);
-    } else {
-        // Initialize RTC section
-        document.getElementById('rtc-missing').classList.remove('hidden');
-        document.getElementById('rtc-present').classList.add('hidden');
-
-    }
     if (boardConfig && "sdCardCS" in boardConfig) {
-        // Initialize SD card section
-        console.log('found sd card cs', boardConfig.sdCardCS);
+        appState.sdCardCS = boardConfig.sdCardCS;
+        document.getElementById('sd-missing').classList.add('hidden');
+        document.getElementById('sd-present').classList.remove('hidden');
+        document.getElementById('sd-cs-pin').textContent = boardConfig.sdCardCS;
+        
+        // Mark SD CS pin as used
+        appState.usedPins.add(boardConfig.sdCardCS);
+        console.log('Using on-board sd card cs', boardConfig.sdCardCS);
     } else {
-
-        // Initialize SD card section
+        // Companion board doesn't provide SD card, show manual config
         document.getElementById('sd-missing').classList.remove('hidden');
         document.getElementById('sd-present').classList.add('hidden');
+        appState.sdCardCS = null;
     }
-        
+    
+    if (boardConfig && "rtc" in boardConfig) {
+        appState.rtcType = boardConfig.rtc;
+        document.getElementById('rtc-missing').classList.add('hidden');
+        document.getElementById('rtc-present').classList.remove('hidden');
+        document.getElementById('rtc-type').textContent = boardConfig.rtc;
+    } else {
+        // board doesn't provide RTC, show manual config
+        document.getElementById('rtc-missing').classList.remove('hidden');
+        document.getElementById('rtc-present').classList.add('hidden');
+        appState.rtcType = 'soft';
+        document.getElementById('rtc-select').value = 'soft';
+    }
 
-        // Initialize LED brightness
-        document.getElementById('led-brightness').value = 0.5;
-        document.getElementById('brightness-value').textContent = '0.5';
-        appState.statusLEDBrightness = 0.5;
+    // Initialize LED brightness
+    document.getElementById('led-brightness').value = 0.5;
+    document.getElementById('brightness-value').textContent = '0.5';
+    appState.statusLEDBrightness = 0.5;
 }
 
 function populatePinsLists() {
@@ -862,7 +872,7 @@ function createComponentCard(component, type) {
     }
     
     const title = document.createElement('h4');
-    title.textContent = component.name;
+    title.textContent = component.displayName;
     card.appendChild(title);
     
     if (type === 'i2c' && component.address) {
@@ -905,7 +915,7 @@ function showComponentConfigModal(component, type) {
     html += `
         <div>
             <label for="component-name">Component Name:</label>
-            <input type="text" id="component-name" value="${component.name}" required>
+            <input type="text" id="component-name" value="${component.displayName}" required>
         </div>
         <div>
             <label for="component-period">Polling Period (seconds):</label>
@@ -1956,6 +1966,7 @@ function importConfigObject(config) {
 
 // Initialize sample data components if there is no external data
 function initializeSampleComponents() {
+    alert('No data loader detected, initializing with sample components');
     // Sample I2C components
     appState.componentsData.i2c = [
         { id: 'bme280', name: 'BME280', address: '0x77', dataTypes: ['ambient-temp', 'ambient-temp-fahrenheit', 'relative-humidity', 'pressure', 'altitude'] },

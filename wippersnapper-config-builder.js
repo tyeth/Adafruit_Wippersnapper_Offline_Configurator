@@ -333,8 +333,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Remove the bus
                 appState.i2cBuses.splice(additionalBusIndex, 1);
                 
-                // Update I2C bus select options
-                updateI2CBusOptions();
+                // // Update I2C bus select options
+                // updateI2CBusOptions();
             }
         }
     });
@@ -642,10 +642,10 @@ function populatePinsLists() {
                 // Refresh other pin lists
                 populatePinsLists();
                 
-                // Update I2C bus dropdown in components section
-                if (additionalBus.sda !== undefined) {
-                    updateI2CBusOptions();
-                }
+                // // Update I2C bus dropdown in components section
+                // if (additionalBus.sda !== undefined) {
+                //     updateI2CBusOptions();
+                // }
             });
         }
         
@@ -693,10 +693,10 @@ function populatePinsLists() {
                 // Refresh other pin lists
                 populatePinsLists();
                 
-                // Update I2C bus dropdown in components section
-                if (additionalBus.scl !== undefined) {
-                    updateI2CBusOptions();
-                }
+                // // Update I2C bus dropdown in components section
+                // if (additionalBus.scl !== undefined) {
+                //     updateI2CBusOptions();
+                // }
             });
         }
         
@@ -834,8 +834,8 @@ function populateComponentLists() {
         uartList.appendChild(card);
     });
     
-    // Update I2C bus options
-    updateI2CBusOptions();
+    // // Update I2C bus options
+    // updateI2CBusOptions();
     
     // Add search functionality for all components
     document.getElementById('all-search').addEventListener('input', function() {
@@ -1289,8 +1289,8 @@ function saveModalData() {
             
             appState.i2cMultiplexers.push(muxConfig);
             
-            // Update I2C bus options
-            updateI2CBusOptions();
+            // // Update I2C bus options
+            // updateI2CBusOptions();
             
             // Remove any components using this multiplexer
             appState.selectedComponents = appState.selectedComponents.filter(c => 
@@ -1508,8 +1508,8 @@ function removeComponent(instanceId) {
         if (muxIndex !== -1) {
             appState.i2cMultiplexers.splice(muxIndex, 1);
             
-            // Update I2C bus options
-            updateI2CBusOptions();
+            // // Update I2C bus options
+            // updateI2CBusOptions();
             
             // Remove any components using this multiplexer
             appState.selectedComponents = appState.selectedComponents.filter(c => 
@@ -1944,8 +1944,8 @@ function importConfigObject(config) {
                 // Update selected components list
                 updateSelectedComponentsList();
                 
-                // Update I2C bus options
-                updateI2CBusOptions();
+                // // Update I2C bus options
+                // updateI2CBusOptions();
                 
                 // Clear pending components to avoid processing them again
                 appState.pendingComponents = [];

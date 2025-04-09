@@ -31,56 +31,81 @@ Product ID: 3653
 Adafruit AirLift Shield - ESP32 WiFi Co-Processor (SD CS = D4, no RTC)
 Product ID: 4285
 */
+
+/*
+<option value="adalogger">Adafruit Adalogger FeatherWing</option>
+<option value="ds3231-precision">Adafruit DS3231 Precision RTC FeatherWing</option>
+<option value="picowbell-adalogger">Adafruit PiCowbell Adalogger for Pico</option>
+<option value="datalogger-shield-revb">Adafruit Data Logging Shield Rev.B (PCF8523)</option>
+<option value="datalogger-shield-reva">Adafruit Data Logging Shield Rev.A (DS1307)</option>
+<option value="audio-bff">Adafruit Audio BFF Add-on for QT Py and Xiao</option>
+<option value="microsd-bff">Adafruit microSD Card BFF Add-On for QT Py and Xiao</option>
+<option value="winc1500-shield">Adafruit WINC1500 WiFi Shield</option>
+<option value="airlift-shield">Adafruit AirLift Shield - ESP32 WiFi Co-Processor</option>
+*/
+
+
+// TODO: generate these with product images and links to the product pages as part of boards py script
 const companionBoardConfigs = {
     'adalogger': {
         rtc: 'PCF8523',
         sdCardCS: 10,
-        extras: 'SD Card'
+        extras: 'SD Card',
+        productUrl: 'https://www.adafruit.com/product/2922'
     },
     'datalogger-m0': {
         rtc: 'PCF8523',
         sdCardCS: 10,
-        extras: 'SD Card'
+        extras: 'SD Card',
+        productUrl: 'https://www.adafruit.com/product/2796'
     },
     'ds3231-precision': {
         rtc: 'DS3231',
         sdCardCS: null,
-        extras: 'Precision RTC'
+        extras: 'Precision RTC',
+        productUrl: 'https://www.adafruit.com/product/3028'
     },
     'picowbell-adalogger': {
         rtc: 'PCF8523',
         sdCardCS: 9,
-        extras: 'SD Card, STEMMA QT'
+        extras: 'SD Card, STEMMA QT',
+        productUrl: 'https://www.adafruit.com/product/5703'
     },
     'datalogger-shield-revb': {
         rtc: 'PCF8523',
         sdCardCS: 10,
-        extras: 'SD Card'
+        extras: 'SD Card',
+        productUrl: 'https://www.adafruit.com/product/1141'
     },
     'datalogger-shield-reva': {
         rtc: 'DS1307',
         sdCardCS: 10,
-        extras: 'SD Card'
+        extras: 'SD Card',
+        productUrl: 'https://www.adafruit.com/product/1141'
     },
     'audio-bff': {
         rtc: null,
         sdCardCS: 'A0',
-        extras: 'Audio'
+        extras: 'Audio',
+        productUrl: 'https://www.adafruit.com/product/5769'
     },
     'microsd-bff': {
         rtc: null,
         sdCardCS: 'TX',
-        extras: 'SD Card'
+        extras: 'SD Card',
+        productUrl: 'https://www.adafruit.com/product/5683'
     },
     'winc1500-shield': {
         rtc: null,
         sdCardCS: 'D4',
-        extras: 'WiFi'
+        extras: 'WiFi',
+        productUrl: 'https://www.adafruit.com/product/3653'
     },
     'airlift-shield': {
         rtc: null,
         sdCardCS: 'D4',
-        extras: 'WiFi'
+        extras: 'WiFi',
+        productUrl: 'https://www.adafruit.com/product/4285'
     }
 };
 

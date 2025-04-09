@@ -23,6 +23,8 @@ def add_custom_board_definitions(boards):
         "documentationURL": "",
         "installMethod": "uf2",
         "installBoardName": "",
+        "rtc": None,
+        "sdCardCS": None,
         "totalGPIOPins": 43,
         "totalAnalogPins": 20,
         "pins": [
@@ -91,6 +93,8 @@ def add_custom_board_definitions(boards):
         "documentationURL": "",
         "installMethod": "uf2",
         "installBoardName": "",
+        "rtc": None,
+        "sdCardCS": None,
         "totalGPIOPins": 48,
         "totalAnalogPins": 20,
         "pins": [
@@ -161,6 +165,8 @@ def add_custom_board_definitions(boards):
         "documentationURL": "",
         "installMethod": "uf2",
         "installBoardName": "",
+        "rtc": None,
+        "sdCardCS": None,
         "totalGPIOPins": 30,
         "totalAnalogPins": 4,
         "pins": [
@@ -220,6 +226,8 @@ def add_custom_board_definitions(boards):
         "documentationURL": "",
         "installMethod": "uf2",
         "installBoardName": "",
+        "rtc": None,
+        "sdCardCS": None,
         "totalGPIOPins": 48,
         "totalAnalogPins": 8,
         "pins": [
@@ -329,6 +337,8 @@ def convert_boards_to_json():
                 "documentationURL": board_data.get("documentationURL", ""),
                 "installMethod": board_data.get("installMethod", ""),
                 "installBoardName": board_data.get("installBoardName", board_data.get("boardName", "")),
+                "rtc": board_data.get("rtc", None),
+                "sdCardCS": board_data.get("sdCardCS", None),
                 "pins": [],
                 "analogPins": [],
                 "defaultI2C": {},

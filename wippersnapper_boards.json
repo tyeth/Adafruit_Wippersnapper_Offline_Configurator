@@ -10,6 +10,8 @@
       "documentationURL": "https://learn.adafruit.com/adafruit-esp32-s2-feather",
       "installMethod": "uf2",
       "installBoardName": "feather-esp32s2",
+      "rtc": null,
+      "sdCardCS": null,
       "pins": [
         {
           "number": 0,
@@ -182,6 +184,8 @@
       "documentationURL": "https://learn.adafruit.com/esp32-s2-reverse-tft-feather",
       "installMethod": "uf2",
       "installBoardName": "feather-esp32s2-reverse-tft",
+      "rtc": null,
+      "sdCardCS": null,
       "pins": [
         {
           "number": 0,
@@ -340,6 +344,8 @@
       "documentationURL": "https://learn.adafruit.com/adafruit-esp32-s2-tft-feather",
       "installMethod": "uf2",
       "installBoardName": "feather-esp32s2-tft",
+      "rtc": null,
+      "sdCardCS": null,
       "pins": [
         {
           "number": 0,
@@ -505,6 +511,8 @@
       "documentationURL": "https://learn.adafruit.com/adafruit-esp32-s3-feather",
       "installMethod": "uf2",
       "installBoardName": "feather-esp32s3",
+      "rtc": null,
+      "sdCardCS": null,
       "pins": [
         {
           "number": 0,
@@ -691,6 +699,8 @@
       "documentationURL": "https://learn.adafruit.com/adafruit-esp32-s3-feather",
       "installMethod": "uf2",
       "installBoardName": "feather-esp32s3-4mbflash-2mbpsram",
+      "rtc": null,
+      "sdCardCS": null,
       "pins": [
         {
           "number": 0,
@@ -877,6 +887,8 @@
       "documentationURL": "https://learn.adafruit.com/esp32-s3-reverse-tft-feather",
       "installMethod": "uf2",
       "installBoardName": "feather-esp32s3-reverse-tft",
+      "rtc": null,
+      "sdCardCS": null,
       "pins": [
         {
           "number": 0,
@@ -1028,6 +1040,8 @@
       "documentationURL": "https://learn.adafruit.com/adafruit-esp32-s3-tft-feather",
       "installMethod": "uf2",
       "installBoardName": "feather-esp32s3-tft",
+      "rtc": null,
+      "sdCardCS": null,
       "pins": [
         {
           "number": 0,
@@ -1200,6 +1214,8 @@
       "documentationURL": "https://learn.adafruit.com/adafruit-feather-rp2040-adalogger",
       "installMethod": "uf2",
       "installBoardName": "feather-rp2040-adalogger",
+      "rtc": "PCF8523",
+      "sdCardCS": 45,
       "pins": [
         {
           "number": 7,
@@ -1467,6 +1483,8 @@
       "documentationURL": "https://learn.adafruit.com/adafruit-funhouse",
       "installMethod": "web-native-usb",
       "installBoardName": "funhouse_noota",
+      "rtc": null,
+      "sdCardCS": null,
       "pins": [
         {
           "number": 5,
@@ -1657,6 +1675,8 @@
       "documentationURL": "https://learn.adafruit.com/adafruit-magtag",
       "installMethod": "uf2",
       "installBoardName": "magtag",
+      "rtc": null,
+      "sdCardCS": null,
       "pins": [
         {
           "number": 1,
@@ -1782,6 +1802,8 @@
       "documentationURL": "https://learn.adafruit.com/adafruit-metro-rp2040",
       "installMethod": "uf2",
       "installBoardName": "metro-rp2040",
+      "rtc": null,
+      "sdCardCS": 23,
       "pins": [
         {
           "number": 0,
@@ -1986,6 +2008,8 @@
       "documentationURL": "https://learn.adafruit.com/adafruit-metro-rp2350",
       "installMethod": "uf2",
       "installBoardName": "metro-rp2350",
+      "rtc": null,
+      "sdCardCS": 34,
       "pins": [
         {
           "number": 0,
@@ -2256,6 +2280,8 @@
       "documentationURL": "https://learn.adafruit.com/adafruit-metro-esp32-s2",
       "installMethod": "uf2",
       "installBoardName": "metroesp32s2",
+      "rtc": null,
+      "sdCardCS": null,
       "pins": [
         {
           "number": 0,
@@ -2511,6 +2537,8 @@
       "documentationURL": "https://learn.adafruit.com/adafruit-metro-esp32-s3",
       "installMethod": "uf2",
       "installBoardName": "metro_esp32s3",
+      "rtc": null,
+      "sdCardCS": 45,
       "pins": [
         {
           "number": 0,
@@ -2820,6 +2848,8 @@
       "documentationURL": "https://learn.adafruit.com/adafruit-qt-py-esp32-s2",
       "installMethod": "uf2",
       "installBoardName": "qtpy-esp32s2",
+      "rtc": null,
+      "sdCardCS": null,
       "pins": [
         {
           "number": 18,
@@ -2981,6 +3011,8 @@
       "documentationURL": "https://learn.adafruit.com/adafruit-qt-py-esp32-s3",
       "installMethod": "uf2",
       "installBoardName": "qtpy-esp32s3",
+      "rtc": null,
+      "sdCardCS": null,
       "pins": [
         {
           "number": 18,
@@ -3142,6 +3174,8 @@
       "documentationURL": "https://learn.adafruit.com/adafruit-qt-py-esp32-s3",
       "installMethod": "uf2",
       "installBoardName": "qtpy-esp32s3-n4r2",
+      "rtc": null,
+      "sdCardCS": null,
       "pins": [
         {
           "number": 18,
@@ -3303,6 +3337,8 @@
       "documentationURL": "https://learn.adafruit.com/quick-start-the-pico-w-with-wippersnapper/overview",
       "installMethod": "uf2",
       "installBoardName": "picow_rp2350_tinyusb",
+      "rtc": null,
+      "sdCardCS": null,
       "pins": [
         {
           "number": 0,
@@ -3570,6 +3606,8 @@
       "documentationURL": "https://learn.adafruit.com/quick-start-the-pico-w-with-wippersnapper/",
       "installMethod": "uf2",
       "installBoardName": "picow_rp2040_tinyusb",
+      "rtc": null,
+      "sdCardCS": null,
       "pins": [
         {
           "number": 0,
@@ -3837,6 +3875,8 @@
       "documentationURL": "",
       "installMethod": "uf2",
       "installBoardName": "",
+      "rtc": null,
+      "sdCardCS": null,
       "totalGPIOPins": 43,
       "totalAnalogPins": 20,
       "pins": [
@@ -4141,6 +4181,8 @@
       "documentationURL": "",
       "installMethod": "uf2",
       "installBoardName": "",
+      "rtc": null,
+      "sdCardCS": null,
       "totalGPIOPins": 48,
       "totalAnalogPins": 20,
       "pins": [
@@ -4459,6 +4501,8 @@
       "documentationURL": "",
       "installMethod": "uf2",
       "installBoardName": "",
+      "rtc": null,
+      "sdCardCS": null,
       "totalGPIOPins": 30,
       "totalAnalogPins": 4,
       "pins": [
@@ -4712,6 +4756,8 @@
       "documentationURL": "",
       "installMethod": "uf2",
       "installBoardName": "",
+      "rtc": null,
+      "sdCardCS": null,
       "totalGPIOPins": 48,
       "totalAnalogPins": 8,
       "pins": [

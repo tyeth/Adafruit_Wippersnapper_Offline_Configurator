@@ -209,7 +209,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('companion-details').classList.add('hidden');
         
         // Initialize SD and RTC sections based on board
-        initializeManualConfig();
+        initializeManualConfig(board);
         
         // Initialize pins lists for SD and I2C configuration
         populatePinsLists();
@@ -514,19 +514,30 @@ function resetSubsequentSelections() {
     }
 }
 
-function initializeManualConfig() {
-    // Initialize SD card section
-    document.getElementById('sd-missing').classList.remove('hidden');
-    document.getElementById('sd-present').classList.add('hidden');
-    
-    // Initialize RTC section
-    document.getElementById('rtc-missing').classList.remove('hidden');
-    document.getElementById('rtc-present').classList.add('hidden');
-    
-    // Initialize LED brightness
-    document.getElementById('led-brightness').value = 0.5;
-    document.getElementById('brightness-value').textContent = '0.5';
-    appState.statusLEDBrightness = 0.5;
+function initializeManualConfig(boardConfig) {
+    if (boardConfig && "rtc" in boardConfig) {
+        console.log('found rtc', boardConfig.rtc);
+    } else {
+        // Initialize RTC section
+        document.getElementById('rtc-missing').classList.remove('hidden');
+        document.getElementById('rtc-present').classList.add('hidden');
+
+    }
+    if (boardConfig && "sdCardCS" in boardConfig) {
+        // Initialize SD card section
+        console.log('found sd card cs', boardConfig.sdCardCS);
+    } else {
+
+        // Initialize SD card section
+        document.getElementById('sd-missing').classList.remove('hidden');
+        document.getElementById('sd-present').classList.add('hidden');
+    }
+        
+
+        // Initialize LED brightness
+        document.getElementById('led-brightness').value = 0.5;
+        document.getElementById('brightness-value').textContent = '0.5';
+        appState.statusLEDBrightness = 0.5;
 }
 
 function populatePinsLists() {

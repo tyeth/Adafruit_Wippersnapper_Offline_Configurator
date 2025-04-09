@@ -47,6 +47,14 @@ async function loadWippersnapperData() {
         await new Promise(resolve => setTimeout(resolve, 1000));
         const boardsData = window['jsonBoardObject'];
         const componentsData = window['jsonComponentsObject'];
+        const firmwareData = window['FIRMWARE_DATA'];
+        if (firmwareData && firmwareData.releaseInfo) {
+            // Update the release name and link in the UI
+            document.getElementById('release_name').innerText = firmwareData.releaseInfo.name + " (" + firmwareData.releaseInfo.publishedDate + ")";
+            document.getElementById('release_name').href = firmwareData.releaseInfo.url;
+            //TODO: set onchange for the boards to alter the download url in #firmware_file link
+        }
+
         appState.boardsData = boardsData.boards;
         appState.componentsData = componentsData.components;
         document.body.removeChild(componentsObject);
@@ -315,6 +323,7 @@ function attachEventListeners() {
         const boardId = this.value;
         if (!boardId) {
             document.getElementById('board-details').classList.add('hidden');
+            //TODO: consider pop up to reset configurator, or just hide all sections
             hideSubsequentSections();
             return;
         }
@@ -371,7 +380,7 @@ function attachEventListeners() {
         resetSubsequentSelections();
         
         // Initialize SD and RTC sections based on board
-        initializeManualConfig();
+        initializeManualConfig(boardConfig);
         
         // Initialize pins lists for SD and I2C configuration
         populatePinsLists();

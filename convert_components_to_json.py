@@ -3,7 +3,7 @@ import json
 import glob
 import re
 import requests
-from bs4 import BeautifulSoup
+# from bs4 import BeautifulSoup
 from pathlib import Path
 
 # Base directory for the components
@@ -12,8 +12,8 @@ OUTPUT_FILE = r"./wippersnapper_components.json"
 
 def get_image_from_adafruit_product_url(product_url):
     """
-    Fetch the product image URL from an Adafruit product page by extracting
-    the og:image meta tag from the HTML.
+    Fetch the product image URL from an Adafruit product API 
+    (was from prod page by extracting the og:image meta tag from the HTML).
     
     Args:
         product_url (str): URL to an Adafruit product page
@@ -21,28 +21,37 @@ def get_image_from_adafruit_product_url(product_url):
     Returns:
         str or None: URL to the product image, or None if not found
     """
-    if not product_url or not re.match(r'https?://(?:www\.)?adafruit\.com/product/\d+', product_url):
+    if not product_url or not re.match(r'https?://(?:www\.)?adafruit\.com/(?:product|category)/\d+', product_url):
         return None
     
+    # Grab product JSON from https://www.adafruit.com/api/products, cache, save as ISO date string filename so can be easily used as cache key
     try:
-        response = requests.get(product_url, timeout=10)
+        product_id = re.search(r'/product/(\d+)', product_url)
+        category = re.search(r'/category/(\d+)', product_url)
+
+        response = requests.get(f"https://www.adafruit.com/api/{("category" if category else "product")}/{(product_id.groups(1)[0] if product_id else category.groups(1)[0])}", timeout=10)
         if response.status_code != 200:
-            print(f"Failed to fetch product page: {product_url}, status code: {response.status_code}")
+            print(f"Failed to fetch product data: {product_url}, status code: {response.status_code}")
             return None
-        
-        soup = BeautifulSoup(response.text, 'html.parser')
-        og_image = soup.find('meta', property='og:image')
-        
-        if og_image and 'content' in og_image.attrs:
-            image_url = og_image['content']
-            print(f"Found image URL from product page: {image_url}")
+        response_json = response.json()
+        if 'product_image' in response_json:
+            image_url = response_json['product_image']
+            print(f"Found image URL from API: {image_url}")
             return image_url
-        else:
-            print(f"No og:image meta tag found for: {product_url}")
-            return None
-    except Exception as e:
-        print(f"Error fetching image from product URL {product_url}: {str(e)}")
+        elif 'subcategories' in response_json:
+            subcategories = response_json['subcategories']
+            for subcategory in subcategories:
+                if 'product_image' in subcategory:
+                    image_url = subcategory['product_image']
+                    print(f"Found image URL from API: {image_url}")
+                    return image_url
+        print(f"No image found in subcategory for: {product_url}")
         return None
+    except Exception as e:
+        print(f"Error fetching image from API for {product_url}: {str(e)}")
+        return None
+
+## Consider removing beautifulsoup...
 
 def map_datatypes_to_offline_types(datatype):
     """

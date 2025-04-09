@@ -22,6 +22,7 @@ def add_custom_board_definitions(boards):
         "productURL": "",
         "documentationURL": "",
         "installMethod": "uf2",
+        "installBoardName": "",
         "totalGPIOPins": 43,
         "totalAnalogPins": 20,
         "pins": [
@@ -89,6 +90,7 @@ def add_custom_board_definitions(boards):
         "productURL": "",
         "documentationURL": "",
         "installMethod": "uf2",
+        "installBoardName": "",
         "totalGPIOPins": 48,
         "totalAnalogPins": 20,
         "pins": [
@@ -158,6 +160,7 @@ def add_custom_board_definitions(boards):
         "productURL": "",
         "documentationURL": "",
         "installMethod": "uf2",
+        "installBoardName": "",
         "totalGPIOPins": 30,
         "totalAnalogPins": 4,
         "pins": [
@@ -216,6 +219,7 @@ def add_custom_board_definitions(boards):
         "productURL": "",
         "documentationURL": "",
         "installMethod": "uf2",
+        "installBoardName": "",
         "totalGPIOPins": 48,
         "totalAnalogPins": 8,
         "pins": [
@@ -287,64 +291,6 @@ def add_custom_board_definitions(boards):
         "image": None
     }
     
-    # # Adafruit Metro RP2350 with SD card
-    # boards["metro-rp2350-sd"] = {
-    #     "boardName": "Adafruit Metro RP2350",
-    #     "mcuName": "RP2350",
-    #     "referenceVoltage": 3.3,
-    #     "displayName": "Adafruit Metro RP2350 (with SD card)",
-    #     "vendor": "Adafruit",
-    #     "productURL": "https://www.adafruit.com/product/5786",
-    #     "documentationURL": "https://learn.adafruit.com/adafruit-metro-rp2350",
-    #     "installMethod": "uf2",
-    #     "totalGPIOPins": 30,
-    #     "totalAnalogPins": 4,
-    #     "pins": [
-    #         {"number": 0, "name": "D0", "displayName": "GPIO0", "hasPWM": True, "hasServo": True},
-    #         {"number": 1, "name": "D1", "displayName": "GPIO1", "hasPWM": True, "hasServo": True},
-    #         {"number": 2, "name": "D2", "displayName": "GPIO2", "hasPWM": True, "hasServo": True},
-    #         {"number": 3, "name": "D3", "displayName": "GPIO3", "hasPWM": True, "hasServo": True},
-    #         {"number": 4, "name": "D4", "displayName": "GPIO4", "hasPWM": True, "hasServo": True},
-    #         {"number": 5, "name": "D5", "displayName": "GPIO5", "hasPWM": True, "hasServo": True},
-    #         {"number": 6, "name": "D6", "displayName": "GPIO6", "hasPWM": True, "hasServo": True},
-    #         {"number": 7, "name": "D7", "displayName": "GPIO7", "hasPWM": True, "hasServo": True},
-    #         {"number": 8, "name": "D8", "displayName": "GPIO8", "hasPWM": True, "hasServo": True},
-    #         {"number": 9, "name": "D9", "displayName": "GPIO9", "hasPWM": True, "hasServo": True},
-    #         {"number": 10, "name": "D10", "displayName": "GPIO10 (SD CS)", "hasPWM": True, "hasServo": True},
-    #         {"number": 11, "name": "D11", "displayName": "GPIO11", "hasPWM": True, "hasServo": True},
-    #         {"number": 12, "name": "D12", "displayName": "GPIO12", "hasPWM": True, "hasServo": True},
-    #         {"number": 13, "name": "D13", "displayName": "GPIO13", "hasPWM": True, "hasServo": True},
-    #         {"number": 14, "name": "D14", "displayName": "GPIO14", "hasPWM": True, "hasServo": True},
-    #         {"number": 15, "name": "D15", "displayName": "GPIO15", "hasPWM": True, "hasServo": True},
-    #         {"number": 16, "name": "D16", "displayName": "GPIO16", "hasPWM": True, "hasServo": True},
-    #         {"number": 17, "name": "D17", "displayName": "GPIO17", "hasPWM": True, "hasServo": True},
-    #         {"number": 18, "name": "D18", "displayName": "GPIO18", "hasPWM": True, "hasServo": True},
-    #         {"number": 19, "name": "D19", "displayName": "GPIO19", "hasPWM": True, "hasServo": True},
-    #         {"number": 20, "name": "D20", "displayName": "GPIO20", "hasPWM": True, "hasServo": True},
-    #         {"number": 21, "name": "D21", "displayName": "GPIO21", "hasPWM": True, "hasServo": True},
-    #         {"number": 22, "name": "D22", "displayName": "GPIO22", "hasPWM": True, "hasServo": True},
-    #         {"number": 23, "name": "D23", "displayName": "GPIO23", "hasPWM": True, "hasServo": True},
-    #         {"number": 24, "name": "D24", "displayName": "GPIO24", "hasPWM": True, "hasServo": True},
-    #         {"number": 25, "name": "D25", "displayName": "GPIO25", "hasPWM": True, "hasServo": True},
-    #         {"number": 26, "name": "D26", "displayName": "GPIO26", "hasPWM": True, "hasServo": True},
-    #         {"number": 27, "name": "D27", "displayName": "GPIO27", "hasPWM": True, "hasServo": True},
-    #         {"number": 28, "name": "D28", "displayName": "GPIO28", "hasPWM": True, "hasServo": True},
-    #         {"number": 29, "name": "D29", "displayName": "GPIO29", "hasPWM": True, "hasServo": True}
-    #     ],
-    #     "analogPins": [
-    #         {"name": "A0", "displayName": "ADC0", "direction": "INPUT"},
-    #         {"name": "A1", "displayName": "ADC1", "direction": "INPUT"},
-    #         {"name": "A2", "displayName": "ADC2", "direction": "INPUT"},
-    #         {"name": "A3", "displayName": "ADC3", "direction": "INPUT"}
-    #     ],
-    #     "defaultI2C": {
-    #         "i2cPortId": 0,
-    #         "SCL": "D3",
-    #         "SDA": "D2"
-    #     },
-    #     "sdCardCS": 10,
-    #     "image": None
-    # }
     
     return boards
 
@@ -382,6 +328,7 @@ def convert_boards_to_json():
                 "productURL": board_data.get("productURL", ""),
                 "documentationURL": board_data.get("documentationURL", ""),
                 "installMethod": board_data.get("installMethod", ""),
+                "installBoardName": board_data.get("installBoardName", board_data.get("boardName", "")),
                 "pins": [],
                 "analogPins": [],
                 "defaultI2C": {},

@@ -10,7 +10,7 @@ window.jsonComponentsObject = {
           "ambient-temp",
           "ambient-temp-fahrenheit"
         ],
-        "image": "https://www.adafruit.com/images/480x360/374-01.jpg",
+        "image": "https://cdn-shop.adafruit.com/640x480/374-01.jpg",
         "productUrl": "https://www.adafruit.com/product/374"
       },
       {
@@ -22,7 +22,7 @@ window.jsonComponentsObject = {
           "ambient-temp",
           "ambient-temp-fahrenheit"
         ],
-        "image": "https://www.adafruit.com/images/480x360/642-00.jpg",
+        "image": "https://cdn-shop.adafruit.com/640x480/642-00.jpg",
         "productUrl": "https://www.adafruit.com/product/642"
       },
       {
@@ -34,7 +34,7 @@ window.jsonComponentsObject = {
           "ambient-temp",
           "ambient-temp-fahrenheit"
         ],
-        "image": "https://www.adafruit.com/images/480x360/381-01.jpg",
+        "image": "https://cdn-shop.adafruit.com/640x480/381-01.jpg",
         "productUrl": "https://www.adafruit.com/product/381"
       }
     ],
@@ -48,7 +48,7 @@ window.jsonComponentsObject = {
           "ambient-temp",
           "ambient-temp-fahrenheit"
         ],
-        "image": "https://www.adafruit.com/images/480x360/4089-05.jpg",
+        "image": "https://cdn-shop.adafruit.com/640x480/4089-05.jpg",
         "productUrl": "https://www.adafruit.com/product/4089",
         "address": "0x48",
         "addresses": [
@@ -68,7 +68,7 @@ window.jsonComponentsObject = {
           "ambient-temp-fahrenheit",
           "relative-humidity"
         ],
-        "image": "https://www.adafruit.com/images/480x360/4566-04.jpg",
+        "image": "https://cdn-shop.adafruit.com/640x480/4566-04.jpg",
         "productUrl": "https://www.adafruit.com/product/4566",
         "address": "0x38",
         "addresses": [
@@ -101,7 +101,7 @@ window.jsonComponentsObject = {
           "ambient-temp-fahrenheit",
           "relative-humidity"
         ],
-        "image": "https://www.adafruit.com/images/480x360/5181-05.jpg",
+        "image": "https://cdn-shop.adafruit.com/640x480/5181-05.jpg",
         "productUrl": "https://www.adafruit.com/product/5181",
         "address": "0x38",
         "addresses": [
@@ -118,7 +118,7 @@ window.jsonComponentsObject = {
           "ambient-temp-fahrenheit",
           "relative-humidity"
         ],
-        "image": "https://www.adafruit.com/images/480x360/5182-05.jpg",
+        "image": "https://cdn-shop.adafruit.com/640x480/5182-05.jpg",
         "productUrl": "https://www.adafruit.com/product/5182",
         "address": "0x38",
         "addresses": [
@@ -133,7 +133,7 @@ window.jsonComponentsObject = {
         "dataTypes": [
           "light"
         ],
-        "image": "https://www.adafruit.com/images/480x360/4681-00.jpg",
+        "image": "https://cdn-shop.adafruit.com/640x480/4681-00.jpg",
         "productUrl": "https://www.adafruit.com/product/4681",
         "address": "0x23",
         "addresses": [
@@ -153,7 +153,7 @@ window.jsonComponentsObject = {
           "pressure",
           "altitude"
         ],
-        "image": "https://www.adafruit.com/images/480x360/2652-04.jpg",
+        "image": "https://cdn-shop.adafruit.com/640x480/2652-04.jpg",
         "productUrl": "https://www.adafruit.com/product/2652",
         "address": "0x76",
         "addresses": [
@@ -174,7 +174,7 @@ window.jsonComponentsObject = {
           "altitude",
           "gas-resistance"
         ],
-        "image": "https://www.adafruit.com/images/480x360/3660-08.jpg",
+        "image": "https://cdn-shop.adafruit.com/640x480/3660-08.jpg",
         "productUrl": "https://www.adafruit.com/product/3660",
         "address": "0x76",
         "addresses": [
@@ -195,7 +195,7 @@ window.jsonComponentsObject = {
           "altitude",
           "gas-resistance"
         ],
-        "image": "https://www.adafruit.com/images/480x360/5046-05.jpg",
+        "image": "https://cdn-shop.adafruit.com/640x480/5046-05.jpg",
         "productUrl": "https://www.adafruit.com/product/5046",
         "address": "0x76",
         "addresses": [
@@ -214,7 +214,7 @@ window.jsonComponentsObject = {
           "pressure",
           "altitude"
         ],
-        "image": "https://www.adafruit.com/images/480x360/2651-08.jpg",
+        "image": "https://cdn-shop.adafruit.com/640x480/2651-08.jpg",
         "productUrl": "https://www.adafruit.com/product/2651",
         "address": "0x76",
         "addresses": [
@@ -233,7 +233,7 @@ window.jsonComponentsObject = {
           "pressure",
           "altitude"
         ],
-        "image": "https://www.adafruit.com/images/480x360/3966-10.jpg",
+        "image": "https://cdn-shop.adafruit.com/640x480/3966-10.jpg",
         "productUrl": "https://www.adafruit.com/product/3966",
         "address": "0x76",
         "addresses": [
@@ -252,7 +252,7 @@ window.jsonComponentsObject = {
           "pressure",
           "altitude"
         ],
-        "image": "https://www.adafruit.com/images/480x360/4816-05.jpg",
+        "image": "https://cdn-shop.adafruit.com/640x480/4816-05.jpg",
         "productUrl": "https://www.adafruit.com/product/4816",
         "address": "0x76",
         "addresses": [
@@ -270,7 +270,7 @@ window.jsonComponentsObject = {
           "ambient-temp-fahrenheit",
           "relative-humidity"
         ],
-        "image": "https://www.adafruit.com/images/480x360/5183-04.jpg",
+        "image": "https://cdn-shop.adafruit.com/640x480/5183-04.jpg",
         "productUrl": "https://www.adafruit.com/product/5183",
         "address": "0x38",
         "addresses": [
@@ -287,7 +287,7 @@ window.jsonComponentsObject = {
           "ambient-temp-fahrenheit",
           "pressure"
         ],
-        "image": "https://www.adafruit.com/images/480x360/4494-05.jpg",
+        "image": "https://cdn-shop.adafruit.com/640x480/4494-05.jpg",
         "productUrl": "https://www.adafruit.com/product/4494",
         "address": "0x76",
         "addresses": [
@@ -304,7 +304,7 @@ window.jsonComponentsObject = {
           "ambient-temp",
           "ambient-temp-fahrenheit"
         ],
-        "image": "https://www.adafruit.com/images/480x360/5976-00.jpg",
+        "image": "https://cdn-shop.adafruit.com/640x480/5976-00.jpg",
         "productUrl": "https://www.adafruit.com/product/5976",
         "address": "0x18",
         "addresses": [
@@ -342,7 +342,7 @@ window.jsonComponentsObject = {
           "ambient-temp-fahrenheit",
           "relative-humidity"
         ],
-        "image": "https://www.adafruit.com/images/480x360/5989-07.jpg",
+        "image": "https://cdn-shop.adafruit.com/640x480/5989-07.jpg",
         "productUrl": "https://www.adafruit.com/product/5989",
         "address": "0x44",
         "addresses": [
@@ -362,7 +362,7 @@ window.jsonComponentsObject = {
           "ambient-temp-fahrenheit",
           "relative-humidity"
         ],
-        "image": "https://www.adafruit.com/images/480x360/4535-04.jpg",
+        "image": "https://cdn-shop.adafruit.com/640x480/4535-04.jpg",
         "productUrl": "https://www.adafruit.com/product/4535",
         "address": "0x5F",
         "addresses": [
@@ -379,7 +379,7 @@ window.jsonComponentsObject = {
           "ambient-temp-fahrenheit",
           "relative-humidity"
         ],
-        "image": "https://www.adafruit.com/images/480x360/1899-04.jpg",
+        "image": "https://cdn-shop.adafruit.com/640x480/1899-04.jpg",
         "productUrl": "https://www.adafruit.com/product/1899",
         "address": "0x40",
         "addresses": [
@@ -396,7 +396,7 @@ window.jsonComponentsObject = {
           "ambient-temp-fahrenheit",
           "relative-humidity"
         ],
-        "image": "https://www.adafruit.com/images/480x360/2857-03.jpg",
+        "image": "https://cdn-shop.adafruit.com/640x480/2857-03.jpg",
         "productUrl": "https://www.adafruit.com/product/2857",
         "address": "0x40",
         "addresses": [
@@ -413,8 +413,27 @@ window.jsonComponentsObject = {
           "voltage",
           "current"
         ],
-        "image": "https://www.adafruit.com/images/480x360/904-09.jpg",
+        "image": "https://cdn-shop.adafruit.com/640x480/904-09.jpg",
         "productUrl": "https://www.adafruit.com/product/904",
+        "address": "0x40",
+        "addresses": [
+          "0x40",
+          "0x41",
+          "0x44",
+          "0x45"
+        ]
+      },
+      {
+        "id": "ina260",
+        "name": "ina260",
+        "description": "",
+        "category": "i2c",
+        "dataTypes": [
+          "voltage",
+          "current"
+        ],
+        "image": "https://cdn-shop.adafruit.com/640x480/4226-12.jpg",
+        "productUrl": "https://www.adafruit.com/product/4226",
         "address": "0x40",
         "addresses": [
           "0x40",
@@ -438,7 +457,7 @@ window.jsonComponentsObject = {
             "sensorType": "unitless-percent"
           }
         ],
-        "image": "https://www.adafruit.com/images/480x360/4712-07.jpg",
+        "image": "https://cdn-shop.adafruit.com/640x480/4712-07.jpg",
         "productUrl": "https://www.adafruit.com/product/4712",
         "address": "0x0B",
         "addresses": [
@@ -455,7 +474,7 @@ window.jsonComponentsObject = {
           "ambient-temp-fahrenheit",
           "pressure"
         ],
-        "image": "https://www.adafruit.com/images/480x360/4633-09.jpg",
+        "image": "https://cdn-shop.adafruit.com/640x480/4633-09.jpg",
         "productUrl": "https://www.adafruit.com/product/4633",
         "address": "0x5C",
         "addresses": [
@@ -527,7 +546,7 @@ window.jsonComponentsObject = {
           "ambient-temp-fahrenheit",
           "pressure"
         ],
-        "image": "https://www.adafruit.com/images/480x360/4258-10.jpg",
+        "image": "https://cdn-shop.adafruit.com/640x480/4258-10.jpg",
         "productUrl": "https://www.adafruit.com/product/4258",
         "address": "0x5C",
         "addresses": [
@@ -616,7 +635,7 @@ window.jsonComponentsObject = {
             "sensorType": "unitless-percent"
           }
         ],
-        "image": "https://www.adafruit.com/images/480x360/5580-06.jpg",
+        "image": "https://cdn-shop.adafruit.com/640x480/5580-06.jpg",
         "productUrl": "https://www.adafruit.com/product/5580",
         "address": "0x36",
         "addresses": [
@@ -660,7 +679,7 @@ window.jsonComponentsObject = {
             "sensorType": "raw"
           }
         ],
-        "image": "https://www.adafruit.com/images/480x360/5165-05",
+        "image": "https://cdn-shop.adafruit.com/product-videos/640x480/5165-05.jpg",
         "productUrl": "https://www.adafruit.com/product/5165",
         "address": "0x60",
         "addresses": [
@@ -683,7 +702,7 @@ window.jsonComponentsObject = {
           "ambient-temp",
           "ambient-temp-fahrenheit"
         ],
-        "image": "https://www.adafruit.com/images/480x360/1782-03.jpg",
+        "image": "https://cdn-shop.adafruit.com/640x480/1782-03.jpg",
         "productUrl": "https://www.adafruit.com/product/1782",
         "address": "0x18",
         "addresses": [
@@ -707,7 +726,7 @@ window.jsonComponentsObject = {
           "ambient-temp-fahrenheit",
           "pressure"
         ],
-        "image": "https://www.adafruit.com/images/480x360/992-06.jpg",
+        "image": "https://cdn-shop.adafruit.com/640x480/992-06.jpg",
         "productUrl": "https://www.adafruit.com/product/992",
         "address": "0x60",
         "addresses": [
@@ -722,7 +741,7 @@ window.jsonComponentsObject = {
         "dataTypes": [
           "pressure"
         ],
-        "image": "https://www.adafruit.com/images/480x360/3965-04.jpg",
+        "image": "https://cdn-shop.adafruit.com/640x480/3965-04.jpg",
         "productUrl": "https://www.adafruit.com/product/3965",
         "address": "0x18",
         "addresses": [
@@ -740,7 +759,7 @@ window.jsonComponentsObject = {
           "relative-humidity",
           "pressure"
         ],
-        "image": "https://www.adafruit.com/images/480x360/4716-01.jpg",
+        "image": "https://cdn-shop.adafruit.com/640x480/4716-01.jpg",
         "productUrl": "https://www.adafruit.com/product/4716",
         "address": "0x40",
         "addresses": [
@@ -818,7 +837,7 @@ window.jsonComponentsObject = {
           "pm25-std",
           "pm100-std"
         ],
-        "image": "https://www.adafruit.com/images/480x360/4632-10.jpg",
+        "image": "https://cdn-shop.adafruit.com/640x480/4632-10.jpg",
         "productUrl": "https://www.adafruit.com/product/4632",
         "address": "0x12",
         "addresses": [
@@ -861,7 +880,7 @@ window.jsonComponentsObject = {
           "relative-humidity",
           "co2"
         ],
-        "image": "https://www.adafruit.com/images/480x360/4867-05",
+        "image": "https://cdn-shop.adafruit.com/product-videos/640x480/4867-05.jpg",
         "productUrl": "https://www.adafruit.com/product/4867",
         "address": "0x61",
         "addresses": [
@@ -879,7 +898,7 @@ window.jsonComponentsObject = {
           "relative-humidity",
           "co2"
         ],
-        "image": "https://www.adafruit.com/images/480x360/5187-08.jpg",
+        "image": "https://cdn-shop.adafruit.com/640x480/5187-08.jpg",
         "productUrl": "https://www.adafruit.com/product/5187",
         "address": "0x62",
         "addresses": [
@@ -1000,7 +1019,7 @@ window.jsonComponentsObject = {
           "eco2",
           "tvoc"
         ],
-        "image": "https://www.adafruit.com/images/480x360/3709-07.jpg",
+        "image": "https://cdn-shop.adafruit.com/640x480/3709-07.jpg",
         "productUrl": "https://www.adafruit.com/product/3709",
         "address": "0x58",
         "addresses": [
@@ -1019,7 +1038,7 @@ window.jsonComponentsObject = {
             "sensorType": "raw"
           }
         ],
-        "image": "https://www.adafruit.com/images/480x360/4829-06.jpg",
+        "image": "https://cdn-shop.adafruit.com/640x480/4829-06.jpg",
         "productUrl": "https://www.adafruit.com/product/4829",
         "address": "0x59",
         "addresses": [
@@ -1053,7 +1072,7 @@ window.jsonComponentsObject = {
           "ambient-temp-fahrenheit",
           "relative-humidity"
         ],
-        "image": "https://www.adafruit.com/images/480x360/4099-09.jpg",
+        "image": "https://cdn-shop.adafruit.com/640x480/4099-09.jpg",
         "productUrl": "https://www.adafruit.com/product/4099",
         "address": "0x44",
         "addresses": [
@@ -1070,7 +1089,7 @@ window.jsonComponentsObject = {
           "ambient-temp-fahrenheit",
           "relative-humidity"
         ],
-        "image": "https://www.adafruit.com/images/480x360/5064-00.jpg",
+        "image": "https://cdn-shop.adafruit.com/640x480/5064-00.jpg",
         "productUrl": "https://www.adafruit.com/product/5064",
         "address": "0x44",
         "addresses": [
@@ -1087,7 +1106,7 @@ window.jsonComponentsObject = {
           "ambient-temp-fahrenheit",
           "relative-humidity"
         ],
-        "image": "https://www.adafruit.com/images/480x360/2857-03.jpg",
+        "image": "https://cdn-shop.adafruit.com/640x480/2857-03.jpg",
         "productUrl": "https://www.adafruit.com/product/2857",
         "address": "0x44",
         "addresses": [
@@ -1105,7 +1124,7 @@ window.jsonComponentsObject = {
           "ambient-temp-fahrenheit",
           "relative-humidity"
         ],
-        "image": "https://www.adafruit.com/images/480x360/4885-05.jpg",
+        "image": "https://cdn-shop.adafruit.com/640x480/4885-05.jpg",
         "productUrl": "https://www.adafruit.com/product/4885",
         "address": "0x44",
         "addresses": [
@@ -1122,7 +1141,7 @@ window.jsonComponentsObject = {
           "ambient-temp-fahrenheit",
           "relative-humidity"
         ],
-        "image": "https://www.adafruit.com/images/480x360/5776-05.jpg",
+        "image": "https://cdn-shop.adafruit.com/640x480/5776-05.jpg",
         "productUrl": "https://www.adafruit.com/product/5776",
         "address": "0x44",
         "addresses": [
@@ -1139,7 +1158,7 @@ window.jsonComponentsObject = {
           "ambient-temp-fahrenheit",
           "relative-humidity"
         ],
-        "image": "https://www.adafruit.com/images/480x360/5665-00.jpg",
+        "image": "https://cdn-shop.adafruit.com/640x480/5665-00.jpg",
         "productUrl": "https://www.adafruit.com/product/5665",
         "address": "0x44",
         "addresses": [
@@ -1156,7 +1175,7 @@ window.jsonComponentsObject = {
           "ambient-temp-fahrenheit",
           "relative-humidity"
         ],
-        "image": "https://www.adafruit.com/images/480x360/4636-05.jpg",
+        "image": "https://cdn-shop.adafruit.com/640x480/4636-05.jpg",
         "productUrl": "https://www.adafruit.com/product/4636",
         "address": "0x70",
         "addresses": [
@@ -1173,7 +1192,7 @@ window.jsonComponentsObject = {
           "ambient-temp-fahrenheit",
           "relative-humidity"
         ],
-        "image": "https://www.adafruit.com/images/480x360/3251-08.jpg",
+        "image": "https://cdn-shop.adafruit.com/640x480/3251-08.jpg",
         "productUrl": "https://www.adafruit.com/product/3251",
         "address": "0x40",
         "addresses": [
@@ -1193,7 +1212,7 @@ window.jsonComponentsObject = {
             "sensorType": "raw"
           }
         ],
-        "image": "https://www.adafruit.com/images/480x360/4026-01.jpg",
+        "image": "https://cdn-shop.adafruit.com/640x480/4026-01.jpg",
         "productUrl": "https://www.adafruit.com/product/4026",
         "address": "0x36",
         "addresses": [
@@ -1212,7 +1231,7 @@ window.jsonComponentsObject = {
           "ambient-temp",
           "ambient-temp-fahrenheit"
         ],
-        "image": "https://www.adafruit.com/images/480x360/4375-03.jpg",
+        "image": "https://cdn-shop.adafruit.com/640x480/4375-03.jpg",
         "productUrl": "https://www.adafruit.com/product/4375",
         "address": "0x48",
         "addresses": [
@@ -1246,7 +1265,7 @@ window.jsonComponentsObject = {
         "dataTypes": [
           "light"
         ],
-        "image": "https://www.adafruit.com/images/480x360/1980-08.jpg",
+        "image": "https://cdn-shop.adafruit.com/640x480/1980-08.jpg",
         "productUrl": "https://www.adafruit.com/product/1980",
         "address": "0x29",
         "addresses": [
@@ -1280,7 +1299,7 @@ window.jsonComponentsObject = {
           "light",
           "proximity"
         ],
-        "image": "https://www.adafruit.com/images/480x360/4161-06.jpg",
+        "image": "https://cdn-shop.adafruit.com/640x480/4161-06.jpg",
         "productUrl": "https://www.adafruit.com/product/4161",
         "address": "0x60",
         "addresses": [
@@ -1296,7 +1315,7 @@ window.jsonComponentsObject = {
           "light",
           "proximity"
         ],
-        "image": "https://www.adafruit.com/images/480x360/6064-00.jpg",
+        "image": "https://cdn-shop.adafruit.com/640x480/6064-00.jpg",
         "productUrl": "https://www.adafruit.com/product/6064",
         "address": "0x51",
         "addresses": [
@@ -1311,7 +1330,7 @@ window.jsonComponentsObject = {
         "dataTypes": [
           "light"
         ],
-        "image": "https://www.adafruit.com/images/480x360/4162-10.jpg",
+        "image": "https://cdn-shop.adafruit.com/640x480/4162-10.jpg",
         "productUrl": "https://www.adafruit.com/product/4162",
         "address": "0x10",
         "addresses": [
@@ -1387,7 +1406,7 @@ window.jsonComponentsObject = {
             "sensorType": "raw"
           }
         ],
-        "image": "https://www.adafruit.com/images/480x360/5425-02.jpg",
+        "image": "https://cdn-shop.adafruit.com/640x480/5425-02.jpg",
         "productUrl": "https://www.adafruit.com/product/5425",
         "address": "0x29",
         "addresses": [
@@ -1429,7 +1448,7 @@ window.jsonComponentsObject = {
         "description": "",
         "category": "pin",
         "dataTypes": [],
-        "image": "https://www.adafruit.com/images/480x360/2168-04.jpg",
+        "image": "https://cdn-shop.adafruit.com/640x480/2168-04.jpg",
         "productUrl": "https://www.adafruit.com/product/2168"
       },
       {
@@ -1438,7 +1457,7 @@ window.jsonComponentsObject = {
         "description": "",
         "category": "pin",
         "dataTypes": [],
-        "image": "https://www.adafruit.com/images/480x360/1536-06.jpg",
+        "image": "https://cdn-shop.adafruit.com/640x480/1536-06.jpg",
         "productUrl": "https://www.adafruit.com/product/1536"
       },
       {
@@ -1447,7 +1466,7 @@ window.jsonComponentsObject = {
         "description": "",
         "category": "pin",
         "dataTypes": [],
-        "image": "https://www.adafruit.com/images/480x360/2656-03",
+        "image": "https://cdn-shop.adafruit.com/product-videos/640x480/2656-03.jpg",
         "productUrl": "https://www.adafruit.com/product/2656"
       },
       {
@@ -1456,7 +1475,7 @@ window.jsonComponentsObject = {
         "description": "",
         "category": "pin",
         "dataTypes": [],
-        "image": "https://www.adafruit.com/images/480x360/4081-00.jpg",
+        "image": "https://cdn-shop.adafruit.com/640x480/4081-00.jpg",
         "productUrl": "https://www.adafruit.com/product/4081"
       },
       {
@@ -1465,7 +1484,7 @@ window.jsonComponentsObject = {
         "description": "",
         "category": "pin",
         "dataTypes": [],
-        "image": "https://www.adafruit.com/images/480x360/158-00.jpg",
+        "image": "https://cdn-shop.adafruit.com/640x480/158-00.jpg",
         "productUrl": "https://www.adafruit.com/product/158"
       },
       {
@@ -1474,7 +1493,7 @@ window.jsonComponentsObject = {
         "description": "",
         "category": "pin",
         "dataTypes": [],
-        "image": "https://www.adafruit.com/images/480x360/301-00.jpg",
+        "image": "https://cdn-shop.adafruit.com/640x480/301-00.jpg",
         "productUrl": "https://www.adafruit.com/product/301"
       },
       {
@@ -1483,7 +1502,7 @@ window.jsonComponentsObject = {
         "description": "",
         "category": "pin",
         "dataTypes": [],
-        "image": "https://www.adafruit.com/images/480x360/161-00.jpg",
+        "image": "https://cdn-shop.adafruit.com/640x480/161-00.jpg",
         "productUrl": "https://www.adafruit.com/product/161"
       },
       {
@@ -1492,7 +1511,7 @@ window.jsonComponentsObject = {
         "description": "",
         "category": "pin",
         "dataTypes": [],
-        "image": "https://www.adafruit.com/images/480x360/5648-07",
+        "image": "https://cdn-shop.adafruit.com/product-videos/640x480/5648-07.jpg",
         "productUrl": "https://www.adafruit.com/product/5648"
       },
       {
@@ -1501,7 +1520,7 @@ window.jsonComponentsObject = {
         "description": "",
         "category": "pin",
         "dataTypes": [],
-        "image": "https://www.adafruit.com/images/480x360/4409-05",
+        "image": "https://cdn-shop.adafruit.com/product-videos/640x480/4409-05.jpg",
         "productUrl": "https://www.adafruit.com/product/4409"
       },
       {
@@ -1510,7 +1529,7 @@ window.jsonComponentsObject = {
         "description": "",
         "category": "pin",
         "dataTypes": [],
-        "image": "https://www.adafruit.com/images/480x360/189-00.jpg",
+        "image": "https://cdn-shop.adafruit.com/640x480/189-00.jpg",
         "productUrl": "https://www.adafruit.com/product/189"
       },
       {
@@ -1519,7 +1538,7 @@ window.jsonComponentsObject = {
         "description": "",
         "category": "pin",
         "dataTypes": [],
-        "image": "https://www.adafruit.com/images/480x360/356-03.jpg",
+        "image": "https://cdn-shop.adafruit.com/640x480/356-03.jpg",
         "productUrl": "https://www.adafruit.com/product/356"
       },
       {
@@ -1528,7 +1547,7 @@ window.jsonComponentsObject = {
         "description": "",
         "category": "pin",
         "dataTypes": [],
-        "image": "https://www.adafruit.com/images/480x360/2935-13.jpg",
+        "image": "https://cdn-shop.adafruit.com/640x480/2935-13.jpg",
         "productUrl": "https://www.adafruit.com/product/2935"
       },
       {
@@ -1537,7 +1556,7 @@ window.jsonComponentsObject = {
         "description": "",
         "category": "pin",
         "dataTypes": [],
-        "image": "https://www.adafruit.com/images/480x360/367-01.jpg",
+        "image": "https://cdn-shop.adafruit.com/640x480/367-01.jpg",
         "productUrl": "https://www.adafruit.com/product/367"
       },
       {
@@ -1546,7 +1565,7 @@ window.jsonComponentsObject = {
         "description": "",
         "category": "pin",
         "dataTypes": [],
-        "image": "https://www.adafruit.com/images/480x360/375-01.jpg",
+        "image": "https://cdn-shop.adafruit.com/640x480/375-01.jpg",
         "productUrl": "https://www.adafruit.com/product/375"
       },
       {
@@ -1564,7 +1583,7 @@ window.jsonComponentsObject = {
         "description": "",
         "category": "pin",
         "dataTypes": [],
-        "image": "https://www.adafruit.com/images/480x360/3221-01.jpg",
+        "image": "https://cdn-shop.adafruit.com/640x480/3221-01.jpg",
         "productUrl": "https://www.adafruit.com/product/3221"
       },
       {
@@ -1573,7 +1592,7 @@ window.jsonComponentsObject = {
         "description": "",
         "category": "pin",
         "dataTypes": [],
-        "image": "https://www.adafruit.com/images/480x360/4965-03",
+        "image": "https://cdn-shop.adafruit.com/product-videos/640x480/4965-03.jpg",
         "productUrl": "https://www.adafruit.com/product/4965"
       }
     ],
@@ -1584,7 +1603,7 @@ window.jsonComponentsObject = {
         "description": "",
         "category": "pixel",
         "dataTypes": [],
-        "image": "https://www.adafruit.com/images/480x360/2343-03.jpg",
+        "image": "https://cdn-shop.adafruit.com/640x480/2343-03.jpg",
         "productUrl": "https://www.adafruit.com/product/2343"
       },
       {
@@ -1602,7 +1621,7 @@ window.jsonComponentsObject = {
         "description": "Speak NeoPixel to your RGB strips! Treat PWM-able common-anode LEDs as a NeoPixel [16V/3A/channel]",
         "category": "pixel",
         "dataTypes": [],
-        "image": "https://www.adafruit.com/images/480x360/5888-10.jpg",
+        "image": "https://cdn-shop.adafruit.com/640x480/5888-10.jpg",
         "productUrl": "https://www.adafruit.com/product/5888"
       }
     ],
@@ -1613,7 +1632,7 @@ window.jsonComponentsObject = {
         "description": "",
         "category": "pwm",
         "dataTypes": [],
-        "image": "https://www.adafruit.com/images/480x360/301-00.jpg",
+        "image": "https://cdn-shop.adafruit.com/640x480/301-00.jpg",
         "productUrl": "https://www.adafruit.com/product/301"
       },
       {
@@ -1622,7 +1641,7 @@ window.jsonComponentsObject = {
         "description": "",
         "category": "pwm",
         "dataTypes": [],
-        "image": "https://www.adafruit.com/images/480x360/160-01.jpg",
+        "image": "https://cdn-shop.adafruit.com/640x480/160-01.jpg",
         "productUrl": "https://www.adafruit.com/product/160"
       },
       {
@@ -1631,7 +1650,7 @@ window.jsonComponentsObject = {
         "description": "",
         "category": "pwm",
         "dataTypes": [],
-        "image": "https://www.adafruit.com/images/480x360/302-00.jpg",
+        "image": "https://cdn-shop.adafruit.com/640x480/302-00.jpg",
         "productUrl": "https://www.adafruit.com/product/302"
       }
     ],
@@ -1642,7 +1661,7 @@ window.jsonComponentsObject = {
         "description": "",
         "category": "servo",
         "dataTypes": [],
-        "image": "https://www.adafruit.com/images/480x360/169-06.jpg",
+        "image": "https://cdn-shop.adafruit.com/640x480/169-06.jpg",
         "productUrl": "https://www.adafruit.com/product/169"
       }
     ],
@@ -1671,7 +1690,7 @@ window.jsonComponentsObject = {
           "pm25-env",
           "pm100-env"
         ],
-        "image": "https://www.adafruit.com/images/480x360/3686-04",
+        "image": "https://cdn-shop.adafruit.com/product-videos/640x480/3686-04.jpg",
         "productUrl": "https://www.adafruit.com/product/3686"
       }
     ],

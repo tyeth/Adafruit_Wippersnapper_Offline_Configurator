@@ -241,7 +241,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // collect the asset names, split on '.' after removing wippersnapper. and take first part.
         const firmwareFile = document.getElementById('firmware_file');
         const firmwareData = window['FIRMWARE_DATA'];
-        const boardInstallName = board.installBoardName || "";
+        const boardInstallName = (board.installBoardName || "").replaceAll('-','_').replace('picow','pico');
         const assets = firmwareData.firmwareFiles.map(asset => { return {"name":asset.name.replace('wippersnapper.', '').split('.')[0], "url":asset.url}; });
         const asset = assets.find(asset => asset.name === boardInstallName);
         if (asset) {

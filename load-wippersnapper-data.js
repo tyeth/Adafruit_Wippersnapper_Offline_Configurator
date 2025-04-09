@@ -148,16 +148,19 @@ function populateBoardSelect() {
     
     // Filter boards to only include those with UF2 install method
     const filteredBoards = Object.entries(appState.boardsData)
-        .filter(([boardId, board]) => ['uf2', 'web-native-usb'].includes(board.installMethod));
+        .filter(([boardId, board]) => board.installMethod === 'uf2'); //['uf2', 'web-native-usb'].includes(board.installMethod)); //funhouse
     
     // Sort boards by vendor and name
     const sortedBoards = filteredBoards
         .sort((a, b) => {
             const vendorA = a[1].vendor || '';
             const vendorB = b[1].vendor || '';
-            
-            // Sort by vendor first
-            if (vendorA !== vendorB) {
+            if (vendorA === 'Generic') {
+                return 1; // Sort Generic to the end
+            } else if (vendorB === 'Generic') {
+                return -1; // Sort Generic to the end
+            } else if (vendorA !== vendorB) {
+                // Sort by vendor first
                 return vendorA.localeCompare(vendorB);
             }
             
@@ -392,7 +395,8 @@ function attachEventListeners() {
         // collect the asset names, split on '.' after removing wippersnapper. and take first part.
         const firmwareFile = document.getElementById('firmware_file');
         const firmwareData = window['FIRMWARE_DATA'];
-        const boardInstallName = boardConfig.installBoardName || "";
+        // TODO: remove once W-variant board targets have assets, and non-w variants exist in boards repo
+        const boardInstallName = (boardConfig.installBoardName || "").replaceAll('-','_').replace('picow','pico');
         const assets = firmwareData.firmwareFiles.map(asset => { return {"name":asset.name.replace('wippersnapper.', '').split('.')[0], "url":asset.url}; });
         const asset = assets.find(asset => asset.name === boardInstallName);
         if (asset) {

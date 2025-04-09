@@ -3,6 +3,7 @@ window.jsonComponentsObject = {
     "ds18x20": [
       {
         "id": "ds18b20",
+        "displayName": "DS18B20",
         "name": "ds18b20",
         "description": "",
         "category": "ds18x20",
@@ -15,6 +16,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "ds18b20_hi_temp_waterproof",
+        "displayName": "High Temp + Waterproof DS18B20",
         "name": "ds18b20_hi_temp_waterproof",
         "description": "",
         "category": "ds18x20",
@@ -27,6 +29,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "ds18b20_waterproof",
+        "displayName": "Waterproof DS18B20",
         "name": "ds18b20_waterproof",
         "description": "",
         "category": "ds18x20",
@@ -41,6 +44,7 @@ window.jsonComponentsObject = {
     "i2c": [
       {
         "id": "adt7410",
+        "displayName": "ADT7410",
         "name": "adt7410",
         "description": "",
         "category": "i2c",
@@ -60,6 +64,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "aht20",
+        "displayName": "AHT20",
         "name": "aht20",
         "description": "Inexpensive temperature and humidity sensor for I2C-capable boards.",
         "category": "i2c",
@@ -77,6 +82,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "aht21",
+        "displayName": "AHT21",
         "name": "aht21",
         "description": "",
         "category": "i2c",
@@ -93,6 +99,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "am2301b",
+        "displayName": "AM2301B",
         "name": "am2301b",
         "description": "",
         "category": "i2c",
@@ -110,6 +117,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "am2315c",
+        "displayName": "AM2315C",
         "name": "am2315c",
         "description": "",
         "category": "i2c",
@@ -127,6 +135,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "bh1750",
+        "displayName": "BH1750",
         "name": "bh1750",
         "description": "",
         "category": "i2c",
@@ -143,6 +152,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "bme280",
+        "displayName": "BME280",
         "name": "bme280",
         "description": "",
         "category": "i2c",
@@ -163,6 +173,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "bme680",
+        "displayName": "BME680",
         "name": "bme680",
         "description": "",
         "category": "i2c",
@@ -184,6 +195,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "bme688",
+        "displayName": "BME688",
         "name": "bme688",
         "description": "",
         "category": "i2c",
@@ -205,6 +217,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "bmp280",
+        "displayName": "BMP280",
         "name": "bmp280",
         "description": "",
         "category": "i2c",
@@ -224,6 +237,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "bmp388",
+        "displayName": "BMP388",
         "name": "bmp388",
         "description": "",
         "category": "i2c",
@@ -243,6 +257,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "bmp390",
+        "displayName": "BMP390",
         "name": "bmp390",
         "description": "",
         "category": "i2c",
@@ -262,6 +277,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "dht20",
+        "displayName": "DHT20",
         "name": "dht20",
         "description": "",
         "category": "i2c",
@@ -279,6 +295,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "dps310",
+        "displayName": "DPS310",
         "name": "dps310",
         "description": "",
         "category": "i2c",
@@ -297,6 +314,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "ds2484",
+        "displayName": "DS2484",
         "name": "ds2484",
         "description": "Adafruit DS2484 I2C to 1-Wire Bus Adapter Breakout - Converts a single DS18b20 temperature sensor to I2C",
         "category": "i2c",
@@ -313,6 +331,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "ens160",
+        "displayName": "ENS160",
         "name": "ens160",
         "description": "",
         "category": "i2c",
@@ -334,6 +353,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "hdc302x",
+        "displayName": "HDC302x",
         "name": "hdc302x",
         "description": "Precision temperature (\u00c2\u00b10.1\u00c2\u00b0C typical) and humidity sensors (\u00c2\u00b10.5% typ). HDC3020 / HDC3021 / HDC3022",
         "category": "i2c",
@@ -354,6 +374,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "hts221",
+        "displayName": "HTS221",
         "name": "hts221",
         "description": "",
         "category": "i2c",
@@ -371,6 +392,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "htu21d",
+        "displayName": "HTU21D",
         "name": "htu21d",
         "description": "",
         "category": "i2c",
@@ -388,6 +410,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "htu31d",
+        "displayName": "HTU31D",
         "name": "htu31d",
         "description": "",
         "category": "i2c",
@@ -406,6 +429,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "ina219",
+        "displayName": "INA219",
         "name": "ina219",
         "description": "",
         "category": "i2c",
@@ -425,6 +449,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "ina260",
+        "displayName": "INA260",
         "name": "ina260",
         "description": "",
         "category": "i2c",
@@ -444,6 +469,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "lc709203f",
+        "displayName": "LC709203F",
         "name": "lc709203f",
         "description": "",
         "category": "i2c",
@@ -466,6 +492,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "lps22hb",
+        "displayName": "LPS22HB",
         "name": "lps22hb",
         "description": "",
         "category": "i2c",
@@ -484,6 +511,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "lps25hb",
+        "displayName": "LPS25HB",
         "name": "lps25hb",
         "description": "",
         "category": "i2c",
@@ -502,6 +530,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "lps28dfw",
+        "displayName": "LPS28DFW",
         "name": "lps28dfw",
         "description": "From 260 to 4060 hPa, this is our largest range pressure sensor (24bit).",
         "category": "i2c",
@@ -520,6 +549,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "lps33hw",
+        "displayName": "LPS33HW",
         "name": "lps33hw",
         "description": "",
         "category": "i2c",
@@ -538,6 +568,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "lps35hw",
+        "displayName": "LPS35HW",
         "name": "lps35hw",
         "description": "",
         "category": "i2c",
@@ -556,6 +587,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "ltr303",
+        "displayName": "LTR-303",
         "name": "ltr303",
         "description": "",
         "category": "i2c",
@@ -578,6 +610,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "ltr329",
+        "displayName": "LTR-329",
         "name": "ltr329",
         "description": "",
         "category": "i2c",
@@ -600,6 +633,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "ltr390",
+        "displayName": "LTR-390",
         "name": "ltr390",
         "description": "",
         "category": "i2c",
@@ -622,6 +656,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "max17048",
+        "displayName": "MAX17048/MAX17049",
         "name": "max17048",
         "description": "",
         "category": "i2c",
@@ -644,6 +679,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "mcp3421",
+        "displayName": "MCP3421",
         "name": "mcp3421",
         "description": "18-bit ADC. Great for Strain Gauges, Thermocouples and Pressure sensors, between 0 and 2.048 volts",
         "category": "i2c",
@@ -662,6 +698,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "mcp9601",
+        "displayName": "MCP9601",
         "name": "mcp9601",
         "description": "Thermocouple / ambient temperature sensor. *Note* Needs hotplugging after i2c scans + selecting component!",
         "category": "i2c",
@@ -695,6 +732,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "mcp9808",
+        "displayName": "MCP9808",
         "name": "mcp9808",
         "description": "",
         "category": "i2c",
@@ -718,6 +756,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "mpl115a2",
+        "displayName": "MPL115A2",
         "name": "mpl115a2",
         "description": "",
         "category": "i2c",
@@ -735,6 +774,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "mprls",
+        "displayName": "MPRLS",
         "name": "mprls",
         "description": "",
         "category": "i2c",
@@ -750,6 +790,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "ms8607",
+        "displayName": "MS8607",
         "name": "ms8607",
         "description": "",
         "category": "i2c",
@@ -769,6 +810,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "nau7802",
+        "displayName": "NAU7802",
         "name": "nau7802",
         "description": "24-bit ADC with 128x gain, used with a load cell for weight/force sensing",
         "category": "i2c",
@@ -787,6 +829,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "pct2075",
+        "displayName": "PCT2075",
         "name": "pct2075",
         "description": "",
         "category": "i2c",
@@ -829,6 +872,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "pmsa003i",
+        "displayName": "PMSA003I",
         "name": "pmsa003i",
         "description": "",
         "category": "i2c",
@@ -846,6 +890,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "rotary_encoder",
+        "displayName": "STEMMA QT Rotary Encoder",
         "name": "rotary_encoder",
         "description": "",
         "category": "i2c",
@@ -871,6 +916,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "scd30",
+        "displayName": "SCD30",
         "name": "scd30",
         "description": "",
         "category": "i2c",
@@ -889,6 +935,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "scd40",
+        "displayName": "SCD40/SCD41",
         "name": "scd40",
         "description": "",
         "category": "i2c",
@@ -907,6 +954,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "sen50",
+        "displayName": "SEN50",
         "name": "sen50",
         "description": "",
         "category": "i2c",
@@ -924,6 +972,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "sen54",
+        "displayName": "SEN54",
         "name": "sen54",
         "description": "",
         "category": "i2c",
@@ -945,6 +994,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "sen55",
+        "displayName": "SEN55",
         "name": "sen55",
         "description": "",
         "category": "i2c",
@@ -967,6 +1017,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "sen5x",
+        "displayName": "SEN5x",
         "name": "sen5x",
         "description": "",
         "category": "i2c",
@@ -989,6 +1040,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "sen66",
+        "displayName": "SEN66",
         "name": "sen66",
         "description": "",
         "category": "i2c",
@@ -1012,6 +1064,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "sgp30",
+        "displayName": "SGP30",
         "name": "sgp30",
         "description": "",
         "category": "i2c",
@@ -1028,6 +1081,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "sgp40",
+        "displayName": "SGP40",
         "name": "sgp40",
         "description": "",
         "category": "i2c",
@@ -1047,6 +1101,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "sht20",
+        "displayName": "SHT20",
         "name": "sht20",
         "description": "",
         "category": "i2c",
@@ -1064,6 +1119,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "sht30_mesh",
+        "displayName": "Weatherproof SHT30",
         "name": "sht30_mesh",
         "description": "",
         "category": "i2c",
@@ -1081,6 +1137,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "sht30_shell",
+        "displayName": "Enclosed SHT30",
         "name": "sht30_shell",
         "description": "",
         "category": "i2c",
@@ -1098,6 +1155,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "sht3x",
+        "displayName": "SHT3X",
         "name": "sht3x",
         "description": "",
         "category": "i2c",
@@ -1116,6 +1174,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "sht40",
+        "displayName": "SHT40",
         "name": "sht40",
         "description": "",
         "category": "i2c",
@@ -1133,6 +1192,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "sht41",
+        "displayName": "SHT41",
         "name": "sht41",
         "description": "",
         "category": "i2c",
@@ -1150,6 +1210,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "sht45",
+        "displayName": "SHT45",
         "name": "sht45",
         "description": "",
         "category": "i2c",
@@ -1167,6 +1228,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "shtc3",
+        "displayName": "SHTC3",
         "name": "shtc3",
         "description": "",
         "category": "i2c",
@@ -1184,6 +1246,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "si7021",
+        "displayName": "Si7021",
         "name": "si7021",
         "description": "",
         "category": "i2c",
@@ -1201,6 +1264,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "stemma_soil",
+        "displayName": "STEMMA Soil Sensor",
         "name": "stemma_soil",
         "description": "",
         "category": "i2c",
@@ -1224,6 +1288,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "tc74a0",
+        "displayName": "TC74A0",
         "name": "tc74a0",
         "description": "",
         "category": "i2c",
@@ -1240,6 +1305,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "tmp117",
+        "displayName": "TMP117",
         "name": "tmp117",
         "description": "",
         "category": "i2c",
@@ -1259,6 +1325,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "tsl2591",
+        "displayName": "TSL2591",
         "name": "tsl2591",
         "description": "",
         "category": "i2c",
@@ -1276,6 +1343,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "vcnl4020",
+        "displayName": "VCNL4020",
         "name": "vcnl4020",
         "description": "Proximity sensor works from 0 to 200mm (about 7.5 inches) & light sensor with range of 0.26 to 16,000 lux.",
         "category": "i2c",
@@ -1292,6 +1360,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "vcnl4040",
+        "displayName": "VCNL4040",
         "name": "vcnl4040",
         "description": "Proximity sensor works from 0 to 200mm (about 7.5 inches) & light sensor with range of 0.0125 to 6,553.5 lux",
         "category": "i2c",
@@ -1308,6 +1377,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "vcnl4200",
+        "displayName": "VCNL4200",
         "name": "vcnl4200",
         "description": "Proximity sensor works from 0 to 1.5m (about 59 inches) & light sensor with range of 0.003 to 1570 lux",
         "category": "i2c",
@@ -1324,6 +1394,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "veml7700",
+        "displayName": "VEML7700",
         "name": "veml7700",
         "description": "",
         "category": "i2c",
@@ -1339,6 +1410,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "vl53l0x",
+        "displayName": "VL53L0X",
         "name": "vl53l0x",
         "description": "Time of Flight (ToF) distance sensor with about ~50 to 1200mm range",
         "category": "i2c",
@@ -1357,6 +1429,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "vl53l1x",
+        "displayName": "VL53L1X",
         "name": "vl53l1x",
         "description": "Time of Flight (ToF) distance sensor with about ~30 to 4000mm range",
         "category": "i2c",
@@ -1375,6 +1448,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "vl53l4cd",
+        "displayName": "VL53L4CD",
         "name": "vl53l4cd",
         "description": "Time of Flight (ToF) distance sensor with about ~1 to 1300mm range",
         "category": "i2c",
@@ -1393,6 +1467,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "vl53l4cx",
+        "displayName": "VL53L4CX",
         "name": "vl53l4cx",
         "description": "Time of Flight (ToF) distance sensor with about ~1 to 6000mm range + 'multi object detection'",
         "category": "i2c",
@@ -1415,6 +1490,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "vl6180x",
+        "displayName": "VL6180X",
         "name": "vl6180x",
         "description": "Time of Flight (ToF) distance sensor with about ~5 to 200mm range",
         "category": "i2c",
@@ -1436,6 +1512,7 @@ window.jsonComponentsObject = {
     "pin": [
       {
         "id": "analog_pin",
+        "displayName": "Analog Pin",
         "name": "analog_pin",
         "description": "",
         "category": "pin",
@@ -1444,6 +1521,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "beam_break_sensor",
+        "displayName": "Beam Sensor",
         "name": "beam_break_sensor",
         "description": "",
         "category": "pin",
@@ -1453,6 +1531,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "buzzer_5v",
+        "displayName": "Buzzer 5V",
         "name": "buzzer_5v",
         "description": "",
         "category": "pin",
@@ -1462,6 +1541,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "etape_liquid_level_sensor",
+        "displayName": "Liquid Level Sensor",
         "name": "etape_liquid_level_sensor",
         "description": "",
         "category": "pin",
@@ -1471,6 +1551,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "flat_vibration_switch",
+        "displayName": "Flat Vibration Switch",
         "name": "flat_vibration_switch",
         "description": "",
         "category": "pin",
@@ -1480,6 +1561,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "hall_effect_sensor",
+        "displayName": "Hall Effect Sensor",
         "name": "hall_effect_sensor",
         "description": "",
         "category": "pin",
@@ -1489,6 +1571,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "led",
+        "displayName": "LED",
         "name": "led",
         "description": "",
         "category": "pin",
@@ -1498,6 +1581,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "light_sensor",
+        "displayName": "Light Sensor",
         "name": "light_sensor",
         "description": "",
         "category": "pin",
@@ -1507,6 +1591,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "mosfet_driver",
+        "displayName": "MOSFET Driver",
         "name": "mosfet_driver",
         "description": "",
         "category": "pin",
@@ -1516,6 +1601,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "non_latching_relay",
+        "displayName": "Relay",
         "name": "non_latching_relay",
         "description": "",
         "category": "pin",
@@ -1525,6 +1611,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "pir_sensor",
+        "displayName": "PIR Sensor",
         "name": "pir_sensor",
         "description": "",
         "category": "pin",
@@ -1534,6 +1621,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "potentiometer",
+        "displayName": "Potentiometer",
         "name": "potentiometer",
         "description": "",
         "category": "pin",
@@ -1543,6 +1631,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "power_switch_tail",
+        "displayName": "Power Switch",
         "name": "power_switch_tail",
         "description": "",
         "category": "pin",
@@ -1552,6 +1641,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "push_button",
+        "displayName": "Push Button",
         "name": "push_button",
         "description": "",
         "category": "pin",
@@ -1561,6 +1651,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "reed_switch",
+        "displayName": "Reed Switch",
         "name": "reed_switch",
         "description": "",
         "category": "pin",
@@ -1570,6 +1661,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "tctr1000",
+        "displayName": "TCTR1000 Stemma Breakout",
         "name": "tctr1000",
         "description": "Optical reflective sensor with digital output, 1-30mm range, and adjustable LED emitter brightness",
         "category": "pin",
@@ -1579,6 +1671,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "toggle_switch",
+        "displayName": "Toggle Switch",
         "name": "toggle_switch",
         "description": "",
         "category": "pin",
@@ -1588,6 +1681,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "water_sensor",
+        "displayName": "Water Sensor",
         "name": "water_sensor",
         "description": "",
         "category": "pin",
@@ -1599,6 +1693,7 @@ window.jsonComponentsObject = {
     "pixel": [
       {
         "id": "dotstar",
+        "displayName": "DotStar",
         "name": "dotstar",
         "description": "",
         "category": "pixel",
@@ -1608,6 +1703,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "neopixel",
+        "displayName": "NeoPixel",
         "name": "neopixel",
         "description": "",
         "category": "pixel",
@@ -1617,6 +1713,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "neorgb",
+        "displayName": "NeoRGB Stemma",
         "name": "neorgb",
         "description": "Speak NeoPixel to your RGB strips! Treat PWM-able common-anode LEDs as a NeoPixel [16V/3A/channel]",
         "category": "pixel",
@@ -1628,6 +1725,7 @@ window.jsonComponentsObject = {
     "pwm": [
       {
         "id": "dimmable_led",
+        "displayName": "Dimmable LED",
         "name": "dimmable_led",
         "description": "",
         "category": "pwm",
@@ -1637,6 +1735,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "piezo_buzzer",
+        "displayName": "Piezo Buzzer",
         "name": "piezo_buzzer",
         "description": "",
         "category": "pwm",
@@ -1646,6 +1745,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "rgb_led",
+        "displayName": "RGB LED",
         "name": "rgb_led",
         "description": "",
         "category": "pwm",
@@ -1657,6 +1757,7 @@ window.jsonComponentsObject = {
     "servo": [
       {
         "id": "servo",
+        "displayName": "Generic Servo",
         "name": "servo",
         "description": "",
         "category": "servo",
@@ -1668,6 +1769,7 @@ window.jsonComponentsObject = {
     "uart": [
       {
         "id": "pm1006",
+        "displayName": "VINDRIKTNING (PM1006)",
         "name": "pm1006",
         "description": "",
         "category": "uart",
@@ -1679,6 +1781,7 @@ window.jsonComponentsObject = {
       },
       {
         "id": "pms5003",
+        "displayName": "pms5003",
         "name": "pms5003",
         "description": "",
         "category": "uart",

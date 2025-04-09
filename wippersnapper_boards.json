@@ -1213,7 +1213,7 @@
       "productURL": "https://www.adafruit.com/product/5980",
       "documentationURL": "https://learn.adafruit.com/adafruit-feather-rp2040-adalogger",
       "installMethod": "uf2",
-      "installBoardName": "feather-rp2040-adalogger",
+      "installBoardName": "feather_rp2040_adalogger_tinyusb",
       "rtc": "PCF8523",
       "sdCardCS": 45,
       "pins": [

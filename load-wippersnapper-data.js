@@ -1,8 +1,8 @@
 // Load Wippersnapper boards and components data
 
 // Configuration
-const BOARDS_JSON_URL = 'https://raw.githubusercontent.com/tyeth/Adafruit_Wippersnapper_Offline_Configurator/refs/heads/main/wippersnapper_boards.json'; //'wippersnapper_boards.json';
-const COMPONENTS_JSON_URL = 'https://raw.githubusercontent.com/tyeth/Adafruit_Wippersnapper_Offline_Configurator/refs/heads/main/wippersnapper_components.json'; //'wippersnapper_components.json';
+const BOARDS_JSON_URL = 'https://raw.githubusercontent.com/tyeth/Adafruit_Wippersnapper_Offline_Configurator/refs/heads/use_boards_sd_card/wippersnapper_boards.json'; //'wippersnapper_boards.json';
+const COMPONENTS_JSON_URL = 'https://raw.githubusercontent.com/tyeth/Adafruit_Wippersnapper_Offline_Configurator/refs/heads/use_boards_sd_card/wippersnapper_components.json'; //'wippersnapper_components.json';
 
 // Global app state
 const appState = {

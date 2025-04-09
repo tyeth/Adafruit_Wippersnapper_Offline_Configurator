@@ -199,19 +199,14 @@ function convertBoardDataToConfig(boardId) {
     // Extract pin numbers from board data
     const pins = boardData.pins.map(pin => pin.number).filter(num => !isNaN(num));
     
+    boardConfig = boardData;
     // Create board config
-    const boardConfig = {
-        referenceVoltage: boardData.referenceVoltage,
-        totalGPIOPins: boardData.totalGPIOPins,
-        totalAnalogPins: boardData.totalAnalogPins || 0,
-        defaultI2C: {
+    boardConfig.totalAnalogPins= boardData.totalAnalogPins || 0;
+    boardConfig.defaultI2C= {
             scl: boardData.defaultI2C.SCL,
             sda: boardData.defaultI2C.SDA
-        },
-        pins: pins,
-        displayName: boardData.displayName,
-        image: boardData.image
-    };
+        };
+    boardConfig.pins= pins;
     
     return boardConfig;
 }
@@ -381,7 +376,20 @@ function attachEventListeners() {
         
         // Initialize SD and RTC sections based on board
         initializeManualConfig(boardConfig);
-        
+
+        // update firmware download url to use installBoardName or fall back to releases page
+        // collect the asset names, split on '.' after removing wippersnapper. and take first part.
+        const firmwareFile = document.getElementById('firmware_file');
+        const firmwareData = window['FIRMWARE_DATA'];
+        const boardInstallName = boardConfig.installBoardName || "";
+        const assets = firmwareData.firmwareFiles.map(asset => { return {"name":asset.name.replace('wippersnapper.', '').split('.')[0], "url":asset.url}; });
+        const asset = assets.find(asset => asset.name === boardInstallName);
+        if (asset) {
+            firmwareFile.href = asset.url;
+        } else {
+            firmwareFile.href = firmwareData.releaseInfo.url;
+        }
+
         // Initialize pins lists for SD and I2C configuration
         populatePinsLists();
         

@@ -211,6 +211,20 @@ document.addEventListener('DOMContentLoaded', function() {
         // Initialize SD and RTC sections based on board
         initializeManualConfig(board);
         
+        
+        // update firmware download url to use installBoardName or fall back to releases page
+        // collect the asset names, split on '.' after removing wippersnapper. and take first part.
+        const firmwareFile = document.getElementById('firmware_file');
+        const firmwareData = window['FIRMWARE_DATA'];
+        const boardInstallName = board.installBoardName || "";
+        const assets = firmwareData.firmwareFiles.map(asset => { return {"name":asset.name.replace('wippersnapper.', '').split('.')[0], "url":asset.url}; });
+        const asset = assets.find(asset => asset.name === boardInstallName);
+        if (asset) {
+            firmwareFile.href = asset.url;
+        } else {
+            firmwareFile.href = firmwareData.releaseInfo.url;
+        }
+
         // Initialize pins lists for SD and I2C configuration
         populatePinsLists();
         

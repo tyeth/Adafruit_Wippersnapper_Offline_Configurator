@@ -96,6 +96,7 @@ def convert_components_to_json():
                 # Extract relevant information
                 component_info = {
                     "id": component_dir,
+                    "displayName": component_data.get("displayName", component_dir),
                     "name": component_data.get("name", component_dir),
                     "description": component_data.get("description", ""),
                     "category": category,

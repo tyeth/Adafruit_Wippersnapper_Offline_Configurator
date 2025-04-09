@@ -66,6 +66,7 @@ async function loadWippersnapperData() {
             appState.componentsData.i2c.push({
                 id: 'pca9546',
                 name: 'PCA9546 I2C Multiplexer',
+                displayName: 'PCA9546 I2C Multiplexer',
                 address: '0x70',
                 addresses: ['0x70', '0x71', '0x72', '0x73', '0x74', '0x75', '0x76', '0x77'],
                 dataTypes: [],
@@ -76,6 +77,7 @@ async function loadWippersnapperData() {
             appState.componentsData.i2c.push({
                 id: 'pca9548',
                 name: 'PCA9548 I2C Multiplexer',
+                displayName: 'PCA9548 I2C Multiplexer',
                 address: '0x70',
                 addresses: ['0x70', '0x71', '0x72', '0x73', '0x74', '0x75', '0x76', '0x77'],
                 dataTypes: [],
@@ -86,6 +88,7 @@ async function loadWippersnapperData() {
             appState.componentsData.i2c.push({
                 id: 'tca9546',
                 name: 'TCA9546 I2C Multiplexer',
+                displayName: 'TCA9546 I2C Multiplexer',
                 address: '0x70',
                 addresses: ['0x70', '0x71', '0x72', '0x73', '0x74', '0x75', '0x76', '0x77'],
                 dataTypes: [],
@@ -96,6 +99,7 @@ async function loadWippersnapperData() {
             appState.componentsData.i2c.push({
                 id: 'tca9548',
                 name: 'TCA9548 I2C Multiplexer',
+                displayName: 'TCA9548 I2C Multiplexer',
                 address: '0x70',
                 addresses: ['0x70', '0x71', '0x72', '0x73', '0x74', '0x75', '0x76', '0x77'],
                 dataTypes: [],

@@ -529,7 +529,7 @@ function resetSubsequentSelections() {
 }
 
 function initializeManualConfig(boardConfig) {
-    if (boardConfig && "sdCardCS" in boardConfig) {
+    if (boardConfig && "sdCardCS" in boardConfig && boardConfig.sdCardCS !== null) {
         appState.sdCardCS = boardConfig.sdCardCS;
         document.getElementById('sd-missing').classList.add('hidden');
         document.getElementById('sd-present').classList.remove('hidden');
@@ -545,7 +545,7 @@ function initializeManualConfig(boardConfig) {
         appState.sdCardCS = null;
     }
     
-    if (boardConfig && "rtc" in boardConfig) {
+    if (boardConfig && "rtc" in boardConfig && !(boardConfig.rtc in [null, 'soft', 'SOFT'])) {
         appState.rtcType = boardConfig.rtc;
         document.getElementById('rtc-missing').classList.add('hidden');
         document.getElementById('rtc-present').classList.remove('hidden');

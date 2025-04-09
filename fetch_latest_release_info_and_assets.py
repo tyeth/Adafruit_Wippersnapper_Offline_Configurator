@@ -12,7 +12,7 @@ REPO = "adafruit/Adafruit_Wippersnapper_Arduino"
 OUTPUT_DIR = "latest_firmware"
 RELEASES_API_URL = f"https://api.github.com/repos/{REPO}/releases"
 PER_PAGE = 30  # GitHub API default per page limit
-JS_OUTPUT_FILE = "firmware_data.js"
+JS_OUTPUT_FILE = "firmware-data.js"
 
 def fetch_latest_offline_release():
     """Fetch the latest offline release from GitHub API."""

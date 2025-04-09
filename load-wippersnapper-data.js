@@ -348,7 +348,7 @@ function attachEventListeners() {
         if (boardImageElem) {
             if (boardConfig.image) {
                 if (!boardConfig.image.startsWith('http')) {
-                    boardImageElem.src = "https://raw.githubusercontent.com/adafruit/Wippersnapper_Boards/refs/heads/main/" + boardConfig.image;
+                    boardImageElem.src = "https://raw.githubusercontent.com/adafruit/Wippersnapper_Boards/refs/heads/rp2040_datalogger_feather/" + boardConfig.image;
                 } else {
                     boardImageElem.src = boardConfig.image;
                 }

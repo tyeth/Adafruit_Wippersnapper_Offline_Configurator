@@ -973,7 +973,9 @@ function createComponentCard(component, type) {
     
     if (component.dataTypes && component.dataTypes.length > 0) {
         const dataTypes = document.createElement('p');
-        dataTypes.innerHTML = `Data Types: <span style="font-size: small">${component.dataTypes.join(", ")}</span>`;
+        const joined_string = component.dataTypes.map(dt => typeof(dt) === 'object' ? 
+            dt.displayName || dt.sensorType : dt).join(", ");
+        dataTypes.innerHTML = `Data Types: <span style="font-size: small">${joined_string}</span>`;
         card.appendChild(dataTypes);
     }
     

@@ -7,7 +7,14 @@
     <style>
 		.not-available-yet {
 			text-decoration: line-through;
-			font-size: small;
+			font-size: x-small;
+		}
+		.component-tabcontent > h3 {
+			display: inline-block;
+			padding-right: 20px;
+		}
+		.component-tabcontent > .search-filter {
+			display: inline-block;
 		}
         body {
             font-family: Arial, sans-serif;
@@ -206,6 +213,9 @@
         .board-details {
             flex: 1;
         }
+		.board-details > p {
+			margin: 5px 0 0 0;
+		}
         .search-filter {
             margin-bottom: 15px;
         }
@@ -341,7 +351,7 @@
                 <h3>Status LED Configuration</h3>
 				<div class="inline-row">
 					<label for="led-brightness">Status LED Brightness (0.0-1.0): </label>
-					<input type="range" id="led-brightness" min="0" max="1" step="0.05" value="0.5">
+					<input type="range" id="led-brightness" min="0" max="1" step="0.01" value="0.5">
 					<span id="brightness-value">0.5</span>
 				</div>
             </div>

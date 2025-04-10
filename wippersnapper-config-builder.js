@@ -960,13 +960,20 @@ function createComponentCard(component, type) {
     
     if (type === 'i2c' && component.address) {
         const address = document.createElement('p');
-        address.textContent = `Address: ${component.address}`;
+        address.textContent = `Default I2C Address: ${component.address}`;
         card.appendChild(address);
+    }
+
+    if (component.description) {
+        const description = document.createElement('p');
+        description.style.fontSize = 'small';
+        description.textContent = component.description;
+        card.appendChild(description);
     }
     
     if (component.dataTypes && component.dataTypes.length > 0) {
         const dataTypes = document.createElement('p');
-        dataTypes.textContent = `Data Types: ${component.dataTypes.length}`;
+        dataTypes.innerHTML = `Data Types: <span style="font-size: small">${component.dataTypes.join(", ")}</span>`;
         card.appendChild(dataTypes);
     }
     
@@ -976,6 +983,40 @@ function createComponentCard(component, type) {
         showComponentConfigModal(component, type);
     });
     card.appendChild(addBtn);
+    
+    // Add links container
+    const linksContainer = document.createElement('div');
+    linksContainer.style.marginTop = '5px';
+    linksContainer.style.display = 'inline-block';
+    
+    // Add purchase link if available
+    if (component.productURL || component.productUrl) {
+        const productURL = component.productURL || component.productUrl;
+        const purchaseLink = document.createElement('a');
+        purchaseLink.href = productURL;
+        purchaseLink.target = '_blank';
+        purchaseLink.title = 'Product page';
+        purchaseLink.innerHTML = `<span style="padding: 0 5px;">🛒</span>`;
+        purchaseLink.style.textDecoration = 'none';
+        linksContainer.appendChild(purchaseLink);
+    }
+    
+    // Add documentation link if available
+    if (component.documentationURL || component.documentationUrl) {
+        const docURL = component.documentationURL || component.documentationUrl;
+        const docsLink = document.createElement('a');
+        docsLink.href = docURL;
+        docsLink.target = '_blank';
+        docsLink.title = 'Documentation';
+        docsLink.innerHTML = `<span style="padding: 0 5px;">📃</span>`;
+        docsLink.style.textDecoration = 'none';
+        linksContainer.appendChild(docsLink);
+    }
+    
+    // Only add the container if there are links
+    if (linksContainer.childNodes.length > 0) {
+        card.appendChild(linksContainer);
+    }
     
     return card;
 }

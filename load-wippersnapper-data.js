@@ -69,6 +69,7 @@ async function loadWippersnapperData() {
                 name: 'PCA9546 I2C Multiplexer',
                 displayName: 'PCA9546 I2C Multiplexer',
                 productURL: 'https://www.adafruit.com/product/5664',
+                documentationURL: 'https://learn.adafruit.com/adafruit-pca9546-4-channel-stemma-qt-multiplexer',
                 image: 'https://cdn-shop.adafruit.com/640x480/5664-00.jpg',
                 address: '0x70',
                 addresses: ['0x70', '0x71', '0x72', '0x73', '0x74', '0x75', '0x76', '0x77'],
@@ -82,6 +83,7 @@ async function loadWippersnapperData() {
                 name: 'PCA9548 I2C Multiplexer',
                 displayName: 'PCA9548 I2C Multiplexer',
                 productURL: 'https://www.adafruit.com/product/5626',
+                documentationURL: 'https://learn.adafruit.com/adafruit-pca9548-8-channel-stemma-qt-qwiic-i2c-multiplexer',
                 image: 'https://cdn-shop.adafruit.com/640x480/5626-06.jpg',
                 address: '0x70',
                 addresses: ['0x70', '0x71', '0x72', '0x73', '0x74', '0x75', '0x76', '0x77'],
@@ -93,8 +95,9 @@ async function loadWippersnapperData() {
             appState.componentsData.i2c.push({
                 id: 'tca9546',
                 name: 'TCA9546 I2C Multiplexer',
-                displayName: 'TCA9546 I2C Multiplexer',
+                displayName: 'TCA9546 4Ch I2C Multiplexer',
                 productURL: 'https://www.adafruit.com/product/5663',
+                documentationURL: 'https://learn.adafruit.com/adafruit-pca9546-4-channel-i2c-multiplexer',
                 image: 'https://cdn-shop.adafruit.com/640x480/5663-04.jpg',
                 address: '0x70',
                 addresses: ['0x70', '0x71', '0x72', '0x73', '0x74', '0x75', '0x76', '0x77'],
@@ -106,8 +109,9 @@ async function loadWippersnapperData() {
             appState.componentsData.i2c.push({
                 id: 'tca9548',
                 name: 'TCA9548 I2C Multiplexer',
-                displayName: 'TCA9548 I2C Multiplexer',
+                displayName: 'TCA9548 8Ch I2C Multiplexer',
                 productURL: 'https://www.adafruit.com/product/2717',
+                documentationURL: 'https://learn.adafruit.com/adafruit-tca9548a-1-to-8-i2c-multiplexer-breakout',
                 image: 'https://cdn-shop.adafruit.com/640x480/2717-00.jpg',
                 address: '0x70',
                 addresses: ['0x70', '0x71', '0x72', '0x73', '0x74', '0x75', '0x76', '0x77'],
@@ -342,6 +346,9 @@ function attachEventListeners() {
         if (!boardId) {
             document.getElementById('board-details').classList.add('hidden');
             //TODO: consider pop up to reset configurator, or just hide all sections
+            // clean up purchase/docs links
+            document.getElementById('board-purchase').innerHTML = '';
+            document.getElementById('board-help').innerHTML = '';
             hideSubsequentSections();
             return;
         }
@@ -361,6 +368,17 @@ function attachEventListeners() {
         document.getElementById('default-sda').textContent = boardConfig.defaultI2C.sda;
         document.getElementById('board-details').classList.remove('hidden');
         
+        if ("productURL" in boardConfig) {
+            document.getElementById('board-purchase').innerHTML = `<a href="${boardConfig.productURL}" style="padding: 0 10px 0 30px;" target="_blank" title="Product page">Buy 🛒</a> `;
+        } else {
+            document.getElementById('board-purchase').innerHTML = '';
+        }
+        if ("documentationURL" in boardConfig) {
+            document.getElementById('board-help').innerHTML = ` <a href="${boardConfig.documentationURL}" style="padding: 0 10px;" target="_blank" title="Board Documentation">📃Docs❓</a>`;
+        } else {
+            document.getElementById('board-help').innerHTML = '';
+        }
+
         // If there's a board image, show it
         const boardImageElem = document.getElementById('board-image');
         if (boardImageElem) {

@@ -189,6 +189,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const boardId = this.value;
         if (!boardId) {
             document.getElementById('board-details').classList.add('hidden');
+            document.getElementById('board-purchase').innerHTML = '';
+            document.getElementById('board-help').innerHTML = '';
             hideSubsequentSections();
             return;
         }
@@ -207,6 +209,18 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('default-sda').textContent = board.defaultI2C.sda;
         document.getElementById('board-details').classList.remove('hidden');
         
+        // Product URL + Docs
+        if ("productURL" in boardConfig) {
+            document.getElementById('board-purchase').innerHTML = `<a href="${boardConfig.productURL}" style="padding: 0 10px 0 30px;" target="_blank" title="Product page">Buy 🛒</a> `;
+        } else {
+            document.getElementById('board-purchase').innerHTML = '';
+        }
+        if ("documentationURL" in boardConfig) {
+            document.getElementById('board-help').innerHTML = ` <a href="${boardConfig.documentationURL}" style="padding: 0 10px;" target="_blank" title="Board Documentation">📃Docs❓</a>`;
+        } else {
+            document.getElementById('board-help').innerHTML = '';
+        }
+
         // Set up default I2C bus
         appState.i2cBuses = [{
             id: 'default',

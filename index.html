@@ -118,10 +118,10 @@
 			margin-top:0px;
 		}
 		
-		.dashed-section p{
-			padding-bottom: 0px;
-			margin-bottom:0px;
-		}
+        .dashed-section > :last-child {
+            padding-bottom: 0px;
+            margin-bottom: 0px;
+        }
         .tab {
             overflow: hidden;
             border: 1px solid #ccc;
@@ -259,7 +259,7 @@
                 <div class="board-preview">
                     <img id="board-image" class="board-image hidden" src="" alt="Board image">
                     <div class="board-details">
-                        <h3>Board Details</h3>
+                        <h3>Board Details <span id="board-purchase"></span> <span id="board-help"></span></h3>
                         <p><strong>Reference Voltage:</strong> <span id="ref-voltage">3.3</span>V</p>
                         <p><strong>Total GPIO Pins:</strong> <span id="total-gpio">0</span></p>
                         <p><strong>Total Analog Pins:</strong> <span id="total-analog">0</span></p>
@@ -317,8 +317,9 @@
                 <h3>Real-time clock (RTC) Configuration</h3>
                 <p style="color: red; font-weight: bold;">Note: The RTC must be on the first (default) I2C bus.</p>
                 <div id="rtc-missing">
-                    <p>No RTC detected from companion board. Select RTC type:</p>
-                    <select id="rtc-select">
+                    <p>No RTC detected from companion board.</p>
+                    <label for="rtc-select">Select RTC type: </label>
+					<select id="rtc-select">
                         <option value="soft">Software RTC</option>
                         <option value="PCF8523">PCF8523</option>
                         <option value="DS3231">DS3231</option>

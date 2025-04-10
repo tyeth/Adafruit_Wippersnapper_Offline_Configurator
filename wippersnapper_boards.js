@@ -1798,7 +1798,7 @@ window.jsonBoardObject = {
       "referenceVoltage": 3.3,
       "displayName": "Adafruit Metro RP2040",
       "vendor": "Adafruit",
-      "productURL": "https://www.adafruit.com/product/5043",
+      "productURL": "https://www.adafruit.com/product/5786",
       "documentationURL": "https://learn.adafruit.com/adafruit-metro-rp2040",
       "installMethod": "uf2",
       "installBoardName": "metro-rp2040",
@@ -1987,7 +1987,7 @@ window.jsonBoardObject = {
         "SCL": 21,
         "SDA": 20
       },
-      "image": null,
+      "image": "https://cdn-shop.adafruit.com/640x480/5786-00.jpg",
       "totalAnalogPins": 4,
       "i2cPorts": [
         {
@@ -2259,7 +2259,7 @@ window.jsonBoardObject = {
         "SCL": 21,
         "SDA": 20
       },
-      "image": null,
+      "image": "https://cdn-shop.adafruit.com/640x480/5786-00.jpg",
       "totalAnalogPins": 6,
       "i2cPorts": [
         {

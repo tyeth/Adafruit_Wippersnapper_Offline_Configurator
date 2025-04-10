@@ -22,18 +22,24 @@ def get_image_from_adafruit_product_url(product_url):
         str or None: URL to the product image, or None if not found
     """
     if not product_url or not re.match(r'https?://(?:www\.)?adafruit\.com/(?:product|category)/\d+', product_url):
+        print(f"Invalid Adafruit product URL ({product_url}) provided. Skipping image fetch.")
         return None
     
     # Grab product JSON from https://www.adafruit.com/api/products, cache, save as ISO date string filename so can be easily used as cache key
     try:
         product_id = re.search(r'/product/(\d+)', product_url)
         category = re.search(r'/category/(\d+)', product_url)
-
-        response = requests.get(f"https://www.adafruit.com/api/{("category" if category else "product")}/{(product_id.groups(1)[0] if product_id else category.groups(1)[0])}", timeout=10)
+        url_to_fetch = f"https://www.adafruit.com/api/{("category" if category else "product")}/{(product_id.groups(1)[0] if product_id else category.groups(1)[0])}"
+        print(f"Fetching image from Adafruit API for {product_url}...\n{url_to_fetch}")
+        response = requests.get(url_to_fetch, timeout=10)
         if response.status_code != 200:
             print(f"Failed to fetch product data: {product_url}, status code: {response.status_code}")
             return None
         response_json = response.json()
+        if (response_json is None or response_json == [] or response_json == {} or 'error' in response_json):
+            print(f"Invalid response from API for {product_url}: {response_json}")
+            return None
+        
         if 'product_image' in response_json:
             image_url = response_json['product_image']
             print(f"Found image URL from API: {image_url}")

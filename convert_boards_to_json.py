@@ -2,6 +2,7 @@ import os
 import json
 import glob
 from pathlib import Path
+from convert_components_to_json import get_image_from_adafruit_product_url
 
 # Base directory for the boards
 BOARDS_DIR = r"./Wippersnapper_Boards/boards"
@@ -407,6 +408,10 @@ def convert_boards_to_json():
                     # Store relative path to image
                     board_info["image"] = f"boards/{board_dir}/image{ext}"
                     break
+            
+            # Fetch missing images
+            if board_info["image"] is None and board_info["productURL"] != "":
+                board_info["image"] = get_image_from_adafruit_product_url(board_info["productURL"])
             
             # Add to boards dictionary
             boards[board_dir] = board_info

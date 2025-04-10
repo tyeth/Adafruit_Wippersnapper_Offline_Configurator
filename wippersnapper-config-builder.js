@@ -51,61 +51,81 @@ const companionBoardConfigs = {
         rtc: 'PCF8523',
         sdCardCS: 10,
         extras: 'SD Card',
-        productUrl: 'https://www.adafruit.com/product/2922'
+        productURL: 'https://www.adafruit.com/product/2922',
+        documentationURL: 'https://learn.adafruit.com/adafruit-adalogger-featherwing',
+        image: 'https://cdn-shop.adafruit.com/640x480/2922-06.jpg'
     },
     'datalogger-m0': {
         rtc: 'PCF8523',
         sdCardCS: 10,
         extras: 'SD Card',
-        productUrl: 'https://www.adafruit.com/product/2796'
+        productURL: 'https://www.adafruit.com/product/2796',
+        documentationURL: 'https://learn.adafruit.com/adafruit-feather-m0-adalogger',
+        image: 'https://cdn-shop.adafruit.com/640x480/2796-12.jpg'
     },
     'ds3231-precision': {
         rtc: 'DS3231',
         sdCardCS: null,
         extras: 'Precision RTC',
-        productUrl: 'https://www.adafruit.com/product/3028'
+        productURL: 'https://www.adafruit.com/product/3028',
+        documentationURL: 'https://learn.adafruit.com/ds3231-precision-rtc-featherwing',
+        image: 'https://cdn-shop.adafruit.com/640x480/3028-05.jpg'
     },
     'picowbell-adalogger': {
         rtc: 'PCF8523',
         sdCardCS: 9,
         extras: 'SD Card, STEMMA QT',
-        productUrl: 'https://www.adafruit.com/product/5703'
+        productURL: 'https://www.adafruit.com/product/5703',
+        documentationURL: 'https://learn.adafruit.com/adafruit-picowbell-adalogger-for-pico',
+        image: 'https://cdn-shop.adafruit.com/640x480/5703-00.jpg'
     },
     'datalogger-shield-revb': {
         rtc: 'PCF8523',
         sdCardCS: 10,
         extras: 'SD Card',
-        productUrl: 'https://www.adafruit.com/product/1141'
+        productURL: 'https://www.adafruit.com/product/1141',
+        documentationURL: 'https://learn.adafruit.com/adafruit-data-logger-shield',
+        image: 'https://cdn-shop.adafruit.com/640x480/1141-05.jpg'
     },
     'datalogger-shield-reva': {
         rtc: 'DS1307',
         sdCardCS: 10,
         extras: 'SD Card',
-        productUrl: 'https://www.adafruit.com/product/1141'
+        productURL: 'https://www.adafruit.com/product/1141',
+        documentationURL: 'https://learn.adafruit.com/adafruit-data-logger-shield',
+        image: 'https://cdn-shop.adafruit.com/640x480/1141-05.jpg'
     },
     'audio-bff': {
         rtc: null,
         sdCardCS: 'A0',
         extras: 'Audio',
-        productUrl: 'https://www.adafruit.com/product/5769'
+        productURL: 'https://www.adafruit.com/product/5769',
+        documentationURL: 'https://learn.adafruit.com/adafruit-audio-bff',
+        image: 'https://cdn-shop.adafruit.com/640x480/5769-00.jpg'
     },
     'microsd-bff': {
         rtc: null,
         sdCardCS: 'TX',
         extras: 'SD Card',
-        productUrl: 'https://www.adafruit.com/product/5683'
+        productURL: 'https://www.adafruit.com/product/5683',
+        documentationURL: 'https://learn.adafruit.com/adafruit-microsd-card-bff',
+        image: 'https://cdn-shop.adafruit.com/640x480/5683-07.jpg'
     },
     'winc1500-shield': {
         rtc: null,
         sdCardCS: 'D4',
         extras: 'WiFi',
-        productUrl: 'https://www.adafruit.com/product/3653'
+        productURL: 'https://www.adafruit.com/product/3653',
+        documentationURL: 'https://learn.adafruit.com/adafruit-winc1500-wifi-shield-for-arduino',
+        image: 'https://cdn-shop.adafruit.com/640x480/3653-05.jpg'
     },
     'airlift-shield': {
         rtc: null,
         sdCardCS: 'D4',
         extras: 'WiFi',
-        productUrl: 'https://www.adafruit.com/product/4285'
+        productURL: 'https://www.adafruit.com/product/4285',
+        documentationURL: 'https://learn.adafruit.com/adafruit-airlift-shield-esp32-wifi-co-processor',
+        image: 'https://cdn-shop.adafruit.com/640x480/4285-05.jpg'
     }
 };
 
@@ -302,8 +322,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 appState.sdCardCS = null;
             }
 
-            if ("productUrl" in companion && companion.productUrl) {
-                document.getElementById('companion-purchase').innerHTML = `<a href="${companion.productUrl}" style="padding: 0 10px 0 30px;" target="_blank" title="Product page">Buy 🛒</a> `;
+            if ("productURL" in companion && companion.productURL) {
+                document.getElementById('companion-purchase').innerHTML = `<a href="${companion.productURL}" style="padding: 0 10px 0 30px;" target="_blank" title="Product page">Buy 🛒</a> `;
             } else {
                 document.getElementById('companion-purchase').innerHTML = '';
             }

@@ -290,6 +290,9 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Initialize components sections
         populateComponentLists();
+        
+        // Initialize multiplexer list
+        updateMuxList();
     });
     
     // Companion board selection handler
@@ -991,17 +994,31 @@ function showComponentConfigModal(component, type) {
     // Build configuration form based on component type
     let html = '<form id="component-config-form">';
     
+    // Check if this is a multiplexer component
+    const isMux = type === 'i2c' && 
+                 (component.id === 'pca9546' || component.id === 'pca9548' || 
+                  component.id === 'tca9546' || component.id === 'tca9548');
+    
     // Common fields
     html += `
         <div>
             <label for="component-name">Component Name:</label>
             <input type="text" id="component-name" value="${component.displayName}" required>
         </div>
+    `;
+    
+    // Only show polling period for non-multiplexer components
+    if (!isMux) {
+        html += `
         <div>
             <label for="component-period">Polling Period (seconds):</label>
             <input type="number" id="component-period" value="30" min="1" required>
         </div>
-    `;
+        `;
+    } else {
+        // Hidden field with default value of 0 for multiplexers
+        html += `<input type="hidden" id="component-period" value="0">`;
+    }
     
     // Component-specific fields
     if (type === 'i2c') {
@@ -1060,12 +1077,12 @@ function showComponentConfigModal(component, type) {
         if (component.id === 'pca9546' || component.id === 'pca9548' || 
             component.id === 'tca9546' || component.id === 'tca9548') {
             
+            //TODO: Hacky, actually check Mux definition in future once we support more.
             const defaultChannels = component.id.includes('9548') ? 8 : 4;
             
             html += `
                 <div>
-                    <label for="modal-mux-channels">Number of Channels:</label>
-                    <input type="number" id="modal-mux-channels" value="${component.channels || defaultChannels}" min="1" max="${defaultChannels}" required readonly>
+                    <input type="hidden" id="modal-mux-channels" value="${component.channels || defaultChannels}" min="1" max="${defaultChannels}" required readonly>
                     <p><small>This multiplexer has ${defaultChannels} channels</small></p>
                 </div>
             `;
@@ -1303,6 +1320,83 @@ function showAddMultiplexerModal() {
     modal.style.display = 'block';
 }
 
+function updateMuxList() {
+    const muxListContainer = document.getElementById('mux-list');
+    
+    // Clear the current content
+    muxListContainer.innerHTML = '';
+    
+    // If no multiplexers, show a message
+    if (appState.i2cMultiplexers.length === 0) {
+        muxListContainer.innerHTML = '<p>No I2C multiplexers configured.</p>';
+        return;
+    }
+    
+    // Create a list container similar to selected components
+    let html = '<ul class="component-details-list">';
+    
+    // For each multiplexer, create a display element
+    appState.i2cMultiplexers.forEach(mux => {
+        // Find the corresponding component to get more details
+        const muxComponent = appState.selectedComponents.find(comp => 
+            comp.instanceId === mux.id && 
+            comp.componentAPI === 'i2c' && 
+            (comp.i2cDeviceName === 'pca9546' || comp.i2cDeviceName === 'pca9548' ||
+             comp.i2cDeviceName === 'tca9546' || comp.i2cDeviceName === 'tca9548')
+        );
+        
+        // Determine multiplexer type and name
+        let muxType = "";
+        let muxName = "I2C Multiplexer";
+        
+        if (muxComponent) {
+            // If we have the component reference, get the name and type from it
+            muxName = muxComponent.name || "I2C Multiplexer";
+            muxType = muxComponent.i2cDeviceName ? muxComponent.i2cDeviceName.toUpperCase() : "";
+        }
+        
+        // Format details text in the same style as selected components
+        let detailsText = `<br>Address: ${mux.address}`;
+        
+        // Add additional details
+        if (muxType) {
+            detailsText += `<br>Type: ${muxType}`;
+        }
+        detailsText += `<br>Channels: ${mux.channels}`;
+        
+        // Add bus information
+        if (muxComponent) {
+            if (muxComponent.i2cBusScl && muxComponent.i2cBusSda) {
+                detailsText += `<br>Bus: Custom (SCL: ${muxComponent.i2cBusScl}, SDA: ${muxComponent.i2cBusSda})`;
+            } else if (muxComponent.i2cMuxAddress) {
+                detailsText += `<br>Connected to: Multiplexer ${muxComponent.i2cMuxAddress} - Channel ${muxComponent.i2cMuxChannel}`;
+            } else {
+                // Default bus
+                const defaultBus = appState.i2cBuses.find(bus => bus.id === 'default');
+                if (defaultBus) {
+                    detailsText += `<br>Bus: Default (SCL: ${defaultBus.scl}, SDA: ${defaultBus.sda})`;
+                }
+            }
+        }
+        
+        // Add the multiplexer to the HTML in the same format as selected components
+        html += `<li>
+            <div class="component-item">
+                <div class="component-info">
+                    <strong>${muxName}</strong> (i2c)
+                    ${detailsText}
+                </div>
+                <div class="component-actions">
+                    <button onclick="removeComponent(${mux.id})">Remove</button>
+                </div>
+            </div>
+        </li>`;
+    });
+    
+    html += '</ul>';
+    muxListContainer.innerHTML = html;
+}
+
 function closeModal() {
     const modal = document.getElementById('component-modal');
     modal.style.display = 'none';
@@ -1359,6 +1453,9 @@ function saveModalData() {
             componentId === 'tca9546' || componentId === 'tca9548') {
             
             const channels = parseInt(document.getElementById('modal-mux-channels').value);
+            
+            // Multiplexers don't need a polling period
+            componentConfig.period = 0;
             
             // Add to multiplexers list
             const muxConfig = {
@@ -1455,6 +1552,13 @@ function saveModalData() {
     // Update the selected components list
     updateSelectedComponentsList();
     
+    // Update multiplexer list if this is a multiplexer component
+    if (componentConfig.componentAPI === 'i2c' && 
+        (componentConfig.i2cDeviceName === 'pca9546' || componentConfig.i2cDeviceName === 'pca9548' ||
+         componentConfig.i2cDeviceName === 'tca9546' || componentConfig.i2cDeviceName === 'tca9548')) {
+        updateMuxList();
+    }
+    
     // Refresh pin lists
     populatePinsLists();
     
@@ -1536,8 +1640,14 @@ function updateSelectedComponentsList() {
             }
         }
         
-        // Add polling period
-        detailsText += `<br>Polling period: ${component.period} seconds`;
+        // Add polling period (only for non-multiplexer components)
+        const isMux = component.componentAPI === 'i2c' && 
+                    (component.i2cDeviceName === 'pca9546' || component.i2cDeviceName === 'pca9548' ||
+                     component.i2cDeviceName === 'tca9546' || component.i2cDeviceName === 'tca9548');
+        
+        if (!isMux && component.period > 0) {
+            detailsText += `<br>Polling period: ${component.period} seconds`;
+        }
         
         html += `<li>
             <div class="component-item">
@@ -1603,6 +1713,9 @@ function removeComponent(instanceId) {
     // Update the selected components list
     updateSelectedComponentsList();
     
+    // Update multiplexer list if a multiplexer was removed
+    updateMuxList();
+    
     // Refresh pin lists
     populatePinsLists();
 }
@@ -1646,15 +1759,29 @@ function generateConfiguration() {
         // Create a clean component object without the instanceId
         const cleanComponent = {...component};
         delete cleanComponent.instanceId;
+        
+        // Check if this is a multiplexer
+        const isMux = component.componentAPI === 'i2c' && 
+                     (component.i2cDeviceName === 'pca9546' || component.i2cDeviceName === 'pca9548' ||
+                      component.i2cDeviceName === 'tca9546' || component.i2cDeviceName === 'tca9548');
+        
+        // Set autoConfig and handle period for I2C components
         if (cleanComponent.componentAPI === 'i2c'){
-            if (cleanComponent.name.toLowerCase().includes('multiplexer')) {
+            // Determine autoConfig setting
+            if (isMux || cleanComponent.name.toLowerCase().includes('multiplexer')) {
                 cleanComponent["autoConfig"] = false;
             } else if (appState.enableautoConfig) {
                 cleanComponent["autoConfig"] = true;
             } else {
                 cleanComponent["autoConfig"] = false;
             }
-        }  
+            
+            // Remove period for multiplexers
+            if (isMux) {
+                delete cleanComponent.period;
+            }
+        }
+        
         config.components.push(cleanComponent);
     });
     
@@ -1778,6 +1905,9 @@ function resetAppState() {
     // Clear selected components list
     const selectedList = document.getElementById('selected-components-list');
     selectedList.innerHTML = '<p>No components selected yet.</p>';
+    
+    // Clear the multiplexer list
+    updateMuxList();
 }
 
 // Function to import a configuration object
@@ -1969,6 +2099,9 @@ function importConfigObject(config) {
                         };
                         
                         appState.selectedComponents.push(componentConfig);
+                        
+                        // Update the multiplexer list display
+                        updateMuxList();
                     }
                 });
                 

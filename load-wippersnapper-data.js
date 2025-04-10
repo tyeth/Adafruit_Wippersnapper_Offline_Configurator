@@ -10,7 +10,7 @@ const appState = {
     componentsData: null,
     isLoading: false,
     loadError: null,
-    enableAutoInit: false,
+    enableautoConfig: false,
     
     // Application state properties (from original code)
     selectedBoard: null,

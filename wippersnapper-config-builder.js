@@ -171,7 +171,7 @@ function addCustomBoard(id, config) {
 // Otherwise, initialize with default values
 if (typeof appState === 'undefined') {
     window.appState = {
-        enableAutoInit: true,
+        enableautoConfig: true,
         selectedBoard: null,
         companionBoard: null,
         sdCardCS: null,
@@ -1648,11 +1648,11 @@ function generateConfiguration() {
         delete cleanComponent.instanceId;
         if (cleanComponent.componentAPI === 'i2c'){
             if (cleanComponent.name.toLowerCase().includes('multiplexer')) {
-                cleanComponent["autoInit"] = false;
-            } else if (appState.enableAutoInit) {
-                cleanComponent["autoInit"] = true;
+                cleanComponent["autoConfig"] = false;
+            } else if (appState.enableautoConfig) {
+                cleanComponent["autoConfig"] = true;
             } else {
-                cleanComponent["autoInit"] = false;
+                cleanComponent["autoConfig"] = false;
             }
         }  
         config.components.push(cleanComponent);

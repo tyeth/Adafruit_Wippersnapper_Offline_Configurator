@@ -271,9 +271,10 @@
         
         <div id="companion-board-section" class="section hidden">
             <h2>2. Select Companion Board (Optional)</h2>
-            <p>You can skip this step if you're not using a companion board. It's just a convenient way to prepopulate the RTC model and SD pin options</p>
+			<p>You can skip this step if you're not using a companion board.
+			<br/><i><small>It's just a convenient way to prepopulate the Real-time clock model and SD Card's Chip Select pin option.</small></i></p>
             <select id="companion-board-select">
-                <option value="">-- None --</option>
+              <option value="">-- None --</option>
                 <option value="adalogger">Adafruit Adalogger FeatherWing</option>
                 <option value="ds3231-precision">Adafruit DS3231 Precision RTC FeatherWing</option>
                 <option value="picowbell-adalogger">Adafruit PiCowbell Adalogger for Pico</option>
@@ -287,10 +288,15 @@
             </select>
             
             <div id="companion-details" class="hidden">
-                <h3>Companion Board Details</h3>
-                <p><strong>Real-time clock (RTC):</strong> <span id="companion-rtc">None</span></p>
-                <p><strong>SD Card CS Pin:</strong> <span id="companion-sd-cs">None</span></p>
-                <p><strong>Additional Components:</strong> <span id="companion-extras">None</span></p>
+                <div class="board-preview">
+                    <img id="companion-image" class="board-image hidden" src="about:none" alt="Companion board image">
+                    <div class="board-details">
+                        <h3>Companion Board Details <span id="companion-purchase"></span> <span id="companion-help"></span></h3>
+                        <p><strong>Real-time clock (RTC):</strong> <span id="companion-rtc">None</span></p>
+                        <p><strong>SD Card CS Pin:</strong> <span id="companion-sd-cs">None</span></p>
+                        <p><strong>Additional Components:</strong> <span id="companion-extras">None</span></p>
+                    </div>
+                </div>
             </div>
         </div>
         

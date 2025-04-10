@@ -210,13 +210,13 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('board-details').classList.remove('hidden');
         
         // Product URL + Docs
-        if ("productURL" in boardConfig) {
-            document.getElementById('board-purchase').innerHTML = `<a href="${boardConfig.productURL}" style="padding: 0 10px 0 30px;" target="_blank" title="Product page">Buy 🛒</a> `;
+        if ("productURL" in board && board.productURL) {
+            document.getElementById('board-purchase').innerHTML = `<a href="${board.productURL}" style="padding: 0 10px 0 30px;" target="_blank" title="Product page">Buy 🛒</a> `;
         } else {
             document.getElementById('board-purchase').innerHTML = '';
         }
-        if ("documentationURL" in boardConfig) {
-            document.getElementById('board-help').innerHTML = ` <a href="${boardConfig.documentationURL}" style="padding: 0 10px;" target="_blank" title="Board Documentation">📃Docs❓</a>`;
+        if ("documentationURL" in board && board.documentationURL) {
+            document.getElementById('board-help').innerHTML = ` <a href="${board.documentationURL}" style="padding: 0 10px;" target="_blank" title="Board Documentation">📃Docs❓</a>`;
         } else {
             document.getElementById('board-help').innerHTML = '';
         }
@@ -301,6 +301,25 @@ document.addEventListener('DOMContentLoaded', function() {
                 document.getElementById('sd-present').classList.add('hidden');
                 appState.sdCardCS = null;
             }
+
+            if ("productUrl" in companion && companion.productUrl) {
+                document.getElementById('companion-purchase').innerHTML = `<a href="${companion.productUrl}" style="padding: 0 10px 0 30px;" target="_blank" title="Product page">Buy 🛒</a> `;
+            } else {
+                document.getElementById('companion-purchase').innerHTML = '';
+            }
+            if ("documentationURL" in companion && companion.documentationURL) {
+                document.getElementById('companion-help').innerHTML = ` <a href="${companion.documentationURL}" style="padding: 0 10px;" target="_blank" title="Board Documentation">📃Docs❓</a>`
+            } else {
+                document.getElementById('companion-help').innerHTML = '';
+            }
+
+            if (companion.image) {
+                document.getElementById('companion-image').src = companion.image;
+                document.getElementById('companion-image').classList.remove('hidden');
+            } else {
+                document.getElementById('companion-image').src = '';
+                document.getElementById('companion-image').classList.add('hidden');
+            }
             
             // Update RTC section
             if (companion.rtc) {
@@ -317,7 +336,8 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         } else {
             document.getElementById('companion-details').classList.add('hidden');
-            
+            document.getElementById('companion-image').src = '';
+            document.getElementById('companion-image').classList.add('hidden');
             // Reset SD card and RTC sections to manual configuration
             document.getElementById('sd-missing').classList.remove('hidden');
             document.getElementById('sd-present').classList.add('hidden');

@@ -368,12 +368,12 @@ function attachEventListeners() {
         document.getElementById('default-sda').textContent = boardConfig.defaultI2C.sda;
         document.getElementById('board-details').classList.remove('hidden');
         
-        if ("productURL" in boardConfig) {
+        if ("productURL" in boardConfig && boardConfig.productURL) {
             document.getElementById('board-purchase').innerHTML = `<a href="${boardConfig.productURL}" style="padding: 0 10px 0 30px;" target="_blank" title="Product page">Buy 🛒</a> `;
         } else {
             document.getElementById('board-purchase').innerHTML = '';
         }
-        if ("documentationURL" in boardConfig) {
+        if ("documentationURL" in boardConfig && boardConfig.documentationURL) {
             document.getElementById('board-help').innerHTML = ` <a href="${boardConfig.documentationURL}" style="padding: 0 10px;" target="_blank" title="Board Documentation">📃Docs❓</a>`;
         } else {
             document.getElementById('board-help').innerHTML = '';

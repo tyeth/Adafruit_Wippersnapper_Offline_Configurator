@@ -45,6 +45,9 @@
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
+            scrollbar-width: auto;
+            max-height: 80vh;
+            overflow: scroll;
         }
         .component-card {
             border: 1px solid #ddd;
@@ -346,16 +349,17 @@
         
         <div id="components-section" class="section hidden">
             <h2>5. Add Components</h2>
+            <p style="color: red;"><small><i>UART + PWM components are currently being implemented in offline mode and will be available in a future release.</i></small></p>
             
             <div id="component-type-tabs" class="tab">
                 <button class="comp-tab active" onclick="openComponentTab(event, 'all-components')">All Components</button>
                 <button class="comp-tab" onclick="openComponentTab(event, 'i2c-components')">I2C Components</button>
                 <button class="comp-tab" onclick="openComponentTab(event, 'ds18x20-components')">DS18x20 Components</button>
                 <button class="comp-tab" onclick="openComponentTab(event, 'pin-components')">Pin Components</button>
-                <button class="comp-tab" onclick="openComponentTab(event, 'pixel-components')">Pixel Components</button>
-                <button class="comp-tab" onclick="openComponentTab(event, 'pwm-components')">PWM Components</button>
-                <button class="comp-tab" onclick="openComponentTab(event, 'servo-components')">Servo Components</button>
-                <button class="comp-tab" onclick="openComponentTab(event, 'uart-components')">UART Components</button>
+                <button class="comp-tab" style="text-decoration: line-through;" onclick="openComponentTab(event, 'pixel-components')">Pixel Components</button>
+                <button class="comp-tab" style="text-decoration: line-through;" onclick="openComponentTab(event, 'pwm-components')">PWM Components</button>
+                <button class="comp-tab" style="text-decoration: line-through;" onclick="openComponentTab(event, 'servo-components')">Servo Components</button>
+                <button class="comp-tab" style="text-decoration: line-through;" onclick="openComponentTab(event, 'uart-components')">UART Components</button>
             </div>
             
             <div id="all-components" class="component-tabcontent" style="display: block;">
@@ -450,6 +454,7 @@
         <div id="generate-section" class="section hidden">
             <h2>7. Generate Configuration</h2>
             <button id="generate-config-btn">Generate Configuration</button>
+            <input type="checkbox" id="use-auto-init" checked onchange="javascript:appState.enableAutoInit=this.checked;"> <label for="use-auto-init">Use Auto Init</label>
             <div id="config-output-container" class="hidden">
                 <h3>Configuration JSON:</h3>
                 <pre id="config-output" class="config-output"></pre>

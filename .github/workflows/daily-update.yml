@@ -48,7 +48,7 @@ jobs:
 
       - name: Commit changes if any
         run: |
-          git add wippersnapper_boards.json wippersnapper_components.json wippersnapper_boards.js wippersnapper_components.js firmware-data.json
+          git add wippersnapper_boards.json wippersnapper_components.json wippersnapper_boards.js wippersnapper_components.js firmware-data.js
           git diff --staged --quiet || git commit -m "Auto-update Wippersnapper definitions [skip ci]"
           git push origin ${{ github.ref_name }}
 

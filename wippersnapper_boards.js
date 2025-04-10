@@ -1462,7 +1462,7 @@ window.jsonBoardObject = {
         "SCL": 5,
         "SDA": 4
       },
-      "image": "boards/feather-rp2040-adalogger/image.svg",
+      "image": "https://cdn-shop.adafruit.com/640x480/5980-00.jpg",
       "totalAnalogPins": 4,
       "i2cPorts": [
         {

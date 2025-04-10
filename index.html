@@ -269,7 +269,6 @@
             
             <div id="sd-card-config">
                 <h3>SD Card Configuration</h3>
-                <p style="color: red; font-weight: bold;">Note: The RTC must be on the first (default) I2C bus to be used.</p>
                 <div id="sd-missing">
                     <p>No SD card detected from companion board. Would you like to add an SD card? <b>(REQUIRED)</b></p>
                     <label><input type="checkbox" id="add-sd-card"> Add SD Card</label>
@@ -286,6 +285,7 @@
             
             <div id="rtc-config">
                 <h3>RTC Configuration</h3>
+                <p style="color: red; font-weight: bold;">Note: The RTC must be on the first (default) I2C bus.</p>
                 <div id="rtc-missing">
                     <p>No RTC detected from companion board. Select RTC type:</p>
                     <select id="rtc-select">

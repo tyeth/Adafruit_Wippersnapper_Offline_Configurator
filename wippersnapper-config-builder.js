@@ -570,7 +570,7 @@ function initializeManualConfig(boardConfig) {
         appState.sdCardCS = null;
     }
     
-    if (boardConfig && "rtc" in boardConfig && !(boardConfig.rtc in [null, 'soft', 'SOFT'])) {
+    if (boardConfig && "rtc" in boardConfig && !(boardConfig.rtc in [null, 'soft', 'SOFT', ''])) {
         appState.rtcType = boardConfig.rtc;
         document.getElementById('rtc-missing').classList.add('hidden');
         document.getElementById('rtc-present').classList.remove('hidden');

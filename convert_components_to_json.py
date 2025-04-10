@@ -30,7 +30,7 @@ def get_image_from_adafruit_product_url(product_url):
         product_id = re.search(r'/product/(\d+)', product_url)
         category = re.search(r'/category/(\d+)', product_url)
         url_to_fetch = f"https://www.adafruit.com/api/{("category" if category else "product")}/{(product_id.groups(1)[0] if product_id else category.groups(1)[0])}"
-        print(f"Fetching image from Adafruit API for {product_url}...\n{url_to_fetch}")
+        print(f"Fetching image from Adafruit API for {product_url}...\nGET {url_to_fetch}")
         response = requests.get(url_to_fetch, timeout=10)
         if response.status_code != 200:
             print(f"Failed to fetch product data: {product_url}, status code: {response.status_code}")
@@ -113,6 +113,10 @@ def convert_components_to_json():
                 # Store product URL if available
                 if "productURL" in component_data:
                     component_info["productUrl"] = component_data["productURL"]
+
+                # store documentation URL if available
+                if "documentationURL" in component_data:
+                    component_info["documentationUrl"] = component_data["documentationURL"]
                 
                 # Extract data types if available
                 if "subcomponents" in component_data:

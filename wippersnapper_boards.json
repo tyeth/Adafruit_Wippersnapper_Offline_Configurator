@@ -1215,7 +1215,7 @@
       "installMethod": "uf2",
       "installBoardName": "feather_rp2040_adalogger_tinyusb",
       "rtc": null,
-      "sdCardCS": 45,
+      "sdCardCS": 23,
       "pins": [
         {
           "number": 7,

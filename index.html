@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wippersnapper Configuration Builder</title>
     <style>
+		.not-available-yet {
+			text-decoration: line-through;
+			font-size: small;
+		}
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
@@ -97,12 +101,27 @@
         .hidden {
             display: none;
         }
-        .i2c-bus-config {
+        .inline-row {
+            display: flex;
+            align-items: center;
+            align-content:space-around;
+            margin-bottom: 10px;
+        }
+        .dashed-section {
             margin: 10px 0;
             padding: 10px;
             border: 1px dashed #ccc;
             border-radius: 4px;
         }
+		.dashed-section h3{
+			padding-top: 0px;
+			margin-top:0px;
+		}
+		
+		.dashed-section p{
+			padding-bottom: 0px;
+			margin-bottom:0px;
+		}
         .tab {
             overflow: hidden;
             border: 1px solid #ccc;
@@ -278,7 +297,7 @@
         <div id="manual-config-section" class="section hidden">
             <h2>3. Manual Configuration</h2>
             
-            <div id="sd-card-config">
+            <div id="sd-card-config" class="dashed-section">
                 <h3>SD Card Configuration</h3>
                 <div id="sd-missing">
                     <p>No SD card detected from companion board. Would you like to add an SD card? <b>(REQUIRED)</b></p>
@@ -294,7 +313,7 @@
                 </div>
             </div>
             
-            <div id="rtc-config">
+            <div id="rtc-config" class="dashed-section">
                 <h3>Real-time clock (RTC) Configuration</h3>
                 <p style="color: red; font-weight: bold;">Note: The RTC must be on the first (default) I2C bus.</p>
                 <div id="rtc-missing">
@@ -311,35 +330,37 @@
                 </div>
             </div>
             
-            <div id="status-led-config">
+            <div id="status-led-config" class="dashed-section">
                 <h3>Status LED Configuration</h3>
-                <label for="led-brightness">Status LED Brightness (0.0-1.0): </label>
-                <input type="range" id="led-brightness" min="0" max="1" step="0.05" value="0.5">
-                <span id="brightness-value">0.5</span>
+				<div class="inline-row">
+					<label for="led-brightness">Status LED Brightness (0.0-1.0): </label>
+					<input type="range" id="led-brightness" min="0" max="1" step="0.05" value="0.5">
+					<span id="brightness-value">0.5</span>
+				</div>
             </div>
         </div>
         
         <div id="i2c-bus-section" class="section hidden">
             <h2>4. I2C Bus Configuration</h2>
             
-            <div id="default-i2c-bus" class="i2c-bus-config">
+            <div id="default-i2c-bus" class="dashed-section">
                 <h3>Default I2C Bus</h3>
                 <p>SCL: <span id="default-i2c-scl"></span>, SDA: <span id="default-i2c-sda"></span></p>
             </div>
             
-            <div id="additional-i2c-bus-container">
+            <div id="additional-i2c-bus-container" class="dashed-section">
                 <h3>Additional I2C Bus (Optional)</h3>
                 <label><input type="checkbox" id="add-i2c-bus"> Add Additional I2C Bus</label>
                 
-                <div id="additional-i2c-config" class="hidden i2c-bus-config">
-                    <p>Select SCL Pin:</p>
+                <div id="additional-i2c-config" class="hidden dashed-section">
+                    <p>Select SCL Pin: <span id="alt-scl-pin"></span></p>
                     <div id="scl-pins-list" class="pins-container"></div>
-                    <p>Select SDA Pin:</p>
+                    <p>Select SDA Pin: <span id="alt-sda-pin"></span></p>
                     <div id="sda-pins-list" class="pins-container"></div>
                 </div>
             </div>
             
-            <div id="i2c-mux-container">
+            <div id="i2c-mux-container" class="dashed-section">
                 <h3>I2C Multiplexers (Optional)</h3>
                 <button id="add-mux-btn">Add I2C Multiplexer</button>
                 
@@ -349,17 +370,17 @@
         
         <div id="components-section" class="section hidden">
             <h2>5. Add Components</h2>
-            <p style="color: red;"><small><i>UART + PWM components are currently being implemented in offline mode and will be available in a future release.</i></small></p>
+            <p style="color: red;"><small><i>UART + other component categories are currently being implemented in offline mode (No ETA, but maybe reactive actions too!).</i></small></p>
             
             <div id="component-type-tabs" class="tab">
                 <button class="comp-tab active" onclick="openComponentTab(event, 'all-components')">All Components</button>
                 <button class="comp-tab" onclick="openComponentTab(event, 'i2c-components')">I2C Components</button>
                 <button class="comp-tab" onclick="openComponentTab(event, 'ds18x20-components')">DS18x20 Components</button>
                 <button class="comp-tab" onclick="openComponentTab(event, 'pin-components')">Pin Components</button>
-                <button class="comp-tab" style="text-decoration: line-through;" onclick="openComponentTab(event, 'pixel-components')">Pixel Components</button>
-                <button class="comp-tab" style="text-decoration: line-through;" onclick="openComponentTab(event, 'pwm-components')">PWM Components</button>
-                <button class="comp-tab" style="text-decoration: line-through;" onclick="openComponentTab(event, 'servo-components')">Servo Components</button>
-                <button class="comp-tab" style="text-decoration: line-through;" onclick="openComponentTab(event, 'uart-components')">UART Components</button>
+                <button class="comp-tab not-available-yet" onclick="openComponentTab(event, 'pixel-components')">Pixel Components</button>
+                <button class="comp-tab not-available-yet" onclick="openComponentTab(event, 'pwm-components')">PWM Components</button>
+                <button class="comp-tab not-available-yet" onclick="openComponentTab(event, 'servo-components')">Servo Components</button>
+                <button class="comp-tab not-available-yet" onclick="openComponentTab(event, 'uart-components')">UART Components</button>
             </div>
             
             <div id="all-components" class="component-tabcontent" style="display: block;">

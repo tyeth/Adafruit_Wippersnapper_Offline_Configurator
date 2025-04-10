@@ -338,7 +338,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('led-brightness').addEventListener('input', function() {
         const value = parseFloat(this.value);
         appState.statusLEDBrightness = value;
-        document.getElementById('brightness-value').textContent = value.toFixed(1);
+        document.getElementById('brightness-value').textContent = value.toFixed(2);
     });
     
     // Add additional I2C bus checkbox handler

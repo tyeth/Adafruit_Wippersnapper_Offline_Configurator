@@ -917,20 +917,20 @@ function populateComponentLists() {
     // // Update I2C bus options
     // updateI2CBusOptions();
     
-    // Add search functionality for all components
-    document.getElementById('all-search').addEventListener('input', function() {
-        const searchTerm = this.value.toLowerCase();
-        const allComponents = document.querySelectorAll('#all-component-list .component-card');
+    // // Add search functionality for all components
+    // document.getElementById('all-search').addEventListener('input', function() {
+    //     const searchTerm = this.value.toLowerCase();
+    //     const allComponents = document.querySelectorAll('#all-component-list .component-card');
         
-        allComponents.forEach(card => {
-            const componentName = card.querySelector('h3').textContent.toLowerCase();
-            if (componentName.includes(searchTerm)) {
-                card.style.display = 'block';
-            } else {
-                card.style.display = 'none';
-            }
-        });
-    });
+    //     allComponents.forEach(card => {
+    //         const componentName = card.querySelector('h3').textContent.toLowerCase();
+    //         if (componentName.includes(searchTerm)) {
+    //             card.style.display = 'block';
+    //         } else {
+    //             card.style.display = 'none';
+    //         }
+    //     });
+    // });
 }
 
 function createComponentCard(component, type) {

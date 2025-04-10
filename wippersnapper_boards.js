@@ -2004,7 +2004,7 @@ window.jsonBoardObject = {
       "referenceVoltage": 3.3,
       "displayName": "Adafruit Metro RP2350",
       "vendor": "Adafruit",
-      "productURL": "https://www.adafruit.com/product/5786",
+      "productURL": "https://www.adafruit.com/product/6003",
       "documentationURL": "https://learn.adafruit.com/adafruit-metro-rp2350",
       "installMethod": "uf2",
       "installBoardName": "metro_rp2350_tinyusb",
@@ -2259,7 +2259,7 @@ window.jsonBoardObject = {
         "SCL": 21,
         "SDA": 20
       },
-      "image": "https://cdn-shop.adafruit.com/640x480/5786-00.jpg",
+      "image": "https://cdn-shop.adafruit.com/640x480/6003-06.jpg",
       "totalAnalogPins": 6,
       "i2cPorts": [
         {

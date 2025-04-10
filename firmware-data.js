@@ -1,4 +1,4 @@
-// Auto-generated on 2025-04-09 15:25:27
+// Auto-generated on 2025-04-10 13:46:31
 const FIRMWARE_DATA = {
   "releaseInfo": {
     "version": "1.0.0-offline-beta.1",
@@ -67,7 +67,7 @@ const FIRMWARE_DATA = {
       "name": "wippersnapper.feather_rp2040_adalogger_tinyusb.1.0.0-offline-beta.1.uf2",
       "url": "https://github.com/adafruit/Adafruit_Wippersnapper_Arduino/releases/download/1.0.0-offline-beta.1/wippersnapper.feather_rp2040_adalogger_tinyusb.1.0.0-offline-beta.1.uf2",
       "size": 609792,
-      "downloadCount": 6,
+      "downloadCount": 7,
       "contentType": "application/octet-stream",
       "createdAt": "2025-03-03T17:21:42Z"
     },
@@ -75,7 +75,7 @@ const FIRMWARE_DATA = {
       "name": "wippersnapper.metroesp32s2.1.0.0-offline-beta.1.uf2",
       "url": "https://github.com/adafruit/Adafruit_Wippersnapper_Arduino/releases/download/1.0.0-offline-beta.1/wippersnapper.metroesp32s2.1.0.0-offline-beta.1.uf2",
       "size": 2686464,
-      "downloadCount": 3,
+      "downloadCount": 4,
       "contentType": "application/octet-stream",
       "createdAt": "2025-03-03T17:21:42Z"
     },
@@ -83,7 +83,7 @@ const FIRMWARE_DATA = {
       "name": "wippersnapper.metro_esp32s3.1.0.0-offline-beta.1.uf2",
       "url": "https://github.com/adafruit/Adafruit_Wippersnapper_Arduino/releases/download/1.0.0-offline-beta.1/wippersnapper.metro_esp32s3.1.0.0-offline-beta.1.uf2",
       "size": 2753024,
-      "downloadCount": 1,
+      "downloadCount": 2,
       "contentType": "application/octet-stream",
       "createdAt": "2025-03-03T17:21:42Z"
     },
@@ -99,7 +99,7 @@ const FIRMWARE_DATA = {
       "name": "wippersnapper.pico_rp2040_tinyusb.1.0.0-offline-beta.1.uf2",
       "url": "https://github.com/adafruit/Adafruit_Wippersnapper_Arduino/releases/download/1.0.0-offline-beta.1/wippersnapper.pico_rp2040_tinyusb.1.0.0-offline-beta.1.uf2",
       "size": 608256,
-      "downloadCount": 4,
+      "downloadCount": 5,
       "contentType": "application/octet-stream",
       "createdAt": "2025-03-03T17:21:42Z"
     },
@@ -107,7 +107,7 @@ const FIRMWARE_DATA = {
       "name": "wippersnapper.pico_rp2350_tinyusb.1.0.0-offline-beta.1.uf2",
       "url": "https://github.com/adafruit/Adafruit_Wippersnapper_Arduino/releases/download/1.0.0-offline-beta.1/wippersnapper.pico_rp2350_tinyusb.1.0.0-offline-beta.1.uf2",
       "size": 600576,
-      "downloadCount": 1,
+      "downloadCount": 2,
       "contentType": "application/octet-stream",
       "createdAt": "2025-03-03T17:21:42Z"
     },

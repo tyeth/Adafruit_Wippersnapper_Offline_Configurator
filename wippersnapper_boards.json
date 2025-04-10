@@ -1214,7 +1214,7 @@
       "documentationURL": "https://learn.adafruit.com/adafruit-feather-rp2040-adalogger",
       "installMethod": "uf2",
       "installBoardName": "feather_rp2040_adalogger_tinyusb",
-      "rtc": "PCF8523",
+      "rtc": null,
       "sdCardCS": 45,
       "pins": [
         {
@@ -2007,7 +2007,7 @@
       "productURL": "https://www.adafruit.com/product/5786",
       "documentationURL": "https://learn.adafruit.com/adafruit-metro-rp2350",
       "installMethod": "uf2",
-      "installBoardName": "metro-rp2350",
+      "installBoardName": "metro_rp2350_tinyusb",
       "rtc": null,
       "sdCardCS": 34,
       "pins": [

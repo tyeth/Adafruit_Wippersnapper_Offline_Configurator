@@ -1565,7 +1565,7 @@
           "pressure",
           "altitude"
         ],
-        "image": "https://www.adafruit.com/images/480x360/2651-08.jpg",
+        "image": null,
         "productUrl": "https://www.adafruit.com/product/2651",
         "address": "0x76",
         "addresses": [

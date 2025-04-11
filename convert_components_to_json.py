@@ -99,6 +99,11 @@ def convert_components_to_json():
                 with open(definition_file, 'r') as f:
                     component_data = json.load(f)
                 
+                # Skip non-input components for now
+                if category == "pin":
+                    if component_data.get("direction", "").lower() != "input":
+                        continue
+                
                 # Extract relevant information
                 component_info = {
                     "id": component_dir,
@@ -109,7 +114,7 @@ def convert_components_to_json():
                     "dataTypes": [],
                     "image": None
                 }
-                
+
                 # Store product URL if available
                 if "productURL" in component_data:
                     component_info["productUrl"] = component_data["productURL"]
@@ -129,6 +134,10 @@ def convert_components_to_json():
                         else:
                             component_info["dataTypes"].append(map_datatypes_to_offline_types(meas_type))
                 
+                # Handle pin category (MODE becomes componentAPI value)
+                if category == "pin":
+                    component_info["componentAPI"] = component_data.get("mode", "digital").lower()
+
                 # Handle I2C-specific properties
                 if category == "i2c":
                     # Extract I2C address from parameters

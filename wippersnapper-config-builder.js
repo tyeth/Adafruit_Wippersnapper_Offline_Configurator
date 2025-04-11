@@ -1461,7 +1461,7 @@ function saveModalData() {
     const componentConfig = {
         instanceId: appState.nextComponentId++,
         name: name,
-        componentAPI: componentType,
+        componentAPI: componentType == 'pin' ? componentTemplate.componentAPI : componentType,
         period: period
     };
     

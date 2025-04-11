@@ -1,4 +1,4 @@
-// Auto-generated on 2025-04-11 00:39:29
+// Auto-generated on 2025-04-11 14:27:47
 const FIRMWARE_DATA = {
   "releaseInfo": {
     "version": "1.0.0-offline-beta.1",
@@ -11,7 +11,7 @@ const FIRMWARE_DATA = {
       "name": "wippersnapper.feather_esp32s2.1.0.0-offline-beta.1.uf2",
       "url": "https://github.com/adafruit/Adafruit_Wippersnapper_Arduino/releases/download/1.0.0-offline-beta.1/wippersnapper.feather_esp32s2.1.0.0-offline-beta.1.uf2",
       "size": 2686976,
-      "downloadCount": 2,
+      "downloadCount": 3,
       "contentType": "application/octet-stream",
       "createdAt": "2025-03-03T17:21:42Z"
     },

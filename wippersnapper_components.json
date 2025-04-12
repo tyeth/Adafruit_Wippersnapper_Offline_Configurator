@@ -461,10 +461,10 @@
         ],
         "image": "https://www.adafruit.com/images/480x360/3660-08.jpg",
         "productUrl": "https://www.adafruit.com/product/3660",
-        "address": "0x76",
+        "address": "0x77",
         "addresses": [
-          "0x76",
-          "0x77"
+          "0x77",
+          "0x76"
         ]
       },
       {
@@ -588,10 +588,10 @@
         ],
         "image": "https://www.adafruit.com/images/480x360/4258-10.jpg",
         "productUrl": "https://www.adafruit.com/product/4258",
-        "address": "0x5C",
+        "address": "0x5D",
         "addresses": [
-          "0x5C",
-          "0x5D"
+          "0x5D",
+          "0x5C"
         ]
       },
       {
@@ -615,16 +615,16 @@
         ],
         "image": "https://www.adafruit.com/images/480x360/5165-05",
         "productUrl": "https://www.adafruit.com/product/5165",
-        "address": "0x60",
+        "address": "0x67",
         "addresses": [
-          "0x60",
-          "0x61",
-          "0x62",
-          "0x63",
-          "0x64",
-          "0x65",
+          "0x67",
           "0x66",
-          "0x67"
+          "0x65",
+          "0x64",
+          "0x63",
+          "0x62",
+          "0x61",
+          "0x60"
         ]
       },
       {
@@ -679,10 +679,10 @@
         ],
         "image": "https://www.adafruit.com/images/480x360/3966-10.jpg",
         "productUrl": "https://www.adafruit.com/product/3966",
-        "address": "0x76",
+        "address": "0x77",
         "addresses": [
-          "0x76",
-          "0x77"
+          "0x77",
+          "0x76"
         ]
       },
       {
@@ -732,10 +732,10 @@
         ],
         "image": "components/i2c/lps33hw/image.jpg",
         "productUrl": "https://www.adafruit.com/product/4414",
-        "address": "0x5C",
+        "address": "0x5D",
         "addresses": [
-          "0x5C",
-          "0x5D"
+          "0x5D",
+          "0x5C"
         ]
       },
       {
@@ -766,35 +766,35 @@
         ],
         "image": "components/i2c/pct2075/image.jpg",
         "productUrl": "https://www.adafruit.com/product/4369",
-        "address": "0x48",
+        "address": "0x37",
         "addresses": [
-          "0x48",
-          "0x49",
-          "0x4A",
-          "0x4B",
-          "0x4C",
-          "0x4D",
-          "0x4E",
-          "0x4F",
-          "0x70",
-          "0x71",
-          "0x72",
-          "0x73",
-          "0x74",
-          "0x75",
-          "0x76",
-          "0x77",
-          "0x28",
-          "0x29",
-          "0x2A",
-          "0x2B",
-          "0x2C",
-          "0x2D",
-          "0x2E",
-          "0x2F",
-          "0x35",
+          "0x37",
           "0x36",
-          "0x37"
+          "0x35",
+          "0x2F",
+          "0x2E",
+          "0x2D",
+          "0x2C",
+          "0x2B",
+          "0x2A",
+          "0x29",
+          "0x28",
+          "0x77",
+          "0x76",
+          "0x75",
+          "0x74",
+          "0x73",
+          "0x72",
+          "0x71",
+          "0x70",
+          "0x4F",
+          "0x4E",
+          "0x4D",
+          "0x4C",
+          "0x4B",
+          "0x4A",
+          "0x49",
+          "0x48"
         ]
       },
       {
@@ -1083,10 +1083,10 @@
         ],
         "image": "https://www.adafruit.com/images/480x360/2652-04.jpg",
         "productUrl": "https://www.adafruit.com/product/2652",
-        "address": "0x76",
+        "address": "0x77",
         "addresses": [
-          "0x76",
-          "0x77"
+          "0x77",
+          "0x76"
         ]
       },
       {
@@ -1322,10 +1322,10 @@
         ],
         "image": "https://www.adafruit.com/images/480x360/4633-09.jpg",
         "productUrl": "https://www.adafruit.com/product/4633",
-        "address": "0x5C",
+        "address": "0x5D",
         "addresses": [
-          "0x5C",
-          "0x5D"
+          "0x5D",
+          "0x5C"
         ]
       },
       {
@@ -1399,7 +1399,7 @@
           "0x38",
           "0x39",
           "0x3A",
-          "Ox3B",
+          "0x3B",
           "0x3C",
           "0x3D"
         ]
@@ -1434,10 +1434,10 @@
         ],
         "image": "https://www.adafruit.com/images/480x360/4494-05.jpg",
         "productUrl": "https://www.adafruit.com/product/4494",
-        "address": "0x76",
+        "address": "0x77",
         "addresses": [
-          "0x76",
-          "0x77"
+          "0x77",
+          "0x76"
         ]
       },
       {
@@ -1509,10 +1509,10 @@
         ],
         "image": "https://www.adafruit.com/images/480x360/5046-05.jpg",
         "productUrl": "https://www.adafruit.com/product/5046",
-        "address": "0x76",
+        "address": "0x77",
         "addresses": [
-          "0x76",
-          "0x77"
+          "0x77",
+          "0x76"
         ]
       },
       {
@@ -1548,10 +1548,10 @@
         ],
         "image": "components/i2c/lps25hb/image.jpg",
         "productUrl": "https://www.adafruit.com/product/4530",
-        "address": "0x5C",
+        "address": "0x5D",
         "addresses": [
-          "0x5C",
-          "0x5D"
+          "0x5D",
+          "0x5C"
         ]
       },
       {
@@ -1565,12 +1565,12 @@
           "pressure",
           "altitude"
         ],
-        "image": null,
+        "image": "https://www.adafruit.com/images/480x360/2651-08.jpg",
         "productUrl": "https://www.adafruit.com/product/2651",
-        "address": "0x76",
+        "address": "0x77",
         "addresses": [
-          "0x76",
-          "0x77"
+          "0x77",
+          "0x76"
         ]
       },
       {
@@ -1602,10 +1602,10 @@
         ],
         "image": "https://www.adafruit.com/images/480x360/4816-05.jpg",
         "productUrl": "https://www.adafruit.com/product/4816",
-        "address": "0x76",
+        "address": "0x77",
         "addresses": [
-          "0x76",
-          "0x77"
+          "0x77",
+          "0x76"
         ]
       },
       {

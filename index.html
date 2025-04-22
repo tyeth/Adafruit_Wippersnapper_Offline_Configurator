@@ -280,7 +280,7 @@
                         <p><strong>Reference Voltage:</strong> <span id="ref-voltage">3.3</span>V</p>
                         <p><strong>Total GPIO Pins:</strong> <span id="total-gpio">0</span></p>
                         <p><strong>Total Analog Pins:</strong> <span id="total-analog">0</span></p>
-                        <p><strong>Default I2C Bus:</strong> SCL: <span id="default-scl">0</span>, SDA: <span id="default-sda">0</span></p>
+                        <p><strong>Default I2C Bus:</strong> SCL: <span id="default-SCL">0</span>, SDA: <span id="default-SDA">0</span></p>
                     </div>
                 </div>
             </div>
@@ -369,7 +369,7 @@
             
             <div id="default-i2c-bus" class="dashed-section">
                 <h3>Default I2C Bus</h3>
-                <p>SCL: <span id="default-i2c-scl"></span>, SDA: <span id="default-i2c-sda"></span></p>
+                <p>SCL: <span id="default-i2c-SCL"></span>, SDA: <span id="default-i2c-SDA"></span></p>
             </div>
             
             <div id="additional-i2c-bus-container" class="dashed-section">
@@ -377,10 +377,10 @@
                 <label><input type="checkbox" id="add-i2c-bus"> Add Additional I2C Bus</label>
                 
                 <div id="additional-i2c-config" class="hidden dashed-section">
-                    <p>Select SCL Pin: <span id="alt-scl-pin"></span></p>
-                    <div id="scl-pins-list" class="pins-container"></div>
-                    <p>Select SDA Pin: <span id="alt-sda-pin"></span></p>
-                    <div id="sda-pins-list" class="pins-container"></div>
+                    <p>Select SCL Pin: <span id="alt-SCL-pin"></span></p>
+                    <div id="SCL-pins-list" class="pins-container"></div>
+                    <p>Select SDA Pin: <span id="alt-SDA-pin"></span></p>
+                    <div id="SDA-pins-list" class="pins-container"></div>
                 </div>
             </div>
             
@@ -549,12 +549,12 @@
                         <input type="number" id="custom-board-analog" value="0" min="0" max="100">
                     </div>
                     <div>
-                        <label for="custom-board-scl">Default I2C SCL Pin:</label>
-                        <input type="text" id="custom-board-scl" placeholder="e.g. SCL, D3">
+                        <label for="custom-board-SCL">Default I2C SCL Pin:</label>
+                        <input type="text" id="custom-board-SCL" placeholder="e.g. SCL, D3">
                     </div>
                     <div>
-                        <label for="custom-board-sda">Default I2C SDA Pin:</label>
-                        <input type="text" id="custom-board-sda" placeholder="e.g. SDA, D2">
+                        <label for="custom-board-SDA">Default I2C SDA Pin:</label>
+                        <input type="text" id="custom-board-SDA" placeholder="e.g. SDA, D2">
                     </div>
                     <button id="add-custom-board-btn">Add Custom Board</button>
                 </div>

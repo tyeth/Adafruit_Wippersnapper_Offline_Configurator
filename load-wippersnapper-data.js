@@ -223,8 +223,8 @@ function convertBoardDataToConfig(boardId) {
     // Create board config
     boardConfig.totalAnalogPins= boardData.totalAnalogPins || 0;
     boardConfig.defaultI2C= {
-            scl: boardData.defaultI2C.SCL,
-            sda: boardData.defaultI2C.SDA
+            SCL: boardData.defaultI2C.SCL,
+            SDA: boardData.defaultI2C.SDA
         };
     boardConfig.pins= pins;
     
@@ -364,8 +364,8 @@ function attachEventListeners() {
         document.getElementById('ref-voltage').textContent = boardConfig.referenceVoltage;
         document.getElementById('total-gpio').textContent = boardConfig.totalGPIOPins;
         document.getElementById('total-analog').textContent = boardConfig.totalAnalogPins;
-        document.getElementById('default-scl').textContent = boardConfig.defaultI2C.scl;
-        document.getElementById('default-sda').textContent = boardConfig.defaultI2C.sda;
+        document.getElementById('default-SCL').textContent = boardConfig.defaultI2C.SCL;
+        document.getElementById('default-SDA').textContent = boardConfig.defaultI2C.SDA;
         document.getElementById('board-details').classList.remove('hidden');
         
         if ("productURL" in boardConfig && boardConfig.productURL) {
@@ -397,23 +397,34 @@ function attachEventListeners() {
         // Set up default I2C bus
         appState.i2cBuses = [{
             id: 'default',
-            scl: boardConfig.defaultI2C.scl,
-            sda: boardConfig.defaultI2C.sda
+            SCL: boardConfig.defaultI2C.SCL,
+            SDA: boardConfig.defaultI2C.SDA
         }];
         
         // Update default I2C bus display
-        document.getElementById('default-i2c-scl').textContent = boardConfig.defaultI2C.scl;
-        document.getElementById('default-i2c-sda').textContent = boardConfig.defaultI2C.sda;
+        document.getElementById('default-i2c-SCL').textContent = boardConfig.defaultI2C.SCL;
+        document.getElementById('default-i2c-SDA').textContent = boardConfig.defaultI2C.SDA;
         
         // Mark default I2C pins as used
-        appState.usedPins.add(boardConfig.defaultI2C.scl);
-        appState.usedPins.add(boardConfig.defaultI2C.sda);
+        appState.usedPins.add(boardConfig.defaultI2C.SCL);
+        appState.usedPins.add(boardConfig.defaultI2C.SDA);
         
         // Show companion board section
         document.getElementById('companion-board-section').classList.remove('hidden');
         
         // Reset subsequent sections
         resetSubsequentSelections();
+
+        document.getElementById('manual-config-section').classList.remove('hidden');
+        document.getElementById('i2c-bus-section').classList.remove('hidden');
+        document.getElementById('components-section').classList.remove('hidden');
+        document.getElementById('selected-components-section').classList.remove('hidden');
+        document.getElementById('generate-section').classList.remove('hidden');
+        
+        // Reset companion board selection but keep sections visible
+        document.getElementById('companion-board-select').value = '';
+        document.getElementById('companion-details').classList.add('hidden');
+        
         
         // Initialize SD and RTC sections based on board
         initializeManualConfig(boardConfig);
@@ -440,6 +451,8 @@ function attachEventListeners() {
         
         // Initialize components sections with the loaded data
         populateComponentLists(componentsConfig);
+
+        updateMuxList();
     });
     
     // Remaining event listeners should be added here or in the original script

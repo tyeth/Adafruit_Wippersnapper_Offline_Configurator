@@ -77,8 +77,8 @@ def add_custom_board_definitions(boards):
         ],
         "defaultI2C": {
             "i2cPortId": 0,
-            "SCL": "D9",
-            "SDA": "D8"
+            "SCL": 9,
+            "SDA": 8
         },
         "image": None
     }
@@ -149,8 +149,8 @@ def add_custom_board_definitions(boards):
         ],
         "defaultI2C": {
             "i2cPortId": 0,
-            "SCL": "D9",
-            "SDA": "D8"
+            "SCL": 9,
+            "SDA": 8
         },
         "image": None
     }
@@ -210,8 +210,8 @@ def add_custom_board_definitions(boards):
         ],
         "defaultI2C": {
             "i2cPortId": 0,
-            "SCL": "D3",
-            "SDA": "D2"
+            "SCL": 3,
+            "SDA": 2
         },
         "image": None
     }
@@ -294,8 +294,8 @@ def add_custom_board_definitions(boards):
         ],
         "defaultI2C": {
             "i2cPortId": 0,
-            "SCL": "D3",
-            "SDA": "D2"
+            "SCL": 3,
+            "SDA": 2
         },
         "image": None
     }

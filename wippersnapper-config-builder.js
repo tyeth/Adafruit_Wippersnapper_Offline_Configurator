@@ -146,8 +146,8 @@ function addCustomBoard(id, config) {
         totalGPIOPins: config.totalGPIOPins || 0,
         totalAnalogPins: config.totalAnalogPins || 0,
         defaultI2C: {
-            scl: config.defaultI2C?.scl || 'SCL',
-            sda: config.defaultI2C?.sda || 'SDA'
+            SCL: config.defaultI2C?.SCL || 'SCL',
+            SDA: config.defaultI2C?.SDA || 'SDA'
         },
         pins: config.pins || []
     };
@@ -225,8 +225,8 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('ref-voltage').textContent = board.referenceVoltage;
         document.getElementById('total-gpio').textContent = board.totalGPIOPins;
         document.getElementById('total-analog').textContent = board.totalAnalogPins;
-        document.getElementById('default-scl').textContent = board.defaultI2C.scl;
-        document.getElementById('default-sda').textContent = board.defaultI2C.sda;
+        document.getElementById('default-SCL').textContent = board.defaultI2C.SCL;
+        document.getElementById('default-SDA').textContent = board.defaultI2C.SDA;
         document.getElementById('board-details').classList.remove('hidden');
         
         // Product URL + Docs
@@ -241,20 +241,35 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('board-help').innerHTML = '';
         }
 
+        // If there's a board image, show it
+        const boardImageElem = document.getElementById('board-image');
+        if (boardImageElem) {
+            if (board.image) {
+                if (!board.image.startsWith('http')) {
+                    boardImageElem.src = "https://raw.githubusercontent.com/adafruit/Wippersnapper_Boards/refs/heads/rp2040_datalogger_feather/" + board.image;
+                } else {
+                    boardImageElem.src = board.image;
+                }
+                boardImageElem.classList.remove('hidden');
+            } else {
+                boardImageElem.classList.add('hidden');
+            }
+        }
+
         // Set up default I2C bus
         appState.i2cBuses = [{
             id: 'default',
-            scl: board.defaultI2C.scl,
-            sda: board.defaultI2C.sda
+            SCL: board.defaultI2C.SCL,
+            SDA: board.defaultI2C.SDA
         }];
         
         // Update default I2C bus display
-        document.getElementById('default-i2c-scl').textContent = board.defaultI2C.scl;
-        document.getElementById('default-i2c-sda').textContent = board.defaultI2C.sda;
+        document.getElementById('default-i2c-SCL').textContent = board.defaultI2C.SCL;
+        document.getElementById('default-i2c-SDA').textContent = board.defaultI2C.SDA;
         
         // Mark default I2C pins as used
-        appState.usedPins.add(board.defaultI2C.scl);
-        appState.usedPins.add(board.defaultI2C.sda);
+        appState.usedPins.add(board.defaultI2C.SCL);
+        appState.usedPins.add(board.defaultI2C.SDA);
         
         // Show companion board section and all subsequent sections
         document.getElementById('companion-board-section').classList.remove('hidden');
@@ -410,8 +425,8 @@ document.addEventListener('DOMContentLoaded', function() {
             if (additionalBusIndex !== -1) {
                 // Free up the pins
                 const bus = appState.i2cBuses[additionalBusIndex];
-                appState.usedPins.delete(bus.scl);
-                appState.usedPins.delete(bus.sda);
+                appState.usedPins.delete(bus.SCL);
+                appState.usedPins.delete(bus.SDA);
                 
                 // Remove the bus
                 appState.i2cBuses.splice(additionalBusIndex, 1);
@@ -533,8 +548,8 @@ document.getElementById('import-json-btn').addEventListener('click', function() 
         const refVoltage = parseFloat(document.getElementById('custom-board-ref-voltage').value) || 3.3;
         const gpioPins = parseInt(document.getElementById('custom-board-gpio').value) || 0;
         const analogPins = parseInt(document.getElementById('custom-board-analog').value) || 0;
-        const sclPin = document.getElementById('custom-board-scl').value.trim() || 'SCL';
-        const sdaPin = document.getElementById('custom-board-sda').value.trim() || 'SDA';
+        const SCLPin = document.getElementById('custom-board-SCL').value.trim() || 'SCL';
+        const SDAPin = document.getElementById('custom-board-SDA').value.trim() || 'SDA';
         
         // Create the board configuration
         const boardConfig = {
@@ -543,8 +558,8 @@ document.getElementById('import-json-btn').addEventListener('click', function() 
             totalGPIOPins: gpioPins,
             totalAnalogPins: analogPins,
             defaultI2C: {
-                scl: sclPin,
-                sda: sdaPin
+                SCL: SCLPin,
+                SDA: SDAPin
             },
             pins: [] // Could be expanded to include pin definitions
         };
@@ -558,8 +573,8 @@ document.getElementById('import-json-btn').addEventListener('click', function() 
             document.getElementById('custom-board-ref-voltage').value = '3.3';
             document.getElementById('custom-board-gpio').value = '0';
             document.getElementById('custom-board-analog').value = '0';
-            document.getElementById('custom-board-scl').value = '';
-            document.getElementById('custom-board-sda').value = '';
+            document.getElementById('custom-board-SCL').value = '';
+            document.getElementById('custom-board-SDA').value = '';
             
             // Show the custom boards list and add this board to it
             document.getElementById('custom-boards-list').classList.remove('hidden');
@@ -606,8 +621,8 @@ function resetSubsequentSelections() {
     // Reset used pins to just the default I2C pins
     appState.usedPins = new Set();
     if (appState.selectedBoard) {
-        appState.usedPins.add(appState.selectedBoard.defaultI2C.scl);
-        appState.usedPins.add(appState.selectedBoard.defaultI2C.sda);
+        appState.usedPins.add(appState.selectedBoard.defaultI2C.SCL);
+        appState.usedPins.add(appState.selectedBoard.defaultI2C.SDA);
     }
 }
 
@@ -685,8 +700,8 @@ function populatePinsLists() {
     });
     
     // Populate SCL pins list for additional I2C bus
-    const sclPinsList = document.getElementById('scl-pins-list');
-    sclPinsList.innerHTML = '';
+    const SCLPinsList = document.getElementById('SCL-pins-list');
+    SCLPinsList.innerHTML = '';
     pins.forEach(pin => {
         const pinElem = document.createElement('div');
         pinElem.className = 'pin' + (appState.usedPins.has(pin) ? ' used' : '');
@@ -698,18 +713,18 @@ function populatePinsLists() {
                 let additionalBus = appState.i2cBuses.find(bus => bus.id !== 'default');
                 if (additionalBus) {
                     // Free up old SCL pin if it exists
-                    if (additionalBus.scl !== undefined) {
-                        appState.usedPins.delete(additionalBus.scl);
+                    if (additionalBus.SCL !== undefined) {
+                        appState.usedPins.delete(additionalBus.SCL);
                     }
                     
                     // Set new SCL pin
-                    additionalBus.scl = pin;
+                    additionalBus.SCL = pin;
                 } else {
                     // Create new additional bus
                     additionalBus = {
                         id: 'additional',
-                        scl: pin,
-                        sda: undefined
+                        SCL: pin,
+                        SDA: undefined
                     };
                     appState.i2cBuses.push(additionalBus);
                 }
@@ -718,7 +733,7 @@ function populatePinsLists() {
                 appState.usedPins.add(pin);
                 
                 // Update pin selection UI
-                const allPins = sclPinsList.querySelectorAll('.pin');
+                const allPins = SCLPinsList.querySelectorAll('.pin');
                 allPins.forEach(p => p.classList.remove('selected'));
                 pinElem.classList.add('selected');
                 
@@ -726,18 +741,18 @@ function populatePinsLists() {
                 populatePinsLists();
                 
                 // // Update I2C bus dropdown in components section
-                // if (additionalBus.sda !== undefined) {
+                // if (additionalBus.SDA !== undefined) {
                 //     updateI2CBusOptions();
                 // }
             });
         }
         
-        sclPinsList.appendChild(pinElem);
+        SCLPinsList.appendChild(pinElem);
     });
     
     // Populate SDA pins list for additional I2C bus
-    const sdaPinsList = document.getElementById('sda-pins-list');
-    sdaPinsList.innerHTML = '';
+    const SDAPinsList = document.getElementById('SDA-pins-list');
+    SDAPinsList.innerHTML = '';
     pins.forEach(pin => {
         const pinElem = document.createElement('div');
         pinElem.className = 'pin' + (appState.usedPins.has(pin) ? ' used' : '');
@@ -749,18 +764,18 @@ function populatePinsLists() {
                 let additionalBus = appState.i2cBuses.find(bus => bus.id !== 'default');
                 if (additionalBus) {
                     // Free up old SDA pin if it exists
-                    if (additionalBus.sda !== undefined) {
-                        appState.usedPins.delete(additionalBus.sda);
+                    if (additionalBus.SDA !== undefined) {
+                        appState.usedPins.delete(additionalBus.SDA);
                     }
                     
                     // Set new SDA pin
-                    additionalBus.sda = pin;
+                    additionalBus.SDA = pin;
                 } else {
                     // Create new additional bus
                     additionalBus = {
                         id: 'additional',
-                        scl: undefined,
-                        sda: pin
+                        SCL: undefined,
+                        SDA: pin
                     };
                     appState.i2cBuses.push(additionalBus);
                 }
@@ -769,7 +784,7 @@ function populatePinsLists() {
                 appState.usedPins.add(pin);
                 
                 // Update pin selection UI
-                const allPins = sdaPinsList.querySelectorAll('.pin');
+                const allPins = SDAPinsList.querySelectorAll('.pin');
                 allPins.forEach(p => p.classList.remove('selected'));
                 pinElem.classList.add('selected');
                 
@@ -777,13 +792,13 @@ function populatePinsLists() {
                 populatePinsLists();
                 
                 // // Update I2C bus dropdown in components section
-                // if (additionalBus.scl !== undefined) {
+                // if (additionalBus.SCL !== undefined) {
                 //     updateI2CBusOptions();
                 // }
             });
         }
         
-        sdaPinsList.appendChild(pinElem);
+        SDAPinsList.appendChild(pinElem);
     });
 }
 
@@ -792,12 +807,12 @@ function updateI2CBusOptions() {
     i2cBusSelect.innerHTML = '';
     
     appState.i2cBuses.forEach(bus => {
-        if (bus.scl !== undefined && bus.sda !== undefined) {
+        if (bus.SCL !== undefined && bus.SDA !== undefined) {
             const option = document.createElement('option');
             option.value = bus.id;
             option.textContent = bus.id === 'default' ? 
-                'Default I2C Bus (SCL: ' + bus.scl + ', SDA: ' + bus.sda + ')' : 
-                'Additional I2C Bus (SCL: ' + bus.scl + ', SDA: ' + bus.sda + ')';
+                'Default I2C Bus (SCL: ' + bus.SCL + ', SDA: ' + bus.SDA + ')' : 
+                'Additional I2C Bus (SCL: ' + bus.SCL + ', SDA: ' + bus.SDA + ')';
             i2cBusSelect.appendChild(option);
         }
     });
@@ -1074,10 +1089,10 @@ function showComponentConfigModal(component, type) {
         
         // Add options for each configured I2C bus
         appState.i2cBuses.forEach(bus => {
-            if (bus.scl !== undefined && bus.sda !== undefined) {
+            if (bus.SCL !== undefined && bus.SDA !== undefined) {
                 html += `<option value="${bus.id}">${bus.id === 'default' ? 
-                    'Default I2C Bus (SCL: ' + bus.scl + ', SDA: ' + bus.sda + ')' : 
-                    'Additional I2C Bus (SCL: ' + bus.scl + ', SDA: ' + bus.sda + ')'}</option>`;
+                    'Default I2C Bus (SCL: ' + bus.SCL + ', SDA: ' + bus.SDA + ')' : 
+                    'Additional I2C Bus (SCL: ' + bus.SCL + ', SDA: ' + bus.SDA + ')'}</option>`;
             }
         });
         
@@ -1417,7 +1432,7 @@ function updateMuxList() {
                 // Default bus
                 const defaultBus = appState.i2cBuses.find(bus => bus.id === 'default');
                 if (defaultBus) {
-                    detailsText += `<br>Bus: Default (SCL: ${defaultBus.scl}, SDA: ${defaultBus.sda})`;
+                    detailsText += `<br>Bus: Default (SCL: ${defaultBus.SCL}, SDA: ${defaultBus.SDA})`;
                 }
             }
         }
@@ -1486,8 +1501,8 @@ function saveModalData() {
             // Add SCL/SDA for additional bus
             const additionalBus = appState.i2cBuses.find(b => b.id === 'additional');
             if (additionalBus) {
-                componentConfig.i2cBusScl = additionalBus.scl.toString();
-                componentConfig.i2cBusSda = additionalBus.sda.toString();
+                componentConfig.i2cBusScl = additionalBus.SCL.toString();
+                componentConfig.i2cBusSda = additionalBus.SDA.toString();
             }
         }
         
@@ -1636,7 +1651,7 @@ function updateSelectedComponentsList() {
                 // Default bus
                 const defaultBus = appState.i2cBuses.find(bus => bus.id === 'default');
                 if (defaultBus) {
-                    detailsText += `<br>Bus: Default (SCL: ${defaultBus.scl}, SDA: ${defaultBus.sda})`;
+                    detailsText += `<br>Bus: Default (SCL: ${defaultBus.SCL}, SDA: ${defaultBus.SDA})`;
                 }
             }
             
@@ -2183,24 +2198,24 @@ function importConfigObject(config) {
                     
                     // Handle I2C bus pins
                     if (component.i2cBusScl && component.i2cBusSda) {
-                        const sclPin = parseInt(component.i2cBusScl);
-                        const sdaPin = parseInt(component.i2cBusSda);
+                        const SCLPin = parseInt(component.i2cBusScl);
+                        const SDAPin = parseInt(component.i2cBusSda);
                         
                         // Check if this is a new I2C bus
                         const existingBus = appState.i2cBuses.find(bus => 
-                            bus.scl === sclPin && bus.sda === sdaPin);
+                            bus.SCL === SCLPin && bus.SDA === SDAPin);
                         
-                        if (!existingBus && sclPin && sdaPin) {
+                        if (!existingBus && SCLPin && SDAPin) {
                             const busId = `bus_${appState.i2cBuses.length}`;
                             appState.i2cBuses.push({
                                 id: busId,
-                                scl: sclPin,
-                                sda: sdaPin
+                                SCL: SCLPin,
+                                SDA: SDAPin
                             });
                             
                             // Mark pins as used
-                            appState.usedPins.add(sclPin);
-                            appState.usedPins.add(sdaPin);
+                            appState.usedPins.add(SCLPin);
+                            appState.usedPins.add(SDAPin);
                         }
                     }
                 });
@@ -2284,40 +2299,19 @@ function initializeSampleComponents() {
 // Initialize sample board configs if there is no external data
 function initializeSampleBoards() {
     appState.boardsData = {
-        'feather-esp32': {
-            referenceVoltage: 3.3,
-            totalGPIOPins: 21,
-            totalAnalogPins: 14,
-            defaultI2C: { scl: 22, sda: 23 },
-            pins: [0, 2, 4, 5, 12, 13, 14, 15, 16, 17, 18, 19, 21, 22, 23, 25, 26, 27, 32, 33, 34, 35, 36, 39]
-        },
         'feather-esp32s2': {
             referenceVoltage: 3.3,
             totalGPIOPins: 22,
             totalAnalogPins: 6,
-            defaultI2C: { scl: 42, sda: 41 },
+            defaultI2C: { SCL: 42, SDA: 41 },
             pins: [0, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 21, 33, 34, 35, 36, 37, 38, 39, 41, 42]
         },
         'feather-esp32s3-tft': {
             referenceVoltage: 3.3,
             totalGPIOPins: 18,
             totalAnalogPins: 6,
-            defaultI2C: { scl: 9, sda: 8 },
+            defaultI2C: { SCL: 9, SDA: 8 },
             pins: [1, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 17, 18, 21, 38, 39, 40, 41, 42]
-        },
-        'feather-esp32c3': {
-            referenceVoltage: 3.3,
-            totalGPIOPins: 13,
-            totalAnalogPins: 4,
-            defaultI2C: { scl: 5, sda: 4 },
-            pins: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 18, 19, 20, 21]
-        },
-        'qtpy-esp32c3': {
-            referenceVoltage: 3.3,
-            totalGPIOPins: 11,
-            totalAnalogPins: 4,
-            defaultI2C: { scl: 5, sda: 4 },
-            pins: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
         }
     };
 }

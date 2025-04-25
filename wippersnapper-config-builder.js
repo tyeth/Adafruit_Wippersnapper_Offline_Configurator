@@ -204,7 +204,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Hide loading indicator once data is loaded
     document.getElementById('loading-indicator').classList.add('hidden');
     
-    // Board selection handler
+    // PRIMARY BOARD SELECTION HANDLER
+    // This is the central event handler for board selection that should be maintained
+    // The duplicate handler in load-wippersnapper-data.js has been removed to prevent conflicts
     document.getElementById('board-select').addEventListener('change', function() {
         const boardId = this.value;
         if (!boardId) {
@@ -303,6 +305,9 @@ document.addEventListener('DOMContentLoaded', function() {
         // Initialize pins lists for SD and I2C configuration
         populatePinsLists();
         
+        convertComponentsDataToConfig();
+
+
         // Initialize components sections
         populateComponentLists();
         
@@ -605,6 +610,8 @@ function resetSubsequentSelections() {
     // Reset manual config
     document.getElementById('add-sd-card').checked = false;
     document.getElementById('sd-card-pin-select').classList.add('hidden');
+    document.getElementById('alt-SCL-pin').textContent = '';
+    document.getElementById('alt-SDA-pin').textContent = '';
     document.getElementById('rtc-select').value = 'soft';
     document.getElementById('led-brightness').value = 0.5;
     document.getElementById('brightness-value').textContent = '0.5';
@@ -672,10 +679,10 @@ function populatePinsLists() {
     sdPinsList.innerHTML = '';
     pins.forEach(pin => {
         const pinElem = document.createElement('div');
-        pinElem.className = 'pin' + (appState.usedPins.has(pin) ? ' used' : '');
-        pinElem.textContent = pin;
+        pinElem.className = 'pin' + (appState.usedPins.has(pin.number) ? ' used' : '');
+        pinElem.textContent = `${pin.displayName} [Pin ${pin.number}]`;
         
-        if (!appState.usedPins.has(pin)) {
+        if (!appState.usedPins.has(pin.number)) {
             pinElem.addEventListener('click', function() {
                 // Deselect any previously selected SD CS pin
                 if (appState.sdCardCS !== null) {
@@ -684,12 +691,12 @@ function populatePinsLists() {
                 
                 // Set new SD CS pin
                 appState.sdCardCS = pin;
-                appState.usedPins.add(pin);
+                appState.usedPins.add(pin.number);
                 
                 // Update pin selection UI
                 const allPins = sdPinsList.querySelectorAll('.pin');
-                allPins.forEach(p => p.classList.remove('selected'));
-                pinElem.classList.add('selected');
+                allPins.forEach(p => p.classList.remove('used'));
+                pinElem.classList.add('used');
                 
                 // Refresh other pin lists
                 populatePinsLists();
@@ -704,10 +711,10 @@ function populatePinsLists() {
     SCLPinsList.innerHTML = '';
     pins.forEach(pin => {
         const pinElem = document.createElement('div');
-        pinElem.className = 'pin' + (appState.usedPins.has(pin) ? ' used' : '');
-        pinElem.textContent = pin;
+        pinElem.className = 'pin' + (appState.usedPins.has(pin.number) ? ' used' : '');
+        pinElem.textContent = `${pin.displayName} [Pin ${pin.number}]`;
         
-        if (!appState.usedPins.has(pin)) {
+        if (!appState.usedPins.has(pin.number)) {
             pinElem.addEventListener('click', function() {
                 // Find additional I2C bus or create it
                 let additionalBus = appState.i2cBuses.find(bus => bus.id !== 'default');
@@ -718,24 +725,25 @@ function populatePinsLists() {
                     }
                     
                     // Set new SCL pin
-                    additionalBus.SCL = pin;
+                    additionalBus.SCL = pin.number;
                 } else {
                     // Create new additional bus
                     additionalBus = {
                         id: 'additional',
-                        SCL: pin,
+                        SCL: pin.number,
                         SDA: undefined
                     };
                     appState.i2cBuses.push(additionalBus);
                 }
                 
                 // Mark pin as used
-                appState.usedPins.add(pin);
+                appState.usedPins.add(pin.number);
+                document.getElementById('alt-SCL-pin').textContent = pin.number;
                 
                 // Update pin selection UI
                 const allPins = SCLPinsList.querySelectorAll('.pin');
-                allPins.forEach(p => p.classList.remove('selected'));
-                pinElem.classList.add('selected');
+                allPins.forEach(p => p.classList.remove('used'));
+                pinElem.classList.add('used');
                 
                 // Refresh other pin lists
                 populatePinsLists();
@@ -755,10 +763,10 @@ function populatePinsLists() {
     SDAPinsList.innerHTML = '';
     pins.forEach(pin => {
         const pinElem = document.createElement('div');
-        pinElem.className = 'pin' + (appState.usedPins.has(pin) ? ' used' : '');
-        pinElem.textContent = pin;
-        
-        if (!appState.usedPins.has(pin)) {
+        pinElem.className = 'pin' + (appState.usedPins.has(pin.number) ? ' used' : '');
+        pinElem.textContent = `${pin.displayName} [Pin ${pin.number}]`;
+
+        if (!appState.usedPins.has(pin.number)) {
             pinElem.addEventListener('click', function() {
                 // Find additional I2C bus or create it
                 let additionalBus = appState.i2cBuses.find(bus => bus.id !== 'default');
@@ -769,24 +777,25 @@ function populatePinsLists() {
                     }
                     
                     // Set new SDA pin
-                    additionalBus.SDA = pin;
+                    additionalBus.SDA = pin.number;
                 } else {
                     // Create new additional bus
                     additionalBus = {
                         id: 'additional',
                         SCL: undefined,
-                        SDA: pin
+                        SDA: pin.number
                     };
                     appState.i2cBuses.push(additionalBus);
                 }
                 
                 // Mark pin as used
-                appState.usedPins.add(pin);
+                appState.usedPins.add(pin.number);
+                document.getElementById('alt-SDA-pin').textContent = pin.number;
                 
                 // Update pin selection UI
                 const allPins = SDAPinsList.querySelectorAll('.pin');
-                allPins.forEach(p => p.classList.remove('selected'));
-                pinElem.classList.add('selected');
+                allPins.forEach(p => p.classList.remove('used'));
+                pinElem.classList.add('used');
                 
                 // Refresh other pin lists
                 populatePinsLists();
@@ -1176,7 +1185,7 @@ function showComponentConfigModal(component, type) {
                     <option value="9">9-bit</option>
                     <option value="10">10-bit</option>
                     <option value="11">11-bit</option>
-                    <option value="12">12-bit</option>
+                    <option value="12" selected>12-bit</option>
                 </select>
             </div>
         `;

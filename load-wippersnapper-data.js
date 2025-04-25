@@ -340,123 +340,21 @@ function convertComponentsDataToConfig() {
  * Attach event listeners to the UI elements
  */
 function attachEventListeners() {
-    // Board selection handler
-    document.getElementById('board-select').addEventListener('change', function() {
-        const boardId = this.value;
-        if (!boardId) {
-            document.getElementById('board-details').classList.add('hidden');
-            //TODO: consider pop up to reset configurator, or just hide all sections
-            // clean up purchase/docs links
-            document.getElementById('board-purchase').innerHTML = '';
-            document.getElementById('board-help').innerHTML = '';
-            hideSubsequentSections();
-            return;
-        }
-        
-        // Convert board data to config format
-        const boardConfig = convertBoardDataToConfig(boardId);
-        appState.selectedBoard = {
-            id: boardId,
-            ...boardConfig
-        };
-        
-        // Update board details display
-        document.getElementById('ref-voltage').textContent = boardConfig.referenceVoltage;
-        document.getElementById('total-gpio').textContent = boardConfig.totalGPIOPins;
-        document.getElementById('total-analog').textContent = boardConfig.totalAnalogPins;
-        document.getElementById('default-SCL').textContent = boardConfig.defaultI2C.SCL;
-        document.getElementById('default-SDA').textContent = boardConfig.defaultI2C.SDA;
-        document.getElementById('board-details').classList.remove('hidden');
-        
-        if ("productURL" in boardConfig && boardConfig.productURL) {
-            document.getElementById('board-purchase').innerHTML = `<a href="${boardConfig.productURL}" style="padding: 0 10px 0 30px;" target="_blank" title="Product page">Buy 🛒</a> `;
-        } else {
-            document.getElementById('board-purchase').innerHTML = '';
-        }
-        if ("documentationURL" in boardConfig && boardConfig.documentationURL) {
-            document.getElementById('board-help').innerHTML = ` <a href="${boardConfig.documentationURL}" style="padding: 0 10px;" target="_blank" title="Board Documentation">📃Docs❓</a>`;
-        } else {
-            document.getElementById('board-help').innerHTML = '';
-        }
-
-        // If there's a board image, show it
-        const boardImageElem = document.getElementById('board-image');
-        if (boardImageElem) {
-            if (boardConfig.image) {
-                if (!boardConfig.image.startsWith('http')) {
-                    boardImageElem.src = "https://raw.githubusercontent.com/adafruit/Wippersnapper_Boards/refs/heads/rp2040_datalogger_feather/" + boardConfig.image;
-                } else {
-                    boardImageElem.src = boardConfig.image;
-                }
-                boardImageElem.classList.remove('hidden');
-            } else {
-                boardImageElem.classList.add('hidden');
-            }
-        }
-        
-        // Set up default I2C bus
-        appState.i2cBuses = [{
-            id: 'default',
-            SCL: boardConfig.defaultI2C.SCL,
-            SDA: boardConfig.defaultI2C.SDA
-        }];
-        
-        // Update default I2C bus display
-        document.getElementById('default-i2c-SCL').textContent = boardConfig.defaultI2C.SCL;
-        document.getElementById('default-i2c-SDA').textContent = boardConfig.defaultI2C.SDA;
-        
-        // Mark default I2C pins as used
-        appState.usedPins.add(boardConfig.defaultI2C.SCL);
-        appState.usedPins.add(boardConfig.defaultI2C.SDA);
-        
-        // Show companion board section
-        document.getElementById('companion-board-section').classList.remove('hidden');
-        
-        // Reset subsequent sections
-        resetSubsequentSelections();
-
-        document.getElementById('manual-config-section').classList.remove('hidden');
-        document.getElementById('i2c-bus-section').classList.remove('hidden');
-        document.getElementById('components-section').classList.remove('hidden');
-        document.getElementById('selected-components-section').classList.remove('hidden');
-        document.getElementById('generate-section').classList.remove('hidden');
-        
-        // Reset companion board selection but keep sections visible
-        document.getElementById('companion-board-select').value = '';
-        document.getElementById('companion-details').classList.add('hidden');
-        
-        
-        // Initialize SD and RTC sections based on board
-        initializeManualConfig(boardConfig);
-
-        // update firmware download url to use installBoardName or fall back to releases page
-        // collect the asset names, split on '.' after removing wippersnapper. and take first part.
-        const firmwareFile = document.getElementById('firmware_file');
-        const firmwareData = window['FIRMWARE_DATA'];
-        // TODO: remove once W-variant board targets have assets, and non-w variants exist in boards repo
-        const boardInstallName = (boardConfig.installBoardName || "").replaceAll('-','_').replace('picow','pico');
-        const assets = firmwareData.firmwareFiles.map(asset => { return {"name":asset.name.replace('wippersnapper.', '').split('.')[0], "url":asset.url}; });
-        const asset = assets.find(asset => asset.name === boardInstallName);
-        if (asset) {
-            firmwareFile.href = asset.url;
-        } else {
-            firmwareFile.href = firmwareData.releaseInfo.url;
-        }
-
-        // Initialize pins lists for SD and I2C configuration
-        populatePinsLists();
-        
-        // Convert component data to config format
-        const componentsConfig = convertComponentsDataToConfig();
-        
-        // Initialize components sections with the loaded data
-        populateComponentLists(componentsConfig);
-
-        updateMuxList();
-    });
+    // BOARD SELECTION HANDLER HAS BEEN REMOVED
+    // The duplicate event handler from load-wippersnapper-data.js has been removed
+    // to prevent conflicts with the handler in wippersnapper-config-builder.js
     
-    // Remaining event listeners should be added here or in the original script
-    // ...
+    // Instead, we'll prepare the data in the format expected by wippersnapper-config-builder.js
+    console.log('Data loading complete, board selection handler is in wippersnapper-config-builder.js');
+    
+    // Convert component data to config format
+    const componentsConfig = convertComponentsDataToConfig();
+    console.log('not using Components data converted to config format:', componentsConfig);
+    // Update the components data in appState with the converted format
+    // so it's ready for use in the other script
+    // appState.componentsData = componentsConfig;
+    
+    // No other event listeners needed here as they are handled in wippersnapper-config-builder.js
 }
 
 /**

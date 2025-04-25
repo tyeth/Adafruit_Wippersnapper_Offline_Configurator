@@ -389,8 +389,12 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('sd-present').classList.add('hidden');
             document.getElementById('rtc-missing').classList.remove('hidden');
             document.getElementById('rtc-present').classList.add('hidden');
-
-            appState.sdCardCS = null;
+            if (appState.sdCardCS !== null) {
+                appState.usedPins.delete(appState.sdCardCS);
+                document.getElementById('manual-sd-cs-pin').textContent = '';
+                document.getElementById('sd-cs-pin').textContent = '';
+                appState.sdCardCS = null;
+            }
             appState.rtcType = 'soft';
             document.getElementById('rtc-select').value = 'soft';
         }

@@ -694,7 +694,7 @@ function populatePinsLists() {
                 }
 
                 // Set new SD CS pin
-                appState.sdCardCS = pin;
+                appState.sdCardCS = pin.number;
                 appState.usedPins.add(pin.number);
                 document.getElementById('sd-cs-pin').textContent = pin.number;
 

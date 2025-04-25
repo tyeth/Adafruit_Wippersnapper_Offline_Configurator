@@ -107,41 +107,49 @@ window.jsonBoardObject = {
       ],
       "analogPins": [
         {
+          "number": 18,
           "name": "A18",
           "displayName": "A0",
           "direction": "INPUT"
         },
         {
+          "number": 17,
           "name": "A17",
           "displayName": "A1",
           "direction": "INPUT"
         },
         {
+          "number": 9,
           "name": "A9",
           "displayName": "A2",
           "direction": "INPUT"
         },
         {
+          "number": 8,
           "name": "A8",
           "displayName": "A3",
           "direction": "INPUT"
         },
         {
+          "number": 7,
           "name": "A7",
           "displayName": "SDA",
           "direction": "INPUT"
         },
         {
+          "number": 6,
           "name": "A6",
           "displayName": "SCL",
           "direction": "INPUT"
         },
         {
+          "number": 5,
           "name": "A5",
           "displayName": "A5 (UART TX)",
           "direction": "INPUT"
         },
         {
+          "number": 16,
           "name": "A16",
           "displayName": "A16 (UART RX)",
           "direction": "INPUT"
@@ -291,31 +299,37 @@ window.jsonBoardObject = {
       ],
       "analogPins": [
         {
+          "number": 18,
           "name": "A18",
           "displayName": "A0",
           "direction": "INPUT"
         },
         {
+          "number": 17,
           "name": "A17",
           "displayName": "A1",
           "direction": "INPUT"
         },
         {
+          "number": 16,
           "name": "A16",
           "displayName": "A2",
           "direction": "INPUT"
         },
         {
+          "number": 15,
           "name": "A15",
           "displayName": "A3",
           "direction": "INPUT"
         },
         {
+          "number": 14,
           "name": "A14",
           "displayName": "A4",
           "direction": "INPUT"
         },
         {
+          "number": 8,
           "name": "A8",
           "displayName": "A5",
           "direction": "INPUT"
@@ -570,21 +584,25 @@ window.jsonBoardObject = {
       ],
       "analogPins": [
         {
+          "number": 26,
           "name": "A26",
           "displayName": "A0 (GP26)",
           "direction": "INPUT"
         },
         {
+          "number": 27,
           "name": "A27",
           "displayName": "A1 (GP27)",
           "direction": "INPUT"
         },
         {
+          "number": 28,
           "name": "A28",
           "displayName": "A2 (GP28)",
           "direction": "INPUT"
         },
         {
+          "number": 29,
           "name": "A29",
           "displayName": "A3 (GP29)",
           "direction": "INPUT"
@@ -713,41 +731,49 @@ window.jsonBoardObject = {
       ],
       "analogPins": [
         {
+          "number": 18,
           "name": "A18",
           "displayName": "A0",
           "direction": "INPUT"
         },
         {
+          "number": 17,
           "name": "A17",
           "displayName": "A1",
           "direction": "INPUT"
         },
         {
+          "number": 9,
           "name": "A9",
           "displayName": "A2",
           "direction": "INPUT"
         },
         {
+          "number": 8,
           "name": "A8",
           "displayName": "A3",
           "direction": "INPUT"
         },
         {
+          "number": 7,
           "name": "A7",
           "displayName": "SDA",
           "direction": "INPUT"
         },
         {
+          "number": 6,
           "name": "A6",
           "displayName": "SCL",
           "direction": "INPUT"
         },
         {
+          "number": 5,
           "name": "A5",
           "displayName": "A5 (UART TX)",
           "direction": "INPUT"
         },
         {
+          "number": 16,
           "name": "A16",
           "displayName": "A16 (UART RX)",
           "direction": "INPUT"
@@ -911,31 +937,37 @@ window.jsonBoardObject = {
       ],
       "analogPins": [
         {
+          "number": 18,
           "name": "A18",
           "displayName": "A0",
           "direction": "INPUT"
         },
         {
+          "number": 17,
           "name": "A17",
           "displayName": "A1",
           "direction": "INPUT"
         },
         {
+          "number": 16,
           "name": "A16",
           "displayName": "A2",
           "direction": "INPUT"
         },
         {
+          "number": 15,
           "name": "A15",
           "displayName": "A3",
           "direction": "INPUT"
         },
         {
+          "number": 14,
           "name": "A14",
           "displayName": "A4",
           "direction": "INPUT"
         },
         {
+          "number": 8,
           "name": "A8",
           "displayName": "A5",
           "direction": "INPUT"
@@ -1071,31 +1103,37 @@ window.jsonBoardObject = {
       ],
       "analogPins": [
         {
+          "number": 18,
           "name": "A18",
           "displayName": "A0",
           "direction": "INPUT"
         },
         {
+          "number": 17,
           "name": "A17",
           "displayName": "A1",
           "direction": "INPUT"
         },
         {
+          "number": 16,
           "name": "A16",
           "displayName": "A2",
           "direction": "INPUT"
         },
         {
+          "number": 15,
           "name": "A15",
           "displayName": "A3",
           "direction": "INPUT"
         },
         {
+          "number": 14,
           "name": "A14",
           "displayName": "A4",
           "direction": "INPUT"
         },
         {
+          "number": 8,
           "name": "A8",
           "displayName": "A5",
           "direction": "INPUT"
@@ -1203,26 +1241,31 @@ window.jsonBoardObject = {
       ],
       "analogPins": [
         {
+          "number": 17,
           "name": "A17",
           "displayName": "Piezo Speaker (A0)",
           "direction": "INPUT"
         },
         {
+          "number": 10,
           "name": "A10",
           "displayName": "D10",
           "direction": "INPUT"
         },
         {
+          "number": 18,
           "name": "A18",
           "displayName": "A1 (D18)",
           "direction": "INPUT"
         },
         {
+          "number": 3,
           "name": "A3",
           "displayName": "Light Sensor (A3)",
           "direction": "INPUT"
         },
         {
+          "number": 4,
           "name": "A4",
           "displayName": "Voltage Monitor (A4)",
           "direction": "INPUT"
@@ -1372,31 +1415,37 @@ window.jsonBoardObject = {
       ],
       "analogPins": [
         {
+          "number": 18,
           "name": "A18",
           "displayName": "A0",
           "direction": "INPUT"
         },
         {
+          "number": 17,
           "name": "A17",
           "displayName": "A1",
           "direction": "INPUT"
         },
         {
+          "number": 16,
           "name": "A16",
           "displayName": "A2",
           "direction": "INPUT"
         },
         {
+          "number": 15,
           "name": "A15",
           "displayName": "A3",
           "direction": "INPUT"
         },
         {
+          "number": 14,
           "name": "A14",
           "displayName": "A4",
           "direction": "INPUT"
         },
         {
+          "number": 8,
           "name": "A8",
           "displayName": "A5",
           "direction": "INPUT"
@@ -1651,21 +1700,25 @@ window.jsonBoardObject = {
       ],
       "analogPins": [
         {
+          "number": 26,
           "name": "A26",
           "displayName": "A0 (GP0)",
           "direction": "INPUT"
         },
         {
+          "number": 27,
           "name": "A27",
           "displayName": "A1 (GP1)",
           "direction": "INPUT"
         },
         {
+          "number": 28,
           "name": "A28",
           "displayName": "A2 (GP2)",
           "direction": "INPUT"
         },
         {
+          "number": 29,
           "name": "A29",
           "displayName": "A3 (GP3)",
           "direction": "INPUT"
@@ -1829,31 +1882,37 @@ window.jsonBoardObject = {
       ],
       "analogPins": [
         {
+          "number": 18,
           "name": "A18",
           "displayName": "A0",
           "direction": "INPUT"
         },
         {
+          "number": 17,
           "name": "A17",
           "displayName": "A1",
           "direction": "INPUT"
         },
         {
+          "number": 16,
           "name": "A16",
           "displayName": "A2",
           "direction": "INPUT"
         },
         {
+          "number": 15,
           "name": "A15",
           "displayName": "A3",
           "direction": "INPUT"
         },
         {
+          "number": 14,
           "name": "A14",
           "displayName": "A4",
           "direction": "INPUT"
         },
         {
+          "number": 8,
           "name": "A8",
           "displayName": "A5",
           "direction": "INPUT"
@@ -2031,21 +2090,25 @@ window.jsonBoardObject = {
       ],
       "analogPins": [
         {
+          "number": 17,
           "name": "A17",
           "displayName": "A0",
           "direction": "INPUT"
         },
         {
+          "number": 2,
           "name": "A2",
           "displayName": "A1",
           "direction": "INPUT"
         },
         {
+          "number": 1,
           "name": "A1",
           "displayName": "A2",
           "direction": "INPUT"
         },
         {
+          "number": 18,
           "name": "A18",
           "displayName": "Light Sensor",
           "direction": "INPUT"
@@ -2237,21 +2300,25 @@ window.jsonBoardObject = {
       ],
       "analogPins": [
         {
+          "number": 26,
           "name": "A26",
           "displayName": "A0 (GP26)",
           "direction": "INPUT"
         },
         {
+          "number": 27,
           "name": "A27",
           "displayName": "A1 (GP27)",
           "direction": "INPUT"
         },
         {
+          "number": 28,
           "name": "A28",
           "displayName": "A2 (GP28)",
           "direction": "INPUT"
         },
         {
+          "number": 29,
           "name": "A29",
           "displayName": "A3 (GP29)",
           "direction": "INPUT"
@@ -2380,41 +2447,49 @@ window.jsonBoardObject = {
       ],
       "analogPins": [
         {
+          "number": 18,
           "name": "A18",
           "displayName": "A0",
           "direction": "INPUT"
         },
         {
+          "number": 17,
           "name": "A17",
           "displayName": "A1",
           "direction": "INPUT"
         },
         {
+          "number": 9,
           "name": "A9",
           "displayName": "A2",
           "direction": "INPUT"
         },
         {
+          "number": 8,
           "name": "A8",
           "displayName": "A3",
           "direction": "INPUT"
         },
         {
+          "number": 7,
           "name": "A7",
           "displayName": "SDA",
           "direction": "INPUT"
         },
         {
+          "number": 6,
           "name": "A6",
           "displayName": "SCL",
           "direction": "INPUT"
         },
         {
+          "number": 5,
           "name": "A5",
           "displayName": "A5 (UART TX)",
           "direction": "INPUT"
         },
         {
+          "number": 16,
           "name": "A16",
           "displayName": "A16 (UART RX)",
           "direction": "INPUT"
@@ -2557,31 +2632,37 @@ window.jsonBoardObject = {
       ],
       "analogPins": [
         {
+          "number": 18,
           "name": "A18",
           "displayName": "A0",
           "direction": "INPUT"
         },
         {
+          "number": 17,
           "name": "A17",
           "displayName": "A1",
           "direction": "INPUT"
         },
         {
+          "number": 16,
           "name": "A16",
           "displayName": "A2",
           "direction": "INPUT"
         },
         {
+          "number": 15,
           "name": "A15",
           "displayName": "A3",
           "direction": "INPUT"
         },
         {
+          "number": 14,
           "name": "A14",
           "displayName": "A4",
           "direction": "INPUT"
         },
         {
+          "number": 8,
           "name": "A8",
           "displayName": "A5",
           "direction": "INPUT"
@@ -2836,21 +2917,25 @@ window.jsonBoardObject = {
       ],
       "analogPins": [
         {
+          "number": 26,
           "name": "A26",
           "displayName": "A0 (GP0)",
           "direction": "INPUT"
         },
         {
+          "number": 27,
           "name": "A27",
           "displayName": "A1 (GP1)",
           "direction": "INPUT"
         },
         {
+          "number": 28,
           "name": "A28",
           "displayName": "A2 (GP2)",
           "direction": "INPUT"
         },
         {
+          "number": 29,
           "name": "A29",
           "displayName": "A3 (GP3)",
           "direction": "INPUT"
@@ -3028,86 +3113,103 @@ window.jsonBoardObject = {
       ],
       "analogPins": [
         {
+          "number": 0,
           "name": "A0",
           "displayName": "A0",
           "direction": "INPUT"
         },
         {
+          "number": 1,
           "name": "A1",
           "displayName": "A1",
           "direction": "INPUT"
         },
         {
+          "number": 2,
           "name": "A2",
           "displayName": "A2",
           "direction": "INPUT"
         },
         {
+          "number": 3,
           "name": "A3",
           "displayName": "A3",
           "direction": "INPUT"
         },
         {
+          "number": 4,
           "name": "A4",
           "displayName": "A4",
           "direction": "INPUT"
         },
         {
+          "number": 5,
           "name": "A5",
           "displayName": "A5 (IO5)",
           "direction": "INPUT"
         },
         {
+          "number": 6,
           "name": "A6",
           "displayName": "A6 (IO6)",
           "direction": "INPUT"
         },
         {
+          "number": 7,
           "name": "A7",
           "displayName": "A7 (IO7)",
           "direction": "INPUT"
         },
         {
+          "number": 8,
           "name": "A8",
           "displayName": "A8 (IO8)",
           "direction": "INPUT"
         },
         {
+          "number": 9,
           "name": "A9",
           "displayName": "A9 (IO9)",
           "direction": "INPUT"
         },
         {
+          "number": 10,
           "name": "A10",
           "displayName": "A10 (IO10)",
           "direction": "INPUT"
         },
         {
+          "number": 11,
           "name": "A11",
           "displayName": "A11 (IO11)",
           "direction": "INPUT"
         },
         {
+          "number": 12,
           "name": "A12",
           "displayName": "A12 (IO12)",
           "direction": "INPUT"
         },
         {
+          "number": 13,
           "name": "A13",
           "displayName": "A13 (IO13)",
           "direction": "INPUT"
         },
         {
+          "number": 14,
           "name": "A14",
           "displayName": "A14 (IO14)",
           "direction": "INPUT"
         },
         {
+          "number": 15,
           "name": "A15",
           "displayName": "A15 (IO15)",
           "direction": "INPUT"
         },
         {
+          "number": 16,
           "name": "A16",
           "displayName": "A16 (IO16)",
           "direction": "INPUT"
@@ -3355,31 +3457,37 @@ window.jsonBoardObject = {
       ],
       "analogPins": [
         {
+          "number": 41,
           "name": "A41",
           "displayName": "A0 (GP41)",
           "direction": "INPUT"
         },
         {
+          "number": 42,
           "name": "A42",
           "displayName": "A1 (GP42)",
           "direction": "INPUT"
         },
         {
+          "number": 43,
           "name": "A43",
           "displayName": "A2 (GP43)",
           "direction": "INPUT"
         },
         {
+          "number": 44,
           "name": "A44",
           "displayName": "A3 (GP44)",
           "direction": "INPUT"
         },
         {
+          "number": 45,
           "name": "A45",
           "displayName": "A4 (GP45)",
           "direction": "INPUT"
         },
         {
+          "number": 46,
           "name": "A46",
           "displayName": "A5 (GP46)",
           "direction": "INPUT"
@@ -3606,91 +3714,109 @@ window.jsonBoardObject = {
       ],
       "analogPins": [
         {
+          "number": 14,
           "name": "A14",
           "displayName": "A0 (GPIO14)",
           "direction": "INPUT"
         },
         {
+          "number": 15,
           "name": "A15",
           "displayName": "A1 (GPIO15)",
           "direction": "INPUT"
         },
         {
+          "number": 16,
           "name": "A16",
           "displayName": "A2 (GPIO16)",
           "direction": "INPUT"
         },
         {
+          "number": 17,
           "name": "A17",
           "displayName": "A3 (GPIO17)",
           "direction": "INPUT"
         },
         {
+          "number": 18,
           "name": "A18",
           "displayName": "A4 (GPIO18)",
           "direction": "INPUT"
         },
         {
+          "number": 1,
           "name": "A1",
           "displayName": "A5 (GPIO1)",
           "direction": "INPUT"
         },
         {
+          "number": 2,
           "name": "A2",
           "displayName": "D2 (GPIO2)",
           "direction": "INPUT"
         },
         {
+          "number": 3,
           "name": "A3",
           "displayName": "D3 (GPIO3)",
           "direction": "INPUT"
         },
         {
+          "number": 4,
           "name": "A4",
           "displayName": "D4 (GPIO4)",
           "direction": "INPUT"
         },
         {
+          "number": 5,
           "name": "A5",
           "displayName": "D5 (GPIO5)",
           "direction": "INPUT"
         },
         {
+          "number": 6,
           "name": "A6",
           "displayName": "D6 (GPIO6)",
           "direction": "INPUT"
         },
         {
+          "number": 7,
           "name": "A7",
           "displayName": "D7 (GPIO7)",
           "direction": "INPUT"
         },
         {
+          "number": 8,
           "name": "A8",
           "displayName": "D8 (GPIO8)",
           "direction": "INPUT"
         },
         {
+          "number": 9,
           "name": "A9",
           "displayName": "D9 (GPIO9)",
           "direction": "INPUT"
         },
         {
+          "number": 10,
           "name": "A10",
           "displayName": "D10 (GPIO10)",
           "direction": "INPUT"
         },
         {
+          "number": 11,
           "name": "A11",
           "displayName": "D11 (GPIO11)",
           "direction": "INPUT"
         },
         {
+          "number": 12,
           "name": "A12",
           "displayName": "D12 (GPIO12)",
           "direction": "INPUT"
         },
         {
+          "number": 13,
           "name": "A13",
           "displayName": "D13 (GPIO13)",
           "direction": "INPUT"
@@ -3819,31 +3945,37 @@ window.jsonBoardObject = {
       ],
       "analogPins": [
         {
+          "number": 18,
           "name": "A18",
           "displayName": "A0",
           "direction": "INPUT"
         },
         {
+          "number": 17,
           "name": "A17",
           "displayName": "A1",
           "direction": "INPUT"
         },
         {
+          "number": 16,
           "name": "A16",
           "displayName": "A2",
           "direction": "INPUT"
         },
         {
+          "number": 15,
           "name": "A15",
           "displayName": "A3",
           "direction": "INPUT"
         },
         {
+          "number": 14,
           "name": "A14",
           "displayName": "A4",
           "direction": "INPUT"
         },
         {
+          "number": 8,
           "name": "A8",
           "displayName": "A5",
           "direction": "INPUT"

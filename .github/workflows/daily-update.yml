@@ -51,7 +51,7 @@ jobs:
 
       - name: Run conversion script
         run: |
-          pip install requests
+          pip install -r requirements.txt
           python convert_all_wippersnapper_definitions.py
 
       - name: Commit changes if any

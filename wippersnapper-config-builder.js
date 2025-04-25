@@ -331,16 +331,41 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Update SD card section
             if (companion.sdCardCS !== null) {
-                if (appState.sdCardCS !== null) {
-                    appState.usedPins.delete(appState.sdCardCS);
+                let pin = null;
+                if (typeof(companion.sdCardCS) != 'number' && !appState.selectedBoard.pins.find(p => p.displayName === companion.sdCardCS)) {
+                    // if not found, try to find it in display name, if one candidate, use it, otherwise prefer to find inside brackets
+                    let pins = appState.selectedBoard.pins.filter(p => p.displayName.includes(companion.sdCardCS));
+                    if (pins.length === 1) {
+                        pin = pins[0];
+                    } else {
+                        const regex = new RegExp(`\\(.*?${companion.sdCardCS}.*?\\)`);
+                        regex_pins = appState.selectedBoard.pins.filter(p => regex.test(p.displayName));
+                        if (regex_pins.length > 0) {
+                            pin = regex_pins[0];
+                        } else if (pins.length > 1) {
+                            pin = pins[0];
+                        }
+                    }
+                } else { /* is numeric */
+                    pin = appState.selectedBoard.pins.find(p => p.number === companion.sdCardCS);
                 }
-                appState.sdCardCS = companion.sdCardCS;
-                document.getElementById('sd-missing').classList.add('hidden');
-                document.getElementById('sd-present').classList.remove('hidden');
-                document.getElementById('sd-cs-pin').textContent = companion.sdCardCS;
 
-                // Mark SD CS pin as used
-                appState.usedPins.add(companion.sdCardCS);
+                if (pin) {
+                    if (appState.sdCardCS !== null) {
+                        appState.usedPins.delete(appState.sdCardCS);
+                    }
+                    appState.sdCardCS = pin.number;
+                    document.getElementById('sd-missing').classList.add('hidden');
+                    document.getElementById('sd-present').classList.remove('hidden');
+                    document.getElementById('sd-cs-pin').textContent = pin.number;
+
+                    // Mark SD CS pin as used
+                    appState.usedPins.add(pin.number);
+                } else {
+                    console.warn(`SD card CS pin ${appState.sdCardCS} not found in selected board pins.`);
+                    document.getElementById('sd-missing').classList.remove('hidden');
+                    document.getElementById('sd-present').classList.add('hidden');
+                }
             } else {
                 // Companion board doesn't provide SD card, show manual config
                 document.getElementById('sd-missing').classList.remove('hidden');

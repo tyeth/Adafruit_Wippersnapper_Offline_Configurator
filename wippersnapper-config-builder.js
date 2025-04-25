@@ -613,7 +613,7 @@ function resetSubsequentSelections() {
     // Reset manual config
     document.getElementById('add-sd-card').checked = false;
     document.getElementById('sd-card-pin-select').classList.add('hidden');
-    document.getElementById('sd-cs-pin').textContent = '';
+    document.getElementById('manual-sd-cs-pin').textContent = '';
     document.getElementById('alt-SCL-pin').textContent = '';
     document.getElementById('alt-SDA-pin').textContent = '';
     document.getElementById('rtc-select').value = 'soft';
@@ -696,7 +696,7 @@ function populatePinsLists() {
                 // Set new SD CS pin
                 appState.sdCardCS = pin.number;
                 appState.usedPins.add(pin.number);
-                document.getElementById('sd-cs-pin').textContent = pin.number;
+                document.getElementById('manual-sd-cs-pin').textContent = pin.number;
 
                 // Update pin selection UI
                 const allPins = sdPinsList.querySelectorAll('.pin');

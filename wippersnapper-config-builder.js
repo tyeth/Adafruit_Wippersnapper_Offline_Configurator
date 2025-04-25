@@ -331,6 +331,9 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Update SD card section
             if (companion.sdCardCS !== null) {
+                if (appState.sdCardCS !== null) {
+                    appState.usedPins.delete(appState.sdCardCS);
+                }
                 appState.sdCardCS = companion.sdCardCS;
                 document.getElementById('sd-missing').classList.add('hidden');
                 document.getElementById('sd-present').classList.remove('hidden');

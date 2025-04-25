@@ -13,7 +13,7 @@ See this Learn Guide for more info on using Adafruit Wippersnapper Firmware (off
 [No-Code Offline Data Logger with WipperSnapper](https://learn.adafruit.com/no-code-offline-data-logging-with-wippersnapper/)
 
 ## Development
-We gratefully accept pull-requests and issues (open-source ❤️) although the main [Wippersnapper repository](https://github.com/adafruit/Adafruit_Wippersnapper_Arduino/issues) (or [boards](https://github.com/adafruit/Wippersnapper_Boards) or [components](https://github.com/adafruit/Wippersnapper_Components)) is better suited for issues., as this is a stop-gap solution until the main Adafruit IO website performs the desired functionality (Wippersnapper v2), but it has proven useful so maybe will continue to do so.
+We gratefully accept pull-requests and issues (open-source ❤️) although the main [Wippersnapper repository](https://github.com/adafruit/Adafruit_Wippersnapper_Arduino/issues) is better suited for issues (or the [boards](https://github.com/adafruit/Wippersnapper_Boards) or [components](https://github.com/adafruit/Wippersnapper_Components) repos), as this is a stop-gap solution until the main Adafruit IO website performs the desired functionality (Wippersnapper v2), but it has proven useful so maybe will continue to do so.
 
 If you wish to play with the website design / functionality then the main files to edit are:
 * index.html
@@ -23,7 +23,7 @@ If you wish to play with the website design / functionality then the main files 
 The remaining files are involved in updating automatically generated board and component definitions.
 
 If you wish to add companion boards then those are manually defined (search featherwing), but boards and components should be added to Wippersnapper to be picked up automatically.
-If you wish to add RTCs, they must first be added to the offline firmware, and then we'll add (or a merge PR) the RTC to the web interface. The repositories are linked above.
+If you wish to add new RTCs, they must first be added to the offline firmware, and then we/you can add the RTC to the web interface. The repositories are linked above.
 
 To recreate the build process, which processes the boards+component definitions and fetches images + firmware versions, you'll need python installed (and pip) and then to install the requirements:
 ```shell
@@ -47,9 +47,18 @@ Time taken: 24.39 seconds
 Output files:
   - C:\dev\js\Adafruit_Wippersnapper_Offline_Configurator\wippersnapper_boards.json
   - C:\dev\js\Adafruit_Wippersnapper_Offline_Configurator\wippersnapper_components.json
+  - C:\dev\js\Adafruit_Wippersnapper_Offline_Configurator\firmware-data.js
 ```
 
 That will have replaced the following files:
-wippersnapper_boards.js + .json
-wippersnapper_components.js + .json
-firmware-data.js
+* wippersnapper_boards.js + .json
+* wippersnapper_components.js + .json
+* firmware-data.js
+
+
+## Attribution
+Written by Tyeth Gundry (with some "assistance"🤦 from Claude3.7/Copilot/GPT4), for Adafruit Industries.
+
+Adafruit invests time and resources providing this open source code,
+please support Adafruit and open-source hardware by purchasing
+products from Adafruit!

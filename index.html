@@ -261,7 +261,7 @@
     
     <div class="tab">
         <button class="tablinks active" onclick="openTab(event, 'BuildConfig')">Build Configuration</button>
-        <button class="tablinks" onclick="openTab(event, 'ImportExport')">Import / Custom Board</button>
+        <button class="tablinks" onclick="openTab(event, 'ImportExport')">Import Config / Custom Board</button>
     </div>
     
     <div id="BuildConfig" class="tabcontent" style="display: block;">
@@ -522,7 +522,7 @@
             <textarea id="import-json" class="json-input" placeholder="Paste your configuration JSON here..."></textarea>
             <button id="import-json-btn">Import from Text</button>
             
-            <div class="section" style="visibility: hidden;">
+            <div class="section" style="visibility: hidden; height: 0px;">
                 <h2>Export Configuration</h2>
                 <p>Export the current configuration to a file:</p>
                 <button id="export-btn">Export Configuration</button>

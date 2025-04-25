@@ -1,4 +1,4 @@
-// Auto-generated on 2025-04-22 18:50:04
+// Auto-generated on 2025-04-25 16:09:22
 const FIRMWARE_DATA = {
   "releaseInfo": {
     "version": "1.0.0-offline-beta.2",
@@ -115,7 +115,7 @@ const FIRMWARE_DATA = {
       "name": "wippersnapper.qtpy_esp32s2.1.0.0-offline-beta.2.uf2",
       "url": "https://github.com/adafruit/Adafruit_Wippersnapper_Arduino/releases/download/1.0.0-offline-beta.2/wippersnapper.qtpy_esp32s2.1.0.0-offline-beta.2.uf2",
       "size": 2735616,
-      "downloadCount": 0,
+      "downloadCount": 1,
       "contentType": "application/octet-stream",
       "createdAt": "2025-04-14T16:09:53Z"
     },

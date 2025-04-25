@@ -1169,7 +1169,7 @@ function showComponentConfigModal(component, type) {
         // Add available pins
         if (appState.selectedBoard) {
             appState.selectedBoard.pins.forEach(pin => {
-                if (!appState.usedPins.has(pin)) {
+                if (!appState.usedPins.has(pin.number)) {
                     html += `<option value="${pin.number}">${pin.displayName} [Pin ${pin.number}]</option>`;
                 }
             });
@@ -1204,7 +1204,7 @@ function showComponentConfigModal(component, type) {
         // Add available pins
         if (appState.selectedBoard) {
             appState.selectedBoard.pins.forEach(pin => {
-                if (!appState.usedPins.has(pin)) {
+                if (!appState.usedPins.has(pin.number)) {
                     html += `<option value="${pin.number}">${pin.displayName} [Pin ${pin.number}]</option>`;
                 }
             });
@@ -1226,7 +1226,7 @@ function showComponentConfigModal(component, type) {
         // Add available pins
         if (appState.selectedBoard) {
             appState.selectedBoard.pins.forEach(pin => {
-                if (!appState.usedPins.has(pin)) {
+                if (!appState.usedPins.has(pin.number)) {
                     html += `<option value="${pin.number}">${pin.displayName} [Pin ${pin.number}]</option>`;
                 }
             });
@@ -1252,7 +1252,7 @@ function showComponentConfigModal(component, type) {
         // Add available pins for TX
         if (appState.selectedBoard) {
             appState.selectedBoard.pins.forEach(pin => {
-                if (!appState.usedPins.has(pin)) {
+                if (!appState.usedPins.has(pin.number)) {
                     html += `<option value="${pin.number}">${pin.displayName} [Pin ${pin.number}]</option>`;
                 }
             });
@@ -1270,7 +1270,7 @@ function showComponentConfigModal(component, type) {
         // Add available pins for RX
         if (appState.selectedBoard) {
             appState.selectedBoard.pins.forEach(pin => {
-                if (!appState.usedPins.has(pin) && pin !== parseInt(document.getElementById('modal-uart-tx')?.value)) {
+                if (!appState.usedPins.has(pin.number) && pin.number !== parseInt(document.getElementById('modal-uart-tx')?.value)) {
                     html += `<option value="${pin.number}">${pin.displayName} [Pin ${pin.number}]</option>`;
                 }
             });

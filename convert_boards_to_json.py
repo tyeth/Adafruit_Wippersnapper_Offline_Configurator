@@ -12,7 +12,7 @@ def add_custom_board_definitions(boards):
     """
     Add custom board definitions for boards that don't have definition.json files
     """
-    
+
     # Generic ESP32-S2 based board
     boards["generic-esp32-s2"] = {
         "boardName": "Generic ESP32-S2",
@@ -82,7 +82,7 @@ def add_custom_board_definitions(boards):
         },
         "image": None
     }
-    
+
     # Generic ESP32-S3 based board
     boards["generic-esp32-s3"] = {
         "boardName": "Generic ESP32-S3",
@@ -154,7 +154,7 @@ def add_custom_board_definitions(boards):
         },
         "image": None
     }
-    
+
     # Generic RP2040 based board
     boards["generic-rp2040"] = {
         "boardName": "Generic RP2040",
@@ -215,7 +215,7 @@ def add_custom_board_definitions(boards):
         },
         "image": None
     }
-    
+
     # Generic RP23xx based board
     boards["generic-rp23xx"] = {
         "boardName": "Generic RP23xx",
@@ -299,8 +299,8 @@ def add_custom_board_definitions(boards):
         },
         "image": None
     }
-    
-    
+
+
     return boards
 
 def convert_boards_to_json():
@@ -309,19 +309,19 @@ def convert_boards_to_json():
     that can be used in the Wippersnapper Configuration Builder.
     """
     boards = {}
-    
+
     # Get all board directories
     board_dirs = [d for d in os.listdir(BOARDS_DIR) if os.path.isdir(os.path.join(BOARDS_DIR, d)) and not d.startswith('.')]
-    
+
     for board_dir in board_dirs:
         board_path = os.path.join(BOARDS_DIR, board_dir)
         definition_file = os.path.join(board_path, "definition.json")
-        
+
         # Skip if the definition.json doesn't exist
         if not os.path.exists(definition_file):
             print(f"Skipping {board_dir} - No definition.json found")
             continue
-        
+
         try:
             # Read the definition.json file
             with open(definition_file, 'r') as f:
@@ -345,19 +345,20 @@ def convert_boards_to_json():
                 "defaultI2C": {},
                 "image": None
             }
-            
+
             SUPPORTED_ARCHITECTURES = ["rp2350", "rp2040", "esp32s2", "esp32s3"]
             # Filter out boards that are not supported
             if board_info["mcuName"] not in SUPPORTED_ARCHITECTURES:
                 print(f"Skipping {board_dir} - Unsupported architecture {board_info['mcuName']}")
                 continue
-            
+
             # Get pins
             if "components" in board_data and "digitalPins" in board_data["components"]:
                 for pin in board_data["components"]["digitalPins"]:
                     # Extract the numeric part of the pin name (e.g., "D13" -> 13)
                     pin_name = pin.get("name", "")
                     if pin_name.startswith("D"):
+                    # if board_info["pins"].filter(lambda x: x["name"] == pin_name) == 0:
                         try:
                             pin_number = int(pin_name[1:])
                             board_info["pins"].append({
@@ -369,20 +370,25 @@ def convert_boards_to_json():
                             })
                         except ValueError:
                             print(f"Skipping pin {pin_name} - Cannot parse pin number")
-            
+
             # Get analog pins
             if "components" in board_data and "analogPins" in board_data["components"]:
                 analog_count = 0
                 for pin in board_data["components"]["analogPins"]:
                     pin_name = pin.get("name", "")
-                    board_info["analogPins"].append({
-                        "name": pin_name,
-                        "displayName": pin.get("displayName", pin_name),
-                        "direction": pin.get("direction", "INPUT")
-                    })
-                    analog_count += 1
+                    try:
+                        pin_number = int(pin_name[1:])
+                        board_info["analogPins"].append({
+                            "number": pin_number,
+                            "name": pin_name,
+                            "displayName": pin.get("displayName", pin_name),
+                            "direction": pin.get("direction", "INPUT")
+                        })
+                        analog_count += 1
+                    except ValueError:
+                        print(f"Skipping pin {pin_name} - Cannot parse pin number")
                 board_info["totalAnalogPins"] = analog_count
-            
+
             # Get I2C ports
             if "components" in board_data and "i2cPorts" in board_data["components"]:
                 i2c_ports = board_data["components"]["i2cPorts"]
@@ -393,13 +399,13 @@ def convert_boards_to_json():
                         "SCL": default_i2c.get("SCL"),
                         "SDA": default_i2c.get("SDA")
                     }
-                    
+
                     # Store all I2C ports
                     board_info["i2cPorts"] = i2c_ports
-            
+
             # Count total GPIO pins
             board_info["totalGPIOPins"] = len(board_info["pins"])
-            
+
             # Look for an image file
             image_extensions = ['.jpg', '.jpeg', '.png', '.gif', '.svg']
             for ext in image_extensions:
@@ -408,31 +414,31 @@ def convert_boards_to_json():
                     # Store relative path to image
                     board_info["image"] = f"boards/{board_dir}/image{ext}"
                     break
-            
+
             # Fetch missing images
             if board_info["image"] is None and board_info["productURL"] != "":
                 board_info["image"] = get_image_from_adafruit_product_url(board_info["productURL"])
-            
+
             # Add to boards dictionary
             boards[board_dir] = board_info
             print(f"Processed {board_dir}")
-            
+
         except Exception as e:
             print(f"Error processing {board_dir}: {str(e)}")
-    
+
     # Add custom board definitions
     boards = add_custom_board_definitions(boards)
-    
+
     # Write the consolidated JSON file
     with open(OUTPUT_FILE, 'w') as f:
         json.dump({"boards": boards}, f, indent=2)
-    
+
     # Write the consolidated JS file
     with open(OUTPUT_FILE.replace('.json', '.js'), 'w') as f:
         f.write("window.jsonBoardObject = ")
         json.dump({"boards": boards}, f, indent=2)
         f.write(";\n")
-    
+
     print(f"Successfully created {OUTPUT_FILE} with {len(boards)} boards")
     return boards
 

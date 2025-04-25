@@ -439,10 +439,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 const bus = appState.i2cBuses[additionalBusIndex];
                 appState.usedPins.delete(bus.SCL);
                 appState.usedPins.delete(bus.SDA);
-
+                document.getElementById('alt-SCL-pin').textContent = '';
+                document.getElementById('alt-SDA-pin').textContent = '';
                 // Remove the bus
                 appState.i2cBuses.splice(additionalBusIndex, 1);
-
+                populatePinsLists();
                 // // Update I2C bus select options
                 // updateI2CBusOptions();
             }
@@ -1867,7 +1868,11 @@ function generateConfiguration() {
     document.getElementById('config-output-container').classList.remove('hidden');
 
     // Also update the export tab
-    document.getElementById('export-config').textContent = jsonOutput;
+    try{
+        document.getElementById('export-config').textContent = jsonOutput;
+    } catch(e){
+        console.error('Error updating export tab:', e);
+    }
 }
 
 function downloadConfiguration(fromExportTab = false) {

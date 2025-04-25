@@ -3,8 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <title>Wippersnapper Configuration Builder</title>
     <style>
+		.not-available-yet {
+			text-decoration: line-through;
+			font-size: x-small;
+		}
+		.component-tabcontent > h3 {
+			display: inline-block;
+			padding-right: 20px;
+		}
+		.component-tabcontent > .search-filter {
+			display: inline-block;
+		}
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
@@ -45,6 +57,9 @@
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
+            scrollbar-width: auto;
+            max-height: 80vh;
+            overflow: scroll;
         }
         .component-card {
             border: 1px solid #ddd;
@@ -52,6 +67,12 @@
             padding: 10px;
             width: 230px;
             background-color: white;
+        }
+        .component-card h4 {
+            margin: 0 0 10px 0;
+        }
+        .component-card p {
+            margin: 0 0 10px 0;
         }
         .component-card img {
             max-width: 100%;
@@ -94,11 +115,26 @@
         .hidden {
             display: none;
         }
-        .i2c-bus-config {
+        .inline-row {
+            display: flex;
+            align-items: center;
+            align-content:space-around;
+            margin-bottom: 10px;
+        }
+        .dashed-section {
             margin: 10px 0;
             padding: 10px;
             border: 1px dashed #ccc;
             border-radius: 4px;
+        }
+		.dashed-section h3{
+			padding-top: 0px;
+			margin-top:0px;
+		}
+
+        .dashed-section > :last-child {
+            padding-bottom: 0px;
+            margin-bottom: 0px;
         }
         .tab {
             overflow: hidden;
@@ -184,6 +220,9 @@
         .board-details {
             flex: 1;
         }
+		.board-details > p {
+			margin: 5px 0 0 0;
+		}
         .search-filter {
             margin-bottom: 15px;
         }
@@ -195,26 +234,36 @@
             border: 1px solid #ddd;
             margin-bottom: 10px;
         }
+
     </style>
 </head>
 <body>
     <div style="display: flex; justify-content: space-between; align-items: center;">
-        <h1>Wippersnapper Configuration Builder</h1>
-        <button id="reset-config-btn-top" class="reset-btn" style="background-color: #dc3545; margin-left: 20px;">Reset Configurator</button>
+        <div style="flex: 1;">
+            <h1>Wippersnapper Offline <br/>Data Logger Configurator</h1>
+        </div>
+        <div style="flex: 1; text-align: right;">
+
+            <div style="display:inline-block; font-size: smaller;"><b>Latest Release:</b> <a id="release_name" href="https://github.com/adafruit/Adafruit_Wippersnapper_Arduino/releases">Release Page</a></div>
+            <div style="display:inline-block; margin: 5px; font-size: smaller;">Download: &nbsp;<a style="display: inline-flex;" id="firmware_file" href="https://github.com/adafruit/Adafruit_Wippersnapper_Arduino/releases">UF2 firmware</a> </div>
+        </div>
+        <div style="flex: 1; text-align: right;">
+            <button id="reset-config-btn-top" class="reset-btn" style="background-color: #dc3545; margin-left: 20px;">Reset Configurator</button>
+        </div>
     </div>
-    
+
     <!-- Loading indicator -->
     <div id="loading-indicator" class="section">
         <h2>Loading Wippersnapper Data</h2>
         <div class="loader"></div>
         <p>Loading board and component definitions...</p>
     </div>
-    
+
     <div class="tab">
         <button class="tablinks active" onclick="openTab(event, 'BuildConfig')">Build Configuration</button>
-        <button class="tablinks" onclick="openTab(event, 'ImportExport')">Import/Export</button>
+        <button class="tablinks" onclick="openTab(event, 'ImportExport')">Import Config / Custom Board</button>
     </div>
-    
+
     <div id="BuildConfig" class="tabcontent" style="display: block;">
         <div class="section">
             <h2>1. Select Board</h2>
@@ -222,26 +271,27 @@
                 <option value="">-- Select a Board --</option>
                 <!-- Board options will be dynamically populated -->
             </select>
-            
+
             <div id="board-details" class="hidden">
                 <div class="board-preview">
                     <img id="board-image" class="board-image hidden" src="" alt="Board image">
                     <div class="board-details">
-                        <h3>Board Details</h3>
+                        <h3>Board Details <span id="board-purchase"></span> <span id="board-help"></span></h3>
                         <p><strong>Reference Voltage:</strong> <span id="ref-voltage">3.3</span>V</p>
                         <p><strong>Total GPIO Pins:</strong> <span id="total-gpio">0</span></p>
                         <p><strong>Total Analog Pins:</strong> <span id="total-analog">0</span></p>
-                        <p><strong>Default I2C Bus:</strong> SCL: <span id="default-scl">0</span>, SDA: <span id="default-sda">0</span></p>
+                        <p><strong>Default I2C Bus:</strong> SCL: <span id="default-SCL">0</span>, SDA: <span id="default-SDA">0</span></p>
                     </div>
                 </div>
             </div>
         </div>
-        
+
         <div id="companion-board-section" class="section hidden">
             <h2>2. Select Companion Board (Optional)</h2>
-            <p>You can skip this step if you're not using a companion board.</p>
+			<p>You can skip this step if you're not using a companion board.
+			<br/><i><small>It's just a convenient way to prepopulate the Real-time clock model and SD Card's Chip Select pin option.</small></i></p>
             <select id="companion-board-select">
-                <option value="">-- None --</option>
+              <option value="">-- None --</option>
                 <option value="adalogger">Adafruit Adalogger FeatherWing</option>
                 <option value="ds3231-precision">Adafruit DS3231 Precision RTC FeatherWing</option>
                 <option value="picowbell-adalogger">Adafruit PiCowbell Adalogger for Pico</option>
@@ -253,26 +303,31 @@
                 <option value="airlift-shield">Adafruit AirLift Shield - ESP32 WiFi Co-Processor</option>
 
             </select>
-            
+
             <div id="companion-details" class="hidden">
-                <h3>Companion Board Details</h3>
-                <p><strong>RTC:</strong> <span id="companion-rtc">None</span></p>
-                <p><strong>SD Card CS Pin:</strong> <span id="companion-sd-cs">None</span></p>
-                <p><strong>Additional Components:</strong> <span id="companion-extras">None</span></p>
+                <div class="board-preview">
+                    <img id="companion-image" class="board-image hidden" src="#" alt="Companion board image">
+                    <div class="board-details">
+                        <h3>Companion Board Details <span id="companion-purchase"></span> <span id="companion-help"></span></h3>
+                        <p><strong>Real-time clock (RTC):</strong> <span id="companion-rtc">None</span></p>
+                        <p><strong>SD Card CS Pin:</strong> <span id="companion-sd-cs">None</span></p>
+                        <p><strong>Additional Components:</strong> <span id="companion-extras">None</span></p>
+                    </div>
+                </div>
             </div>
         </div>
-        
+
         <div id="manual-config-section" class="section hidden">
             <h2>3. Manual Configuration</h2>
-            
-            <div id="sd-card-config">
+
+            <div id="sd-card-config" class="dashed-section">
                 <h3>SD Card Configuration</h3>
                 <div id="sd-missing">
                     <p>No SD card detected from companion board. Would you like to add an SD card? <b>(REQUIRED)</b></p>
                     <label><input type="checkbox" id="add-sd-card"> Add SD Card</label>
-                    
+
                     <div id="sd-card-pin-select" class="hidden">
-                        <p>Select SD Card CS Pin:</p>
+                        <p>Select SD Card CS Pin: <span id="manual-sd-cs-pin"></span></p>
                         <div id="sd-pins-list" class="pins-container"></div>
                     </div>
                 </div>
@@ -280,12 +335,14 @@
                     <p>SD Card CS Pin: <span id="sd-cs-pin"></span></p>
                 </div>
             </div>
-            
-            <div id="rtc-config">
-                <h3>RTC Configuration</h3>
+
+            <div id="rtc-config" class="dashed-section">
+                <h3>Real-time clock (RTC) Configuration</h3>
+                <p style="color: red; font-weight: bold;">Note: The RTC must be on the first (default) I2C bus.</p>
                 <div id="rtc-missing">
-                    <p>No RTC detected from companion board. Select RTC type:</p>
-                    <select id="rtc-select">
+                    <p>No RTC detected from companion board.</p>
+                    <label for="rtc-select">Select RTC type: </label>
+					<select id="rtc-select">
                         <option value="soft">Software RTC</option>
                         <option value="PCF8523">PCF8523</option>
                         <option value="DS3231">DS3231</option>
@@ -296,57 +353,60 @@
                     <p>RTC Type: <span id="rtc-type"></span></p>
                 </div>
             </div>
-            
-            <div id="status-led-config">
+
+            <div id="status-led-config" class="dashed-section">
                 <h3>Status LED Configuration</h3>
-                <label for="led-brightness">Status LED Brightness (0.0-1.0): </label>
-                <input type="range" id="led-brightness" min="0" max="1" step="0.1" value="0.5">
-                <span id="brightness-value">0.5</span>
+				<div class="inline-row">
+					<label for="led-brightness">Status LED Brightness (0.0-1.0): </label>
+					<input type="range" id="led-brightness" min="0" max="1" step="0.01" value="0.5">
+					<span id="brightness-value">0.5</span>
+				</div>
             </div>
         </div>
-        
+
         <div id="i2c-bus-section" class="section hidden">
             <h2>4. I2C Bus Configuration</h2>
-            
-            <div id="default-i2c-bus" class="i2c-bus-config">
+
+            <div id="default-i2c-bus" class="dashed-section">
                 <h3>Default I2C Bus</h3>
-                <p>SCL: <span id="default-i2c-scl"></span>, SDA: <span id="default-i2c-sda"></span></p>
+                <p>SCL: <span id="default-i2c-SCL"></span>, SDA: <span id="default-i2c-SDA"></span></p>
             </div>
-            
-            <div id="additional-i2c-bus-container">
+
+            <div id="additional-i2c-bus-container" class="dashed-section">
                 <h3>Additional I2C Bus (Optional)</h3>
                 <label><input type="checkbox" id="add-i2c-bus"> Add Additional I2C Bus</label>
-                
-                <div id="additional-i2c-config" class="hidden i2c-bus-config">
-                    <p>Select SCL Pin:</p>
-                    <div id="scl-pins-list" class="pins-container"></div>
-                    <p>Select SDA Pin:</p>
-                    <div id="sda-pins-list" class="pins-container"></div>
+
+                <div id="additional-i2c-config" class="hidden dashed-section">
+                    <p>Select SCL Pin: <span id="alt-SCL-pin"></span></p>
+                    <div id="SCL-pins-list" class="pins-container"></div>
+                    <p>Select SDA Pin: <span id="alt-SDA-pin"></span></p>
+                    <div id="SDA-pins-list" class="pins-container"></div>
                 </div>
             </div>
-            
-            <div id="i2c-mux-container">
+
+            <div id="i2c-mux-container" class="dashed-section">
                 <h3>I2C Multiplexers (Optional)</h3>
                 <button id="add-mux-btn">Add I2C Multiplexer</button>
-                
+
                 <div id="mux-list"></div>
             </div>
         </div>
-        
+
         <div id="components-section" class="section hidden">
             <h2>5. Add Components</h2>
-            
+            <p style="color: red;"><small><i>UART + other component categories are currently being implemented in offline mode (No ETA, but maybe reactive actions too!).</i></small></p>
+
             <div id="component-type-tabs" class="tab">
                 <button class="comp-tab active" onclick="openComponentTab(event, 'all-components')">All Components</button>
                 <button class="comp-tab" onclick="openComponentTab(event, 'i2c-components')">I2C Components</button>
                 <button class="comp-tab" onclick="openComponentTab(event, 'ds18x20-components')">DS18x20 Components</button>
                 <button class="comp-tab" onclick="openComponentTab(event, 'pin-components')">Pin Components</button>
-                <button class="comp-tab" onclick="openComponentTab(event, 'pixel-components')">Pixel Components</button>
-                <button class="comp-tab" onclick="openComponentTab(event, 'pwm-components')">PWM Components</button>
-                <button class="comp-tab" onclick="openComponentTab(event, 'servo-components')">Servo Components</button>
-                <button class="comp-tab" onclick="openComponentTab(event, 'uart-components')">UART Components</button>
+                <button class="comp-tab not-available-yet" onclick="openComponentTab(event, 'pixel-components')">Pixel Components</button>
+                <button class="comp-tab not-available-yet" onclick="openComponentTab(event, 'pwm-components')">PWM Components</button>
+                <button class="comp-tab not-available-yet" onclick="openComponentTab(event, 'servo-components')">Servo Components</button>
+                <button class="comp-tab not-available-yet" onclick="openComponentTab(event, 'uart-components')">UART Components</button>
             </div>
-            
+
             <div id="all-components" class="component-tabcontent" style="display: block;">
                 <h3>All Components</h3>
                 <div class="search-filter">
@@ -356,24 +416,18 @@
                     <!-- All components will be populated here -->
                 </div>
             </div>
-            
+
             <div id="i2c-components" class="component-tabcontent">
                 <h3>I2C Components</h3>
                 <div class="search-filter">
                     <input type="text" id="i2c-search" class="component-search" placeholder="Search I2C components...">
                 </div>
-                <div>
-                    <label for="i2c-bus-select">Select I2C Bus: </label>
-                    <select id="i2c-bus-select">
-                        <option value="default">Default I2C Bus</option>
-                    </select>
-                </div>
-                
+
                 <div class="component-list" id="i2c-component-list">
                     <!-- I2C components will be populated here -->
                 </div>
             </div>
-            
+
             <div id="ds18x20-components" class="component-tabcontent">
                 <h3>DS18x20 Components</h3>
                 <div class="search-filter">
@@ -383,7 +437,7 @@
                     <!-- DS18x20 components will be populated here -->
                 </div>
             </div>
-            
+
             <div id="pin-components" class="component-tabcontent">
                 <h3>Pin Components</h3>
                 <div class="search-filter">
@@ -393,7 +447,7 @@
                     <!-- Pin components will be populated here -->
                 </div>
             </div>
-            
+
             <div id="pixel-components" class="component-tabcontent">
                 <h3>Pixel Components</h3>
                 <div class="search-filter">
@@ -403,7 +457,7 @@
                     <!-- Pixel components will be populated here -->
                 </div>
             </div>
-            
+
             <div id="pwm-components" class="component-tabcontent">
                 <h3>PWM Components</h3>
                 <div class="search-filter">
@@ -413,7 +467,7 @@
                     <!-- PWM components will be populated here -->
                 </div>
             </div>
-            
+
             <div id="servo-components" class="component-tabcontent">
                 <h3>Servo Components</h3>
                 <div class="search-filter">
@@ -423,7 +477,7 @@
                     <!-- Servo components will be populated here -->
                 </div>
             </div>
-            
+
             <div id="uart-components" class="component-tabcontent">
                 <h3>UART Components</h3>
                 <div class="search-filter">
@@ -434,17 +488,18 @@
                 </div>
             </div>
         </div>
-        
+
         <div id="selected-components-section" class="section hidden">
             <h2>6. Selected Components</h2>
             <div id="selected-components-list">
                 <p>No components selected yet.</p>
             </div>
         </div>
-        
+
         <div id="generate-section" class="section hidden">
             <h2>7. Generate Configuration</h2>
             <button id="generate-config-btn">Generate Configuration</button>
+            <input type="checkbox" id="use-auto-init" onchange="javascript:appState.enableautoConfig=this.checked;"> <label for="use-auto-init" title="Auto config fallback for I2C sensors that fail to initialise (selects alternative sensors at same address)">Use Auto Init fallback</label>
             <div id="config-output-container" class="hidden">
                 <h3>Configuration JSON:</h3>
                 <pre id="config-output" class="config-output"></pre>
@@ -455,24 +510,24 @@
             </div>
         </div>
     </div>
-    
+
     <div id="ImportExport" class="tabcontent">
         <div class="section">
             <h2>Import Configuration</h2>
             <p>Import a previously saved configuration file:</p>
             <input type="file" id="import-file" accept=".json">
             <button id="import-btn">Import</button>
-            
+
             <p>Or paste your configuration JSON here:</p>
             <textarea id="import-json" class="json-input" placeholder="Paste your configuration JSON here..."></textarea>
             <button id="import-json-btn">Import from Text</button>
-            
-            <div class="section">
+
+            <div class="section" style="visibility: hidden; height: 0px;">
                 <h2>Export Configuration</h2>
                 <p>Export the current configuration to a file:</p>
                 <button id="export-btn">Export Configuration</button>
             </div>
-            
+
             <div class="section">
                 <h2>Add Custom Board</h2>
                 <p>Add a custom board to the boards collection (for boards without definition.json files):</p>
@@ -494,16 +549,16 @@
                         <input type="number" id="custom-board-analog" value="0" min="0" max="100">
                     </div>
                     <div>
-                        <label for="custom-board-scl">Default I2C SCL Pin:</label>
-                        <input type="text" id="custom-board-scl" placeholder="e.g. SCL, D3">
+                        <label for="custom-board-SCL">Default I2C SCL Pin:</label>
+                        <input type="text" id="custom-board-SCL" placeholder="e.g. SCL, D3">
                     </div>
                     <div>
-                        <label for="custom-board-sda">Default I2C SDA Pin:</label>
-                        <input type="text" id="custom-board-sda" placeholder="e.g. SDA, D2">
+                        <label for="custom-board-SDA">Default I2C SDA Pin:</label>
+                        <input type="text" id="custom-board-SDA" placeholder="e.g. SDA, D2">
                     </div>
                     <button id="add-custom-board-btn">Add Custom Board</button>
                 </div>
-                
+
                 <div id="custom-boards-list" class="hidden">
                     <h3>Added Custom Boards:</h3>
                     <ul id="custom-boards-items">
@@ -527,33 +582,35 @@
             </div>
         </div>
     </div>
+    <!-- Load release info -->
+    <script src="firmware-data.js"></script>
 
     <!-- Load the data loader script -->
     <script src="load-wippersnapper-data.js"></script>
-    
+
     <!-- Load the original application script -->
     <script src="wippersnapper-config-builder.js"></script>
-    
+
     <script>
         // Initialize functions from the original script
-        
+
         // Tab Navigation functions
         function openTab(evt, tabName) {
             // Declare variables
             let i, tabcontent, tablinks;
-            
+
             // Get all elements with class="tabcontent" and hide them
             tabcontent = document.getElementsByClassName("tabcontent");
             for (i = 0; i < tabcontent.length; i++) {
                 tabcontent[i].style.display = "none";
             }
-            
+
             // Get all elements with class="tablinks" and remove the class "active"
             tablinks = document.getElementsByClassName("tablinks");
             for (i = 0; i < tablinks.length; i++) {
                 tablinks[i].className = tablinks[i].className.replace(" active", "");
             }
-            
+
             // Show the current tab, and add an "active" class to the button that opened the tab
             document.getElementById(tabName).style.display = "block";
             if (evt) {
@@ -571,19 +628,19 @@
         function openComponentTab(evt, tabName) {
             // Declare variables
             let i, tabcontent, tablinks;
-            
+
             // Get all elements with class="component-tabcontent" and hide them
             tabcontent = document.getElementsByClassName("component-tabcontent");
             for (i = 0; i < tabcontent.length; i++) {
                 tabcontent[i].style.display = "none";
             }
-            
+
             // Get all elements with class="comp-tab" and remove the class "active"
             tablinks = document.getElementsByClassName("comp-tab");
             for (i = 0; i < tablinks.length; i++) {
                 tablinks[i].className = tablinks[i].className.replace(" active", "");
             }
-            
+
             // Show the current tab, and add an "active" class to the button that opened the tab
             document.getElementById(tabName).style.display = "block";
             if (evt) {
@@ -597,12 +654,12 @@
                 }
             }
         }
-        
+
         // Initialize the application with data loading
         document.addEventListener('DOMContentLoaded', function() {
             // This is handled by the load-wippersnapper-data.js script
             // It will call loadWippersnapperData() and initialize everything
-            
+
             // Make sure only All Components tab is visible initially
             const tabcontents = document.getElementsByClassName("component-tabcontent");
             for (let i = 0; i < tabcontents.length; i++) {
@@ -611,14 +668,14 @@
                 }
             }
         });
-        
+
         // Component search functionality
         document.querySelectorAll('.component-search').forEach(searchInput => {
             searchInput.addEventListener('input', function() {
                 const searchTerm = this.value.toLowerCase();
                 const componentType = this.id.split('-')[0]; // Extract type from ID (e.g., "i2c" from "i2c-search")
                 const componentList = document.getElementById(`${componentType}-component-list`);
-                
+
                 // Filter components
                 const components = componentList.querySelectorAll('.component-card');
                 components.forEach(component => {

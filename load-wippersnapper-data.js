@@ -1,8 +1,8 @@
 // Load Wippersnapper boards and components data
 
 // Configuration
-const BOARDS_JSON_URL = 'https://raw.githubusercontent.com/tyeth/Adafruit_Wippersnapper_Offline_Configurator/refs/heads/main/wippersnapper_boards.json'; //'wippersnapper_boards.json';
-const COMPONENTS_JSON_URL = 'https://raw.githubusercontent.com/tyeth/Adafruit_Wippersnapper_Offline_Configurator/refs/heads/main/wippersnapper_components.json'; //'wippersnapper_components.json';
+const BOARDS_JSON_URL = 'https://raw.githubusercontent.com/tyeth/Adafruit_Wippersnapper_Offline_Configurator/refs/heads/use_boards_sd_card/wippersnapper_boards.json'; //'wippersnapper_boards.json';
+const COMPONENTS_JSON_URL = 'https://raw.githubusercontent.com/tyeth/Adafruit_Wippersnapper_Offline_Configurator/refs/heads/use_boards_sd_card/wippersnapper_components.json'; //'wippersnapper_components.json';
 
 // Global app state
 const appState = {
@@ -10,6 +10,7 @@ const appState = {
     componentsData: null,
     isLoading: false,
     loadError: null,
+    enableautoConfig: false,
     
     // Application state properties (from original code)
     selectedBoard: null,
@@ -47,6 +48,14 @@ async function loadWippersnapperData() {
         await new Promise(resolve => setTimeout(resolve, 1000));
         const boardsData = window['jsonBoardObject'];
         const componentsData = window['jsonComponentsObject'];
+        const firmwareData = window['FIRMWARE_DATA'];
+        if (firmwareData && firmwareData.releaseInfo) {
+            // Update the release name and link in the UI
+            document.getElementById('release_name').innerHTML = "(" + firmwareData.releaseInfo.publishedDate + ")<br/>" + firmwareData.releaseInfo.name;
+            document.getElementById('release_name').href = firmwareData.releaseInfo.url;
+            //TODO: set onchange for the boards to alter the download url in #firmware_file link
+        }
+
         appState.boardsData = boardsData.boards;
         appState.componentsData = componentsData.components;
         document.body.removeChild(componentsObject);
@@ -58,6 +67,10 @@ async function loadWippersnapperData() {
             appState.componentsData.i2c.push({
                 id: 'pca9546',
                 name: 'PCA9546 I2C Multiplexer',
+                displayName: 'PCA9546 I2C Multiplexer',
+                productURL: 'https://www.adafruit.com/product/5664',
+                documentationURL: 'https://learn.adafruit.com/adafruit-pca9546-4-channel-stemma-qt-multiplexer',
+                image: 'https://cdn-shop.adafruit.com/640x480/5664-00.jpg',
                 address: '0x70',
                 addresses: ['0x70', '0x71', '0x72', '0x73', '0x74', '0x75', '0x76', '0x77'],
                 dataTypes: [],
@@ -68,6 +81,10 @@ async function loadWippersnapperData() {
             appState.componentsData.i2c.push({
                 id: 'pca9548',
                 name: 'PCA9548 I2C Multiplexer',
+                displayName: 'PCA9548 I2C Multiplexer',
+                productURL: 'https://www.adafruit.com/product/5626',
+                documentationURL: 'https://learn.adafruit.com/adafruit-pca9548-8-channel-stemma-qt-qwiic-i2c-multiplexer',
+                image: 'https://cdn-shop.adafruit.com/640x480/5626-06.jpg',
                 address: '0x70',
                 addresses: ['0x70', '0x71', '0x72', '0x73', '0x74', '0x75', '0x76', '0x77'],
                 dataTypes: [],
@@ -78,6 +95,10 @@ async function loadWippersnapperData() {
             appState.componentsData.i2c.push({
                 id: 'tca9546',
                 name: 'TCA9546 I2C Multiplexer',
+                displayName: 'TCA9546 4Ch I2C Multiplexer',
+                productURL: 'https://www.adafruit.com/product/5663',
+                documentationURL: 'https://learn.adafruit.com/adafruit-pca9546-4-channel-i2c-multiplexer',
+                image: 'https://cdn-shop.adafruit.com/640x480/5663-04.jpg',
                 address: '0x70',
                 addresses: ['0x70', '0x71', '0x72', '0x73', '0x74', '0x75', '0x76', '0x77'],
                 dataTypes: [],
@@ -88,6 +109,10 @@ async function loadWippersnapperData() {
             appState.componentsData.i2c.push({
                 id: 'tca9548',
                 name: 'TCA9548 I2C Multiplexer',
+                displayName: 'TCA9548 8Ch I2C Multiplexer',
+                productURL: 'https://www.adafruit.com/product/2717',
+                documentationURL: 'https://learn.adafruit.com/adafruit-tca9548a-1-to-8-i2c-multiplexer-breakout',
+                image: 'https://cdn-shop.adafruit.com/640x480/2717-00.jpg',
                 address: '0x70',
                 addresses: ['0x70', '0x71', '0x72', '0x73', '0x74', '0x75', '0x76', '0x77'],
                 dataTypes: [],
@@ -136,16 +161,19 @@ function populateBoardSelect() {
     
     // Filter boards to only include those with UF2 install method
     const filteredBoards = Object.entries(appState.boardsData)
-        .filter(([boardId, board]) => ['uf2', 'web-native-usb'].includes(board.installMethod));
+        .filter(([boardId, board]) => board.installMethod === 'uf2'); //['uf2', 'web-native-usb'].includes(board.installMethod)); //funhouse
     
     // Sort boards by vendor and name
     const sortedBoards = filteredBoards
         .sort((a, b) => {
             const vendorA = a[1].vendor || '';
             const vendorB = b[1].vendor || '';
-            
-            // Sort by vendor first
-            if (vendorA !== vendorB) {
+            if (vendorA === 'Generic') {
+                return 1; // Sort Generic to the end
+            } else if (vendorB === 'Generic') {
+                return -1; // Sort Generic to the end
+            } else if (vendorA !== vendorB) {
+                // Sort by vendor first
                 return vendorA.localeCompare(vendorB);
             }
             
@@ -191,19 +219,14 @@ function convertBoardDataToConfig(boardId) {
     // Extract pin numbers from board data
     const pins = boardData.pins.map(pin => pin.number).filter(num => !isNaN(num));
     
+    boardConfig = boardData;
     // Create board config
-    const boardConfig = {
-        referenceVoltage: boardData.referenceVoltage,
-        totalGPIOPins: boardData.totalGPIOPins,
-        totalAnalogPins: boardData.totalAnalogPins || 0,
-        defaultI2C: {
-            scl: boardData.defaultI2C.SCL,
-            sda: boardData.defaultI2C.SDA
-        },
-        pins: pins,
-        displayName: boardData.displayName,
-        image: boardData.image
-    };
+    boardConfig.totalAnalogPins= boardData.totalAnalogPins || 0;
+    boardConfig.defaultI2C= {
+            SCL: boardData.defaultI2C.SCL,
+            SDA: boardData.defaultI2C.SDA
+        };
+    boardConfig.pins= pins;
     
     return boardConfig;
 }
@@ -229,6 +252,7 @@ function convertComponentsDataToConfig() {
             componentsConfig.i2c.push({
                 id: component.id,
                 name: component.name,
+                displayName: component.displayName || component.name,
                 address: component.address || '0x00',
                 addresses: component.addresses || [component.address || '0x00'],
                 dataTypes: component.dataTypes || [],
@@ -242,6 +266,7 @@ function convertComponentsDataToConfig() {
         appState.componentsData.ds18x20.forEach(component => {
             componentsConfig.ds18x20.push({
                 id: component.id,
+                displayName: component.displayName || component.name,
                 name: component.name,
                 dataTypes: component.dataTypes || []
             });
@@ -253,6 +278,7 @@ function convertComponentsDataToConfig() {
         appState.componentsData.pin.forEach(component => {
             componentsConfig.pin.push({
                 id: component.id,
+                displayName: component.displayName || component.name,
                 name: component.name,
                 dataTypes: component.dataTypes || []
             });
@@ -264,6 +290,7 @@ function convertComponentsDataToConfig() {
         appState.componentsData.pixel.forEach(component => {
             componentsConfig.pixel.push({
                 id: component.id,
+                displayName: component.displayName || component.name,
                 name: component.name,
                 dataTypes: component.dataTypes || []
             });
@@ -275,6 +302,7 @@ function convertComponentsDataToConfig() {
         appState.componentsData.pwm.forEach(component => {
             componentsConfig.pwm.push({
                 id: component.id,
+                displayName: component.displayName || component.name,
                 name: component.name,
                 dataTypes: component.dataTypes || []
             });
@@ -286,6 +314,7 @@ function convertComponentsDataToConfig() {
         appState.componentsData.servo.forEach(component => {
             componentsConfig.servo.push({
                 id: component.id,
+                displayName: component.displayName || component.name,
                 name: component.name,
                 dataTypes: component.dataTypes || []
             });
@@ -297,6 +326,7 @@ function convertComponentsDataToConfig() {
         appState.componentsData.uart.forEach(component => {
             componentsConfig.uart.push({
                 id: component.id,
+                displayName: component.displayName || component.name,
                 name: component.name,
                 dataTypes: component.dataTypes || []
             });
@@ -310,81 +340,21 @@ function convertComponentsDataToConfig() {
  * Attach event listeners to the UI elements
  */
 function attachEventListeners() {
-    // Board selection handler
-    document.getElementById('board-select').addEventListener('change', function() {
-        const boardId = this.value;
-        if (!boardId) {
-            document.getElementById('board-details').classList.add('hidden');
-            hideSubsequentSections();
-            return;
-        }
-        
-        // Convert board data to config format
-        const boardConfig = convertBoardDataToConfig(boardId);
-        appState.selectedBoard = {
-            id: boardId,
-            ...boardConfig
-        };
-        
-        // Update board details display
-        document.getElementById('ref-voltage').textContent = boardConfig.referenceVoltage;
-        document.getElementById('total-gpio').textContent = boardConfig.totalGPIOPins;
-        document.getElementById('total-analog').textContent = boardConfig.totalAnalogPins;
-        document.getElementById('default-scl').textContent = boardConfig.defaultI2C.scl;
-        document.getElementById('default-sda').textContent = boardConfig.defaultI2C.sda;
-        document.getElementById('board-details').classList.remove('hidden');
-        
-        // If there's a board image, show it
-        const boardImageElem = document.getElementById('board-image');
-        if (boardImageElem) {
-            if (boardConfig.image) {
-                if (!boardConfig.image.startsWith('http')) {
-                    boardImageElem.src = "https://raw.githubusercontent.com/adafruit/Wippersnapper_Boards/refs/heads/main/" + boardConfig.image;
-                } else {
-                    boardImageElem.src = boardConfig.image;
-                }
-                boardImageElem.classList.remove('hidden');
-            } else {
-                boardImageElem.classList.add('hidden');
-            }
-        }
-        
-        // Set up default I2C bus
-        appState.i2cBuses = [{
-            id: 'default',
-            scl: boardConfig.defaultI2C.scl,
-            sda: boardConfig.defaultI2C.sda
-        }];
-        
-        // Update default I2C bus display
-        document.getElementById('default-i2c-scl').textContent = boardConfig.defaultI2C.scl;
-        document.getElementById('default-i2c-sda').textContent = boardConfig.defaultI2C.sda;
-        
-        // Mark default I2C pins as used
-        appState.usedPins.add(boardConfig.defaultI2C.scl);
-        appState.usedPins.add(boardConfig.defaultI2C.sda);
-        
-        // Show companion board section
-        document.getElementById('companion-board-section').classList.remove('hidden');
-        
-        // Reset subsequent sections
-        resetSubsequentSelections();
-        
-        // Initialize SD and RTC sections based on board
-        initializeManualConfig();
-        
-        // Initialize pins lists for SD and I2C configuration
-        populatePinsLists();
-        
-        // Convert component data to config format
-        const componentsConfig = convertComponentsDataToConfig();
-        
-        // Initialize components sections with the loaded data
-        populateComponentLists(componentsConfig);
-    });
+    // BOARD SELECTION HANDLER HAS BEEN REMOVED
+    // The duplicate event handler from load-wippersnapper-data.js has been removed
+    // to prevent conflicts with the handler in wippersnapper-config-builder.js
     
-    // Remaining event listeners should be added here or in the original script
-    // ...
+    // Instead, we'll prepare the data in the format expected by wippersnapper-config-builder.js
+    console.log('Data loading complete, board selection handler is in wippersnapper-config-builder.js');
+    
+    // Convert component data to config format
+    const componentsConfig = convertComponentsDataToConfig();
+    console.log('not using Components data converted to config format:', componentsConfig);
+    // Update the components data in appState with the converted format
+    // so it's ready for use in the other script
+    // appState.componentsData = componentsConfig;
+    
+    // No other event listeners needed here as they are handled in wippersnapper-config-builder.js
 }
 
 /**

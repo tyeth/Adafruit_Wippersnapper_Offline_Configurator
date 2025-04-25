@@ -39,18 +39,26 @@ jobs:
         run: |
           git config --global user.name "GitHub Actions Bot"
           git config --global user.email "actions@github.com"
-          git submodule update --remote --recursive
+          git submodule init
+          git submodule update --recursive
+          cd Wippersnapper_Boards
+          git reset --hard origin/rp2040_datalogger_feather
+          cd ../Wippersnapper_Components
+          git reset --hard origin/main
+          cd ..
+          git add Wippersnapper_Boards Wippersnapper_Components
+          git diff --staged --quiet || git commit -m "Update submodules to latest versions [skip ci]"
 
       - name: Run conversion script
         run: |
-          pip install requests beautifulsoup4
+          pip install requests
           python convert_all_wippersnapper_definitions.py
 
       - name: Commit changes if any
         run: |
-          git add wippersnapper_boards.json wippersnapper_components.json
+          git add wippersnapper_boards.json wippersnapper_components.json wippersnapper_boards.js wippersnapper_components.js firmware-data.js
           git diff --staged --quiet || git commit -m "Auto-update Wippersnapper definitions [skip ci]"
-          git push origin main
+          git push origin ${{ github.ref_name }}
 
       - name: Setup Pages
         uses: actions/configure-pages@v4

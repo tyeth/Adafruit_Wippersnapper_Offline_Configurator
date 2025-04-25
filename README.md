@@ -1,5 +1,55 @@
-# Adafruit_Wippersnapper_Offline_Configurator
-A single web page for the creation / amending of config.json files to support Wippersnapper Offline Data Logger firmware
+# Adafruit Wippersnapper Offline Configurator
+This web page is for the creation / amending of `config.json` files to support the free and open-source Adafruit "Wippersnapper" Offline Data Logger firmware.
+
+It allows users to select their microcontroller board, automatically (or manully) setup the Real Time Clock (RTC) and an SD card Chip Select pin (uses default SPI bus), or any companion boards with SD cards and/or RTCs, and then the attached components (sensors, analog pins, etc) for data logging.
+
+The page can also be used offline by including the javascript (.js) files, ideally minified (180k > 60k), and index.html (i.e. copy to your device or SD card)
+
 
 Visit the site here:
-### [https://tyeth.github.io/Adafruit_Wippersnapper_Offline_Configurator/](https://tyeth.github.io/Adafruit_Wippersnapper_Offline_Configurator/)
+[https://adafruit.github.io/Adafruit_Wippersnapper_Offline_Configurator/](https://adafruit.github.io/Adafruit_Wippersnapper_Offline_Configurator/)
+
+See this Learn Guide for more info on using Adafruit Wippersnapper Firmware (offline mode) as a Data Logger, which also has the **Supported Hardware** page:
+[No-Code Offline Data Logger with WipperSnapper](https://learn.adafruit.com/no-code-offline-data-logging-with-wippersnapper/)
+
+## Development
+We gratefully accept pull-requests and issues (open-source ❤️) although the main [Wippersnapper repository](https://github.com/adafruit/Adafruit_Wippersnapper_Arduino/issues) (or [boards](https://github.com/adafruit/Wippersnapper_Boards) or [components](https://github.com/adafruit/Wippersnapper_Components)) is better suited for issues., as this is a stop-gap solution until the main Adafruit IO website performs the desired functionality (Wippersnapper v2), but it has proven useful so maybe will continue to do so.
+
+If you wish to play with the website design / functionality then the main files to edit are:
+* index.html
+* load-wippersnapper-data.js
+* wippersnapper-config-builder.js
+
+The remaining files are involved in updating automatically generated board and component definitions.
+
+If you wish to add companion boards then those are manually defined (search featherwing), but boards and components should be added to Wippersnapper to be picked up automatically.
+If you wish to add RTCs, they must first be added to the offline firmware, and then we'll add (or a merge PR) the RTC to the web interface. The repositories are linked above.
+
+To recreate the build process, which processes the boards+component definitions and fetches images + firmware versions, you'll need python installed (and pip) and then to install the requirements:
+```shell
+pip install -r requirements.txt
+```
+Then before running you'll need to initialise the submodules with git (or download the submodules and unzip manually)
+```shell
+git submodule update --init
+```
+
+Finally run the convert script:
+```shell
+python ./convert_all_wippersnapper_definitions.py
+```
+
+And you should see output like this:
+```
+=== Conversion Complete ===
+Converted 23 boards and 98 components
+Time taken: 24.39 seconds
+Output files:
+  - C:\dev\js\Adafruit_Wippersnapper_Offline_Configurator\wippersnapper_boards.json
+  - C:\dev\js\Adafruit_Wippersnapper_Offline_Configurator\wippersnapper_components.json
+```
+
+That will have replaced the following files:
+wippersnapper_boards.js + .json
+wippersnapper_components.js + .json
+firmware-data.js

@@ -1,8 +1,8 @@
 // Load Wippersnapper boards and components data
 
-// Configuration
-const BOARDS_JSON_URL = 'https://raw.githubusercontent.com/tyeth/Adafruit_Wippersnapper_Offline_Configurator/refs/heads/use_boards_sd_card/wippersnapper_boards.json'; //'wippersnapper_boards.json';
-const COMPONENTS_JSON_URL = 'https://raw.githubusercontent.com/tyeth/Adafruit_Wippersnapper_Offline_Configurator/refs/heads/use_boards_sd_card/wippersnapper_components.json'; //'wippersnapper_components.json';
+// Configuration - technically unused (instead ./ relative links) but useful for reference
+const BOARDS_JSON_URL = 'https://raw.githubusercontent.com/adafruit/Adafruit_Wippersnapper_Offline_Configurator/refs/heads/use_boards_sd_card/wippersnapper_boards.json'; //'wippersnapper_boards.json';
+const COMPONENTS_JSON_URL = 'https://raw.githubusercontent.com/adafruit/Adafruit_Wippersnapper_Offline_Configurator/refs/heads/use_boards_sd_card/wippersnapper_components.json'; //'wippersnapper_components.json';
 
 // Global app state
 const appState = {
@@ -11,7 +11,7 @@ const appState = {
     isLoading: false,
     loadError: null,
     enableautoConfig: false,
-    
+
     // Application state properties (from original code)
     selectedBoard: null,
     companionBoard: null,
@@ -60,7 +60,7 @@ async function loadWippersnapperData() {
         appState.componentsData = componentsData.components;
         document.body.removeChild(componentsObject);
         document.body.removeChild(jsonObject);
-        
+
         // Add I2C multiplexer components manually since they're not in the JSON data
         if (appState.componentsData.i2c) {
             // Add PCA9546 - 4-channel I2C multiplexer
@@ -76,7 +76,7 @@ async function loadWippersnapperData() {
                 dataTypes: [],
                 channels: 4
             });
-            
+
             // Add PCA9548 - 8-channel I2C multiplexer
             appState.componentsData.i2c.push({
                 id: 'pca9548',
@@ -90,7 +90,7 @@ async function loadWippersnapperData() {
                 dataTypes: [],
                 channels: 8
             });
-            
+
             // Add TCA9546 - 4-channel I2C multiplexer
             appState.componentsData.i2c.push({
                 id: 'tca9546',
@@ -104,7 +104,7 @@ async function loadWippersnapperData() {
                 dataTypes: [],
                 channels: 4
             });
-            
+
             // Add TCA9548 - 8-channel I2C multiplexer
             appState.componentsData.i2c.push({
                 id: 'tca9548',
@@ -119,17 +119,17 @@ async function loadWippersnapperData() {
                 channels: 8
             });
         }
-        
+
         // Initialize the UI with the data
         initializeUI();
-        
+
         console.log('Successfully loaded Wippersnapper data', {
             boards: Object.keys(appState.boardsData).length,
             components: Object.keys(appState.componentsData)
                 .filter(key => !key.endsWith('_metadata'))
                 .reduce((acc, key) => acc + appState.componentsData[key].length, 0)
         });
-        
+
         appState.isLoading = false;
         return true;
     } catch (error) {
@@ -147,7 +147,7 @@ async function loadWippersnapperData() {
 function initializeUI() {
     // Populate board select dropdown
     populateBoardSelect();
-    
+
     // Set up event listeners
     attachEventListeners();
 }
@@ -158,11 +158,11 @@ function initializeUI() {
 function populateBoardSelect() {
     const boardSelect = document.getElementById('board-select');
     boardSelect.innerHTML = '<option value="">-- Select a Board --</option>';
-    
+
     // Filter boards to only include those with UF2 install method
     const filteredBoards = Object.entries(appState.boardsData)
         .filter(([boardId, board]) => board.installMethod === 'uf2'); //['uf2', 'web-native-usb'].includes(board.installMethod)); //funhouse
-    
+
     // Sort boards by vendor and name
     const sortedBoards = filteredBoards
         .sort((a, b) => {
@@ -176,11 +176,11 @@ function populateBoardSelect() {
                 // Sort by vendor first
                 return vendorA.localeCompare(vendorB);
             }
-            
+
             // Then by display name
             return a[1].displayName.localeCompare(b[1].displayName);
         });
-    
+
     // Group boards by vendor
     const boardsByVendor = {};
     sortedBoards.forEach(([boardId, board]) => {
@@ -190,19 +190,19 @@ function populateBoardSelect() {
         }
         boardsByVendor[vendor].push([boardId, board]);
     });
-    
+
     // Add boards to select, grouped by vendor
     Object.entries(boardsByVendor).forEach(([vendor, boards]) => {
         const optgroup = document.createElement('optgroup');
         optgroup.label = vendor;
-        
+
         boards.forEach(([boardId, board]) => {
             const option = document.createElement('option');
             option.value = boardId;
             option.textContent = board.displayName;
             optgroup.appendChild(option);
         });
-        
+
         boardSelect.appendChild(optgroup);
     });
 }
@@ -215,10 +215,10 @@ function populateBoardSelect() {
 function convertBoardDataToConfig(boardId) {
     const boardData = appState.boardsData[boardId];
     if (!boardData) return null;
-    
+
     // Extract pin numbers from board data
     const pins = boardData.pins.map(pin => pin.number).filter(num => !isNaN(num));
-    
+
     boardConfig = boardData;
     // Create board config
     boardConfig.totalAnalogPins= boardData.totalAnalogPins || 0;
@@ -227,7 +227,7 @@ function convertBoardDataToConfig(boardId) {
             SDA: boardData.defaultI2C.SDA
         };
     boardConfig.pins= pins;
-    
+
     return boardConfig;
 }
 
@@ -245,7 +245,7 @@ function convertComponentsDataToConfig() {
         servo: [],
         uart: []
     };
-    
+
     // Process I2C components
     if (appState.componentsData.i2c) {
         appState.componentsData.i2c.forEach(component => {
@@ -260,7 +260,7 @@ function convertComponentsDataToConfig() {
             });
         });
     }
-    
+
     // Process DS18x20 components
     if (appState.componentsData.ds18x20) {
         appState.componentsData.ds18x20.forEach(component => {
@@ -272,7 +272,7 @@ function convertComponentsDataToConfig() {
             });
         });
     }
-    
+
     // Process Pin components
     if (appState.componentsData.pin) {
         appState.componentsData.pin.forEach(component => {
@@ -284,7 +284,7 @@ function convertComponentsDataToConfig() {
             });
         });
     }
-    
+
     // Process Pixel components
     if (appState.componentsData.pixel) {
         appState.componentsData.pixel.forEach(component => {
@@ -296,7 +296,7 @@ function convertComponentsDataToConfig() {
             });
         });
     }
-    
+
     // Process PWM components
     if (appState.componentsData.pwm) {
         appState.componentsData.pwm.forEach(component => {
@@ -308,7 +308,7 @@ function convertComponentsDataToConfig() {
             });
         });
     }
-    
+
     // Process Servo components
     if (appState.componentsData.servo) {
         appState.componentsData.servo.forEach(component => {
@@ -320,7 +320,7 @@ function convertComponentsDataToConfig() {
             });
         });
     }
-    
+
     // Process UART components
     if (appState.componentsData.uart) {
         appState.componentsData.uart.forEach(component => {
@@ -332,7 +332,7 @@ function convertComponentsDataToConfig() {
             });
         });
     }
-    
+
     return componentsConfig;
 }
 
@@ -343,17 +343,17 @@ function attachEventListeners() {
     // BOARD SELECTION HANDLER HAS BEEN REMOVED
     // The duplicate event handler from load-wippersnapper-data.js has been removed
     // to prevent conflicts with the handler in wippersnapper-config-builder.js
-    
+
     // Instead, we'll prepare the data in the format expected by wippersnapper-config-builder.js
     console.log('Data loading complete, board selection handler is in wippersnapper-config-builder.js');
-    
+
     // Convert component data to config format
     const componentsConfig = convertComponentsDataToConfig();
     console.log('not using Components data converted to config format:', componentsConfig);
     // Update the components data in appState with the converted format
     // so it's ready for use in the other script
     // appState.componentsData = componentsConfig;
-    
+
     // No other event listeners needed here as they are handled in wippersnapper-config-builder.js
 }
 
@@ -364,7 +364,7 @@ function attachEventListeners() {
 function showLoadError(message) {
     // Create or update an error message element
     let errorElem = document.getElementById('load-error');
-    
+
     if (!errorElem) {
         errorElem = document.createElement('div');
         errorElem.id = 'load-error';
@@ -373,11 +373,11 @@ function showLoadError(message) {
         errorElem.style.padding = '15px';
         errorElem.style.margin = '15px 0';
         errorElem.style.borderRadius = '5px';
-        
+
         // Insert at the top of the body
         document.body.insertBefore(errorElem, document.body.firstChild);
     }
-    
+
     errorElem.innerHTML = `
         <h3>Error Loading Data</h3>
         <p>${message}</p>
@@ -395,7 +395,7 @@ function retryLoading() {
     if (errorElem) {
         errorElem.remove();
     }
-    
+
     // Try loading again
     loadWippersnapperData();
 }

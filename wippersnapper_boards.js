@@ -1,106 +1,127 @@
 window.jsonBoardObject = {
   "boards": {
-    "qtpy-esp32s3": {
-      "boardName": "qtpy-esp32s3",
-      "mcuName": "esp32s3",
+    "feather-esp32s2": {
+      "boardName": "feather-esp32s2",
+      "mcuName": "esp32s2",
       "referenceVoltage": 2.6,
-      "displayName": "Adafruit QT Py ESP32-S3 (NO PSRAM)",
+      "displayName": "Adafruit ESP32-S2 Feather",
       "vendor": "Adafruit",
-      "productURL": "https://www.adafruit.com/product/5426",
-      "documentationURL": "https://learn.adafruit.com/adafruit-qt-py-esp32-s3",
+      "productURL": "https://www.adafruit.com/product/5000",
+      "documentationURL": "https://learn.adafruit.com/adafruit-esp32-s2-feather",
       "installMethod": "uf2",
-      "installBoardName": "qtpy-esp32s3",
+      "installBoardName": "feather-esp32s2",
       "rtc": null,
       "sdCardCS": null,
       "pins": [
         {
-          "number": 18,
-          "name": "D18",
-          "displayName": "A0",
+          "number": 0,
+          "name": "D0",
+          "displayName": "D0 (Boot Push Button)",
+          "hasPWM": false,
+          "hasServo": false
+        },
+        {
+          "number": 1,
+          "name": "D1",
+          "displayName": "D1",
           "hasPWM": true,
           "hasServo": true
         },
         {
-          "number": 17,
-          "name": "D17",
-          "displayName": "A1",
+          "number": 2,
+          "name": "D2",
+          "displayName": "D2",
           "hasPWM": true,
           "hasServo": true
         },
         {
-          "number": 9,
-          "name": "D9",
-          "displayName": "A2",
+          "number": 3,
+          "name": "D3",
+          "displayName": "D3",
           "hasPWM": true,
           "hasServo": true
         },
         {
-          "number": 8,
-          "name": "D8",
-          "displayName": "A3",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 7,
-          "name": "D7",
-          "displayName": "SDA",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 6,
-          "name": "D6",
-          "displayName": "SCL",
+          "number": 4,
+          "name": "D4",
+          "displayName": "D4",
           "hasPWM": true,
           "hasServo": true
         },
         {
           "number": 5,
           "name": "D5",
-          "displayName": "D5 (UART TX)",
+          "displayName": "D5",
           "hasPWM": true,
           "hasServo": true
         },
         {
-          "number": 35,
-          "name": "D35",
-          "displayName": "MOSI",
+          "number": 6,
+          "name": "D6",
+          "displayName": "D6",
           "hasPWM": true,
           "hasServo": true
         },
         {
-          "number": 37,
-          "name": "D37",
-          "displayName": "MISO",
+          "number": 7,
+          "name": "D7",
+          "displayName": "D7 (I2C Power)",
+          "hasPWM": false,
+          "hasServo": false
+        },
+        {
+          "number": 9,
+          "name": "D9",
+          "displayName": "D9",
           "hasPWM": true,
           "hasServo": true
         },
         {
-          "number": 36,
-          "name": "D36",
-          "displayName": "SCK",
+          "number": 10,
+          "name": "D10",
+          "displayName": "D10",
           "hasPWM": true,
           "hasServo": true
         },
         {
-          "number": 16,
-          "name": "D16",
-          "displayName": "D16 (UART RX)",
+          "number": 11,
+          "name": "D11",
+          "displayName": "D11",
           "hasPWM": true,
           "hasServo": true
         },
         {
-          "number": 0,
-          "name": "D0",
-          "displayName": "Boot Pushbutton",
+          "number": 12,
+          "name": "D12",
+          "displayName": "D12",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 13,
+          "name": "D13",
+          "displayName": "D13 (LED)",
+          "hasPWM": true,
+          "hasServo": false
+        },
+        {
+          "number": 33,
+          "name": "D33",
+          "displayName": "D33 (NeoPixel)",
+          "hasPWM": false,
+          "hasServo": false
+        },
+        {
+          "number": 38,
+          "name": "D38",
+          "displayName": "D38 (UART RX)",
           "hasPWM": false,
           "hasServo": false
         },
         {
           "number": 39,
           "name": "D39",
-          "displayName": "D39 (NeoPixel)",
+          "displayName": "D39 (UART TX)",
           "hasPWM": false,
           "hasServo": false
         }
@@ -119,54 +140,928 @@ window.jsonBoardObject = {
           "direction": "INPUT"
         },
         {
-          "number": 9,
-          "name": "A9",
+          "number": 16,
+          "name": "A16",
           "displayName": "A2",
+          "direction": "INPUT"
+        },
+        {
+          "number": 15,
+          "name": "A15",
+          "displayName": "A3",
+          "direction": "INPUT"
+        },
+        {
+          "number": 14,
+          "name": "A14",
+          "displayName": "A4",
           "direction": "INPUT"
         },
         {
           "number": 8,
           "name": "A8",
-          "displayName": "A3",
-          "direction": "INPUT"
-        },
-        {
-          "number": 7,
-          "name": "A7",
-          "displayName": "SDA",
-          "direction": "INPUT"
-        },
-        {
-          "number": 6,
-          "name": "A6",
-          "displayName": "SCL",
-          "direction": "INPUT"
-        },
-        {
-          "number": 5,
-          "name": "A5",
-          "displayName": "A5 (UART TX)",
-          "direction": "INPUT"
-        },
-        {
-          "number": 16,
-          "name": "A16",
-          "displayName": "A16 (UART RX)",
+          "displayName": "A5",
           "direction": "INPUT"
         }
       ],
       "defaultI2C": {
         "i2cPortId": 0,
-        "SCL": 40,
-        "SDA": 41
+        "SCL": 4,
+        "SDA": 3
       },
-      "image": "boards/qtpy-esp32s3/image.svg",
-      "totalAnalogPins": 8,
+      "image": "boards/feather-esp32s2/image.png",
+      "totalAnalogPins": 6,
       "i2cPorts": [
         {
           "i2cPortId": 0,
-          "SDA": 41,
-          "SCL": 40
+          "SDA": 3,
+          "SCL": 4
+        }
+      ],
+      "totalGPIOPins": 16
+    },
+    "feather-esp32s2-reverse-tft": {
+      "boardName": "feather-esp32s2-reverse-tft",
+      "mcuName": "esp32s2",
+      "referenceVoltage": 2.6,
+      "displayName": "ESP32-S2 Reverse TFT Feather",
+      "vendor": "Adafruit",
+      "productURL": "https://www.adafruit.com/product/5345",
+      "documentationURL": "https://learn.adafruit.com/esp32-s2-reverse-tft-feather",
+      "installMethod": "uf2",
+      "installBoardName": "feather-esp32s2-reverse-tft",
+      "rtc": null,
+      "sdCardCS": null,
+      "pins": [
+        {
+          "number": 0,
+          "name": "D0",
+          "displayName": "D0 (Boot Push Button)",
+          "hasPWM": false,
+          "hasServo": false
+        },
+        {
+          "number": 1,
+          "name": "D1",
+          "displayName": "D1 Push Button",
+          "hasPWM": false,
+          "hasServo": false
+        },
+        {
+          "number": 2,
+          "name": "D2",
+          "displayName": "D2 Push Button",
+          "hasPWM": false,
+          "hasServo": false
+        },
+        {
+          "number": 5,
+          "name": "D5",
+          "displayName": "D5",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 6,
+          "name": "D6",
+          "displayName": "D6",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 9,
+          "name": "D9",
+          "displayName": "D9",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 10,
+          "name": "D10",
+          "displayName": "D10",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 11,
+          "name": "D11",
+          "displayName": "D11",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 12,
+          "name": "D12",
+          "displayName": "D12",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 13,
+          "name": "D13",
+          "displayName": "D13 (LED)",
+          "hasPWM": true,
+          "hasServo": false
+        },
+        {
+          "number": 33,
+          "name": "D33",
+          "displayName": "D33 (NeoPixel)",
+          "hasPWM": false,
+          "hasServo": false
+        },
+        {
+          "number": 21,
+          "name": "D21",
+          "displayName": "D21 (NeoPixel Power Pin)",
+          "hasPWM": false,
+          "hasServo": false
+        },
+        {
+          "number": 38,
+          "name": "D38",
+          "displayName": "D38 (UART RX)",
+          "hasPWM": false,
+          "hasServo": false
+        },
+        {
+          "number": 39,
+          "name": "D39",
+          "displayName": "D39 (UART TX)",
+          "hasPWM": false,
+          "hasServo": false
+        }
+      ],
+      "analogPins": [
+        {
+          "number": 18,
+          "name": "A18",
+          "displayName": "A0",
+          "direction": "INPUT"
+        },
+        {
+          "number": 17,
+          "name": "A17",
+          "displayName": "A1",
+          "direction": "INPUT"
+        },
+        {
+          "number": 16,
+          "name": "A16",
+          "displayName": "A2",
+          "direction": "INPUT"
+        },
+        {
+          "number": 15,
+          "name": "A15",
+          "displayName": "A3",
+          "direction": "INPUT"
+        },
+        {
+          "number": 14,
+          "name": "A14",
+          "displayName": "A4",
+          "direction": "INPUT"
+        },
+        {
+          "number": 8,
+          "name": "A8",
+          "displayName": "A5",
+          "direction": "INPUT"
+        }
+      ],
+      "defaultI2C": {
+        "i2cPortId": 0,
+        "SCL": 4,
+        "SDA": 3
+      },
+      "image": "boards/feather-esp32s2-reverse-tft/image.svg",
+      "totalAnalogPins": 6,
+      "i2cPorts": [
+        {
+          "i2cPortId": 0,
+          "SDA": 3,
+          "SCL": 4
+        }
+      ],
+      "totalGPIOPins": 14
+    },
+    "feather-esp32s2-tft": {
+      "boardName": "feather-esp32s2-tft",
+      "mcuName": "esp32s2",
+      "referenceVoltage": 2.6,
+      "displayName": "Adafruit ESP32-S2 TFT Feather",
+      "vendor": "Adafruit",
+      "productURL": "https://www.adafruit.com/product/5300",
+      "documentationURL": "https://learn.adafruit.com/adafruit-esp32-s2-tft-feather",
+      "installMethod": "uf2",
+      "installBoardName": "feather-esp32s2-tft",
+      "rtc": null,
+      "sdCardCS": null,
+      "pins": [
+        {
+          "number": 0,
+          "name": "D0",
+          "displayName": "D0 (Boot Push Button)",
+          "hasPWM": false,
+          "hasServo": false
+        },
+        {
+          "number": 1,
+          "name": "D1",
+          "displayName": "D1 (UART TX)",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 2,
+          "name": "D2",
+          "displayName": "D2 (UART RX)",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 3,
+          "name": "D3",
+          "displayName": "D3",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 4,
+          "name": "D4",
+          "displayName": "D4",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 5,
+          "name": "D5",
+          "displayName": "D5",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 6,
+          "name": "D6",
+          "displayName": "D6",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 9,
+          "name": "D9",
+          "displayName": "D9",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 10,
+          "name": "D10",
+          "displayName": "D10",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 11,
+          "name": "D11",
+          "displayName": "D11",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 12,
+          "name": "D12",
+          "displayName": "D12",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 13,
+          "name": "D13",
+          "displayName": "D13 (LED)",
+          "hasPWM": true,
+          "hasServo": false
+        },
+        {
+          "number": 33,
+          "name": "D33",
+          "displayName": "D33 (NeoPixel)",
+          "hasPWM": false,
+          "hasServo": false
+        },
+        {
+          "number": 38,
+          "name": "D38",
+          "displayName": "D38 (UART RX)",
+          "hasPWM": false,
+          "hasServo": false
+        },
+        {
+          "number": 39,
+          "name": "D39",
+          "displayName": "D39 (UART TX)",
+          "hasPWM": false,
+          "hasServo": false
+        }
+      ],
+      "analogPins": [
+        {
+          "number": 18,
+          "name": "A18",
+          "displayName": "A0",
+          "direction": "INPUT"
+        },
+        {
+          "number": 17,
+          "name": "A17",
+          "displayName": "A1",
+          "direction": "INPUT"
+        },
+        {
+          "number": 16,
+          "name": "A16",
+          "displayName": "A2",
+          "direction": "INPUT"
+        },
+        {
+          "number": 15,
+          "name": "A15",
+          "displayName": "A3",
+          "direction": "INPUT"
+        },
+        {
+          "number": 14,
+          "name": "A14",
+          "displayName": "A4",
+          "direction": "INPUT"
+        },
+        {
+          "number": 8,
+          "name": "A8",
+          "displayName": "A5",
+          "direction": "INPUT"
+        }
+      ],
+      "defaultI2C": {
+        "i2cPortId": 0,
+        "SCL": 41,
+        "SDA": 42
+      },
+      "image": "boards/feather-esp32s2-tft/image.svg",
+      "totalAnalogPins": 6,
+      "i2cPorts": [
+        {
+          "i2cPortId": 0,
+          "SDA": 42,
+          "SCL": 41
+        }
+      ],
+      "totalGPIOPins": 15
+    },
+    "feather-esp32s3": {
+      "boardName": "feather-esp32s3",
+      "mcuName": "esp32s3",
+      "referenceVoltage": 2.6,
+      "displayName": "Adafruit Feather ESP32-S3 No PSRAM",
+      "vendor": "Adafruit",
+      "productURL": "https://www.adafruit.com/product/5000",
+      "documentationURL": "https://learn.adafruit.com/adafruit-esp32-s3-feather",
+      "installMethod": "uf2",
+      "installBoardName": "feather-esp32s3",
+      "rtc": null,
+      "sdCardCS": null,
+      "pins": [
+        {
+          "number": 0,
+          "name": "D0",
+          "displayName": "D0 (Boot Push Button)",
+          "hasPWM": false,
+          "hasServo": false
+        },
+        {
+          "number": 1,
+          "name": "D1",
+          "displayName": "D1",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 2,
+          "name": "D2",
+          "displayName": "D2",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 3,
+          "name": "D3",
+          "displayName": "D3",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 4,
+          "name": "D4",
+          "displayName": "D4",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 5,
+          "name": "D5",
+          "displayName": "D5",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 6,
+          "name": "D6",
+          "displayName": "D6",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 7,
+          "name": "D7",
+          "displayName": "D7",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 8,
+          "name": "D8",
+          "displayName": "D8",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 9,
+          "name": "D9",
+          "displayName": "D9",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 10,
+          "name": "D10",
+          "displayName": "D10",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 11,
+          "name": "D11",
+          "displayName": "D11",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 12,
+          "name": "D12",
+          "displayName": "D12",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 13,
+          "name": "D13",
+          "displayName": "D13 (LED)",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 14,
+          "name": "D14",
+          "displayName": "D14",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 33,
+          "name": "D33",
+          "displayName": "D33 (NeoPixel)",
+          "hasPWM": false,
+          "hasServo": false
+        },
+        {
+          "number": 38,
+          "name": "D38",
+          "displayName": "D38 (UART RX)",
+          "hasPWM": false,
+          "hasServo": false
+        },
+        {
+          "number": 39,
+          "name": "D39",
+          "displayName": "D39 (UART TX)",
+          "hasPWM": false,
+          "hasServo": false
+        }
+      ],
+      "analogPins": [
+        {
+          "number": 18,
+          "name": "A18",
+          "displayName": "A0",
+          "direction": "INPUT"
+        },
+        {
+          "number": 17,
+          "name": "A17",
+          "displayName": "A1",
+          "direction": "INPUT"
+        },
+        {
+          "number": 16,
+          "name": "A16",
+          "displayName": "A2",
+          "direction": "INPUT"
+        },
+        {
+          "number": 15,
+          "name": "A15",
+          "displayName": "A3",
+          "direction": "INPUT"
+        },
+        {
+          "number": 14,
+          "name": "A14",
+          "displayName": "A4",
+          "direction": "INPUT"
+        },
+        {
+          "number": 8,
+          "name": "A8",
+          "displayName": "A5",
+          "direction": "INPUT"
+        }
+      ],
+      "defaultI2C": {
+        "i2cPortId": 0,
+        "SCL": 4,
+        "SDA": 3
+      },
+      "image": "boards/feather-esp32s3/image.svg",
+      "totalAnalogPins": 6,
+      "i2cPorts": [
+        {
+          "i2cPortId": 0,
+          "SDA": 3,
+          "SCL": 4
+        }
+      ],
+      "totalGPIOPins": 18
+    },
+    "feather-esp32s3-4mbflash-2mbpsram": {
+      "boardName": "feather-esp32s3-4mbflash-2mbpsram",
+      "mcuName": "esp32s3",
+      "referenceVoltage": 2.6,
+      "displayName": "Adafruit ESP32-S3 Feather with 4MB Flash 2MB PSRAM",
+      "vendor": "Adafruit",
+      "productURL": "https://www.adafruit.com/product/5477",
+      "documentationURL": "https://learn.adafruit.com/adafruit-esp32-s3-feather",
+      "installMethod": "uf2",
+      "installBoardName": "feather-esp32s3-4mbflash-2mbpsram",
+      "rtc": null,
+      "sdCardCS": null,
+      "pins": [
+        {
+          "number": 0,
+          "name": "D0",
+          "displayName": "D0 (Boot Push Button)",
+          "hasPWM": false,
+          "hasServo": false
+        },
+        {
+          "number": 1,
+          "name": "D1",
+          "displayName": "D1",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 2,
+          "name": "D2",
+          "displayName": "D2",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 3,
+          "name": "D3",
+          "displayName": "D3",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 4,
+          "name": "D4",
+          "displayName": "D4",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 5,
+          "name": "D5",
+          "displayName": "D5",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 6,
+          "name": "D6",
+          "displayName": "D6",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 7,
+          "name": "D7",
+          "displayName": "D7",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 8,
+          "name": "D8",
+          "displayName": "D8",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 9,
+          "name": "D9",
+          "displayName": "D9",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 10,
+          "name": "D10",
+          "displayName": "D10",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 11,
+          "name": "D11",
+          "displayName": "D11",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 12,
+          "name": "D12",
+          "displayName": "D12",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 13,
+          "name": "D13",
+          "displayName": "D13 (LED)",
+          "hasPWM": true,
+          "hasServo": false
+        },
+        {
+          "number": 14,
+          "name": "D14",
+          "displayName": "D14",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 33,
+          "name": "D33",
+          "displayName": "D33 (NeoPixel)",
+          "hasPWM": false,
+          "hasServo": false
+        },
+        {
+          "number": 38,
+          "name": "D38",
+          "displayName": "D38 (UART RX)",
+          "hasPWM": false,
+          "hasServo": false
+        },
+        {
+          "number": 39,
+          "name": "D39",
+          "displayName": "D39 (UART TX)",
+          "hasPWM": false,
+          "hasServo": false
+        }
+      ],
+      "analogPins": [
+        {
+          "number": 18,
+          "name": "A18",
+          "displayName": "A0",
+          "direction": "INPUT"
+        },
+        {
+          "number": 17,
+          "name": "A17",
+          "displayName": "A1",
+          "direction": "INPUT"
+        },
+        {
+          "number": 16,
+          "name": "A16",
+          "displayName": "A2",
+          "direction": "INPUT"
+        },
+        {
+          "number": 15,
+          "name": "A15",
+          "displayName": "A3",
+          "direction": "INPUT"
+        },
+        {
+          "number": 14,
+          "name": "A14",
+          "displayName": "A4",
+          "direction": "INPUT"
+        },
+        {
+          "number": 8,
+          "name": "A8",
+          "displayName": "A5",
+          "direction": "INPUT"
+        }
+      ],
+      "defaultI2C": {
+        "i2cPortId": 0,
+        "SCL": 4,
+        "SDA": 3
+      },
+      "image": "boards/feather-esp32s3-4mbflash-2mbpsram/image.svg",
+      "totalAnalogPins": 6,
+      "i2cPorts": [
+        {
+          "i2cPortId": 0,
+          "SDA": 3,
+          "SCL": 4
+        }
+      ],
+      "totalGPIOPins": 18
+    },
+    "feather-esp32s3-reverse-tft": {
+      "boardName": "feather-esp32s3-reverse-tft",
+      "mcuName": "esp32s3",
+      "referenceVoltage": 2.6,
+      "displayName": "ESP32-S3 Reverse TFT Feather",
+      "vendor": "Adafruit",
+      "productURL": "https://www.adafruit.com/product/5691",
+      "documentationURL": "https://learn.adafruit.com/esp32-s3-reverse-tft-feather",
+      "installMethod": "uf2",
+      "installBoardName": "feather-esp32s3-reverse-tft",
+      "rtc": null,
+      "sdCardCS": null,
+      "pins": [
+        {
+          "number": 0,
+          "name": "D0",
+          "displayName": "D0 (Boot Push Button)",
+          "hasPWM": false,
+          "hasServo": false
+        },
+        {
+          "number": 1,
+          "name": "D1",
+          "displayName": "D1 Push Button",
+          "hasPWM": false,
+          "hasServo": false
+        },
+        {
+          "number": 2,
+          "name": "D2",
+          "displayName": "D2 Push Button",
+          "hasPWM": false,
+          "hasServo": false
+        },
+        {
+          "number": 5,
+          "name": "D5",
+          "displayName": "D5",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 6,
+          "name": "D6",
+          "displayName": "D6",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 9,
+          "name": "D9",
+          "displayName": "D9",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 10,
+          "name": "D10",
+          "displayName": "D10",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 11,
+          "name": "D11",
+          "displayName": "D11",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 12,
+          "name": "D12",
+          "displayName": "D12",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 13,
+          "name": "D13",
+          "displayName": "D13 (LED)",
+          "hasPWM": true,
+          "hasServo": false
+        },
+        {
+          "number": 33,
+          "name": "D33",
+          "displayName": "D33 (NeoPixel)",
+          "hasPWM": false,
+          "hasServo": false
+        },
+        {
+          "number": 38,
+          "name": "D38",
+          "displayName": "D38 (UART RX)",
+          "hasPWM": false,
+          "hasServo": false
+        },
+        {
+          "number": 39,
+          "name": "D39",
+          "displayName": "D39 (UART TX)",
+          "hasPWM": false,
+          "hasServo": false
+        }
+      ],
+      "analogPins": [
+        {
+          "number": 18,
+          "name": "A18",
+          "displayName": "A0",
+          "direction": "INPUT"
+        },
+        {
+          "number": 17,
+          "name": "A17",
+          "displayName": "A1",
+          "direction": "INPUT"
+        },
+        {
+          "number": 16,
+          "name": "A16",
+          "displayName": "A2",
+          "direction": "INPUT"
+        },
+        {
+          "number": 15,
+          "name": "A15",
+          "displayName": "A3",
+          "direction": "INPUT"
+        },
+        {
+          "number": 14,
+          "name": "A14",
+          "displayName": "A4",
+          "direction": "INPUT"
+        },
+        {
+          "number": 8,
+          "name": "A8",
+          "displayName": "A5",
+          "direction": "INPUT"
+        }
+      ],
+      "defaultI2C": {
+        "i2cPortId": 0,
+        "SCL": 4,
+        "SDA": 3
+      },
+      "image": "boards/feather-esp32s3-reverse-tft/image.svg",
+      "totalAnalogPins": 6,
+      "i2cPorts": [
+        {
+          "i2cPortId": 0,
+          "SDA": 3,
+          "SCL": 4
         }
       ],
       "totalGPIOPins": 13
@@ -624,1316 +1519,6 @@ window.jsonBoardObject = {
       ],
       "totalGPIOPins": 31
     },
-    "qtpy-esp32s2": {
-      "boardName": "qtpy-esp32s2",
-      "mcuName": "esp32s2",
-      "referenceVoltage": 2.6,
-      "displayName": "Adafruit QT Py ESP32-S2",
-      "vendor": "Adafruit",
-      "productURL": "https://www.adafruit.com/product/5325",
-      "documentationURL": "https://learn.adafruit.com/adafruit-qt-py-esp32-s2",
-      "installMethod": "uf2",
-      "installBoardName": "qtpy-esp32s2",
-      "rtc": null,
-      "sdCardCS": null,
-      "pins": [
-        {
-          "number": 18,
-          "name": "D18",
-          "displayName": "A0",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 17,
-          "name": "D17",
-          "displayName": "A1",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 9,
-          "name": "D9",
-          "displayName": "A2",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 8,
-          "name": "D8",
-          "displayName": "A3",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 7,
-          "name": "D7",
-          "displayName": "SDA",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 6,
-          "name": "D6",
-          "displayName": "SCL",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 5,
-          "name": "D5",
-          "displayName": "D5 (UART TX)",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 35,
-          "name": "D35",
-          "displayName": "MOSI",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 37,
-          "name": "D37",
-          "displayName": "MISO",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 36,
-          "name": "D36",
-          "displayName": "SCK",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 16,
-          "name": "D16",
-          "displayName": "D16 (UART RX)",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 0,
-          "name": "D0",
-          "displayName": "Boot Pushbutton",
-          "hasPWM": false,
-          "hasServo": false
-        },
-        {
-          "number": 39,
-          "name": "D39",
-          "displayName": "D39 (NeoPixel)",
-          "hasPWM": false,
-          "hasServo": false
-        }
-      ],
-      "analogPins": [
-        {
-          "number": 18,
-          "name": "A18",
-          "displayName": "A0",
-          "direction": "INPUT"
-        },
-        {
-          "number": 17,
-          "name": "A17",
-          "displayName": "A1",
-          "direction": "INPUT"
-        },
-        {
-          "number": 9,
-          "name": "A9",
-          "displayName": "A2",
-          "direction": "INPUT"
-        },
-        {
-          "number": 8,
-          "name": "A8",
-          "displayName": "A3",
-          "direction": "INPUT"
-        },
-        {
-          "number": 7,
-          "name": "A7",
-          "displayName": "SDA",
-          "direction": "INPUT"
-        },
-        {
-          "number": 6,
-          "name": "A6",
-          "displayName": "SCL",
-          "direction": "INPUT"
-        },
-        {
-          "number": 5,
-          "name": "A5",
-          "displayName": "A5 (UART TX)",
-          "direction": "INPUT"
-        },
-        {
-          "number": 16,
-          "name": "A16",
-          "displayName": "A16 (UART RX)",
-          "direction": "INPUT"
-        }
-      ],
-      "defaultI2C": {
-        "i2cPortId": 0,
-        "SCL": 40,
-        "SDA": 41
-      },
-      "image": "boards/qtpy-esp32s2/image.svg",
-      "totalAnalogPins": 8,
-      "i2cPorts": [
-        {
-          "i2cPortId": 0,
-          "SDA": 41,
-          "SCL": 40
-        }
-      ],
-      "totalGPIOPins": 13
-    },
-    "feather-esp32s3-4mbflash-2mbpsram": {
-      "boardName": "feather-esp32s3-4mbflash-2mbpsram",
-      "mcuName": "esp32s3",
-      "referenceVoltage": 2.6,
-      "displayName": "Adafruit ESP32-S3 Feather with 4MB Flash 2MB PSRAM",
-      "vendor": "Adafruit",
-      "productURL": "https://www.adafruit.com/product/5477",
-      "documentationURL": "https://learn.adafruit.com/adafruit-esp32-s3-feather",
-      "installMethod": "uf2",
-      "installBoardName": "feather-esp32s3-4mbflash-2mbpsram",
-      "rtc": null,
-      "sdCardCS": null,
-      "pins": [
-        {
-          "number": 0,
-          "name": "D0",
-          "displayName": "D0 (Boot Push Button)",
-          "hasPWM": false,
-          "hasServo": false
-        },
-        {
-          "number": 1,
-          "name": "D1",
-          "displayName": "D1",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 2,
-          "name": "D2",
-          "displayName": "D2",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 3,
-          "name": "D3",
-          "displayName": "D3",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 4,
-          "name": "D4",
-          "displayName": "D4",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 5,
-          "name": "D5",
-          "displayName": "D5",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 6,
-          "name": "D6",
-          "displayName": "D6",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 7,
-          "name": "D7",
-          "displayName": "D7",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 8,
-          "name": "D8",
-          "displayName": "D8",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 9,
-          "name": "D9",
-          "displayName": "D9",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 10,
-          "name": "D10",
-          "displayName": "D10",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 11,
-          "name": "D11",
-          "displayName": "D11",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 12,
-          "name": "D12",
-          "displayName": "D12",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 13,
-          "name": "D13",
-          "displayName": "D13 (LED)",
-          "hasPWM": true,
-          "hasServo": false
-        },
-        {
-          "number": 14,
-          "name": "D14",
-          "displayName": "D14",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 33,
-          "name": "D33",
-          "displayName": "D33 (NeoPixel)",
-          "hasPWM": false,
-          "hasServo": false
-        },
-        {
-          "number": 38,
-          "name": "D38",
-          "displayName": "D38 (UART RX)",
-          "hasPWM": false,
-          "hasServo": false
-        },
-        {
-          "number": 39,
-          "name": "D39",
-          "displayName": "D39 (UART TX)",
-          "hasPWM": false,
-          "hasServo": false
-        }
-      ],
-      "analogPins": [
-        {
-          "number": 18,
-          "name": "A18",
-          "displayName": "A0",
-          "direction": "INPUT"
-        },
-        {
-          "number": 17,
-          "name": "A17",
-          "displayName": "A1",
-          "direction": "INPUT"
-        },
-        {
-          "number": 16,
-          "name": "A16",
-          "displayName": "A2",
-          "direction": "INPUT"
-        },
-        {
-          "number": 15,
-          "name": "A15",
-          "displayName": "A3",
-          "direction": "INPUT"
-        },
-        {
-          "number": 14,
-          "name": "A14",
-          "displayName": "A4",
-          "direction": "INPUT"
-        },
-        {
-          "number": 8,
-          "name": "A8",
-          "displayName": "A5",
-          "direction": "INPUT"
-        }
-      ],
-      "defaultI2C": {
-        "i2cPortId": 0,
-        "SCL": 4,
-        "SDA": 3
-      },
-      "image": "boards/feather-esp32s3-4mbflash-2mbpsram/image.svg",
-      "totalAnalogPins": 6,
-      "i2cPorts": [
-        {
-          "i2cPortId": 0,
-          "SDA": 3,
-          "SCL": 4
-        }
-      ],
-      "totalGPIOPins": 18
-    },
-    "feather-esp32s2-reverse-tft": {
-      "boardName": "feather-esp32s2-reverse-tft",
-      "mcuName": "esp32s2",
-      "referenceVoltage": 2.6,
-      "displayName": "ESP32-S2 Reverse TFT Feather",
-      "vendor": "Adafruit",
-      "productURL": "https://www.adafruit.com/product/5345",
-      "documentationURL": "https://learn.adafruit.com/esp32-s2-reverse-tft-feather",
-      "installMethod": "uf2",
-      "installBoardName": "feather-esp32s2-reverse-tft",
-      "rtc": null,
-      "sdCardCS": null,
-      "pins": [
-        {
-          "number": 0,
-          "name": "D0",
-          "displayName": "D0 (Boot Push Button)",
-          "hasPWM": false,
-          "hasServo": false
-        },
-        {
-          "number": 1,
-          "name": "D1",
-          "displayName": "D1 Push Button",
-          "hasPWM": false,
-          "hasServo": false
-        },
-        {
-          "number": 2,
-          "name": "D2",
-          "displayName": "D2 Push Button",
-          "hasPWM": false,
-          "hasServo": false
-        },
-        {
-          "number": 5,
-          "name": "D5",
-          "displayName": "D5",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 6,
-          "name": "D6",
-          "displayName": "D6",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 9,
-          "name": "D9",
-          "displayName": "D9",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 10,
-          "name": "D10",
-          "displayName": "D10",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 11,
-          "name": "D11",
-          "displayName": "D11",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 12,
-          "name": "D12",
-          "displayName": "D12",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 13,
-          "name": "D13",
-          "displayName": "D13 (LED)",
-          "hasPWM": true,
-          "hasServo": false
-        },
-        {
-          "number": 33,
-          "name": "D33",
-          "displayName": "D33 (NeoPixel)",
-          "hasPWM": false,
-          "hasServo": false
-        },
-        {
-          "number": 21,
-          "name": "D21",
-          "displayName": "D21 (NeoPixel Power Pin)",
-          "hasPWM": false,
-          "hasServo": false
-        },
-        {
-          "number": 38,
-          "name": "D38",
-          "displayName": "D38 (UART RX)",
-          "hasPWM": false,
-          "hasServo": false
-        },
-        {
-          "number": 39,
-          "name": "D39",
-          "displayName": "D39 (UART TX)",
-          "hasPWM": false,
-          "hasServo": false
-        }
-      ],
-      "analogPins": [
-        {
-          "number": 18,
-          "name": "A18",
-          "displayName": "A0",
-          "direction": "INPUT"
-        },
-        {
-          "number": 17,
-          "name": "A17",
-          "displayName": "A1",
-          "direction": "INPUT"
-        },
-        {
-          "number": 16,
-          "name": "A16",
-          "displayName": "A2",
-          "direction": "INPUT"
-        },
-        {
-          "number": 15,
-          "name": "A15",
-          "displayName": "A3",
-          "direction": "INPUT"
-        },
-        {
-          "number": 14,
-          "name": "A14",
-          "displayName": "A4",
-          "direction": "INPUT"
-        },
-        {
-          "number": 8,
-          "name": "A8",
-          "displayName": "A5",
-          "direction": "INPUT"
-        }
-      ],
-      "defaultI2C": {
-        "i2cPortId": 0,
-        "SCL": 4,
-        "SDA": 3
-      },
-      "image": "boards/feather-esp32s2-reverse-tft/image.svg",
-      "totalAnalogPins": 6,
-      "i2cPorts": [
-        {
-          "i2cPortId": 0,
-          "SDA": 3,
-          "SCL": 4
-        }
-      ],
-      "totalGPIOPins": 14
-    },
-    "magtag": {
-      "boardName": "magtag",
-      "mcuName": "esp32s2",
-      "referenceVoltage": 2.6,
-      "displayName": "Adafruit MagTag \"2.9\"",
-      "vendor": "Adafruit",
-      "productURL": "https://www.adafruit.com/product/4800",
-      "documentationURL": "https://learn.adafruit.com/adafruit-magtag",
-      "installMethod": "uf2",
-      "installBoardName": "magtag",
-      "rtc": null,
-      "sdCardCS": null,
-      "pins": [
-        {
-          "number": 1,
-          "name": "D1",
-          "displayName": "D1 (NeoPixel)",
-          "hasPWM": false,
-          "hasServo": false
-        },
-        {
-          "number": 15,
-          "name": "D15",
-          "displayName": "Button A",
-          "hasPWM": false,
-          "hasServo": false
-        },
-        {
-          "number": 14,
-          "name": "D14",
-          "displayName": "Button B",
-          "hasPWM": false,
-          "hasServo": false
-        },
-        {
-          "number": 12,
-          "name": "D12",
-          "displayName": "Button C",
-          "hasPWM": false,
-          "hasServo": false
-        },
-        {
-          "number": 11,
-          "name": "D11",
-          "displayName": "Button D",
-          "hasPWM": false,
-          "hasServo": false
-        },
-        {
-          "number": 10,
-          "name": "D10",
-          "displayName": "D10",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 18,
-          "name": "D18",
-          "displayName": "D18 (A1)",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 13,
-          "name": "D13",
-          "displayName": "Built-in LED",
-          "hasPWM": true,
-          "hasServo": false
-        },
-        {
-          "number": 43,
-          "name": "D43",
-          "displayName": "D43 (UART TX)",
-          "hasPWM": false,
-          "hasServo": false
-        },
-        {
-          "number": 44,
-          "name": "D44",
-          "displayName": "D44 (UART RX)",
-          "hasPWM": false,
-          "hasServo": false
-        }
-      ],
-      "analogPins": [
-        {
-          "number": 17,
-          "name": "A17",
-          "displayName": "Piezo Speaker (A0)",
-          "direction": "INPUT"
-        },
-        {
-          "number": 10,
-          "name": "A10",
-          "displayName": "D10",
-          "direction": "INPUT"
-        },
-        {
-          "number": 18,
-          "name": "A18",
-          "displayName": "A1 (D18)",
-          "direction": "INPUT"
-        },
-        {
-          "number": 3,
-          "name": "A3",
-          "displayName": "Light Sensor (A3)",
-          "direction": "INPUT"
-        },
-        {
-          "number": 4,
-          "name": "A4",
-          "displayName": "Voltage Monitor (A4)",
-          "direction": "INPUT"
-        }
-      ],
-      "defaultI2C": {
-        "i2cPortId": 0,
-        "SCL": 34,
-        "SDA": 33
-      },
-      "image": "boards/magtag/image.svg",
-      "totalAnalogPins": 5,
-      "i2cPorts": [
-        {
-          "i2cPortId": 0,
-          "SDA": 33,
-          "SCL": 34
-        }
-      ],
-      "totalGPIOPins": 10
-    },
-    "feather-esp32s2": {
-      "boardName": "feather-esp32s2",
-      "mcuName": "esp32s2",
-      "referenceVoltage": 2.6,
-      "displayName": "Adafruit ESP32-S2 Feather",
-      "vendor": "Adafruit",
-      "productURL": "https://www.adafruit.com/product/5000",
-      "documentationURL": "https://learn.adafruit.com/adafruit-esp32-s2-feather",
-      "installMethod": "uf2",
-      "installBoardName": "feather-esp32s2",
-      "rtc": null,
-      "sdCardCS": null,
-      "pins": [
-        {
-          "number": 0,
-          "name": "D0",
-          "displayName": "D0 (Boot Push Button)",
-          "hasPWM": false,
-          "hasServo": false
-        },
-        {
-          "number": 1,
-          "name": "D1",
-          "displayName": "D1",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 2,
-          "name": "D2",
-          "displayName": "D2",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 3,
-          "name": "D3",
-          "displayName": "D3",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 4,
-          "name": "D4",
-          "displayName": "D4",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 5,
-          "name": "D5",
-          "displayName": "D5",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 6,
-          "name": "D6",
-          "displayName": "D6",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 7,
-          "name": "D7",
-          "displayName": "D7 (I2C Power)",
-          "hasPWM": false,
-          "hasServo": false
-        },
-        {
-          "number": 9,
-          "name": "D9",
-          "displayName": "D9",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 10,
-          "name": "D10",
-          "displayName": "D10",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 11,
-          "name": "D11",
-          "displayName": "D11",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 12,
-          "name": "D12",
-          "displayName": "D12",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 13,
-          "name": "D13",
-          "displayName": "D13 (LED)",
-          "hasPWM": true,
-          "hasServo": false
-        },
-        {
-          "number": 33,
-          "name": "D33",
-          "displayName": "D33 (NeoPixel)",
-          "hasPWM": false,
-          "hasServo": false
-        },
-        {
-          "number": 38,
-          "name": "D38",
-          "displayName": "D38 (UART RX)",
-          "hasPWM": false,
-          "hasServo": false
-        },
-        {
-          "number": 39,
-          "name": "D39",
-          "displayName": "D39 (UART TX)",
-          "hasPWM": false,
-          "hasServo": false
-        }
-      ],
-      "analogPins": [
-        {
-          "number": 18,
-          "name": "A18",
-          "displayName": "A0",
-          "direction": "INPUT"
-        },
-        {
-          "number": 17,
-          "name": "A17",
-          "displayName": "A1",
-          "direction": "INPUT"
-        },
-        {
-          "number": 16,
-          "name": "A16",
-          "displayName": "A2",
-          "direction": "INPUT"
-        },
-        {
-          "number": 15,
-          "name": "A15",
-          "displayName": "A3",
-          "direction": "INPUT"
-        },
-        {
-          "number": 14,
-          "name": "A14",
-          "displayName": "A4",
-          "direction": "INPUT"
-        },
-        {
-          "number": 8,
-          "name": "A8",
-          "displayName": "A5",
-          "direction": "INPUT"
-        }
-      ],
-      "defaultI2C": {
-        "i2cPortId": 0,
-        "SCL": 4,
-        "SDA": 3
-      },
-      "image": "boards/feather-esp32s2/image.png",
-      "totalAnalogPins": 6,
-      "i2cPorts": [
-        {
-          "i2cPortId": 0,
-          "SDA": 3,
-          "SCL": 4
-        }
-      ],
-      "totalGPIOPins": 16
-    },
-    "rpi-pico-w": {
-      "boardName": "rpi-pico-w",
-      "mcuName": "rp2040",
-      "referenceVoltage": 3.3,
-      "displayName": "Raspberry Pi Pico W",
-      "vendor": "Raspberry Pi",
-      "productURL": "https://www.adafruit.com/product/5526",
-      "documentationURL": "https://learn.adafruit.com/quick-start-the-pico-w-with-wippersnapper/",
-      "installMethod": "uf2",
-      "installBoardName": "picow_rp2040_tinyusb",
-      "rtc": null,
-      "sdCardCS": null,
-      "pins": [
-        {
-          "number": 0,
-          "name": "D0",
-          "displayName": "GP0 (UART TX)",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 1,
-          "name": "D1",
-          "displayName": "GP1 (UART RX)",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 2,
-          "name": "D2",
-          "displayName": "GP2",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 3,
-          "name": "D3",
-          "displayName": "GP3",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 4,
-          "name": "D4",
-          "displayName": "GP4",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 5,
-          "name": "D5",
-          "displayName": "GP5",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 6,
-          "name": "D6",
-          "displayName": "GP6",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 7,
-          "name": "D7",
-          "displayName": "GP7",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 8,
-          "name": "D8",
-          "displayName": "GP8",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 9,
-          "name": "D9",
-          "displayName": "GP9",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 10,
-          "name": "D10",
-          "displayName": "GP10",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 11,
-          "name": "D11",
-          "displayName": "GP11",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 12,
-          "name": "D12",
-          "displayName": "GP12",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 13,
-          "name": "D13",
-          "displayName": "GP13",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 14,
-          "name": "D14",
-          "displayName": "GP14",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 15,
-          "name": "D15",
-          "displayName": "GP15",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 16,
-          "name": "D16",
-          "displayName": "GP16",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 17,
-          "name": "D17",
-          "displayName": "GP17",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 18,
-          "name": "D18",
-          "displayName": "GP18",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 19,
-          "name": "D19",
-          "displayName": "GP19",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 20,
-          "name": "D20",
-          "displayName": "GP20",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 21,
-          "name": "D21",
-          "displayName": "GP21",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 22,
-          "name": "D22",
-          "displayName": "GP22",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 23,
-          "name": "D23",
-          "displayName": "GP23",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 24,
-          "name": "D24",
-          "displayName": "GP24",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 25,
-          "name": "D25",
-          "displayName": "GP25",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 26,
-          "name": "D26",
-          "displayName": "GP26",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 27,
-          "name": "D27",
-          "displayName": "GP27",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 28,
-          "name": "D28",
-          "displayName": "GP28",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 29,
-          "name": "D29",
-          "displayName": "GP29",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 64,
-          "name": "D64",
-          "displayName": "LED (BUILT-IN)",
-          "hasPWM": false,
-          "hasServo": false
-        }
-      ],
-      "analogPins": [
-        {
-          "number": 26,
-          "name": "A26",
-          "displayName": "A0 (GP0)",
-          "direction": "INPUT"
-        },
-        {
-          "number": 27,
-          "name": "A27",
-          "displayName": "A1 (GP1)",
-          "direction": "INPUT"
-        },
-        {
-          "number": 28,
-          "name": "A28",
-          "displayName": "A2 (GP2)",
-          "direction": "INPUT"
-        },
-        {
-          "number": 29,
-          "name": "A29",
-          "displayName": "A3 (GP3)",
-          "direction": "INPUT"
-        }
-      ],
-      "defaultI2C": {
-        "i2cPortId": 0,
-        "SCL": 5,
-        "SDA": 4
-      },
-      "image": "boards/rpi-pico-w/image.png",
-      "totalAnalogPins": 4,
-      "i2cPorts": [
-        {
-          "i2cPortId": 0,
-          "SDA": 4,
-          "SCL": 5
-        }
-      ],
-      "totalGPIOPins": 31
-    },
-    "feather-esp32s3": {
-      "boardName": "feather-esp32s3",
-      "mcuName": "esp32s3",
-      "referenceVoltage": 2.6,
-      "displayName": "Adafruit Feather ESP32-S3 No PSRAM",
-      "vendor": "Adafruit",
-      "productURL": "https://www.adafruit.com/product/5000",
-      "documentationURL": "https://learn.adafruit.com/adafruit-esp32-s3-feather",
-      "installMethod": "uf2",
-      "installBoardName": "feather-esp32s3",
-      "rtc": null,
-      "sdCardCS": null,
-      "pins": [
-        {
-          "number": 0,
-          "name": "D0",
-          "displayName": "D0 (Boot Push Button)",
-          "hasPWM": false,
-          "hasServo": false
-        },
-        {
-          "number": 1,
-          "name": "D1",
-          "displayName": "D1",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 2,
-          "name": "D2",
-          "displayName": "D2",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 3,
-          "name": "D3",
-          "displayName": "D3",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 4,
-          "name": "D4",
-          "displayName": "D4",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 5,
-          "name": "D5",
-          "displayName": "D5",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 6,
-          "name": "D6",
-          "displayName": "D6",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 7,
-          "name": "D7",
-          "displayName": "D7",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 8,
-          "name": "D8",
-          "displayName": "D8",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 9,
-          "name": "D9",
-          "displayName": "D9",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 10,
-          "name": "D10",
-          "displayName": "D10",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 11,
-          "name": "D11",
-          "displayName": "D11",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 12,
-          "name": "D12",
-          "displayName": "D12",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 13,
-          "name": "D13",
-          "displayName": "D13 (LED)",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 14,
-          "name": "D14",
-          "displayName": "D14",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 33,
-          "name": "D33",
-          "displayName": "D33 (NeoPixel)",
-          "hasPWM": false,
-          "hasServo": false
-        },
-        {
-          "number": 38,
-          "name": "D38",
-          "displayName": "D38 (UART RX)",
-          "hasPWM": false,
-          "hasServo": false
-        },
-        {
-          "number": 39,
-          "name": "D39",
-          "displayName": "D39 (UART TX)",
-          "hasPWM": false,
-          "hasServo": false
-        }
-      ],
-      "analogPins": [
-        {
-          "number": 18,
-          "name": "A18",
-          "displayName": "A0",
-          "direction": "INPUT"
-        },
-        {
-          "number": 17,
-          "name": "A17",
-          "displayName": "A1",
-          "direction": "INPUT"
-        },
-        {
-          "number": 16,
-          "name": "A16",
-          "displayName": "A2",
-          "direction": "INPUT"
-        },
-        {
-          "number": 15,
-          "name": "A15",
-          "displayName": "A3",
-          "direction": "INPUT"
-        },
-        {
-          "number": 14,
-          "name": "A14",
-          "displayName": "A4",
-          "direction": "INPUT"
-        },
-        {
-          "number": 8,
-          "name": "A8",
-          "displayName": "A5",
-          "direction": "INPUT"
-        }
-      ],
-      "defaultI2C": {
-        "i2cPortId": 0,
-        "SCL": 4,
-        "SDA": 3
-      },
-      "image": "boards/feather-esp32s3/image.svg",
-      "totalAnalogPins": 6,
-      "i2cPorts": [
-        {
-          "i2cPortId": 0,
-          "SDA": 3,
-          "SCL": 4
-        }
-      ],
-      "totalGPIOPins": 18
-    },
     "funhouse": {
       "boardName": "funhouse",
       "mcuName": "esp32s2",
@@ -2129,6 +1714,138 @@ window.jsonBoardObject = {
         }
       ],
       "totalGPIOPins": 20
+    },
+    "magtag": {
+      "boardName": "magtag",
+      "mcuName": "esp32s2",
+      "referenceVoltage": 2.6,
+      "displayName": "Adafruit MagTag \"2.9\"",
+      "vendor": "Adafruit",
+      "productURL": "https://www.adafruit.com/product/4800",
+      "documentationURL": "https://learn.adafruit.com/adafruit-magtag",
+      "installMethod": "uf2",
+      "installBoardName": "magtag",
+      "rtc": null,
+      "sdCardCS": null,
+      "pins": [
+        {
+          "number": 1,
+          "name": "D1",
+          "displayName": "D1 (NeoPixel)",
+          "hasPWM": false,
+          "hasServo": false
+        },
+        {
+          "number": 15,
+          "name": "D15",
+          "displayName": "Button A",
+          "hasPWM": false,
+          "hasServo": false
+        },
+        {
+          "number": 14,
+          "name": "D14",
+          "displayName": "Button B",
+          "hasPWM": false,
+          "hasServo": false
+        },
+        {
+          "number": 12,
+          "name": "D12",
+          "displayName": "Button C",
+          "hasPWM": false,
+          "hasServo": false
+        },
+        {
+          "number": 11,
+          "name": "D11",
+          "displayName": "Button D",
+          "hasPWM": false,
+          "hasServo": false
+        },
+        {
+          "number": 10,
+          "name": "D10",
+          "displayName": "D10",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 18,
+          "name": "D18",
+          "displayName": "D18 (A1)",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 13,
+          "name": "D13",
+          "displayName": "Built-in LED",
+          "hasPWM": true,
+          "hasServo": false
+        },
+        {
+          "number": 43,
+          "name": "D43",
+          "displayName": "D43 (UART TX)",
+          "hasPWM": false,
+          "hasServo": false
+        },
+        {
+          "number": 44,
+          "name": "D44",
+          "displayName": "D44 (UART RX)",
+          "hasPWM": false,
+          "hasServo": false
+        }
+      ],
+      "analogPins": [
+        {
+          "number": 17,
+          "name": "A17",
+          "displayName": "Piezo Speaker (A0)",
+          "direction": "INPUT"
+        },
+        {
+          "number": 10,
+          "name": "A10",
+          "displayName": "D10",
+          "direction": "INPUT"
+        },
+        {
+          "number": 18,
+          "name": "A18",
+          "displayName": "A1 (D18)",
+          "direction": "INPUT"
+        },
+        {
+          "number": 3,
+          "name": "A3",
+          "displayName": "Light Sensor (A3)",
+          "direction": "INPUT"
+        },
+        {
+          "number": 4,
+          "name": "A4",
+          "displayName": "Voltage Monitor (A4)",
+          "direction": "INPUT"
+        }
+      ],
+      "defaultI2C": {
+        "i2cPortId": 0,
+        "SCL": 34,
+        "SDA": 33
+      },
+      "image": "boards/magtag/image.svg",
+      "totalAnalogPins": 5,
+      "i2cPorts": [
+        {
+          "i2cPortId": 0,
+          "SDA": 33,
+          "SCL": 34
+        }
+      ],
+      "totalGPIOPins": 10
     },
     "metro-rp2040": {
       "boardName": "metro-rp2040",
@@ -2339,897 +2056,6 @@ window.jsonBoardObject = {
         }
       ],
       "totalGPIOPins": 22
-    },
-    "qtpy-esp32s3-n4r2": {
-      "boardName": "qtpy-esp32s3-n4r2",
-      "mcuName": "esp32s3",
-      "referenceVoltage": 2.6,
-      "displayName": "Adafruit QT Py S3 (2MB PSRAM)",
-      "vendor": "Adafruit",
-      "productURL": "https://www.adafruit.com/product/5700",
-      "documentationURL": "https://learn.adafruit.com/adafruit-qt-py-esp32-s3",
-      "installMethod": "uf2",
-      "installBoardName": "qtpy-esp32s3-n4r2",
-      "rtc": null,
-      "sdCardCS": null,
-      "pins": [
-        {
-          "number": 18,
-          "name": "D18",
-          "displayName": "A0",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 17,
-          "name": "D17",
-          "displayName": "A1",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 9,
-          "name": "D9",
-          "displayName": "A2",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 8,
-          "name": "D8",
-          "displayName": "A3",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 7,
-          "name": "D7",
-          "displayName": "SDA",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 6,
-          "name": "D6",
-          "displayName": "SCL",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 5,
-          "name": "D5",
-          "displayName": "D5 (UART TX)",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 35,
-          "name": "D35",
-          "displayName": "MOSI",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 37,
-          "name": "D37",
-          "displayName": "MISO",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 36,
-          "name": "D36",
-          "displayName": "SCK",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 16,
-          "name": "D16",
-          "displayName": "D16 (UART RX)",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 0,
-          "name": "D0",
-          "displayName": "Boot Pushbutton",
-          "hasPWM": false,
-          "hasServo": false
-        },
-        {
-          "number": 39,
-          "name": "D39",
-          "displayName": "D39 (NeoPixel)",
-          "hasPWM": false,
-          "hasServo": false
-        }
-      ],
-      "analogPins": [
-        {
-          "number": 18,
-          "name": "A18",
-          "displayName": "A0",
-          "direction": "INPUT"
-        },
-        {
-          "number": 17,
-          "name": "A17",
-          "displayName": "A1",
-          "direction": "INPUT"
-        },
-        {
-          "number": 9,
-          "name": "A9",
-          "displayName": "A2",
-          "direction": "INPUT"
-        },
-        {
-          "number": 8,
-          "name": "A8",
-          "displayName": "A3",
-          "direction": "INPUT"
-        },
-        {
-          "number": 7,
-          "name": "A7",
-          "displayName": "SDA",
-          "direction": "INPUT"
-        },
-        {
-          "number": 6,
-          "name": "A6",
-          "displayName": "SCL",
-          "direction": "INPUT"
-        },
-        {
-          "number": 5,
-          "name": "A5",
-          "displayName": "A5 (UART TX)",
-          "direction": "INPUT"
-        },
-        {
-          "number": 16,
-          "name": "A16",
-          "displayName": "A16 (UART RX)",
-          "direction": "INPUT"
-        }
-      ],
-      "defaultI2C": {
-        "i2cPortId": 0,
-        "SCL": 40,
-        "SDA": 41
-      },
-      "image": "boards/qtpy-esp32s3-n4r2/image.svg",
-      "totalAnalogPins": 8,
-      "i2cPorts": [
-        {
-          "i2cPortId": 0,
-          "SDA": 41,
-          "SCL": 40
-        }
-      ],
-      "totalGPIOPins": 13
-    },
-    "feather-esp32s2-tft": {
-      "boardName": "feather-esp32s2-tft",
-      "mcuName": "esp32s2",
-      "referenceVoltage": 2.6,
-      "displayName": "Adafruit ESP32-S2 TFT Feather",
-      "vendor": "Adafruit",
-      "productURL": "https://www.adafruit.com/product/5300",
-      "documentationURL": "https://learn.adafruit.com/adafruit-esp32-s2-tft-feather",
-      "installMethod": "uf2",
-      "installBoardName": "feather-esp32s2-tft",
-      "rtc": null,
-      "sdCardCS": null,
-      "pins": [
-        {
-          "number": 0,
-          "name": "D0",
-          "displayName": "D0 (Boot Push Button)",
-          "hasPWM": false,
-          "hasServo": false
-        },
-        {
-          "number": 1,
-          "name": "D1",
-          "displayName": "D1 (UART TX)",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 2,
-          "name": "D2",
-          "displayName": "D2 (UART RX)",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 3,
-          "name": "D3",
-          "displayName": "D3",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 4,
-          "name": "D4",
-          "displayName": "D4",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 5,
-          "name": "D5",
-          "displayName": "D5",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 6,
-          "name": "D6",
-          "displayName": "D6",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 9,
-          "name": "D9",
-          "displayName": "D9",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 10,
-          "name": "D10",
-          "displayName": "D10",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 11,
-          "name": "D11",
-          "displayName": "D11",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 12,
-          "name": "D12",
-          "displayName": "D12",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 13,
-          "name": "D13",
-          "displayName": "D13 (LED)",
-          "hasPWM": true,
-          "hasServo": false
-        },
-        {
-          "number": 33,
-          "name": "D33",
-          "displayName": "D33 (NeoPixel)",
-          "hasPWM": false,
-          "hasServo": false
-        },
-        {
-          "number": 38,
-          "name": "D38",
-          "displayName": "D38 (UART RX)",
-          "hasPWM": false,
-          "hasServo": false
-        },
-        {
-          "number": 39,
-          "name": "D39",
-          "displayName": "D39 (UART TX)",
-          "hasPWM": false,
-          "hasServo": false
-        }
-      ],
-      "analogPins": [
-        {
-          "number": 18,
-          "name": "A18",
-          "displayName": "A0",
-          "direction": "INPUT"
-        },
-        {
-          "number": 17,
-          "name": "A17",
-          "displayName": "A1",
-          "direction": "INPUT"
-        },
-        {
-          "number": 16,
-          "name": "A16",
-          "displayName": "A2",
-          "direction": "INPUT"
-        },
-        {
-          "number": 15,
-          "name": "A15",
-          "displayName": "A3",
-          "direction": "INPUT"
-        },
-        {
-          "number": 14,
-          "name": "A14",
-          "displayName": "A4",
-          "direction": "INPUT"
-        },
-        {
-          "number": 8,
-          "name": "A8",
-          "displayName": "A5",
-          "direction": "INPUT"
-        }
-      ],
-      "defaultI2C": {
-        "i2cPortId": 0,
-        "SCL": 41,
-        "SDA": 42
-      },
-      "image": "boards/feather-esp32s2-tft/image.svg",
-      "totalAnalogPins": 6,
-      "i2cPorts": [
-        {
-          "i2cPortId": 0,
-          "SDA": 42,
-          "SCL": 41
-        }
-      ],
-      "totalGPIOPins": 15
-    },
-    "rpi-pico-2w": {
-      "boardName": "rpi-pico-2w",
-      "mcuName": "rp2350",
-      "referenceVoltage": 3.3,
-      "displayName": "Raspberry Pi Pico 2W",
-      "vendor": "Raspberry Pi",
-      "productURL": "https://www.adafruit.com/product/6087",
-      "documentationURL": "https://learn.adafruit.com/quick-start-the-pico-w-with-wippersnapper/overview",
-      "installMethod": "uf2",
-      "installBoardName": "picow_rp2350_tinyusb",
-      "rtc": null,
-      "sdCardCS": null,
-      "pins": [
-        {
-          "number": 0,
-          "name": "D0",
-          "displayName": "GP0 (UART TX)",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 1,
-          "name": "D1",
-          "displayName": "GP1 (UART RX)",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 2,
-          "name": "D2",
-          "displayName": "GP2",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 3,
-          "name": "D3",
-          "displayName": "GP3",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 4,
-          "name": "D4",
-          "displayName": "GP4",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 5,
-          "name": "D5",
-          "displayName": "GP5",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 6,
-          "name": "D6",
-          "displayName": "GP6",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 7,
-          "name": "D7",
-          "displayName": "GP7",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 8,
-          "name": "D8",
-          "displayName": "GP8",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 9,
-          "name": "D9",
-          "displayName": "GP9",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 10,
-          "name": "D10",
-          "displayName": "GP10",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 11,
-          "name": "D11",
-          "displayName": "GP11",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 12,
-          "name": "D12",
-          "displayName": "GP12",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 13,
-          "name": "D13",
-          "displayName": "GP13",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 14,
-          "name": "D14",
-          "displayName": "GP14",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 15,
-          "name": "D15",
-          "displayName": "GP15",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 16,
-          "name": "D16",
-          "displayName": "GP16",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 17,
-          "name": "D17",
-          "displayName": "GP17",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 18,
-          "name": "D18",
-          "displayName": "GP18",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 19,
-          "name": "D19",
-          "displayName": "GP19",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 20,
-          "name": "D20",
-          "displayName": "GP20",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 21,
-          "name": "D21",
-          "displayName": "GP21",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 22,
-          "name": "D22",
-          "displayName": "GP22",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 23,
-          "name": "D23",
-          "displayName": "GP23",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 24,
-          "name": "D24",
-          "displayName": "GP24",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 25,
-          "name": "D25",
-          "displayName": "GP25",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 26,
-          "name": "D26",
-          "displayName": "GP26",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 27,
-          "name": "D27",
-          "displayName": "GP27",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 28,
-          "name": "D28",
-          "displayName": "GP28",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 29,
-          "name": "D29",
-          "displayName": "GP29",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 64,
-          "name": "D64",
-          "displayName": "LED (BUILT-IN)",
-          "hasPWM": false,
-          "hasServo": false
-        }
-      ],
-      "analogPins": [
-        {
-          "number": 26,
-          "name": "A26",
-          "displayName": "A0 (GP0)",
-          "direction": "INPUT"
-        },
-        {
-          "number": 27,
-          "name": "A27",
-          "displayName": "A1 (GP1)",
-          "direction": "INPUT"
-        },
-        {
-          "number": 28,
-          "name": "A28",
-          "displayName": "A2 (GP2)",
-          "direction": "INPUT"
-        },
-        {
-          "number": 29,
-          "name": "A29",
-          "displayName": "A3 (GP3)",
-          "direction": "INPUT"
-        }
-      ],
-      "defaultI2C": {
-        "i2cPortId": 0,
-        "SCL": 5,
-        "SDA": 4
-      },
-      "image": "boards/rpi-pico-2w/image.jpg",
-      "totalAnalogPins": 4,
-      "i2cPorts": [
-        {
-          "i2cPortId": 0,
-          "SDA": 4,
-          "SCL": 5
-        }
-      ],
-      "totalGPIOPins": 31
-    },
-    "metroesp32s2": {
-      "boardName": "metroesp32s2",
-      "mcuName": "esp32s2",
-      "referenceVoltage": 2.6,
-      "displayName": "Adafruit Metro ESP32-S2",
-      "vendor": "Adafruit",
-      "productURL": "https://www.adafruit.com/product/4775",
-      "documentationURL": "https://learn.adafruit.com/adafruit-metro-esp32-s2",
-      "installMethod": "uf2",
-      "installBoardName": "metroesp32s2",
-      "rtc": null,
-      "sdCardCS": null,
-      "pins": [
-        {
-          "number": 0,
-          "name": "D0",
-          "displayName": "D0 (Boot0 Push Button)",
-          "hasPWM": false,
-          "hasServo": false
-        },
-        {
-          "number": 1,
-          "name": "D1",
-          "displayName": "D1",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 2,
-          "name": "D2",
-          "displayName": "D2",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 3,
-          "name": "D3",
-          "displayName": "D3",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 4,
-          "name": "D4",
-          "displayName": "D4",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 5,
-          "name": "D5",
-          "displayName": "D5 (UART TX)",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 6,
-          "name": "D6",
-          "displayName": "D6 (UART RX)",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 7,
-          "name": "D7",
-          "displayName": "D7",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 8,
-          "name": "D8",
-          "displayName": "D8",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 9,
-          "name": "D9",
-          "displayName": "D9",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 10,
-          "name": "D10",
-          "displayName": "D10",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 11,
-          "name": "D11",
-          "displayName": "D11",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 12,
-          "name": "D12",
-          "displayName": "D12",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 13,
-          "name": "D13",
-          "displayName": "D13",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 14,
-          "name": "D14",
-          "displayName": "D14",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 15,
-          "name": "D15",
-          "displayName": "D15",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 16,
-          "name": "D16",
-          "displayName": "D16",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 21,
-          "name": "D21",
-          "displayName": "D21",
-          "hasPWM": true,
-          "hasServo": true
-        },
-        {
-          "number": 42,
-          "name": "D42",
-          "displayName": "Built-in LED",
-          "hasPWM": true,
-          "hasServo": false
-        },
-        {
-          "number": 45,
-          "name": "D45",
-          "displayName": "D45 (NeoPixel)",
-          "hasPWM": false,
-          "hasServo": false
-        }
-      ],
-      "analogPins": [
-        {
-          "number": 0,
-          "name": "A0",
-          "displayName": "A0",
-          "direction": "INPUT"
-        },
-        {
-          "number": 1,
-          "name": "A1",
-          "displayName": "A1",
-          "direction": "INPUT"
-        },
-        {
-          "number": 2,
-          "name": "A2",
-          "displayName": "A2",
-          "direction": "INPUT"
-        },
-        {
-          "number": 3,
-          "name": "A3",
-          "displayName": "A3",
-          "direction": "INPUT"
-        },
-        {
-          "number": 4,
-          "name": "A4",
-          "displayName": "A4",
-          "direction": "INPUT"
-        },
-        {
-          "number": 5,
-          "name": "A5",
-          "displayName": "A5 (IO5)",
-          "direction": "INPUT"
-        },
-        {
-          "number": 6,
-          "name": "A6",
-          "displayName": "A6 (IO6)",
-          "direction": "INPUT"
-        },
-        {
-          "number": 7,
-          "name": "A7",
-          "displayName": "A7 (IO7)",
-          "direction": "INPUT"
-        },
-        {
-          "number": 8,
-          "name": "A8",
-          "displayName": "A8 (IO8)",
-          "direction": "INPUT"
-        },
-        {
-          "number": 9,
-          "name": "A9",
-          "displayName": "A9 (IO9)",
-          "direction": "INPUT"
-        },
-        {
-          "number": 10,
-          "name": "A10",
-          "displayName": "A10 (IO10)",
-          "direction": "INPUT"
-        },
-        {
-          "number": 11,
-          "name": "A11",
-          "displayName": "A11 (IO11)",
-          "direction": "INPUT"
-        },
-        {
-          "number": 12,
-          "name": "A12",
-          "displayName": "A12 (IO12)",
-          "direction": "INPUT"
-        },
-        {
-          "number": 13,
-          "name": "A13",
-          "displayName": "A13 (IO13)",
-          "direction": "INPUT"
-        },
-        {
-          "number": 14,
-          "name": "A14",
-          "displayName": "A14 (IO14)",
-          "direction": "INPUT"
-        },
-        {
-          "number": 15,
-          "name": "A15",
-          "displayName": "A15 (IO15)",
-          "direction": "INPUT"
-        },
-        {
-          "number": 16,
-          "name": "A16",
-          "displayName": "A16 (IO16)",
-          "direction": "INPUT"
-        }
-      ],
-      "defaultI2C": {
-        "i2cPortId": 0,
-        "SCL": 34,
-        "SDA": 33
-      },
-      "image": "boards/metroesp32s2/image.svg",
-      "totalAnalogPins": 17,
-      "i2cPorts": [
-        {
-          "i2cPortId": 0,
-          "SDA": 33,
-          "SCL": 34
-        }
-      ],
-      "totalGPIOPins": 20
     },
     "metro-rp2350": {
       "boardName": "metro-rp2350",
@@ -3508,6 +2334,280 @@ window.jsonBoardObject = {
         }
       ],
       "totalGPIOPins": 30
+    },
+    "metroesp32s2": {
+      "boardName": "metroesp32s2",
+      "mcuName": "esp32s2",
+      "referenceVoltage": 2.6,
+      "displayName": "Adafruit Metro ESP32-S2",
+      "vendor": "Adafruit",
+      "productURL": "https://www.adafruit.com/product/4775",
+      "documentationURL": "https://learn.adafruit.com/adafruit-metro-esp32-s2",
+      "installMethod": "uf2",
+      "installBoardName": "metroesp32s2",
+      "rtc": null,
+      "sdCardCS": null,
+      "pins": [
+        {
+          "number": 0,
+          "name": "D0",
+          "displayName": "D0 (Boot0 Push Button)",
+          "hasPWM": false,
+          "hasServo": false
+        },
+        {
+          "number": 1,
+          "name": "D1",
+          "displayName": "D1",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 2,
+          "name": "D2",
+          "displayName": "D2",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 3,
+          "name": "D3",
+          "displayName": "D3",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 4,
+          "name": "D4",
+          "displayName": "D4",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 5,
+          "name": "D5",
+          "displayName": "D5 (UART TX)",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 6,
+          "name": "D6",
+          "displayName": "D6 (UART RX)",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 7,
+          "name": "D7",
+          "displayName": "D7",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 8,
+          "name": "D8",
+          "displayName": "D8",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 9,
+          "name": "D9",
+          "displayName": "D9",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 10,
+          "name": "D10",
+          "displayName": "D10",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 11,
+          "name": "D11",
+          "displayName": "D11",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 12,
+          "name": "D12",
+          "displayName": "D12",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 13,
+          "name": "D13",
+          "displayName": "D13",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 14,
+          "name": "D14",
+          "displayName": "D14",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 15,
+          "name": "D15",
+          "displayName": "D15",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 16,
+          "name": "D16",
+          "displayName": "D16",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 21,
+          "name": "D21",
+          "displayName": "D21",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 42,
+          "name": "D42",
+          "displayName": "Built-in LED",
+          "hasPWM": true,
+          "hasServo": false
+        },
+        {
+          "number": 45,
+          "name": "D45",
+          "displayName": "D45 (NeoPixel)",
+          "hasPWM": false,
+          "hasServo": false
+        }
+      ],
+      "analogPins": [
+        {
+          "number": 0,
+          "name": "A0",
+          "displayName": "A0",
+          "direction": "INPUT"
+        },
+        {
+          "number": 1,
+          "name": "A1",
+          "displayName": "A1",
+          "direction": "INPUT"
+        },
+        {
+          "number": 2,
+          "name": "A2",
+          "displayName": "A2",
+          "direction": "INPUT"
+        },
+        {
+          "number": 3,
+          "name": "A3",
+          "displayName": "A3",
+          "direction": "INPUT"
+        },
+        {
+          "number": 4,
+          "name": "A4",
+          "displayName": "A4",
+          "direction": "INPUT"
+        },
+        {
+          "number": 5,
+          "name": "A5",
+          "displayName": "A5 (IO5)",
+          "direction": "INPUT"
+        },
+        {
+          "number": 6,
+          "name": "A6",
+          "displayName": "A6 (IO6)",
+          "direction": "INPUT"
+        },
+        {
+          "number": 7,
+          "name": "A7",
+          "displayName": "A7 (IO7)",
+          "direction": "INPUT"
+        },
+        {
+          "number": 8,
+          "name": "A8",
+          "displayName": "A8 (IO8)",
+          "direction": "INPUT"
+        },
+        {
+          "number": 9,
+          "name": "A9",
+          "displayName": "A9 (IO9)",
+          "direction": "INPUT"
+        },
+        {
+          "number": 10,
+          "name": "A10",
+          "displayName": "A10 (IO10)",
+          "direction": "INPUT"
+        },
+        {
+          "number": 11,
+          "name": "A11",
+          "displayName": "A11 (IO11)",
+          "direction": "INPUT"
+        },
+        {
+          "number": 12,
+          "name": "A12",
+          "displayName": "A12 (IO12)",
+          "direction": "INPUT"
+        },
+        {
+          "number": 13,
+          "name": "A13",
+          "displayName": "A13 (IO13)",
+          "direction": "INPUT"
+        },
+        {
+          "number": 14,
+          "name": "A14",
+          "displayName": "A14 (IO14)",
+          "direction": "INPUT"
+        },
+        {
+          "number": 15,
+          "name": "A15",
+          "displayName": "A15 (IO15)",
+          "direction": "INPUT"
+        },
+        {
+          "number": 16,
+          "name": "A16",
+          "displayName": "A16 (IO16)",
+          "direction": "INPUT"
+        }
+      ],
+      "defaultI2C": {
+        "i2cPortId": 0,
+        "SCL": 34,
+        "SDA": 33
+      },
+      "image": "boards/metroesp32s2/image.svg",
+      "totalAnalogPins": 17,
+      "i2cPorts": [
+        {
+          "i2cPortId": 0,
+          "SDA": 33,
+          "SCL": 34
+        }
+      ],
+      "totalGPIOPins": 20
     },
     "metroesp32s3": {
       "boardName": "metroesp32s3",
@@ -3838,107 +2938,107 @@ window.jsonBoardObject = {
       ],
       "totalGPIOPins": 27
     },
-    "feather-esp32s3-reverse-tft": {
-      "boardName": "feather-esp32s3-reverse-tft",
-      "mcuName": "esp32s3",
+    "qtpy-esp32s2": {
+      "boardName": "qtpy-esp32s2",
+      "mcuName": "esp32s2",
       "referenceVoltage": 2.6,
-      "displayName": "ESP32-S3 Reverse TFT Feather",
+      "displayName": "Adafruit QT Py ESP32-S2",
       "vendor": "Adafruit",
-      "productURL": "https://www.adafruit.com/product/5691",
-      "documentationURL": "https://learn.adafruit.com/esp32-s3-reverse-tft-feather",
+      "productURL": "https://www.adafruit.com/product/5325",
+      "documentationURL": "https://learn.adafruit.com/adafruit-qt-py-esp32-s2",
       "installMethod": "uf2",
-      "installBoardName": "feather-esp32s3-reverse-tft",
+      "installBoardName": "qtpy-esp32s2",
       "rtc": null,
       "sdCardCS": null,
       "pins": [
         {
-          "number": 0,
-          "name": "D0",
-          "displayName": "D0 (Boot Push Button)",
-          "hasPWM": false,
-          "hasServo": false
-        },
-        {
-          "number": 1,
-          "name": "D1",
-          "displayName": "D1 Push Button",
-          "hasPWM": false,
-          "hasServo": false
-        },
-        {
-          "number": 2,
-          "name": "D2",
-          "displayName": "D2 Push Button",
-          "hasPWM": false,
-          "hasServo": false
-        },
-        {
-          "number": 5,
-          "name": "D5",
-          "displayName": "D5",
+          "number": 18,
+          "name": "D18",
+          "displayName": "A0",
           "hasPWM": true,
           "hasServo": true
         },
         {
-          "number": 6,
-          "name": "D6",
-          "displayName": "D6",
+          "number": 17,
+          "name": "D17",
+          "displayName": "A1",
           "hasPWM": true,
           "hasServo": true
         },
         {
           "number": 9,
           "name": "D9",
-          "displayName": "D9",
+          "displayName": "A2",
           "hasPWM": true,
           "hasServo": true
         },
         {
-          "number": 10,
-          "name": "D10",
-          "displayName": "D10",
+          "number": 8,
+          "name": "D8",
+          "displayName": "A3",
           "hasPWM": true,
           "hasServo": true
         },
         {
-          "number": 11,
-          "name": "D11",
-          "displayName": "D11",
+          "number": 7,
+          "name": "D7",
+          "displayName": "SDA",
           "hasPWM": true,
           "hasServo": true
         },
         {
-          "number": 12,
-          "name": "D12",
-          "displayName": "D12",
+          "number": 6,
+          "name": "D6",
+          "displayName": "SCL",
           "hasPWM": true,
           "hasServo": true
         },
         {
-          "number": 13,
-          "name": "D13",
-          "displayName": "D13 (LED)",
+          "number": 5,
+          "name": "D5",
+          "displayName": "D5 (UART TX)",
           "hasPWM": true,
-          "hasServo": false
+          "hasServo": true
         },
         {
-          "number": 33,
-          "name": "D33",
-          "displayName": "D33 (NeoPixel)",
-          "hasPWM": false,
-          "hasServo": false
+          "number": 35,
+          "name": "D35",
+          "displayName": "MOSI",
+          "hasPWM": true,
+          "hasServo": true
         },
         {
-          "number": 38,
-          "name": "D38",
-          "displayName": "D38 (UART RX)",
+          "number": 37,
+          "name": "D37",
+          "displayName": "MISO",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 36,
+          "name": "D36",
+          "displayName": "SCK",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 16,
+          "name": "D16",
+          "displayName": "D16 (UART RX)",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 0,
+          "name": "D0",
+          "displayName": "Boot Pushbutton",
           "hasPWM": false,
           "hasServo": false
         },
         {
           "number": 39,
           "name": "D39",
-          "displayName": "D39 (UART TX)",
+          "displayName": "D39 (NeoPixel)",
           "hasPWM": false,
           "hasServo": false
         }
@@ -3957,45 +3057,945 @@ window.jsonBoardObject = {
           "direction": "INPUT"
         },
         {
-          "number": 16,
-          "name": "A16",
+          "number": 9,
+          "name": "A9",
           "displayName": "A2",
-          "direction": "INPUT"
-        },
-        {
-          "number": 15,
-          "name": "A15",
-          "displayName": "A3",
-          "direction": "INPUT"
-        },
-        {
-          "number": 14,
-          "name": "A14",
-          "displayName": "A4",
           "direction": "INPUT"
         },
         {
           "number": 8,
           "name": "A8",
-          "displayName": "A5",
+          "displayName": "A3",
+          "direction": "INPUT"
+        },
+        {
+          "number": 7,
+          "name": "A7",
+          "displayName": "SDA",
+          "direction": "INPUT"
+        },
+        {
+          "number": 6,
+          "name": "A6",
+          "displayName": "SCL",
+          "direction": "INPUT"
+        },
+        {
+          "number": 5,
+          "name": "A5",
+          "displayName": "A5 (UART TX)",
+          "direction": "INPUT"
+        },
+        {
+          "number": 16,
+          "name": "A16",
+          "displayName": "A16 (UART RX)",
           "direction": "INPUT"
         }
       ],
       "defaultI2C": {
         "i2cPortId": 0,
-        "SCL": 4,
-        "SDA": 3
+        "SCL": 40,
+        "SDA": 41
       },
-      "image": "boards/feather-esp32s3-reverse-tft/image.svg",
-      "totalAnalogPins": 6,
+      "image": "boards/qtpy-esp32s2/image.svg",
+      "totalAnalogPins": 8,
       "i2cPorts": [
         {
           "i2cPortId": 0,
-          "SDA": 3,
-          "SCL": 4
+          "SDA": 41,
+          "SCL": 40
         }
       ],
       "totalGPIOPins": 13
+    },
+    "qtpy-esp32s3": {
+      "boardName": "qtpy-esp32s3",
+      "mcuName": "esp32s3",
+      "referenceVoltage": 2.6,
+      "displayName": "Adafruit QT Py ESP32-S3 (NO PSRAM)",
+      "vendor": "Adafruit",
+      "productURL": "https://www.adafruit.com/product/5426",
+      "documentationURL": "https://learn.adafruit.com/adafruit-qt-py-esp32-s3",
+      "installMethod": "uf2",
+      "installBoardName": "qtpy-esp32s3",
+      "rtc": null,
+      "sdCardCS": null,
+      "pins": [
+        {
+          "number": 18,
+          "name": "D18",
+          "displayName": "A0",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 17,
+          "name": "D17",
+          "displayName": "A1",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 9,
+          "name": "D9",
+          "displayName": "A2",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 8,
+          "name": "D8",
+          "displayName": "A3",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 7,
+          "name": "D7",
+          "displayName": "SDA",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 6,
+          "name": "D6",
+          "displayName": "SCL",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 5,
+          "name": "D5",
+          "displayName": "D5 (UART TX)",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 35,
+          "name": "D35",
+          "displayName": "MOSI",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 37,
+          "name": "D37",
+          "displayName": "MISO",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 36,
+          "name": "D36",
+          "displayName": "SCK",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 16,
+          "name": "D16",
+          "displayName": "D16 (UART RX)",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 0,
+          "name": "D0",
+          "displayName": "Boot Pushbutton",
+          "hasPWM": false,
+          "hasServo": false
+        },
+        {
+          "number": 39,
+          "name": "D39",
+          "displayName": "D39 (NeoPixel)",
+          "hasPWM": false,
+          "hasServo": false
+        }
+      ],
+      "analogPins": [
+        {
+          "number": 18,
+          "name": "A18",
+          "displayName": "A0",
+          "direction": "INPUT"
+        },
+        {
+          "number": 17,
+          "name": "A17",
+          "displayName": "A1",
+          "direction": "INPUT"
+        },
+        {
+          "number": 9,
+          "name": "A9",
+          "displayName": "A2",
+          "direction": "INPUT"
+        },
+        {
+          "number": 8,
+          "name": "A8",
+          "displayName": "A3",
+          "direction": "INPUT"
+        },
+        {
+          "number": 7,
+          "name": "A7",
+          "displayName": "SDA",
+          "direction": "INPUT"
+        },
+        {
+          "number": 6,
+          "name": "A6",
+          "displayName": "SCL",
+          "direction": "INPUT"
+        },
+        {
+          "number": 5,
+          "name": "A5",
+          "displayName": "A5 (UART TX)",
+          "direction": "INPUT"
+        },
+        {
+          "number": 16,
+          "name": "A16",
+          "displayName": "A16 (UART RX)",
+          "direction": "INPUT"
+        }
+      ],
+      "defaultI2C": {
+        "i2cPortId": 0,
+        "SCL": 40,
+        "SDA": 41
+      },
+      "image": "boards/qtpy-esp32s3/image.svg",
+      "totalAnalogPins": 8,
+      "i2cPorts": [
+        {
+          "i2cPortId": 0,
+          "SDA": 41,
+          "SCL": 40
+        }
+      ],
+      "totalGPIOPins": 13
+    },
+    "qtpy-esp32s3-n4r2": {
+      "boardName": "qtpy-esp32s3-n4r2",
+      "mcuName": "esp32s3",
+      "referenceVoltage": 2.6,
+      "displayName": "Adafruit QT Py S3 (2MB PSRAM)",
+      "vendor": "Adafruit",
+      "productURL": "https://www.adafruit.com/product/5700",
+      "documentationURL": "https://learn.adafruit.com/adafruit-qt-py-esp32-s3",
+      "installMethod": "uf2",
+      "installBoardName": "qtpy-esp32s3-n4r2",
+      "rtc": null,
+      "sdCardCS": null,
+      "pins": [
+        {
+          "number": 18,
+          "name": "D18",
+          "displayName": "A0",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 17,
+          "name": "D17",
+          "displayName": "A1",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 9,
+          "name": "D9",
+          "displayName": "A2",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 8,
+          "name": "D8",
+          "displayName": "A3",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 7,
+          "name": "D7",
+          "displayName": "SDA",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 6,
+          "name": "D6",
+          "displayName": "SCL",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 5,
+          "name": "D5",
+          "displayName": "D5 (UART TX)",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 35,
+          "name": "D35",
+          "displayName": "MOSI",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 37,
+          "name": "D37",
+          "displayName": "MISO",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 36,
+          "name": "D36",
+          "displayName": "SCK",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 16,
+          "name": "D16",
+          "displayName": "D16 (UART RX)",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 0,
+          "name": "D0",
+          "displayName": "Boot Pushbutton",
+          "hasPWM": false,
+          "hasServo": false
+        },
+        {
+          "number": 39,
+          "name": "D39",
+          "displayName": "D39 (NeoPixel)",
+          "hasPWM": false,
+          "hasServo": false
+        }
+      ],
+      "analogPins": [
+        {
+          "number": 18,
+          "name": "A18",
+          "displayName": "A0",
+          "direction": "INPUT"
+        },
+        {
+          "number": 17,
+          "name": "A17",
+          "displayName": "A1",
+          "direction": "INPUT"
+        },
+        {
+          "number": 9,
+          "name": "A9",
+          "displayName": "A2",
+          "direction": "INPUT"
+        },
+        {
+          "number": 8,
+          "name": "A8",
+          "displayName": "A3",
+          "direction": "INPUT"
+        },
+        {
+          "number": 7,
+          "name": "A7",
+          "displayName": "SDA",
+          "direction": "INPUT"
+        },
+        {
+          "number": 6,
+          "name": "A6",
+          "displayName": "SCL",
+          "direction": "INPUT"
+        },
+        {
+          "number": 5,
+          "name": "A5",
+          "displayName": "A5 (UART TX)",
+          "direction": "INPUT"
+        },
+        {
+          "number": 16,
+          "name": "A16",
+          "displayName": "A16 (UART RX)",
+          "direction": "INPUT"
+        }
+      ],
+      "defaultI2C": {
+        "i2cPortId": 0,
+        "SCL": 40,
+        "SDA": 41
+      },
+      "image": "boards/qtpy-esp32s3-n4r2/image.svg",
+      "totalAnalogPins": 8,
+      "i2cPorts": [
+        {
+          "i2cPortId": 0,
+          "SDA": 41,
+          "SCL": 40
+        }
+      ],
+      "totalGPIOPins": 13
+    },
+    "rpi-pico-2w": {
+      "boardName": "rpi-pico-2w",
+      "mcuName": "rp2350",
+      "referenceVoltage": 3.3,
+      "displayName": "Raspberry Pi Pico 2W",
+      "vendor": "Raspberry Pi",
+      "productURL": "https://www.adafruit.com/product/6087",
+      "documentationURL": "https://learn.adafruit.com/quick-start-the-pico-w-with-wippersnapper/overview",
+      "installMethod": "uf2",
+      "installBoardName": "picow_rp2350_tinyusb",
+      "rtc": null,
+      "sdCardCS": null,
+      "pins": [
+        {
+          "number": 0,
+          "name": "D0",
+          "displayName": "GP0 (UART TX)",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 1,
+          "name": "D1",
+          "displayName": "GP1 (UART RX)",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 2,
+          "name": "D2",
+          "displayName": "GP2",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 3,
+          "name": "D3",
+          "displayName": "GP3",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 4,
+          "name": "D4",
+          "displayName": "GP4",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 5,
+          "name": "D5",
+          "displayName": "GP5",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 6,
+          "name": "D6",
+          "displayName": "GP6",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 7,
+          "name": "D7",
+          "displayName": "GP7",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 8,
+          "name": "D8",
+          "displayName": "GP8",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 9,
+          "name": "D9",
+          "displayName": "GP9",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 10,
+          "name": "D10",
+          "displayName": "GP10",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 11,
+          "name": "D11",
+          "displayName": "GP11",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 12,
+          "name": "D12",
+          "displayName": "GP12",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 13,
+          "name": "D13",
+          "displayName": "GP13",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 14,
+          "name": "D14",
+          "displayName": "GP14",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 15,
+          "name": "D15",
+          "displayName": "GP15",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 16,
+          "name": "D16",
+          "displayName": "GP16",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 17,
+          "name": "D17",
+          "displayName": "GP17",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 18,
+          "name": "D18",
+          "displayName": "GP18",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 19,
+          "name": "D19",
+          "displayName": "GP19",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 20,
+          "name": "D20",
+          "displayName": "GP20",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 21,
+          "name": "D21",
+          "displayName": "GP21",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 22,
+          "name": "D22",
+          "displayName": "GP22",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 23,
+          "name": "D23",
+          "displayName": "GP23",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 24,
+          "name": "D24",
+          "displayName": "GP24",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 25,
+          "name": "D25",
+          "displayName": "GP25",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 26,
+          "name": "D26",
+          "displayName": "GP26",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 27,
+          "name": "D27",
+          "displayName": "GP27",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 28,
+          "name": "D28",
+          "displayName": "GP28",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 29,
+          "name": "D29",
+          "displayName": "GP29",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 64,
+          "name": "D64",
+          "displayName": "LED (BUILT-IN)",
+          "hasPWM": false,
+          "hasServo": false
+        }
+      ],
+      "analogPins": [
+        {
+          "number": 26,
+          "name": "A26",
+          "displayName": "A0 (GP0)",
+          "direction": "INPUT"
+        },
+        {
+          "number": 27,
+          "name": "A27",
+          "displayName": "A1 (GP1)",
+          "direction": "INPUT"
+        },
+        {
+          "number": 28,
+          "name": "A28",
+          "displayName": "A2 (GP2)",
+          "direction": "INPUT"
+        },
+        {
+          "number": 29,
+          "name": "A29",
+          "displayName": "A3 (GP3)",
+          "direction": "INPUT"
+        }
+      ],
+      "defaultI2C": {
+        "i2cPortId": 0,
+        "SCL": 5,
+        "SDA": 4
+      },
+      "image": "boards/rpi-pico-2w/image.jpg",
+      "totalAnalogPins": 4,
+      "i2cPorts": [
+        {
+          "i2cPortId": 0,
+          "SDA": 4,
+          "SCL": 5
+        }
+      ],
+      "totalGPIOPins": 31
+    },
+    "rpi-pico-w": {
+      "boardName": "rpi-pico-w",
+      "mcuName": "rp2040",
+      "referenceVoltage": 3.3,
+      "displayName": "Raspberry Pi Pico W",
+      "vendor": "Raspberry Pi",
+      "productURL": "https://www.adafruit.com/product/5526",
+      "documentationURL": "https://learn.adafruit.com/quick-start-the-pico-w-with-wippersnapper/",
+      "installMethod": "uf2",
+      "installBoardName": "picow_rp2040_tinyusb",
+      "rtc": null,
+      "sdCardCS": null,
+      "pins": [
+        {
+          "number": 0,
+          "name": "D0",
+          "displayName": "GP0 (UART TX)",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 1,
+          "name": "D1",
+          "displayName": "GP1 (UART RX)",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 2,
+          "name": "D2",
+          "displayName": "GP2",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 3,
+          "name": "D3",
+          "displayName": "GP3",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 4,
+          "name": "D4",
+          "displayName": "GP4",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 5,
+          "name": "D5",
+          "displayName": "GP5",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 6,
+          "name": "D6",
+          "displayName": "GP6",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 7,
+          "name": "D7",
+          "displayName": "GP7",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 8,
+          "name": "D8",
+          "displayName": "GP8",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 9,
+          "name": "D9",
+          "displayName": "GP9",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 10,
+          "name": "D10",
+          "displayName": "GP10",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 11,
+          "name": "D11",
+          "displayName": "GP11",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 12,
+          "name": "D12",
+          "displayName": "GP12",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 13,
+          "name": "D13",
+          "displayName": "GP13",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 14,
+          "name": "D14",
+          "displayName": "GP14",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 15,
+          "name": "D15",
+          "displayName": "GP15",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 16,
+          "name": "D16",
+          "displayName": "GP16",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 17,
+          "name": "D17",
+          "displayName": "GP17",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 18,
+          "name": "D18",
+          "displayName": "GP18",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 19,
+          "name": "D19",
+          "displayName": "GP19",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 20,
+          "name": "D20",
+          "displayName": "GP20",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 21,
+          "name": "D21",
+          "displayName": "GP21",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 22,
+          "name": "D22",
+          "displayName": "GP22",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 23,
+          "name": "D23",
+          "displayName": "GP23",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 24,
+          "name": "D24",
+          "displayName": "GP24",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 25,
+          "name": "D25",
+          "displayName": "GP25",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 26,
+          "name": "D26",
+          "displayName": "GP26",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 27,
+          "name": "D27",
+          "displayName": "GP27",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 28,
+          "name": "D28",
+          "displayName": "GP28",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 29,
+          "name": "D29",
+          "displayName": "GP29",
+          "hasPWM": true,
+          "hasServo": true
+        },
+        {
+          "number": 64,
+          "name": "D64",
+          "displayName": "LED (BUILT-IN)",
+          "hasPWM": false,
+          "hasServo": false
+        }
+      ],
+      "analogPins": [
+        {
+          "number": 26,
+          "name": "A26",
+          "displayName": "A0 (GP0)",
+          "direction": "INPUT"
+        },
+        {
+          "number": 27,
+          "name": "A27",
+          "displayName": "A1 (GP1)",
+          "direction": "INPUT"
+        },
+        {
+          "number": 28,
+          "name": "A28",
+          "displayName": "A2 (GP2)",
+          "direction": "INPUT"
+        },
+        {
+          "number": 29,
+          "name": "A29",
+          "displayName": "A3 (GP3)",
+          "direction": "INPUT"
+        }
+      ],
+      "defaultI2C": {
+        "i2cPortId": 0,
+        "SCL": 5,
+        "SDA": 4
+      },
+      "image": "boards/rpi-pico-w/image.png",
+      "totalAnalogPins": 4,
+      "i2cPorts": [
+        {
+          "i2cPortId": 0,
+          "SDA": 4,
+          "SCL": 5
+        }
+      ],
+      "totalGPIOPins": 31
     },
     "generic-esp32-s2": {
       "boardName": "Generic ESP32-S2",

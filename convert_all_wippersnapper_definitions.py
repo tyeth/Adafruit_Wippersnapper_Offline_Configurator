@@ -10,20 +10,20 @@ def main():
     """
     print("=== Wippersnapper Definitions Converter ===")
     print("Converting all Wippersnapper definitions to JSON...")
-    
+
     start_time = time.time()
-    
+
     # Convert boards
     print("\n--- Converting Boards ---")
     boards = convert_boards_to_json()
-    
+
     # Convert components
     print("\n--- Converting Components ---")
     components = convert_components_to_json()
 
     # fetch latest release info and assets
     release_info = fetch_latest_release_info_and_assets()
-    
+
     # Print summary
     elapsed_time = time.time() - start_time
     print("\n=== Conversion Complete ===")
@@ -32,6 +32,7 @@ def main():
     print(f"Output files:")
     print(f"  - {os.path.abspath(r'wippersnapper_boards.json')}")
     print(f"  - {os.path.abspath(r'wippersnapper_components.json')}")
+    print(f"  - {os.path.abspath(r'firmware-data.json')}")
 
 if __name__ == "__main__":
     main()

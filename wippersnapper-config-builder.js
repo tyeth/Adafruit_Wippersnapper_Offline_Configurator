@@ -1526,7 +1526,8 @@ function saveModalData() {
         componentAPI: componentType == 'pin' ? componentTemplate.componentAPI : componentType,
         period: period
     };
-
+    let validationError = false; // future use
+    
     // Special handling for I2C
     if (componentType === 'i2c') {
         const i2cBus = document.getElementById('modal-i2c-bus').value;
@@ -1588,38 +1589,59 @@ function saveModalData() {
                         return { type: checkbox.value };
                     }
                 });
+            } else {
+                validationError = true;
+                alert('Please select at least one data type for the I2C component.');
+                return false;
             }
         }
     } else if (componentType === 'ds18x20') {
         const pin = document.getElementById('modal-pin-select').value;
         const resolution = document.getElementById('modal-resolution').value;
-
+        if (!pin) {
+            validationError = true;
+            alert('Please select a pin for the DS18x20 sensor.');
+            return false;
+        }
         componentConfig.pinName = `D${pin}`;
         componentConfig.sensorResolution = parseInt(resolution);
-
-        // Mark pin as used
-        appState.usedPins.add(parseInt(pin));
 
         // Add data types
         const dataTypeCheckboxes = document.querySelectorAll('input[name="data-type"]:checked');
         if (dataTypeCheckboxes.length > 0) {
             componentConfig.sensorTypeCount = dataTypeCheckboxes.length;
-
+            
             // Add each sensor type
             Array.from(dataTypeCheckboxes).forEach((checkbox, index) => {
                 const typeValue = checkbox.value.replace(/"/g, '');
                 componentConfig[`sensorType${index + 1}`] = typeValue;
             });
         }
+        if (componentConfig.sensorTypeCount === 0) {
+            validationError = true;
+            alert('Please select at least one data type for the DS18x20 sensor.');
+            return false;
+        }
+        // Mark pin as used
+        appState.usedPins.add(parseInt(pin));
     } else if (componentType === 'pin' || componentType === 'pwm' || componentType === 'servo') {
         const pin = document.getElementById('modal-pin-select').value;
-
+        if (!pin) {
+            validationError = true;
+            alert('Please select a pin for the component.');
+            return false;
+        }
         componentConfig.pinName = `D${pin}`;
 
         // Mark pin as used
         appState.usedPins.add(parseInt(pin));
     } else if (componentType === 'pixel') {
         const pin = document.getElementById('modal-pin-select').value;
+        if (!pin) {
+            validationError = true;
+            alert('Please select a pin for the component.');
+            return false;
+        }
         const pixelCount = document.getElementById('modal-pixel-count').value;
 
         componentConfig.pinName = `D${pin}`;
@@ -1630,12 +1652,16 @@ function saveModalData() {
     } else if (componentType === 'uart') {
         const txPin = document.getElementById('modal-uart-tx').value;
         const rxPin = document.getElementById('modal-uart-rx').value;
-
-        componentConfig.txPin = `D${txPin}`;
+        if (!rxPin) {
+            validationError = true;
+            alert('Please select a RX pin for the component.');
+            return false;
+        }
+        if (!!txPin) {
+            componentConfig.txPin = `D${txPin}`;
+            appState.usedPins.add(parseInt(txPin));
+        }    
         componentConfig.rxPin = `D${rxPin}`;
-
-        // Mark pins as used
-        appState.usedPins.add(parseInt(txPin));
         appState.usedPins.add(parseInt(rxPin));
 
         // Add data types

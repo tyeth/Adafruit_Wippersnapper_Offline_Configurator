@@ -347,8 +347,10 @@ document.addEventListener('DOMContentLoaded', function() {
                             pin = pins[0];
                         }
                     }
-                } else { /* is numeric */
+                } else if (typeof(companion.sdCardCS) === 'number') { /* is numeric */
                     pin = appState.selectedBoard.pins.find(p => p.number === companion.sdCardCS);
+                } else {
+                    pin = appState.selectedBoard.pins.find(p => p.displayName === companion.sdCardCS);
                 }
 
                 if (pin) {

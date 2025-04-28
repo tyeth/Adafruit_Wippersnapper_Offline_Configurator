@@ -149,7 +149,8 @@ function addCustomBoard(id, config) {
             SCL: config.defaultI2C?.SCL || 'SCL',
             SDA: config.defaultI2C?.SDA || 'SDA'
         },
-        pins: config.pins || []
+        pins: config.pins || [],
+        analogPins: (config.pins || [])
     };
 
     // Add the board to appState.boardsData

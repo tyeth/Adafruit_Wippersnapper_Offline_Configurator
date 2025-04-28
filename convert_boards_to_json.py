@@ -366,7 +366,8 @@ def convert_boards_to_json():
                                 "name": pin_name,
                                 "displayName": pin.get("displayName", pin_name),
                                 "hasPWM": pin.get("hasPWM", False),
-                                "hasServo": pin.get("hasServo", False)
+                                "hasServo": pin.get("hasServo", False),
+                                "direction": pin.get("direction", "")
                             })
                         except ValueError:
                             print(f"Skipping pin {pin_name} - Cannot parse pin number")
@@ -382,9 +383,19 @@ def convert_boards_to_json():
                             "number": pin_number,
                             "name": pin_name,
                             "displayName": pin.get("displayName", pin_name),
-                            "direction": pin.get("direction", "INPUT")
+                            "direction": pin.get("direction", "")
                         })
                         analog_count += 1
+                        # Add to pins list as well if number not already present
+                        if not any(p["number"] == pin_number for p in board_info["pins"]):
+                            board_info["pins"].append({
+                                "number": pin_number,
+                                "name": pin_name,
+                                "displayName": pin.get("displayName", pin_name),
+                                "direction": "", # Blank for both input and output
+                                "hasPWM": True,
+                                "hasServo": True
+                            })
                     except ValueError:
                         print(f"Skipping pin {pin_name} - Cannot parse pin number")
                 board_info["totalAnalogPins"] = analog_count

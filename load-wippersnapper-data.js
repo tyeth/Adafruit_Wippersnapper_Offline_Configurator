@@ -50,10 +50,8 @@ async function loadWippersnapperData() {
         const componentsData = window['jsonComponentsObject'];
         const firmwareData = window['FIRMWARE_DATA'];
         if (firmwareData && firmwareData.releaseInfo) {
-            // Update the release name and link in the UI
             document.getElementById('release_name').innerHTML = "(" + firmwareData.releaseInfo.publishedDate + ")<br/>" + firmwareData.releaseInfo.name;
             document.getElementById('release_name').href = firmwareData.releaseInfo.url;
-            //TODO: set onchange for the boards to alter the download url in #firmware_file link
         }
 
         appState.boardsData = boardsData.boards;

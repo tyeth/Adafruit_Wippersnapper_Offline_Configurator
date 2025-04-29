@@ -22,8 +22,12 @@ If you wish to play with the website design / functionality then the main files 
 
 The remaining files are involved in updating automatically generated board and component definitions.
 
+#### Adding new components / boards / companion boards / RTCs
+
 If you wish to add companion boards then those are manually defined (search featherwing), but boards and components should be added to Wippersnapper to be picked up automatically.
 If you wish to add new RTCs, they must first be added to the offline firmware, and then we/you can add the RTC to the web interface. The repositories are linked above.
+
+#### Running the board+component+firmware fetching/conversion process
 
 To recreate the build process, which processes the boards+component definitions and fetches images + firmware versions, you'll need python installed (and pip) and then to install the requirements:
 ```shell

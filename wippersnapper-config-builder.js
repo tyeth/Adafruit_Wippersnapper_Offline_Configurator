@@ -505,19 +505,19 @@ document.getElementById('import-btn').addEventListener('click', function() {
     const reader = new FileReader();
 
     reader.onload = function(e) {
-    try {
-    // Read the file content into the text area
-    const jsonText = e.target.result;
-    document.getElementById('import-json').value = jsonText;
+        try {
+            // Read the file content into the text area
+            const jsonText = e.target.result;
+            document.getElementById('import-json').value = jsonText;
 
-    // Trigger the import from text button
-    document.getElementById('import-json-btn').click();
+            // Trigger the import from text button
+            document.getElementById('import-json-btn').click();
 
-    // Clear the file input
-    fileInput.value = '';
-    } catch (error) {
-    alert('Error reading file: ' + error.message);
-    }
+            // Clear the file input
+            fileInput.value = '';
+        } catch (error) {
+            alert('Error reading file: ' + error.message);
+        }
     };
 
     reader.onerror = function() {
@@ -1527,7 +1527,7 @@ function saveModalData() {
         period: period
     };
     let validationError = false; // future use
-    
+
     // Special handling for I2C
     if (componentType === 'i2c') {
         const i2cBus = document.getElementById('modal-i2c-bus').value;
@@ -1610,7 +1610,7 @@ function saveModalData() {
         const dataTypeCheckboxes = document.querySelectorAll('input[name="data-type"]:checked');
         if (dataTypeCheckboxes.length > 0) {
             componentConfig.sensorTypeCount = dataTypeCheckboxes.length;
-            
+
             // Add each sensor type
             Array.from(dataTypeCheckboxes).forEach((checkbox, index) => {
                 const typeValue = checkbox.value.replace(/"/g, '');
@@ -1660,7 +1660,7 @@ function saveModalData() {
         if (!!txPin) {
             componentConfig.txPin = `D${txPin}`;
             appState.usedPins.add(parseInt(txPin));
-        }    
+        }
         componentConfig.rxPin = `D${rxPin}`;
         appState.usedPins.add(parseInt(rxPin));
 
@@ -1971,27 +1971,28 @@ function importConfiguration() {
         resetAppState();
 
         // Import the configuration
-        const importSuccess = importConfigObject(config);
+        const boardMatchFound = importConfigObject(config);
 
         // Update the UI (Don't clear the textarea when importing so the user can see what was imported)
         if (!appState.isImporting) {
-            if (importSuccess) {
-                alert('Configuration imported successfully. Please check the Build tab to see your configuration.');
-                // Switch to the Build tab
-                openTab(null, 'BuildConfig');
-            } else {
-                // The alert is now shown in importConfigObject, no need to show it again here
-                // Switch to the Build tab so they can select a board
-                openTab(null, 'BuildConfig');
+            console.warn('Still importing config so maybe not at final state yet');
+        }
+        if (boardMatchFound) {
+            // Switch to the Build tab
+            openTab(null, 'BuildConfig');
+            alert('Configuration imported successfully! Please double-check your configuration on the Build tab using the generate button at the end.');
+        } else {
+            // The alert is now shown in importConfigObject for unmatched boards, no need to show it again here
+            // Switch to the Build tab so they can select a board
+            openTab(null, 'BuildConfig');
 
-                // Scroll to the board selection section
-                setTimeout(() => {
-                    const boardSection = document.querySelector('.section');
-                    if (boardSection) {
-                        boardSection.scrollIntoView({ behavior: 'smooth' });
-                    }
-                }, 500);
-            }
+            // Scroll to the board selection section
+            setTimeout(() => {
+                const boardSection = document.querySelector('.section');
+                if (boardSection) {
+                    boardSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 500);
         }
     } catch (error) {
         alert('Error importing configuration: ' + error.message);
@@ -2052,29 +2053,55 @@ function importConfigObject(config) {
     console.log('Importing configuration...');
 
     // Import device details
-    const deviceConfig = config.exportedFromDevice;
+    const deviceConfig = config.exportedFromDevice || {};
     let boardMatchFound = false;
 
     // Try to find the board that matches the configuration
     let matchedBoard = null;
-    for (const [boardId, boardConfig] of Object.entries(appState.boardsData)) {
-        if (boardConfig.referenceVoltage === deviceConfig.referenceVoltage &&
-            boardConfig.totalGPIOPins === deviceConfig.totalGPIOPins &&
-            boardConfig.totalAnalogPins === deviceConfig.totalAnalogPins) {
-            matchedBoard = boardId;
+    if (deviceConfig && deviceConfig['board']) {
+        if (appState.boardsData[deviceConfig['board']]) {
+            matchedBoard = deviceConfig['board'];
             boardMatchFound = true;
-            break;
+        } else if (appState.boardsData[deviceConfig['board'].replace('-', '')]) {
+            matchedBoard = deviceConfig['board'].replace('-', '');
+            boardMatchFound = true;
         }
     }
-
+    if (!boardMatchFound) {
+        for (const [boardId, boardConfig] of Object.entries(appState.boardsData)) {
+            // check installBoardName property of board if it exists, normal ids checked above
+            if(deviceConfig["board"] ){
+                if (boardConfig['installBoardName'] && boardConfig['installBoardName'] === deviceConfig['board']) {
+                    matchedBoard = boardId;
+                    boardMatchFound = true;
+                    break;
+                } else if (boardConfig['installBoardName'] && boardConfig['installBoardName'].replace('-', '') === deviceConfig['board']) {
+                    matchedBoard = boardId;
+                    boardMatchFound = true;
+                    break;
+                }
+            }
+            // Check if the board configuration matches a known device configuration
+            if (boardConfig.referenceVoltage === deviceConfig.referenceVoltage &&
+                boardConfig.totalGPIOPins === deviceConfig.totalGPIOPins &&
+                boardConfig.totalAnalogPins === deviceConfig.totalAnalogPins) {
+                matchedBoard = boardId;
+                boardMatchFound = true;
+                alert(`Guessing board based on configuration: ${boardId}, please update the board selection if incorrect.`);
+                break;
+            }
+        }
+    }
     if (matchedBoard) {
-        // Select the matched board
-        document.getElementById('board-select').value = matchedBoard;
-        const event = new Event('change');
-        document.getElementById('board-select').dispatchEvent(event);
+        setTimeout(() => {
+            // Select the matched board
+            document.getElementById('board-select').value = matchedBoard;
+            const event = new Event('change');
+            document.getElementById('board-select').dispatchEvent(event);
+        }, 500);
     } else {
         // Alert the user they need to select a board (in addition to the visual indication)
-        alert('Import successful! To complete the process, please select your microcontroller board from the Build Configuration tab.');
+        alert('Import mostly successful! \n ** We were unable to identify your board automatically. ** \nTo complete the import process, please select your microcontroller board from the Build Configuration tab.');
 
         // Highlight the board selector to make it obvious to the user
         setTimeout(() => {
@@ -2302,6 +2329,9 @@ function importConfigObject(config) {
 
                 // // Update I2C bus options
                 // updateI2CBusOptions();
+                // Refresh pin lists
+                populatePinsLists();
+                console.log('Pending components processed successfully.');
 
                 // Clear pending components to avoid processing them again
                 appState.pendingComponents = [];
@@ -2316,7 +2346,8 @@ function importConfigObject(config) {
     setTimeout(() => {
         appState.isImporting = false;
     }, 500);
-
+    console.log('Configuration import completed, board match found:', boardMatchFound, ' - ', matchedBoard);
+    console.log('Appstate (pending etc):', appState);
     return boardMatchFound; // Return true if a matching board was found, false otherwise
 }
 

@@ -620,7 +620,7 @@
             } else {
                 // If called programmatically, find and activate the correct tab
                 for (i = 0; i < tablinks.length; i++) {
-                    if (tablinks[i].textContent.includes(tabName.replace('Export', 'Import/Export'))) {
+                    if (tablinks[i].textContent.includes(tabName.replace(/(Export|Config)/, ''))) {
                         tablinks[i].className += " active";
                     }
                 }

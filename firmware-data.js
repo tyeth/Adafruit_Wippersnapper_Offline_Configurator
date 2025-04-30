@@ -1,4 +1,4 @@
-// Auto-generated on 2025-04-29 17:49:45
+// Auto-generated on 2025-04-30 00:19:16
 const FIRMWARE_DATA = {
   "releaseInfo": {
     "version": "1.0.0-offline-beta.2",
@@ -83,7 +83,7 @@ const FIRMWARE_DATA = {
       "name": "wippersnapper.metro_esp32s3.1.0.0-offline-beta.2.uf2",
       "url": "https://github.com/adafruit/Adafruit_Wippersnapper_Arduino/releases/download/1.0.0-offline-beta.2/wippersnapper.metro_esp32s3.1.0.0-offline-beta.2.uf2",
       "size": 2802688,
-      "downloadCount": 0,
+      "downloadCount": 2,
       "contentType": "application/octet-stream",
       "createdAt": "2025-04-14T16:09:53Z"
     },
@@ -99,7 +99,7 @@ const FIRMWARE_DATA = {
       "name": "wippersnapper.pico_rp2040_tinyusb.1.0.0-offline-beta.2.uf2",
       "url": "https://github.com/adafruit/Adafruit_Wippersnapper_Arduino/releases/download/1.0.0-offline-beta.2/wippersnapper.pico_rp2040_tinyusb.1.0.0-offline-beta.2.uf2",
       "size": 646656,
-      "downloadCount": 3,
+      "downloadCount": 4,
       "contentType": "application/octet-stream",
       "createdAt": "2025-04-14T16:09:53Z"
     },

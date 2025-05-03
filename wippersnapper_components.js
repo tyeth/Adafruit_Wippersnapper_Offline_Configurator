@@ -40,7 +40,7 @@ window.jsonComponentsObject = {
         "id": "reed_switch",
         "displayName": "Reed Switch",
         "name": "reed_switch",
-        "description": "",
+        "description": "A Magnetic Contact Switch (Door/Window Sensor), with Normally Open (NO) or Closed (NC) contacts",
         "category": "pin",
         "dataTypes": [],
         "image": "https://cdn-shop.adafruit.com/640x480/375-01.jpg",

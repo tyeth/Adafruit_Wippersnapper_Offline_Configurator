@@ -1,4 +1,4 @@
-// Auto-generated on 2025-05-08 00:19:46
+// Auto-generated on 2025-05-09 00:19:48
 const FIRMWARE_DATA = {
   "releaseInfo": {
     "version": "1.0.0-offline-beta.2",
@@ -99,7 +99,7 @@ const FIRMWARE_DATA = {
       "name": "wippersnapper.pico_rp2040_tinyusb.1.0.0-offline-beta.2.uf2",
       "url": "https://github.com/adafruit/Adafruit_Wippersnapper_Arduino/releases/download/1.0.0-offline-beta.2/wippersnapper.pico_rp2040_tinyusb.1.0.0-offline-beta.2.uf2",
       "size": 646656,
-      "downloadCount": 7,
+      "downloadCount": 8,
       "contentType": "application/octet-stream",
       "createdAt": "2025-04-14T16:09:53Z"
     },

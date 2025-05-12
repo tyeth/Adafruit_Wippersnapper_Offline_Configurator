@@ -1900,11 +1900,11 @@ function generateConfiguration() {
         if (cleanComponent.componentAPI === 'i2c'){
             // Determine autoConfig setting
             if (isMux || cleanComponent.name.toLowerCase().includes('multiplexer')) {
-                cleanComponent["autoConfig"] = false;
+                cleanComponent["autoConfig"] = "false";
             } else if (appState.enableautoConfig) {
-                cleanComponent["autoConfig"] = true;
+                cleanComponent["autoConfig"] = "true";
             } else {
-                cleanComponent["autoConfig"] = false;
+                cleanComponent["autoConfig"] = "false";
             }
 
             // Remove period for multiplexers

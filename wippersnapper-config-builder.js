@@ -73,7 +73,7 @@ const companionBoardConfigs = {
     },
     'picowbell-adalogger': {
         rtc: 'PCF8523',
-        sdCardCS: 9,
+        sdCardCS: 17,
         extras: 'SD Card, STEMMA QT',
         productURL: 'https://www.adafruit.com/product/5703',
         documentationURL: 'https://learn.adafruit.com/adafruit-picowbell-adalogger-for-pico',

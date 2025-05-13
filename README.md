@@ -1,5 +1,5 @@
-# Adafruit Wippersnapper Offline Configurator
-This web page is for the creation / amending of `config.json` files to support the free and open-source Adafruit "Wippersnapper" Offline Data Logger firmware.
+# Adafruit WipperSnapper Offline Configurator
+This web page is for the creation / amending of `config.json` files to support the free and open-source Adafruit ["WipperSnapper"](https://github.com/adafruit/Adafruit_Wippersnapper_Arduino/tree/offline-mode) Offline Data Logger firmware.
 
 It allows users to select their microcontroller board, automatically (or manually) setup the Real Time Clock (RTC) and an SD card Chip Select pin (uses default SPI bus), or any companion boards with SD cards and/or RTCs, and then the attached components (sensors, analog pins, etc) for data logging.
 
@@ -24,7 +24,7 @@ The remaining files are involved in updating automatically generated board and c
 
 #### Adding new components / boards / companion boards / RTCs
 
-If you wish to add companion boards then those are manually defined (search featherwing), but boards and components should be added to Wippersnapper to be picked up automatically.
+If you wish to add companion boards then those are manually defined (search featherwing), but boards and components should be added to WipperSnapper to be picked up automatically.
 If you wish to add new RTCs, they must first be added to the offline firmware, and then we/you can add the RTC to the web interface. The repositories are linked above.
 
 #### Running the board+component+firmware fetching/conversion process

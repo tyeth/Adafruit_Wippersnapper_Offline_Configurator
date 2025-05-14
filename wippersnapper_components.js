@@ -1692,8 +1692,8 @@ window.jsonComponentsObject = {
           "nox-index",
           "co2"
         ],
-        "image": "components/i2c/sen66/image.png",
-        "productUrl": "https://www.digikey.com/en/products/detail/sensirion-ag/SEN66-SIN-T/25700945?s=N4IgTCBcDaIMoFEByA2FIC6BfIA",
+        "image": "https://cdn-shop.adafruit.com/640x480/6331-06.jpg",
+        "productUrl": "https://www.adafruit.com/product/6331",
         "documentationUrl": "https://sensirion.com/media/documents/FAFC548D/6731FFFA/Sensirion_Datasheet_SEN6x.pdf",
         "address": "0x6B",
         "addresses": [
